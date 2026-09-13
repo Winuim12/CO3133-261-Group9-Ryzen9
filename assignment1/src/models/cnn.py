@@ -25,17 +25,6 @@ class CNNClassifier(nn.Module):
             nn.BatchNorm2d(out_channels),
             nn.ReLU(inplace=True),
 
-            nn.Conv2d(
-                out_channels,
-                out_channels,
-                kernel_size=3,
-                padding=1,
-                bias=False,
-            ), # (B, 32, 28, 28) -> (B, 32, 28, 28)
-
-            nn.BatchNorm2d(out_channels),
-            nn.ReLU(inplace=True),
-
             nn.MaxPool2d(kernel_size=2, stride=2), # (B, 32, 28, 28) -> (B, 32, 14, 14)
             nn.Dropout2d(p=0.1),
 
@@ -47,17 +36,6 @@ class CNNClassifier(nn.Module):
                 padding=1,
                 bias=False,
             ), # (B, 32, 14, 14) -> (B, 64, 14, 14)
-
-            nn.BatchNorm2d(out_channels * 2),
-            nn.ReLU(inplace=True),
-
-            nn.Conv2d(
-                out_channels * 2,
-                out_channels * 2,
-                kernel_size=3,
-                padding=1,
-                bias=False,
-            ), # (B, 64, 14, 14) -> (B, 64, 14, 14)
 
             nn.BatchNorm2d(out_channels * 2),
             nn.ReLU(inplace=True),
