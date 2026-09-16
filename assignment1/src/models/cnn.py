@@ -48,7 +48,7 @@ class CNNClassifier(nn.Module):
         self.pool = nn.AdaptiveAvgPool2d((2, 2))
 
         self.classifier = nn.Sequential(
-            nn.Flatten(), # (B, 64, 7, 7) -> (B, 256)
+            nn.Flatten(), # (B, 64, 2, 2) -> (B, 256)
             nn.Linear(out_channels * 2 * 2 * 2, hidden_dim), # (B, 256) -> (B, 128)
             nn.ReLU(inplace=True),
             nn.Dropout(p=dropout),
