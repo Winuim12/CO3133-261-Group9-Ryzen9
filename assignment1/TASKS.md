@@ -15,7 +15,7 @@
 * [x] Add `.gitignore`
 * [x] Add `requirements.txt`
 * [x] Configure GitHub branch protection
-* [x] Configure GitHub Actions CI
+* [ ] Configure GitHub Actions CI
 
 ---
 
