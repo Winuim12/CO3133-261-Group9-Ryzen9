@@ -1,0 +1,28 @@
+seed: 42
+
+data:
+  data_dir: data/raw/fashion-mnist
+  image_size: 28
+  num_channels: 1
+  num_classes: 10
+  batch_size: 128
+  num_workers: 2
+  validation_size: 0.1
+
+model:
+  cell_type: gru       # lstm | gru
+  mode: row             # row | col | patch
+  patch_size: 4         # only used when mode: patch
+  hidden_size: 128
+  num_layers: 1
+  bidirectional: false
+  dropout: 0.0
+
+training:
+  epochs: 20
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  checkpoint_dir: experiments/checkpoints
+
+evaluation:
+  checkpoint_rule: best_val_acc
