@@ -24,8 +24,8 @@ def save_checkpoint(
 def load_checkpoint(
     path,
     model,
-    optimizer,
     device,
+    optimizer=None,
 ):
     checkpoint_path = Path(path)
 
@@ -37,7 +37,8 @@ def load_checkpoint(
 
     model.load_state_dict(checkpoint["model_state_dict"])
 
-    optimizer.load_state_dict(checkpoint["optimizer_state_dict"])
+    if optimizer is not None:
+        optimizer.load_state_dict(checkpoint["optimizer_state_dict"])
 
     return {
         "epoch": checkpoint["epoch"],

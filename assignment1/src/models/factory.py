@@ -3,11 +3,16 @@
 from src.models.cnn import CNNClassifier
 from src.models.linear import LinearClassifier
 from src.models.mlp import MLPClassifier
+from src.models.rnn import RecurrentClassifier
+from src.models.transformer import VisionTransformerClassifier
+
 
 MODEL_REGISTRY = {
     "linear": LinearClassifier,
     "mlp": MLPClassifier,
     "cnn": CNNClassifier,
+    "rnn": RecurrentClassifier,
+    "transformer": VisionTransformerClassifier,
 }
 
 def create_model(model_name, model_parameters=None):
