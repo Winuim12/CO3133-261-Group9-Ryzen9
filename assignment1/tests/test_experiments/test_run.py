@@ -203,3 +203,42 @@ def test_evaluate_test_if_requested_skips_test_by_default():
     )
 
     assert test_results is None
+
+def test_parse_arguments_accepts_run_name():
+    arguments = parse_arguments([
+        "--model",
+        "linear",
+        "--run-name",
+        "linear-final",
+    ])
+
+    assert arguments.run_name == "linear-final"
+
+def test_main_forwards_run_name_to_training(monkeypatch):
+    received_arguments = {}
+
+    monkeypatch.setattr(
+        "experiments.run.parse_arguments",
+        lambda: Namespace(
+            model="linear",
+            epochs=3,
+            run_name="linear-final",
+            evaluate_test=False,
+            evaluate_only=False,
+        )
+    )
+
+    def fake_training(**arguments):
+        received_arguments.update(arguments)
+
+    monkeypatch.setattr("experiments.run.run_model_from_config", fake_training)
+
+    main()
+
+    assert received_arguments == {
+        "model_name": "linear",
+        "epochs_override": 3,
+        "evaluate_test": False,
+        "run_name": "linear-final",
+    }
+

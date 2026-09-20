@@ -21,6 +21,7 @@ from src.evaluation.results import save_evaluation_results, save_training_result
 from src.evaluation.confusion_matrix import save_confusion_matrix_plot
 from src.evaluation.curves import save_training_curves
 from src.evaluation.error_analysis import save_prediction_examples
+from src.tracking.run_paths import create_run_paths
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
@@ -140,7 +141,12 @@ def run_configured_experiment(
 
     return model, history, test_loader, training_time_seconds
 
-def run_model_from_config(model_name, epochs_override=None, evaluate_test=False):
+def run_model_from_config(
+    model_name, 
+    epochs_override=None, 
+    evaluate_test=False, 
+    run_name=None
+):
     normalized_name = model_name.lower()
 
     shared_config = load_config(PROJECT_ROOT / "config" / "config.yaml")
@@ -171,14 +177,27 @@ def run_model_from_config(model_name, epochs_override=None, evaluate_test=False)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    checkpoint_path = (PROJECT_ROOT / "results" / "checkpoints" / normalized_name / f"{normalized_name}_best.pt")
-    confusion_matrix_path = PROJECT_ROOT / "results" / "figures" / normalized_name / "confusion_matrix.png"
-    training_curves_path = PROJECT_ROOT / "results" / "figures" / normalized_name / "training_curves.png"
-    prediction_examples_path = PROJECT_ROOT / "results" / "figures" / normalized_name / "prediction_examples.png"
-    metrics_directory = PROJECT_ROOT / "results" / "metrics" / normalized_name
+    # checkpoint_path = (PROJECT_ROOT / "results" / "checkpoints" / normalized_name / f"{normalized_name}_best.pt")
+    # confusion_matrix_path = PROJECT_ROOT / "results" / "figures" / normalized_name / "confusion_matrix.png"
+    # training_curves_path = PROJECT_ROOT / "results" / "figures" / normalized_name / "training_curves.png"
+    # prediction_examples_path = PROJECT_ROOT / "results" / "figures" / normalized_name / "prediction_examples.png"
+    # metrics_directory = PROJECT_ROOT / "results" / "metrics" / normalized_name
 
-    training_results_path = metrics_directory / "training.json"
-    evaluation_results_path = metrics_directory / "evaluation.json"
+    # training_results_path = metrics_directory / "training.json"
+    # evaluation_results_path = metrics_directory / "evaluation.json"
+
+    run_paths = create_run_paths(
+        results_root = PROJECT_ROOT / "results" / "runs",
+        model_name = normalized_name,
+        run_name = run_name,
+    )
+
+    checkpoint_path = run_paths["checkpoint_path"]
+    training_results_path = run_paths["training_results_path"]
+    evaluation_results_path = run_paths["evaluation_results_path"]
+    training_curves_path = run_paths["training_curves_path"]
+    confusion_matrix_path = run_paths["confusion_matrix_path"]
+    prediction_examples_path = run_paths["prediction_examples_path"]
 
     print(
         f"Training {model_config['model']['name']} on {device} "
@@ -235,6 +254,8 @@ def run_model_from_config(model_name, epochs_override=None, evaluate_test=False)
     print(f"Best checkpoint: {checkpoint_path}")
     print(f"Training results: {training_results_path}")
     print(f"Training curves: {training_curves_path}")
+    print(f"Run ID: {run_paths['run_id']}")
+    print(f"Run directory: {run_paths['run_directory']}")
 
     if test_results is not None:
         save_evaluation_results(
@@ -275,7 +296,14 @@ def run_model_from_config(model_name, epochs_override=None, evaluate_test=False)
         print(f"Prediction examples: {prediction_examples_path}")
 
 
-    return model, history, test_results, training_time_seconds
+    return {
+        "model": model,
+        "history": history,
+        "test_results": test_results,
+        "training_time_seconds": training_time_seconds,
+        "run_id": run_paths["run_id"],
+        "run_directory": run_paths["run_directory"],
+    }
 
 def run_evaluation_from_config(model_name, epochs_override=None, evaluate_test=False):
     normalized_name = model_name.lower()
@@ -396,6 +424,12 @@ def parse_arguments(arguments=None):
         help="Overide the epoch count from config/config.yaml"
     )
 
+    parser.add_argument(
+        "--run-name",
+        default=None,
+        help=("Optional human-readable name for a versioned training run.")
+    )
+
     evaluation_group = parser.add_mutually_exclusive_group()
 
     evaluation_group.add_argument(
@@ -425,6 +459,7 @@ def main():
         model_name=arguments.model,
         epochs_override=arguments.epochs,
         evaluate_test=arguments.evaluate_test,
+        run_name=arguments.run_name,
     )
 
 if __name__ == "__main__":
