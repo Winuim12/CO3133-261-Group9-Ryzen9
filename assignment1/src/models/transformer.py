@@ -70,7 +70,7 @@ class VisionTransformerClassifier(nn.Module):
             batch_first=True,
             norm_first=True,  # pre-LN: more stable to train from scratch
         )
-        self.encoder = nn.TransformerEncoder(encoder_layer, num_layers=num_layers)
+        self.encoder = nn.TransformerEncoder(encoder_layer, num_layers=num_layers, enable_nested_tensor=False)
         self.norm = nn.LayerNorm(embed_dim)
         self.head = nn.Linear(embed_dim, num_classes)
         self._init_weights()

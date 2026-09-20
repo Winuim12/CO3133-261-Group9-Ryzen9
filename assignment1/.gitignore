@@ -21,6 +21,7 @@ results/metrics
 results/curves
 results/confusion_matrices
 results/predictions
+results/figures
 
 #Jupyter
 .ipynb_checkpoints/

@@ -1,0 +1,9 @@
+model:
+  name: cnn
+
+  parameters:
+    in_channels: 1
+    num_classes: 10
+    out_channels: 32
+    hidden_dim: 128
+    dropout: 0.3

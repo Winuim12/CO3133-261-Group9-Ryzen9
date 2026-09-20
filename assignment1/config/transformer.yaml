@@ -1,28 +1,12 @@
-seed: 42
-
-data:
-  data_dir: data/raw/fashion-mnist
-  image_size: 28
-  num_channels: 1
-  num_classes: 10
-  batch_size: 128
-  num_workers: 2
-  validation_size: 0.1
-
-model:
-  patch_size: 4       # 28/4 = 7 -> 7x7 = 49 patches + 1 CLS token
-  embed_dim: 128
-  num_heads: 4
-  num_layers: 4
-  mlp_ratio: 4.0
-  dropout: 0.1
-
-training:
-  epochs: 20
-  learning_rate: 0.0003
-  weight_decay: 0.05
-  warmup_epochs: 2
-  checkpoint_dir: experiments/checkpoints
-
-evaluation:
-  checkpoint_rule: best_val_acc
+model: 
+  name: transformer
+  parameters:
+    img_size: 28
+    in_channels: 1
+    num_classes: 10
+    patch_size: 4
+    embed_dim: 128
+    num_heads: 4
+    num_layers: 4
+    mlp_ratio: 4.0
+    dropout: 0.1
