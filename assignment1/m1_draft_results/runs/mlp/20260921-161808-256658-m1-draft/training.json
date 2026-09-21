@@ -1,0 +1,55 @@
+{
+  "model_name": "mlp",
+  "seed": 42,
+  "data_config": {
+    "dataset": "fashion_mnist",
+    "image_size": 28,
+    "num_channels": 1,
+    "num_classes": 10,
+    "batch_size": 128,
+    "num_workers": 2,
+    "validation_size": 0.1
+  },
+  "training_config": {
+    "epochs": 3,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "optimizer": "adamw"
+  },
+  "evaluation_config": {
+    "checkpoint_rule": "best_val_loss"
+  },
+  "model_parameters": {
+    "input_dim": 784,
+    "hidden_dims": [
+      256,
+      128
+    ],
+    "num_classes": 10,
+    "dropout": 0.2
+  },
+  "checkpoint_path": "C:\\DeepLearning\\CO3133-261-GroupXX\\assignment1\\results\\runs\\mlp\\20260921-161808-256658-m1-draft\\best_model.pt",
+  "training_time_seconds": 44.70591149999973,
+  "history": {
+    "train_loss": [
+      0.5164553468139084,
+      0.37068834961785213,
+      0.3296573578958158
+    ],
+    "train_accuracy": [
+      0.8142222222222222,
+      0.8643333333333333,
+      0.8774074074074074
+    ],
+    "validation_loss": [
+      0.37312274559338887,
+      0.35195707551638283,
+      0.3118230934937795
+    ],
+    "validation_accuracy": [
+      0.8651666666666666,
+      0.8715,
+      0.8863333333333333
+    ]
+  }
+}
