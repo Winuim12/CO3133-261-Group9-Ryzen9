@@ -1,0 +1,53 @@
+{
+  "model_name": "cnn",
+  "seed": 42,
+  "data_config": {
+    "dataset": "fashion_mnist",
+    "image_size": 28,
+    "num_channels": 1,
+    "num_classes": 10,
+    "batch_size": 128,
+    "num_workers": 2,
+    "validation_size": 0.1
+  },
+  "training_config": {
+    "epochs": 3,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "optimizer": "adamw"
+  },
+  "evaluation_config": {
+    "checkpoint_rule": "best_val_loss"
+  },
+  "model_parameters": {
+    "in_channels": 1,
+    "num_classes": 10,
+    "out_channels": 32,
+    "hidden_dim": 128,
+    "dropout": 0.3
+  },
+  "checkpoint_path": "C:\\DeepLearning\\CO3133-261-GroupXX\\assignment1\\results\\runs\\cnn\\20260921-162600-610637-m1-draft\\best_model.pt",
+  "training_time_seconds": 49.253722800000105,
+  "history": {
+    "train_loss": [
+      0.8961250812565839,
+      0.5918794524934556,
+      0.509380867631347
+    ],
+    "train_accuracy": [
+      0.6745925925925926,
+      0.7794074074074074,
+      0.8131296296296296
+    ],
+    "validation_loss": [
+      0.5405147219498952,
+      0.44854533624649046,
+      0.38580962363878885
+    ],
+    "validation_accuracy": [
+      0.798,
+      0.8341666666666666,
+      0.8588333333333333
+    ]
+  }
+}
