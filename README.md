@@ -1,28 +1,37 @@
 # CO3133: Deep Learning and Its Applications
 **Ho Chi Minh City University of Technology - VNU-HCM** 
 
-**Group name: Group XX** 
+**Group name: Group 09 - Ryzen9**
 
 **Instructor:** Lê Thành Sách
 
 **Semester: 261**
 
+**Group members**
+
+| # | Full name | Student ID | GitHub | Assignment 1 role |
+|---|-----------|------------|--------|-------------------|
+| 1 | Hoang Kim Cuong | 2352145 | [@DiamondHoang](https://github.com/DiamondHoang) | Linear / Softmax, MLP, CNN |
+| 2 | Phan Tan Loc | 2352712 | [@cspaull](https://github.com/cspaull) | LSTM / GRU, Transformer |
+| 3 | Tran Manh Thang | 2353124 | [@Winuim12](https://github.com/Winuim12) | DataLoader & EDA, train/validate pipeline |
+
 ---
 
 ## Public Course Website
-**[View Landing Page & Project Reports](https://winuim12.github.io/CO3133-261-GroupXX/)**
+**[View Landing Page & Project Reports](https://winuim12.github.io/CO3133-261-Group9-Ryzen9/)**
 
 ---
 
 ## Repository Structure
 ```text
-CO3133-261-GroupXX/
+CO3133-261-Group9-Ryzen9/
 ├── index.html            # Landing page (Institutional, Course, Group info, Assignment Index)
 ├── assignment1.html      # Assignment 1 report page
 ├── assignment2.html      # Assignment 2 report page
 ├── assignment3.html      # Assignment 3 report page
 ├── styles.css            # Unified modern stylesheet
 ├── hcmut_logo.png        # University logo asset
+├── assets/eda/           # Figures exported from the Assignment 1 EDA notebook
 ├── assignment1/          # Source code & pipelines for Assignment 1
 ├── assignment2/          # Source code & pipelines for Assignment 2
 ├── assignment3/          # Source code & pipelines for Assignment 3
