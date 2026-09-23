@@ -1,0 +1,13 @@
+model:
+  name: rnn
+
+  parameters:
+    img_size: 28
+    num_classes: 10
+    cell_type: gru
+    mode: row
+    patch_size: 4
+    hidden_size: 128
+    num_layers: 1
+    bidirectional: false
+    dropout: 0.0

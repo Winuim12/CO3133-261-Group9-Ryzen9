@@ -1,0 +1,8 @@
+model:
+  name: mlp
+  
+  parameters:
+    input_dim: 784
+    hidden_dims: [256, 128]
+    num_classes: 10
+    dropout: 0.2
