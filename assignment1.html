@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Assignment 1</title>
+  <title>Assignment 1 — Fashion-MNIST Model Comparison | Group 09</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" type="image/png" href="hcmut_logo.png" />
 </head>
@@ -36,6 +36,11 @@
         <h1 class="page-hero-title-bright">Foundations of Deep Learning Pipelines and Architectures</h1>
         <p class="page-hero-topic-bright">
           From Linear Models to Modern Sequence Models: A Comparative Study for Image Classification.
+        </p>
+        <p style="max-width:900px; margin:0.75rem auto 0; color:var(--text-muted)">
+          <strong>M1 Draft scope:</strong> the data pipeline, training/validation loop, Linear classifier,
+          MLP, and optional CNN are implemented and evaluated. The recurrent and Transformer experiments
+          are reserved for the M2 Final milestone.
         </p>
         <div class="hero-badges-group">
           <span class="hero-badge-item">M1 Draft: 23 Sep 2026</span>
@@ -483,37 +488,47 @@
           <div class="table-container">
             <table class="rubric-table">
               <thead>
-                <tr><th>Model Family</th><th>Input Shape</th><th>Assumption Encoded</th></tr>
+                <tr><th>Model Family</th><th>DataLoader Input</th><th>Internal Representation</th><th>Assumption Encoded</th></tr>
               </thead>
               <tbody>
                 <tr>
                   <td>Linear / MLP</td>
-                  <td><code>(64, 784)</code></td>
+                  <td><code>(B, 1, 28, 28)</code></td>
+                  <td><code>(B, 784)</code> after <code>nn.Flatten()</code></td>
                   <td>Flattened pixels; fewest structural assumptions, discards 2-D neighbourhood</td>
                 </tr>
                 <tr>
                   <td>CNN</td>
-                  <td><code>(64, 1, 28, 28)</code></td>
+                  <td><code>(B, 1, 28, 28)</code></td>
+                  <td><code>(B, 1, 28, 28)</code> entering the first convolution</td>
                   <td>Local spatial patterns matter; weight sharing across positions</td>
                 </tr>
                 <tr>
-                  <td>LSTM / GRU (rows)</td>
-                  <td><code>(64, 28, 28)</code></td>
+                  <td>GRU (current row mode)</td>
+                  <td><code>(B, 1, 28, 28)</code></td>
+                  <td><code>(B, 28, 28)</code>: 28 timesteps with 28 features each</td>
                   <td>Image is an ordered sequence of 28 rows, 28 features per step</td>
                 </tr>
                 <tr>
-                  <td>LSTM / GRU (columns)</td>
-                  <td><code>(64, 28, 28)</code></td>
+                  <td>LSTM / GRU (supported column mode)</td>
+                  <td><code>(B, 1, 28, 28)</code></td>
+                  <td><code>(B, 28, 28)</code> after transposing height and width</td>
                   <td>Same, scanned column-wise; scan direction may change what is learned</td>
                 </tr>
                 <tr>
                   <td>Transformer</td>
-                  <td><code>(64, 49, 16)</code></td>
-                  <td>49 non-overlapping 4 &times; 4 patch tokens; needs explicit positional encoding</td>
+                  <td><code>(B, 1, 28, 28)</code></td>
+                  <td><code>(B, 49, 128)</code> patch embeddings; <code>(B, 50, 128)</code> after adding <code>[CLS]</code></td>
+                  <td>49 non-overlapping 4 &times; 4 patches, each projected from 16 pixels to a 128-dimensional token; needs explicit positional encoding</td>
                 </tr>
               </tbody>
             </table>
           </div>
+
+          <p style="font-size:0.85rem; color:var(--text-muted)">
+            Here <code>B</code> is the current batch size. The configured maximum is <code>128</code>, while
+            the final batch may be smaller when the dataset size is not divisible by 128.
+          </p>
 
           <p>
             The flattened representation makes the fewest structural assumptions. CNNs assume
@@ -695,8 +710,8 @@
             &nbsp;&nbsp;figures/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# training_curves.png, confusion_matrix.png, prediction_examples.png
           </div>
           <div class="pipeline-diagram" style="text-align:left">
-            # train (replace linear with mlp | cnn | rnn | transformer)<br />
-            python -m experiments.run --model linear --epochs 20 --run-name m2-final --evaluate-test<br /><br />
+            # reproduce an M1 run (replace linear with mlp or cnn)<br />
+            python -m experiments.run --model linear --epochs 3 --run-name m1-draft --evaluate-test<br /><br />
             # evaluate an existing checkpoint<br />
             python -m experiments.run --model linear --evaluate-only --run-id &lt;run-id&gt;
           </div>
@@ -731,8 +746,22 @@
             <li>Analysis of data representation &amp; inductive bias effects (accuracy alone is not sufficient)</li>
           </ul>
 
-          <p style="margin-top:0.75rem">
-            <strong>[Fill in here]</strong> — For each experiment: hypothesis, changed factor, fixed factors, metrics, and conclusion criteria.
+          <h3>M1 Draft Comparison Protocol</h3>
+          <p>
+            <strong>Hypothesis.</strong> Adding nonlinear hidden layers should improve on the Linear baseline,
+            while the CNN's spatial inductive bias should help it learn local clothing features. Because this
+            draft uses only three epochs, the CNN may not yet realize its full advantage.
+          </p>
+          <ul class="styled-list">
+            <li><strong>Changed factor:</strong> model architecture — Linear, MLP, or CNN.</li>
+            <li><strong>Fixed factors:</strong> Fashion-MNIST split, seed 42, training-only normalization, batch size 128, three epochs, AdamW, learning rate 0.001, weight decay 0.0001, and best-validation-loss checkpoint selection.</li>
+            <li><strong>Evaluation:</strong> each saved best checkpoint is evaluated once on the untouched 10,000-image test set.</li>
+            <li><strong>Conclusion criteria:</strong> compare accuracy and Macro-F1 together with parameter count, training/inference time, learning curves, confusion matrices, and prediction examples.</li>
+          </ul>
+          <p>
+            All three M1 runs used the same NVIDIA CUDA environment and the same train/validation/test
+            data preparation. This makes the comparison controlled, although timing values remain specific
+            to the hardware and software environment used for these runs.
           </p>
         </div>
       </section>
@@ -745,9 +774,79 @@
         </div>
         <div class="content-card">
           <p>
-            <strong>[Fill in here]</strong> — Training behavior (loss/metric curves, checkpoint selection, overfitting/underfitting);
-            quantitative comparison table (Accuracy, Macro-F1, Params, Train/Inference Time); qualitative prediction figures.
+            The table reports the stored M1 Draft runs. Test metrics come from the best checkpoint selected
+            by validation loss; parameter counts include trainable parameters. Timing values should be used
+            as approximate efficiency indicators rather than hardware-independent benchmarks.
           </p>
+          <div class="table-container">
+            <table class="rubric-table">
+              <caption style="text-align:left; padding:0 0 0.75rem; color:var(--text-muted)">M1 Draft results after three training epochs</caption>
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th>Final validation accuracy</th>
+                  <th>Test accuracy</th>
+                  <th>Macro-F1</th>
+                  <th>Trainable parameters</th>
+                  <th>Training time</th>
+                  <th>Inference time</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Linear</td>
+                  <td>86.03%</td>
+                  <td>83.33%</td>
+                  <td>0.8335</td>
+                  <td>7,850</td>
+                  <td>45.92 s</td>
+                  <td>0.0112 s</td>
+                </tr>
+                <tr>
+                  <td>MLP</td>
+                  <td>88.63%</td>
+                  <td><strong>87.10%</strong></td>
+                  <td><strong>0.8712</strong></td>
+                  <td>235,146</td>
+                  <td>44.71 s</td>
+                  <td>0.0272 s</td>
+                </tr>
+                <tr>
+                  <td>CNN</td>
+                  <td>85.88%</td>
+                  <td>84.87%</td>
+                  <td>0.8483</td>
+                  <td>53,098</td>
+                  <td>49.25 s</td>
+                  <td>0.0460 s</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Training and Validation Curves</h3>
+          <p>
+            Three points are available per curve because the M1 runs used three epochs. The plots show the
+            direction of learning, but they are too short to establish convergence or robustly diagnose overfitting.
+          </p>
+          <figure style="margin:1rem 0">
+            <img src="assignment1/m1_draft_results/runs/linear/20260921-161639-666304-m1-draft/figures/training_curves.png"
+                 alt="Linear classifier training and validation loss and accuracy curves over three epochs"
+                 style="width:100%; border-radius:12px; border:1px solid var(--border-card)" />
+            <figcaption style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem">Figure 5 — Linear training and validation curves.</figcaption>
+          </figure>
+          <figure style="margin:1rem 0">
+            <img src="assignment1/m1_draft_results/runs/mlp/20260921-161808-256658-m1-draft/figures/training_curves.png"
+                 alt="MLP training and validation loss and accuracy curves over three epochs"
+                 style="width:100%; border-radius:12px; border:1px solid var(--border-card)" />
+            <figcaption style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem">Figure 6 — MLP training and validation curves.</figcaption>
+          </figure>
+          <figure style="margin:1rem 0">
+            <img src="assignment1/m1_draft_results/runs/cnn/20260921-162600-610637-m1-draft/figures/training_curves.png"
+                 alt="CNN training and validation loss and accuracy curves over three epochs"
+                 style="width:100%; border-radius:12px; border:1px solid var(--border-card)" />
+            <figcaption style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem">Figure 7 — CNN training and validation curves.</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -759,8 +858,23 @@
         </div>
         <div class="content-card">
           <p>
-            <strong>[Fill in here]</strong> — Which method is better and by how much; where differences appear;
-            causes related to data/architecture/loss/training; accuracy–speed–parameter trade-offs; whether hypotheses are supported.
+            The <strong>MLP achieved the strongest M1 test result</strong>: 87.10% accuracy and 0.8712
+            Macro-F1. It exceeded the Linear baseline by 3.77 percentage points of accuracy and the CNN by
+            2.23 points. Its similar accuracy and Macro-F1 also indicate that its performance is not being
+            inflated by the balanced class distribution.
+          </p>
+          <p>
+            Accuracy alone does not make the MLP universally best. The Linear model uses only 7,850
+            trainable parameters, while the MLP uses 235,146 — approximately 30 times as many. Linear also
+            has the shortest recorded inference time. It is therefore the strongest efficiency baseline,
+            whereas the MLP offers the best predictive performance in this short experiment.
+          </p>
+          <p>
+            The CNN encodes a useful spatial bias through local filters and weight sharing and uses fewer
+            parameters than the MLP, but it did not outperform the MLP after three epochs. This result does
+            not show that CNNs are inherently worse for image classification; it shows only that this CNN,
+            under this short and fixed training schedule, had not produced the best result. Longer training
+            and controlled tuning are needed to test the architectural hypothesis fairly.
           </p>
         </div>
       </section>
@@ -773,8 +887,62 @@
         </div>
         <div class="content-card">
           <p>
-            <strong>[Fill in here]</strong> — Error categories; failure cases; inductive bias limitations of each model family; hypothesized causes and potential improvements.
+            Errors concentrate among visually similar upper-body classes. Examples include Shirt predicted
+            as T-shirt/top (Linear: 104, MLP: 146, CNN: 165), T-shirt/top predicted as Shirt (Linear: 150,
+            MLP: 109, CNN: 111), Pullover predicted as Coat (Linear: 150, MLP: 112, CNN: 163), and Shirt
+            predicted as Coat (Linear: 109, MLP: 64, CNN: 151). At 28 × 28 resolution, these classes share
+            silhouettes and lose much of the texture and fine detail that could separate them.
           </p>
+          <p>
+            The Linear classifier flattens the image and cannot explicitly model local spatial relationships.
+            The MLP adds nonlinear feature interactions but still works on flattened pixels. The CNN preserves
+            spatial neighborhoods and shares filters, yet its three-epoch run appears too short to fully exploit
+            that advantage. Likely improvements include longer training, learning-rate tuning, modest data
+            augmentation, and inspection of per-class precision and recall.
+          </p>
+          <h3>Confusion Matrices</h3>
+          <div class="info-grid">
+            <figure style="margin:0">
+              <img src="assignment1/m1_draft_results/runs/linear/20260921-161639-666304-m1-draft/figures/confusion_matrix.png"
+                   alt="Linear classifier confusion matrix on the Fashion-MNIST test set"
+                   style="width:100%; border-radius:12px; border:1px solid var(--border-card)" />
+              <figcaption style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem">Figure 8 — Linear confusion matrix.</figcaption>
+            </figure>
+            <figure style="margin:0">
+              <img src="assignment1/m1_draft_results/runs/mlp/20260921-161808-256658-m1-draft/figures/confusion_matrix.png"
+                   alt="MLP confusion matrix on the Fashion-MNIST test set"
+                   style="width:100%; border-radius:12px; border:1px solid var(--border-card)" />
+              <figcaption style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem">Figure 9 — MLP confusion matrix.</figcaption>
+            </figure>
+            <figure style="margin:0">
+              <img src="assignment1/m1_draft_results/runs/cnn/20260921-162600-610637-m1-draft/figures/confusion_matrix.png"
+                   alt="CNN confusion matrix on the Fashion-MNIST test set"
+                   style="width:100%; border-radius:12px; border:1px solid var(--border-card)" />
+              <figcaption style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem">Figure 10 — CNN confusion matrix.</figcaption>
+            </figure>
+          </div>
+
+          <h3>Correct and Incorrect Prediction Examples</h3>
+          <div class="info-grid">
+            <figure style="margin:0">
+              <img src="assignment1/m1_draft_results/runs/linear/20260921-161639-666304-m1-draft/figures/prediction_examples.png"
+                   alt="Correct and incorrect Linear classifier predictions on Fashion-MNIST"
+                   style="width:100%; border-radius:12px; border:1px solid var(--border-card)" />
+              <figcaption style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem">Figure 11 — Linear prediction examples.</figcaption>
+            </figure>
+            <figure style="margin:0">
+              <img src="assignment1/m1_draft_results/runs/mlp/20260921-161808-256658-m1-draft/figures/prediction_examples.png"
+                   alt="Correct and incorrect MLP predictions on Fashion-MNIST"
+                   style="width:100%; border-radius:12px; border:1px solid var(--border-card)" />
+              <figcaption style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem">Figure 12 — MLP prediction examples.</figcaption>
+            </figure>
+            <figure style="margin:0">
+              <img src="assignment1/m1_draft_results/runs/cnn/20260921-162600-610637-m1-draft/figures/prediction_examples.png"
+                   alt="Correct and incorrect CNN predictions on Fashion-MNIST"
+                   style="width:100%; border-radius:12px; border:1px solid var(--border-card)" />
+              <figcaption style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem">Figure 13 — CNN prediction examples.</figcaption>
+            </figure>
+          </div>
         </div>
       </section>
 
@@ -786,7 +954,17 @@
         </div>
         <div class="content-card">
           <p>
-            <strong>[Fill in here]</strong> — Data, model, and hardware limitations; generalization; future directions; concise answer to the research question.
+            This draft is limited to Fashion-MNIST, one stratified split, one random seed, one hardware
+            environment, and three epochs without data augmentation or systematic hyperparameter search.
+            Timing results are hardware-dependent, and the short curves do not establish convergence. The
+            recurrent and Transformer models required for M2 are not part of this M1 comparison.
+          </p>
+          <p>
+            Within those limits, nonlinear modeling improved predictive performance over the Linear baseline:
+            the MLP produced the best M1 accuracy and Macro-F1. The Linear model remained substantially smaller
+            and faster, while the CNN provided a spatially appropriate inductive bias without yet surpassing the
+            MLP. The M2 Final will train and compare all five architectures, repeat evaluation consistently, and
+            expand the discussion of representation, inductive bias, and efficiency.
           </p>
         </div>
       </section>
@@ -798,34 +976,34 @@
           <h2 class="section-title">Deliverables &amp; Links</h2>
         </div>
         <div class="links-grid">
-          <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/tree/main/assignment1" class="link-btn-card" target="_blank" rel="noopener">
+          <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/tree/a1-m1-draft-2026-09-23-final/assignment1" class="link-btn-card" target="_blank" rel="noopener">
             <div class="link-icon-box">💻</div>
             <div>
               <span class="link-label">Source Code</span>
-              <span class="link-sub">assignment1/</span>
+              <span class="link-sub">Preserved M1 Draft tag</span>
             </div>
           </a>
-          <a href="#" class="link-btn-card" target="_blank" rel="noopener">
+          <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/a1-m1-draft-2026-09-23-final/assignment1/README.md#reproduce-a-training-run" class="link-btn-card" target="_blank" rel="noopener">
             <div class="link-icon-box">🗂️</div>
             <div>
-              <span class="link-label">Checkpoints</span>
-              <span class="link-sub">[Model Weights]</span>
+              <span class="link-label">Reproduce Checkpoints</span>
+              <span class="link-sub">Commands and saved M1 run artifacts</span>
             </div>
           </a>
-          <a href="#" class="link-btn-card" target="_blank" rel="noopener">
+          <div class="link-btn-card" style="cursor:default; opacity:0.75">
             <div class="link-icon-box">📄</div>
             <div>
               <span class="link-label">Report / Slides</span>
-              <span class="link-sub">[PDF / Slides]</span>
+              <span class="link-sub">Planned for M2 Final · 21 Oct 2026</span>
             </div>
-          </a>
-          <a href="#" class="link-btn-card" target="_blank" rel="noopener">
+          </div>
+          <div class="link-btn-card" style="cursor:default; opacity:0.75">
             <div class="link-icon-box">▶️</div>
             <div>
               <span class="link-label">YouTube Video</span>
-              <span class="link-sub">CO3133-261-Group9-Ryzen9-Assignment1</span>
+              <span class="link-sub">Planned for M2 Final · 21 Oct 2026</span>
             </div>
-          </a>
+          </div>
         </div>
       </section>
 
@@ -893,8 +1071,8 @@
           </p>
           <p>
             <strong>No AI-generated results.</strong> No metric, curve, confusion matrix, or prediction example on this
-            page was produced or estimated by an AI tool. Every number is read from a real run recorded under
-            <code>results/runs/&lt;model&gt;/&lt;run-id&gt;/</code>.
+            page was produced or estimated by an AI tool. Every M1 number is read from a real run preserved under
+            <code>assignment1/m1_draft_results/runs/&lt;model&gt;/&lt;run-id&gt;/</code>.
           </p>
           <p>
             <strong>Responsible members.</strong> Tran Manh Thang for the website, data pipeline, and training loop;
