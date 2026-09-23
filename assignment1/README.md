@@ -78,7 +78,7 @@ overwriting the old checkpoint. Small differences may occur across
 hardware or software environments.
 
 Generated datasets and `results/runs/` are ignored by Git, so cloning the
-repository does not download existing checkpoints or figures.
+repository does not download existing checkpoints or figures
 
 ## Tests
 

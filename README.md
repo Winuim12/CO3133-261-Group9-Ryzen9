@@ -7,14 +7,6 @@
 
 **Semester: 261**
 
-**Group members**
-
-| # | Full name | Student ID | GitHub | Assignment 1 role |
-|---|-----------|------------|--------|-------------------|
-| 1 | Hoang Kim Cuong | 2352145 | [@DiamondHoang](https://github.com/DiamondHoang) | Linear / Softmax, MLP, CNN |
-| 2 | Phan Tan Loc | 2352712 | [@cspaull](https://github.com/cspaull) | LSTM / GRU, Transformer |
-| 3 | Tran Manh Thang | 2353124 | [@Winuim12](https://github.com/Winuim12) | DataLoader & EDA, train/validate pipeline |
-
 ---
 
 ## Public Course Website
