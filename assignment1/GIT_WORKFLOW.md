@@ -2,7 +2,7 @@
 
 ## 1. Branching
 
-Do not develop directly on `main`
+Do not develop directly on `main`.
 
 Use the following branch naming convention:
 
