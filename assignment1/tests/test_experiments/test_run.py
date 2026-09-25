@@ -14,8 +14,8 @@ from experiments.context import ExperimentContext
 from src.tracking.run_paths import create_run_paths
 
 from experiments.run import (
-    run_experiment,  
-    evaluate_best_checkpoint, 
+    run_experiment,
+    evaluate_best_checkpoint,
     parse_arguments,
     main,
 )
@@ -191,7 +191,7 @@ def test_main_routes_training_with_prepared_context(monkeypatch):
         ("prepare", "linear", 3),
         ("training", context, "linear-final"),
     ]
-    
+
 
 def test_parse_arguments_accepts_evaluation_run_id():
     arguments= parse_arguments([
@@ -225,6 +225,7 @@ def test_parse_arguments_rejects_run_id_during_training():
 def test_run_training_uses_prepared_context_and_stores_artifacts(
     monkeypatch,
     tmp_path,
+    capsys,
 ):
     torch.manual_seed(42)
 
@@ -303,16 +304,20 @@ def test_run_training_uses_prepared_context_and_stores_artifacts(
     assert (run_directory / "best_model.pt").exists()
     assert (run_directory / "training.json").exists()
     assert (run_directory / "figures" / "training_curves.png").exists()
-    
+
+    output = capsys.readouterr().out
+    assert "Requested epochs: 1" in output
+    assert "Completed epochs: 1" in output
+
 def test_run_evaluation_uses_prepared_context_and_existing_run(
     monkeypatch,
     tmp_path,
-): 
+):
     torch.manual_seed(42)
 
     class FashionLikeDataset(TensorDataset):
         classes = [str(class_id) for class_id in range(10)]
-    
+
     images = torch.randn(8, 1, 28, 28)
     labels = torch.tensor([0, 1, 2, 3, 4, 5, 6, 7])
 
@@ -452,4 +457,219 @@ def test_main_reuses_context_for_training_and_evaluation(monkeypatch):
         ("training", context, "combined-run"),
         ("evaluation", context, "new-training-run"),
     ]
-    
+
+def test_run_experiment_passes_early_stopping_config(tmp_path):
+    torch.manual_seed(42)
+
+    images = torch.randn(4, 1, 28, 28)
+    labels = torch.tensor([0, 1, 2, 3])
+
+    dataloader = DataLoader(
+        TensorDataset(images, labels),
+        batch_size=4,
+        shuffle=False,
+    )
+
+    _, history, _ = run_experiment(
+        model_name="linear",
+        model_parameters={},
+        training_config={
+            "epochs": 10,
+            "optimizer": "adamw",
+            "learning_rate": 0.0,
+            "weight_decay": 0.0001,
+            "patience": 2,
+            "min_delta": 0.00001,
+        },
+        train_loader=dataloader,
+        validation_loader=dataloader,
+        checkpoint_path=tmp_path / "best_model.pt",
+        device=torch.device("cpu"),
+    )
+
+    assert len(history["validation_loss"]) == 3
+
+def test_parse_arguments_mlflow_is_opt_in():
+    default = parse_arguments(["--model", "linear"])
+    enabled = parse_arguments(["--model", "linear", "--use-mlflow"])
+
+    assert default.use_mlflow is False
+    assert enabled.use_mlflow is True
+
+def test_main_checks_mlflow_before_preparing_data(monkeypatch):
+    calls = []
+
+    monkeypatch.setattr(
+        run_module,
+        "parse_arguments",
+        lambda: Namespace(
+            model="linear",
+            epochs=None,
+            run_name=None,
+            run_id=None,
+            evaluate_test=False,
+            evaluate_only=False,
+            use_mlflow=True,
+        ),
+    )
+
+    def fake_require_mlflow():
+        calls.append("mlflow")
+        raise RuntimeError("MLflow is not installed")
+
+    def fake_prepare_experiment_context(**kwargs):
+        calls.append("prepare")
+        return object()
+
+    monkeypatch.setattr(
+        run_module, "require_mlflow", fake_require_mlflow, raising=False
+    )
+    monkeypatch.setattr(
+        run_module, "prepare_experiment_context", fake_prepare_experiment_context
+    )
+
+    with pytest.raises(RuntimeError, match="MLflow is not installed"): main()
+
+    assert calls == ["mlflow"]
+
+def test_main_logs_training_run_when_mlflow_enabled(monkeypatch, tmp_path):
+    from argparse import Namespace
+    from unittest.mock import Mock
+
+    client = object()
+    context = object()
+    log_saved_run = Mock()
+
+    monkeypatch.setattr(
+        run_module,
+        "parse_arguments",
+        lambda: Namespace(
+            model="linear",
+            epochs=1,
+            run_name="smoke",
+            run_id=None,
+            evaluate_test=False,
+            evaluate_only=False,
+            use_mlflow=True,
+        ),
+    )
+    monkeypatch.setattr(
+        run_module, "require_mlflow", lambda: client
+    )
+    monkeypatch.setattr(
+        run_module, "prepare_experiment_context", lambda **kwargs: context
+    )
+    monkeypatch.setattr(
+        run_module,
+        "run_training",
+        lambda **kwargs: {
+            "run_id": "saved-run",
+            "run_directory": tmp_path,
+        },
+    )
+    monkeypatch.setattr(
+        run_module, "log_saved_run", log_saved_run, raising=False
+    )
+
+    main()
+
+    log_saved_run.assert_called_once_with(client, tmp_path)
+
+def test_main_logs_evaluation_only_run_when_mlflow_enabled(
+    monkeypatch,
+    tmp_path,
+):
+    from argparse import Namespace
+    from unittest.mock import Mock
+
+    client = object()
+    log_saved_run = Mock()
+
+    monkeypatch.setattr(
+        run_module,
+        "parse_arguments",
+        lambda: Namespace(
+            model="linear",
+            epochs=None,
+            run_name=None,
+            run_id="existing-run",
+            evaluate_test=False,
+            evaluate_only=True,
+            use_mlflow=True,
+        ),
+    )
+    monkeypatch.setattr(
+        run_module, "require_mlflow", lambda: client
+    )
+    monkeypatch.setattr(
+        run_module, "prepare_experiment_context", lambda **kwargs: object()
+    )
+
+    monkeypatch.setattr(
+        run_module,
+        "run_evaluation",
+        lambda **kwargs: {"run_directory": tmp_path},
+    )
+    monkeypatch.setattr(
+        run_module, "log_saved_run", log_saved_run, raising=False
+    )
+
+    main()
+
+    log_saved_run.assert_called_once_with(client, tmp_path)
+
+def test_main_logs_combined_run_after_evaluation(
+    monkeypatch,
+    tmp_path,
+):
+    from argparse import Namespace
+
+    events = []
+    client = object()
+    context = object()
+
+    monkeypatch.setattr(
+        run_module,
+        "parse_arguments",
+        lambda: Namespace(
+            model="linear",
+            epochs=1,
+            run_name="combined",
+            run_id=None,
+            evaluate_test=True,
+            evaluate_only=False,
+            use_mlflow=True,
+        ),
+    )
+    monkeypatch.setattr(
+        run_module, "require_mlflow", lambda: client
+    )
+    monkeypatch.setattr(
+        run_module, "prepare_experiment_context", lambda **kwargs: context
+    )
+
+    monkeypatch.setattr(
+        run_module,
+        "run_training",
+        lambda **kwargs: {"run_id": "new-run", "run_directory": tmp_path},
+    )
+
+    def fake_evaluation(context, run_id):
+        assert run_id == "new-run"
+        events.append("evaluation")
+
+    def fake_log_saved_run(log_client, run_directory):
+        assert log_client is client
+        assert run_directory == tmp_path
+        events.append("mlflow")
+
+    monkeypatch.setattr(
+        run_module, "run_evaluation",fake_evaluation
+    )
+    monkeypatch.setattr(
+        run_module, "log_saved_run", fake_log_saved_run
+    )
+
+    main()
+
+    assert events == ["evaluation", "mlflow"]

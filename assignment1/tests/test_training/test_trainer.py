@@ -10,7 +10,7 @@ from torch.utils.data import DataLoader, TensorDataset
 
 from src.training.trainer import train_model
 
-def test_train_model_records_metrics_for_every_epoch():
+def test_train_model_records_metrics_for_every_epoch(capsys):
     torch.manual_seed(42)
 
     images = torch.randn(8, 1, 28, 28)
@@ -49,7 +49,18 @@ def test_train_model_records_metrics_for_every_epoch():
 
     assert all(len(metric_values) == 2 for metric_values in history.values())
 
-def test_train_model_saves_only_best_validation_checkpoint(tmp_path):
+    output = capsys.readouterr().out
+    epoch_lines = [
+        line for line in output.splitlines() if line.startswith("Epoch")
+    ]
+
+    assert len(epoch_lines) == 2
+    assert epoch_lines[0].startswith("Epoch 1/2:")
+    assert epoch_lines[1].startswith("Epoch 2/2:")
+    assert all("train loss=" in line for line in epoch_lines)
+    assert all("validation loss=" in line for line in epoch_lines)
+
+def test_train_model_saves_only_best_validation_checkpoint(tmp_path, capsys):
     torch.manual_seed(42)
 
     images = torch.randn(8, 1, 28, 28)
@@ -57,7 +68,7 @@ def test_train_model_saves_only_best_validation_checkpoint(tmp_path):
 
     dataloader = DataLoader(
         TensorDataset(images, labels),
-        batch_size=4, 
+        batch_size=4,
         shuffle=False,
     )
 
@@ -95,3 +106,39 @@ def test_train_model_saves_only_best_validation_checkpoint(tmp_path):
     assert checkpoint_path.exists()
     assert checkpoint["epoch"] == 1
     assert checkpoint["validation_loss"] == pytest.approx(history["validation_loss"][0])
+
+    epoch_lines = [
+        line for line in capsys.readouterr().out.splitlines() if line.startswith("Epoch")
+    ]
+
+    assert len(epoch_lines) == 2
+    assert all("best epoch=1" in line for line in epoch_lines)
+
+def test_train_model_stops_after_patience_without_improvement():
+    torch.manual_seed(42)
+
+    images = torch.randn(4, 1, 28, 28)
+    labels = torch.tensor([0, 1, 2, 3])
+
+    dataloader = DataLoader(
+        TensorDataset(images, labels),
+        batch_size=4,
+        shuffle=False,
+    )
+
+    model = nn.Sequential(nn.Flatten(), nn.Linear(28*28, 10))
+    optimizer = torch.optim.SGD(model.parameters(), lr=0.0)
+
+    history = train_model(
+        model=model,
+        train_loader=dataloader,
+        validation_loader=dataloader,
+        loss_function=nn.CrossEntropyLoss(),
+        optimizer=optimizer,
+        device=torch.device("cpu"),
+        epochs=10,
+        patience=2,
+        min_delta=0.00001,
+    )
+
+    assert len(history["validation_loss"]) == 3
