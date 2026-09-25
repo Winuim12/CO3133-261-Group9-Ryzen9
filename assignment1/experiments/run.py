@@ -20,6 +20,7 @@ from src.evaluation.confusion_matrix import save_confusion_matrix_plot
 from src.evaluation.curves import save_training_curves
 from src.evaluation.error_analysis import save_prediction_examples
 from src.tracking.run_paths import create_run_paths, load_run_paths
+from src.tracking.mlflow_logger import require_mlflow, log_saved_run
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
@@ -59,7 +60,9 @@ def run_experiment(
         optimizer=optimizer,
         device=device,
         epochs=training_config["epochs"],
-        checkpoint_path=checkpoint_path
+        checkpoint_path=checkpoint_path,
+        patience=training_config.get("patience"),
+        min_delta=training_config.get("min_delta", 0.0001),
     )
 
     if device.type == "cuda":
@@ -119,7 +122,8 @@ def run_training(context: ExperimentContext, run_name=None):
     print(f"Validation samples: {len(context.validation_dataset):,}")
     print(f"Training mean: {context.mean: .6f}")
     print(f"Training standard deviation: {context.std: .6f}")
-    print(f"Epochs: {shared_config['training']['epochs']}")
+    print(f"Requested epochs: {shared_config['training']['epochs']}")
+    print(f"Completed epochs: {len(history['train_loss'])}")
     print(f"Training time: {training_time_seconds:.2f} seconds")
     print(f"Final training loss: {history['train_loss'][-1]:.4f}")
     print("Final training accuracy: "f"{history['train_accuracy'][-1]:.2%}")
@@ -268,7 +272,11 @@ def parse_arguments(arguments=None):
         help=("Identifier of an existing versioned used by evaluation-only mode. ")
     )
 
-    
+    parser.add_argument(
+        "--use-mlflow",
+        action="store_true",
+        help=("Record this experiment in MLflow."),
+    )
 
     evaluation_group = parser.add_mutually_exclusive_group()
 
@@ -296,6 +304,11 @@ def parse_arguments(arguments=None):
 
 def main():
     arguments = parse_arguments()
+
+    mlflow_client = None
+    if getattr(arguments, "use_mlflow", False):
+        mlflow_client =require_mlflow()
+
     epochs_override = (None if arguments.evaluate_only else arguments.epochs)
     context = prepare_experiment_context(
         model_name=arguments.model,
@@ -304,10 +317,16 @@ def main():
     
 
     if arguments.evaluate_only:
-        run_evaluation(
+        evaluation_results = run_evaluation(
             context=context,
             run_id=arguments.run_id
         )
+
+        if mlflow_client is not None:
+            log_saved_run(
+                mlflow_client,
+                evaluation_results["run_directory"],
+            )
 
         return
     
@@ -321,6 +340,9 @@ def main():
             context=context,
             run_id=training_results["run_id"],
         )
+
+    if mlflow_client is not None:
+        log_saved_run(mlflow_client, training_results["run_directory"])
 
 if __name__ == "__main__":
     main()

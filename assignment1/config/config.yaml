@@ -17,6 +17,8 @@ training:
   learning_rate: 0.001
   weight_decay: 0.0001
   optimizer: adamw
+  patience: 5
+  min_delta: 0.0001
 
 evaluation:
   checkpoint_rule: best_val_loss

@@ -116,4 +116,9 @@ def test_save_training_results_writes_configuration_and_history(tmp_path):
         "checkpoint_path": str(checkpoint_path),
         "training_time_seconds": 12.5,
         "history": history,
+        "requested_epochs": 2,
+        "completed_epochs": 2,
+        "best_epoch": 2,
+        "best_validation_loss": 0.5,
+        "stopped_early": False,
     }

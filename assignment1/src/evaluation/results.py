@@ -25,6 +25,11 @@ def save_evaluation_results(path, model_name, checkpoint_path, test_results):
 def save_training_results(path, model_name, shared_config, model_config, checkpoint_path, history, training_time_seconds):
     output_path = Path(path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
+    validation_losses = history["validation_loss"]
+    requested_epochs = int(shared_config["training"]["epochs"])
+    completed_epochs = len(validation_losses)
+    best_validation_loss = min(validation_losses)
+    best_epoch = validation_losses.index(best_validation_loss) + 1
 
     summary = {
         "model_name": model_name,
@@ -36,6 +41,11 @@ def save_training_results(path, model_name, shared_config, model_config, checkpo
         "checkpoint_path": str(checkpoint_path),
         "training_time_seconds": float(training_time_seconds),
         "history": history,
+        "requested_epochs": requested_epochs,
+        "completed_epochs": completed_epochs,
+        "best_epoch": best_epoch,
+        "best_validation_loss": best_validation_loss,
+        "stopped_early": completed_epochs < requested_epochs,
     }
 
     output_path.write_text(json.dumps(summary, indent=2), encoding="utf-8")
