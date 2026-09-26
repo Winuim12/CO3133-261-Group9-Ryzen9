@@ -38,9 +38,16 @@
           From Linear Models to Modern Sequence Models: A Comparative Study for Image Classification.
         </p>
         <p style="max-width:900px; margin:0.75rem auto 0; color:var(--text-muted)">
-          <strong>M1 Draft scope:</strong> the data pipeline, training/validation loop, Linear classifier,
-          MLP, and optional CNN are implemented and evaluated. The recurrent and Transformer experiments
-          are reserved for the M2 Final milestone.
+          <strong>M2 baseline progress:</strong> Linear, MLP, CNN, GRU, and
+          Transformer have been trained and evaluated on Fashion-MNIST.
+          This page presents their baseline results, analysis, report, and
+          downloadable checkpoints. Slides and the presentation video are
+          still pending.
+          The
+          <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/a1-m1-draft-2026-09-23-final/assignment1.html">
+            M1 draft submission
+          </a>
+          remains preserved separately.
         </p>
         <div class="hero-badges-group">
           <span class="hero-badge-item">M1 Draft: 23 Sep 2026</span>
@@ -599,22 +606,21 @@
                   <td><strong>GRU</strong><br /><code>config/rnn.yaml</code></td>
                   <td>28 row timesteps × 28 features<br /><span style="font-size:0.85em; color:var(--text-muted)">(<code>mode</code>: row / col / patch; <code>cell_type</code>: gru / lstm)</span></td>
                   <td>1-layer unidirectional <code>nn.GRU</code>, hidden size 128; the last timestep's hidden state feeds <code>nn.Linear(128, 10)</code></td>
-                  <td>61,962 <span style="font-size:0.85em; color:var(--text-muted)">(derived)</span></td>
+                  <td>61,962</td>
                 </tr>
                 <tr>
                   <td><strong>Transformer (ViT)</strong><br /><code>config/transformer.yaml</code></td>
                   <td>49 patch tokens of 4 × 4 pixels</td>
                   <td><code>Conv2d</code> patch projection to 128-d, learned <code>[CLS]</code> token + learned positional embeddings, 4 pre-LN encoder layers, 4 heads, FFN 512, GELU, dropout 0.1; the <code>[CLS]</code> output is classified</td>
-                  <td>803,338 <span style="font-size:0.85em; color:var(--text-muted)">(derived)</span></td>
+                  <td>803,338</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <p style="font-size:0.85rem; color:var(--text-muted)">
-            Parameter counts for Linear, MLP, and CNN are measured values read from the M1 draft
-            <code>evaluation.json</code> files. The GRU and Transformer counts are derived from the
-            configured hyperparameters and will be replaced by measured counts once those two models
-            are trained for M2 Final.
+            All five parameter counts are measured trainable-parameter counts
+            recorded in the corresponding M2 baseline
+            <code>evaluation.json</code> files.
           </p>
 
           <h3>Self-Implemented vs. Library Code</h3>
@@ -642,8 +648,10 @@
 
           <h3>Training Setup</h3>
           <p>
-            Shared hyperparameters live in <code>config/config.yaml</code> and are identical for all
-            five models — this is what makes the comparison fair.
+            Shared training settings are defined in <code>config/config.yaml</code>
+            and recorded in each run's <code>training.json</code>.
+            The five baselines use the same training recipe, although this recipe
+            is not necessarily optimal for every architecture.
           </p>
 
           <div class="info-grid" style="margin-top:1rem">
@@ -660,12 +668,15 @@
               <div class="info-item-val">128 · num_workers 2</div>
             </div>
             <div class="info-item">
-              <div class="info-item-label">Epochs</div>
-              <div class="info-item-val">20 by config; M1 draft runs used 3</div>
+              <div class="info-item-label">Epoch Budget</div>
+              <div class="info-item-val">Maximum 20 epochs; actual counts vary with early stopping</div>
             </div>
+
             <div class="info-item">
-              <div class="info-item-label">Scheduler / Early Stopping</div>
-              <div class="info-item-val">None — fixed learning rate</div>
+              <div class="info-item-label">Learning Rate / Early Stopping</div>
+              <div class="info-item-val">
+                Fixed learning rate; patience 5; min_delta 0.0001
+              </div>
             </div>
             <div class="info-item">
               <div class="info-item-label">Augmentation</div>
@@ -710,11 +721,19 @@
             &nbsp;&nbsp;figures/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# training_curves.png, confusion_matrix.png, prediction_examples.png
           </div>
           <div class="pipeline-diagram" style="text-align:left">
-            # reproduce an M1 run (replace linear with mlp or cnn)<br />
-            python -m experiments.run --model linear --epochs 3 --run-name m1-draft --evaluate-test<br /><br />
-            # evaluate an existing checkpoint<br />
-            python -m experiments.run --model linear --evaluate-only --run-id &lt;run-id&gt;
+            # train an M2 baseline; model options: linear, mlp, cnn, rnn, transformer<br />
+            python -m experiments.run --model linear --epochs 20 --run-name m2-reproduction --evaluate-test<br /><br />
+            # evaluate the downloaded Linear baseline checkpoint without training<br />
+            python -m experiments.run --model linear --evaluate-only --run-id 20260924-124837-513213-m2-baseline
           </div>
+
+          <p>
+            Run these commands from the <code>assignment1</code> directory.
+            Training creates a new run ID. To evaluate the original Linear baseline,
+            download the checkpoint release and place its run folder under
+            <code>results/runs/linear/</code>. Use the source code and configuration
+            from tag <code>a1-m2-baselines-2026-09-25</code>.
+          </p>
           <p style="font-size:0.85rem; color:var(--text-muted)">
             Known limitation: <code>--evaluate-only</code> currently re-reads the YAML files on disk
             rather than the configuration stored in <code>training.json</code>, so the model and data
@@ -746,22 +765,53 @@
             <li>Analysis of data representation &amp; inductive bias effects (accuracy alone is not sufficient)</li>
           </ul>
 
-          <h3>M1 Draft Comparison Protocol</h3>
+          <h3>M2 Baseline Comparison Protocol</h3>
           <p>
-            <strong>Hypothesis.</strong> Adding nonlinear hidden layers should improve on the Linear baseline,
-            while the CNN's spatial inductive bias should help it learn local clothing features. Because this
-            draft uses only three epochs, the CNN may not yet realize its full advantage.
+            <strong>Comparison goal.</strong> Compare Linear, MLP, CNN, GRU,
+            and Transformer classifiers under a shared training recipe, examining
+            predictive performance alongside model size, computational cost,
+            and the effects of each architecture's data representation.
           </p>
+
           <ul class="styled-list">
-            <li><strong>Changed factor:</strong> model architecture — Linear, MLP, or CNN.</li>
-            <li><strong>Fixed factors:</strong> Fashion-MNIST split, seed 42, training-only normalization, batch size 128, three epochs, AdamW, learning rate 0.001, weight decay 0.0001, and best-validation-loss checkpoint selection.</li>
-            <li><strong>Evaluation:</strong> each saved best checkpoint is evaluated once on the untouched 10,000-image test set.</li>
-            <li><strong>Conclusion criteria:</strong> compare accuracy and Macro-F1 together with parameter count, training/inference time, learning curves, confusion matrices, and prediction examples.</li>
+            <li>
+              <strong>Models:</strong> Linear, MLP, CNN, row-wise GRU
+              (configured as <code>rnn</code>), and patch-based Transformer.
+            </li>
+            <li>
+              <strong>Data:</strong> Fashion-MNIST with 54,000 training,
+              6,000 validation, and 10,000 held-out test images.
+              The training/validation split is stratified with seed 42.
+              Normalization statistics are calculated from training data only.
+            </li>
+            <li>
+              <strong>Shared training recipe:</strong> batch size 128,
+              cross-entropy loss, AdamW, learning rate 0.001,
+              weight decay 0.0001, and a maximum of 20 epochs.
+            </li>
+            <li>
+              <strong>Early stopping:</strong> validation-loss monitoring with
+              patience 5 and <code>min_delta = 0.0001</code>.
+              Models may therefore complete different numbers of epochs.
+            </li>
+            <li>
+              <strong>Checkpoint selection:</strong> retain the checkpoint with
+              the lowest observed validation loss, then evaluate it on the
+              held-out test set. Test metrics do not guide checkpoint selection
+              or early stopping.
+            </li>
+            <li>
+              <strong>Comparison criteria:</strong> test accuracy, Macro-F1,
+              parameter count, training and inference time, learning curves,
+              confusion matrices, and prediction examples.
+            </li>
           </ul>
+
           <p>
-            All three M1 runs used the same NVIDIA CUDA environment and the same train/validation/test
-            data preparation. This makes the comparison controlled, although timing values remain specific
-            to the hardware and software environment used for these runs.
+            These baselines use one run per architecture with seed 42.
+            They are not averages across multiple seeds, and the shared training
+            recipe is not necessarily optimal for every architecture.
+            Timing measurements depend on the hardware and software environment.
           </p>
         </div>
       </section>
@@ -774,79 +824,105 @@
         </div>
         <div class="content-card">
           <p>
-            The table reports the stored M1 Draft runs. Test metrics come from the best checkpoint selected
-            by validation loss; parameter counts include trainable parameters. Timing values should be used
-            as approximate efficiency indicators rather than hardware-independent benchmarks.
+            The table reports one M2 baseline run per architecture. Test metrics
+            come from the checkpoint with the lowest observed validation loss.
+            Parameter counts include trainable parameters. Early stopping produces
+            different training durations; timing values are environment-specific,
+            not hardware-independent benchmarks.
           </p>
+
           <div class="table-container">
             <table class="rubric-table">
-              <caption style="text-align:left; padding:0 0 0.75rem; color:var(--text-muted)">M1 Draft results after three training epochs</caption>
+              <caption style="text-align:left; padding:0 0 0.75rem; color:var(--text-muted)">
+                M2 baseline results: maximum 20 epochs, seed 42
+              </caption>
               <thead>
                 <tr>
                   <th>Model</th>
-                  <th>Final validation accuracy</th>
+                  <th>Completed epochs</th>
                   <th>Test accuracy</th>
                   <th>Macro-F1</th>
                   <th>Trainable parameters</th>
                   <th>Training time</th>
-                  <th>Inference time</th>
+                  <th>Inference time (10,000 images)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>Linear</td>
-                  <td>86.03%</td>
-                  <td>83.33%</td>
-                  <td>0.8335</td>
+                  <td>17</td>
+                  <td>84.23%</td>
+                  <td>0.8395</td>
                   <td>7,850</td>
-                  <td>45.92 s</td>
-                  <td>0.0112 s</td>
+                  <td>290.77 s</td>
+                  <td>0.0125 s</td>
                 </tr>
                 <tr>
                   <td>MLP</td>
-                  <td>88.63%</td>
-                  <td><strong>87.10%</strong></td>
-                  <td><strong>0.8712</strong></td>
+                  <td>15</td>
+                  <td>88.56%</td>
+                  <td>0.8855</td>
                   <td>235,146</td>
-                  <td>44.71 s</td>
-                  <td>0.0272 s</td>
+                  <td>257.38 s</td>
+                  <td>0.0223 s</td>
                 </tr>
                 <tr>
                   <td>CNN</td>
-                  <td>85.88%</td>
-                  <td>84.87%</td>
-                  <td>0.8483</td>
+                  <td>20</td>
+                  <td><strong>90.23%</strong></td>
+                  <td><strong>0.9023</strong></td>
                   <td>53,098</td>
-                  <td>49.25 s</td>
-                  <td>0.0460 s</td>
+                  <td>343.46 s</td>
+                  <td>0.0702 s</td>
+                </tr>
+                <tr>
+                  <td>GRU (rnn)</td>
+                  <td>18</td>
+                  <td>89.72%</td>
+                  <td>0.8970</td>
+                  <td>61,962</td>
+                  <td>305.00 s</td>
+                  <td>0.0334 s</td>
+                </tr>
+                <tr>
+                  <td>Transformer</td>
+                  <td>20</td>
+                  <td>89.16%</td>
+                  <td>0.8908</td>
+                  <td>803,338</td>
+                  <td>362.18 s</td>
+                  <td>0.2319 s</td>
                 </tr>
               </tbody>
             </table>
           </div>
-
-          <h3>Training and Validation Curves</h3>
+          <h3>Learning Curves</h3>
           <p>
-            Three points are available per curve because the M1 runs used three epochs. The plots show the
-            direction of learning, but they are too short to establish convergence or robustly diagnose overfitting.
+            The figure compares validation loss across all five M2 baseline runs.
+            Linear, MLP, and GRU stopped after 17, 15, and 18 epochs respectively;
+            CNN and Transformer completed the 20-epoch maximum.
+            Different curve lengths reflect early stopping, not missing data.
           </p>
+
           <figure style="margin:1rem 0">
-            <img src="assignment1/m1_draft_results/runs/linear/20260921-161639-666304-m1-draft/figures/training_curves.png"
-                 alt="Linear classifier training and validation loss and accuracy curves over three epochs"
-                 style="width:100%; border-radius:12px; border:1px solid var(--border-card)" />
-            <figcaption style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem">Figure 5 — Linear training and validation curves.</figcaption>
+            <img src="assignment1/report/figures/validation_loss_comparison.png"
+                alt="Validation loss across epochs for Linear, MLP, CNN, GRU, and Transformer"
+                style="width:100%; border-radius:12px; border:1px solid var(--border-card)" />
+            <figcaption style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem">
+              Figure 5 — M2 validation-loss comparison. Each model's test results
+              use its lowest-validation-loss checkpoint, not necessarily its final epoch.
+            </figcaption>
           </figure>
-          <figure style="margin:1rem 0">
-            <img src="assignment1/m1_draft_results/runs/mlp/20260921-161808-256658-m1-draft/figures/training_curves.png"
-                 alt="MLP training and validation loss and accuracy curves over three epochs"
-                 style="width:100%; border-radius:12px; border:1px solid var(--border-card)" />
-            <figcaption style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem">Figure 6 — MLP training and validation curves.</figcaption>
-          </figure>
-          <figure style="margin:1rem 0">
-            <img src="assignment1/m1_draft_results/runs/cnn/20260921-162600-610637-m1-draft/figures/training_curves.png"
-                 alt="CNN training and validation loss and accuracy curves over three epochs"
-                 style="width:100%; border-radius:12px; border:1px solid var(--border-card)" />
-            <figcaption style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem">Figure 7 — CNN training and validation curves.</figcaption>
-          </figure>
+
+          <p>
+            See the
+            <a href="assignment1/notebooks/02_results_analysis.html">results analysis</a>
+            for the five-model comparison. Individual training and validation
+            loss/accuracy plots are included in the
+            <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/releases/tag/a1-m2-baselines-2026-09-25">
+              baseline checkpoint release
+            </a>.
+          </p>
         </div>
       </section>
 
@@ -858,23 +934,38 @@
         </div>
         <div class="content-card">
           <p>
-            The <strong>MLP achieved the strongest M1 test result</strong>: 87.10% accuracy and 0.8712
-            Macro-F1. It exceeded the Linear baseline by 3.77 percentage points of accuracy and the CNN by
-            2.23 points. Its similar accuracy and Macro-F1 also indicate that its performance is not being
-            inflated by the balanced class distribution.
+            <strong>CNN achieved the strongest M2 baseline test result:</strong>
+            90.23% accuracy and 0.9023 Macro-F1. Its accuracy exceeded Linear
+            by 6.00 percentage points, MLP by 1.67, GRU by 0.51, and
+            Transformer by 1.07. These are differences between the recorded
+            runs, not evidence of statistically significant superiority.
           </p>
+
           <p>
-            Accuracy alone does not make the MLP universally best. The Linear model uses only 7,850
-            trainable parameters, while the MLP uses 235,146 — approximately 30 times as many. Linear also
-            has the shortest recorded inference time. It is therefore the strongest efficiency baseline,
-            whereas the MLP offers the best predictive performance in this short experiment.
+            Linear remains the smallest model, with 7,850 trainable parameters,
+            and has the shortest recorded inference time. MLP improves accuracy
+            to 88.56%, but uses 235,146 parameters. CNN achieves higher accuracy
+            with only 53,098 parameters, illustrating that parameter count alone
+            does not determine predictive performance.
           </p>
+
           <p>
-            The CNN encodes a useful spatial bias through local filters and weight sharing and uses fewer
-            parameters than the MLP, but it did not outperform the MLP after three epochs. This result does
-            not show that CNNs are inherently worse for image classification; it shows only that this CNN,
-            under this short and fixed training schedule, had not produced the best result. Longer training
-            and controlled tuning are needed to test the architectural hypothesis fairly.
+            CNN's local filters and weight sharing preserve spatial structure,
+            while Linear and MLP operate on flattened pixels. The CNN result is
+            consistent with this spatial inductive bias being useful for clothing
+            images, but the comparison does not isolate its causal effect.
+            GRU treats images as row sequences and achieves 89.72% accuracy.
+            Transformer uses patch tokens and achieves 89.16%, with the largest
+            parameter count and longest recorded inference time.
+          </p>
+
+          <p>
+            The models share a training recipe, not individually optimized
+            hyperparameters or equal computational budgets. Early stopping also
+            produces different completed epoch counts. Additional random seeds
+            and controlled validation-based tuning would be needed to assess
+            whether these rankings remain stable. Model choice should therefore
+            consider accuracy, Macro-F1, model size, and computational cost together.
           </p>
         </div>
       </section>
@@ -887,60 +978,95 @@
         </div>
         <div class="content-card">
           <p>
-            Errors concentrate among visually similar upper-body classes. Examples include Shirt predicted
-            as T-shirt/top (Linear: 104, MLP: 146, CNN: 165), T-shirt/top predicted as Shirt (Linear: 150,
-            MLP: 109, CNN: 111), Pullover predicted as Coat (Linear: 150, MLP: 112, CNN: 163), and Shirt
-            predicted as Coat (Linear: 109, MLP: 64, CNN: 151). At 28 × 28 resolution, these classes share
-            silhouettes and lose much of the texture and fine detail that could separate them.
+            <strong>Shirt remains a difficult class across all five models.</strong>
+            Its recall is 50.9% for Linear, 68.7% for MLP, 71.7% for CNN,
+            71.8% for GRU, and 64.8% for Transformer. Recall measures the
+            proportion of actual Shirt images correctly identified as Shirt.
+            GRU has slightly higher Shirt recall than CNN in these runs,
+            even though CNN has higher overall test accuracy.
           </p>
+
           <p>
-            The Linear classifier flattens the image and cannot explicitly model local spatial relationships.
-            The MLP adds nonlinear feature interactions but still works on flattened pixels. The CNN preserves
-            spatial neighborhoods and shares filters, yet its three-epoch run appears too short to fully exploit
-            that advantage. Likely improvements include longer training, learning-rate tuning, modest data
-            augmentation, and inspection of per-class precision and recall.
+            The confusion matrices show errors among similar upper-body garments,
+            including Shirt, T-shirt/top, Pullover, and Coat. For example,
+            Shirt is predicted as T-shirt/top in 145 Linear, 122 MLP, 114 CNN,
+            104 GRU, and 133 Transformer test cases. Similar silhouettes and
+            limited detail at 28 &times; 28 resolution may contribute to these
+            errors, but the matrices alone do not establish their cause.
+            Future improvements should be selected using validation data,
+            rather than repeatedly tuning against the test results.
           </p>
           <h3>Confusion Matrices</h3>
-          <div class="info-grid">
-            <figure style="margin:0">
-              <img src="assignment1/m1_draft_results/runs/linear/20260921-161639-666304-m1-draft/figures/confusion_matrix.png"
-                   alt="Linear classifier confusion matrix on the Fashion-MNIST test set"
-                   style="width:100%; border-radius:12px; border:1px solid var(--border-card)" />
-              <figcaption style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem">Figure 8 — Linear confusion matrix.</figcaption>
-            </figure>
-            <figure style="margin:0">
-              <img src="assignment1/m1_draft_results/runs/mlp/20260921-161808-256658-m1-draft/figures/confusion_matrix.png"
-                   alt="MLP confusion matrix on the Fashion-MNIST test set"
-                   style="width:100%; border-radius:12px; border:1px solid var(--border-card)" />
-              <figcaption style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem">Figure 9 — MLP confusion matrix.</figcaption>
-            </figure>
-            <figure style="margin:0">
-              <img src="assignment1/m1_draft_results/runs/cnn/20260921-162600-610637-m1-draft/figures/confusion_matrix.png"
-                   alt="CNN confusion matrix on the Fashion-MNIST test set"
-                   style="width:100%; border-radius:12px; border:1px solid var(--border-card)" />
-              <figcaption style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem">Figure 10 — CNN confusion matrix.</figcaption>
-            </figure>
-          </div>
+          <figure style="margin:1rem 0">
+            <a href="assignment1/report/figures/all_model_confusion_matrices.png"
+              target="_blank" rel="noopener">
+              <img src="assignment1/report/figures/all_model_confusion_matrices.png"
+                  alt="M2 confusion matrices for Linear, MLP, CNN, GRU, and Transformer"
+                  style="width:100%; border-radius:12px; border:1px solid var(--border-card)" />
+            </a>
+            <figcaption style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem">
+              Figure 6 — Confusion matrices for all five M2 baselines.
+              Rows represent actual classes; columns represent predictions.
+              The RNN panel corresponds to GRU. Click the image to view it full-size.
+            </figcaption>
+          </figure>
 
           <h3>Correct and Incorrect Prediction Examples</h3>
-          <div class="info-grid">
+          <p>
+            These examples come from each model's selected M2 checkpoint.
+            They illustrate individual successes and failures, not the overall
+            frequency of errors. Click an image to inspect its labels full-size.
+          </p>
+
+          <div class="info-grid" style="grid-template-columns:1fr">
             <figure style="margin:0">
-              <img src="assignment1/m1_draft_results/runs/linear/20260921-161639-666304-m1-draft/figures/prediction_examples.png"
-                   alt="Correct and incorrect Linear classifier predictions on Fashion-MNIST"
-                   style="width:100%; border-radius:12px; border:1px solid var(--border-card)" />
-              <figcaption style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem">Figure 11 — Linear prediction examples.</figcaption>
+              <a href="assignment1/report/figures/linear_prediction_examples.png"
+                target="_blank" rel="noopener">
+                <img src="assignment1/report/figures/linear_prediction_examples.png"
+                    alt="Correct and incorrect Linear predictions from the M2 baseline"
+                    style="width:100%; border-radius:12px; border:1px solid var(--border-card)" />
+              </a>
+              <figcaption>Figure 7 — Linear prediction examples.</figcaption>
             </figure>
+
             <figure style="margin:0">
-              <img src="assignment1/m1_draft_results/runs/mlp/20260921-161808-256658-m1-draft/figures/prediction_examples.png"
-                   alt="Correct and incorrect MLP predictions on Fashion-MNIST"
-                   style="width:100%; border-radius:12px; border:1px solid var(--border-card)" />
-              <figcaption style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem">Figure 12 — MLP prediction examples.</figcaption>
+              <a href="assignment1/report/figures/mlp_prediction_examples.png"
+                target="_blank" rel="noopener">
+                <img src="assignment1/report/figures/mlp_prediction_examples.png"
+                    alt="Correct and incorrect MLP predictions from the M2 baseline"
+                    style="width:100%; border-radius:12px; border:1px solid var(--border-card)" />
+              </a>
+              <figcaption>Figure 8 — MLP prediction examples.</figcaption>
             </figure>
+
             <figure style="margin:0">
-              <img src="assignment1/m1_draft_results/runs/cnn/20260921-162600-610637-m1-draft/figures/prediction_examples.png"
-                   alt="Correct and incorrect CNN predictions on Fashion-MNIST"
-                   style="width:100%; border-radius:12px; border:1px solid var(--border-card)" />
-              <figcaption style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem">Figure 13 — CNN prediction examples.</figcaption>
+              <a href="assignment1/report/figures/cnn_prediction_examples.png"
+                target="_blank" rel="noopener">
+                <img src="assignment1/report/figures/cnn_prediction_examples.png"
+                    alt="Correct and incorrect CNN predictions from the M2 baseline"
+                    style="width:100%; border-radius:12px; border:1px solid var(--border-card)" />
+              </a>
+              <figcaption>Figure 9 — CNN prediction examples.</figcaption>
+            </figure>
+
+            <figure style="margin:0">
+              <a href="assignment1/report/figures/rnn_prediction_examples.png"
+                target="_blank" rel="noopener">
+                <img src="assignment1/report/figures/rnn_prediction_examples.png"
+                    alt="Correct and incorrect GRU predictions from the M2 baseline"
+                    style="width:100%; border-radius:12px; border:1px solid var(--border-card)" />
+              </a>
+              <figcaption>Figure 10 — GRU prediction examples.</figcaption>
+            </figure>
+
+            <figure style="margin:0">
+              <a href="assignment1/report/figures/transformer_prediction_examples.png"
+                target="_blank" rel="noopener">
+                <img src="assignment1/report/figures/transformer_prediction_examples.png"
+                    alt="Correct and incorrect Transformer predictions from the M2 baseline"
+                    style="width:100%; border-radius:12px; border:1px solid var(--border-card)" />
+              </a>
+              <figcaption>Figure 11 — Transformer prediction examples.</figcaption>
             </figure>
           </div>
         </div>
@@ -954,17 +1080,26 @@
         </div>
         <div class="content-card">
           <p>
-            This draft is limited to Fashion-MNIST, one stratified split, one random seed, one hardware
-            environment, and three epochs without data augmentation or systematic hyperparameter search.
-            Timing results are hardware-dependent, and the short curves do not establish convergence. The
-            recurrent and Transformer models required for M2 are not part of this M1 comparison.
+            These M2 baselines are limited to Fashion-MNIST, one stratified
+            train/validation split, and one random seed. All models use a shared
+            training recipe with a maximum of 20 epochs and early stopping,
+            without data augmentation or systematic hyperparameter search.
+            Results are not averaged across repeated runs, and timing measurements
+            depend on the hardware and software environment. The shared recipe
+            may not be optimal for every architecture, so these results do not
+            establish a universal model ranking.
           </p>
+
           <p>
-            Within those limits, nonlinear modeling improved predictive performance over the Linear baseline:
-            the MLP produced the best M1 accuracy and Macro-F1. The Linear model remained substantially smaller
-            and faster, while the CNN provided a spatially appropriate inductive bias without yet surpassing the
-            MLP. The M2 Final will train and compare all five architectures, repeat evaluation consistently, and
-            expand the discussion of representation, inductive bias, and efficiency.
+            Under this protocol, CNN achieved the strongest test accuracy
+            (90.23%) and Macro-F1 (0.9023), with fewer parameters than MLP
+            and Transformer. Linear remained the smallest and fastest recorded
+            inference baseline, while GRU and Transformer were competitive.
+            Confusion among similar upper-body garments, especially Shirt,
+            remains a challenge across all five models. Further work should
+            include multiple random seeds and validation-based tuning to assess
+            the stability of the accuracy, model-size, and computational-cost
+            trade-offs.
           </p>
         </div>
       </section>
@@ -976,32 +1111,46 @@
           <h2 class="section-title">Deliverables &amp; Links</h2>
         </div>
         <div class="links-grid">
-          <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/tree/a1-m1-draft-2026-09-23-final/assignment1" class="link-btn-card" target="_blank" rel="noopener">
+          <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/tree/a1-m2-baselines-2026-09-25/assignment1"
+            class="link-btn-card" target="_blank" rel="noopener">
             <div class="link-icon-box">💻</div>
             <div>
-              <span class="link-label">Source Code</span>
-              <span class="link-sub">Preserved M1 Draft tag</span>
+              <span class="link-label">M2 Baseline Source Code</span>
+              <span class="link-sub">Tagged code and configuration matching the results</span>
             </div>
           </a>
-          <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/a1-m1-draft-2026-09-23-final/assignment1/README.md#reproduce-a-training-run" class="link-btn-card" target="_blank" rel="noopener">
+
+          <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/releases/tag/a1-m2-baselines-2026-09-25"
+            class="link-btn-card" target="_blank" rel="noopener">
             <div class="link-icon-box">🗂️</div>
             <div>
-              <span class="link-label">Reproduce Checkpoints</span>
-              <span class="link-sub">Commands and saved M1 run artifacts</span>
+              <span class="link-label">M2 Baseline Checkpoints</span>
+              <span class="link-sub">Five saved models, results, and figures</span>
             </div>
           </a>
-          <div class="link-btn-card" style="cursor:default; opacity:0.75">
+          <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/main/assignment1/report/report.md"
+            class="link-btn-card" target="_blank" rel="noopener">
             <div class="link-icon-box">📄</div>
             <div>
-              <span class="link-label">Report / Slides</span>
-              <span class="link-sub">Planned for M2 Final · 21 Oct 2026</span>
+              <span class="link-label">M2 Report</span>
+              <span class="link-sub">Results, discussion, and reproduction instructions</span>
             </div>
-          </div>
-          <div class="link-btn-card" style="cursor:default; opacity:0.75">
-            <div class="link-icon-box">▶️</div>
+          </a>
+
+          <a href="assignment1/notebooks/02_results_analysis.html"
+            class="link-btn-card" target="_blank" rel="noopener">
+            <div class="link-icon-box">📊</div>
             <div>
-              <span class="link-label">YouTube Video</span>
-              <span class="link-sub">Planned for M2 Final · 21 Oct 2026</span>
+              <span class="link-label">M2 Results Analysis</span>
+              <span class="link-sub">Five-model comparison and error analysis</span>
+            </div>
+          </a>
+
+          <div class="link-btn-card" style="cursor:default; opacity:0.75">
+            <div class="link-icon-box">📽️</div>
+            <div>
+              <span class="link-label">Slides</span>
+              <span class="link-sub">Pending for M2 Final · 21 Oct 2026</span>
             </div>
           </div>
         </div>
@@ -1061,6 +1210,25 @@
                   <td><code>src/models/rnn.py</code>, <code>transformer.py</code>, <code>config/rnn.yaml</code>, <code>config/transformer.yaml</code></td>
                   <td>Input/output shapes asserted in <code>tests/test_models/test_gru.py</code> and <code>test_transformer.py</code>; behaviour of <code>nn.GRU</code> and <code>nn.TransformerEncoderLayer</code> checked against the PyTorch documentation before use.</td>
                 </tr>
+                <tr>
+                  <td>Codex — OpenAI</td>
+                  <td>Tran Manh Thang<br />2353124</td>
+                  <td>
+                    September 2026, M2: assistance with experiment tracking,
+                    results analysis, report wording, and website HTML updates.
+                  </td>
+                  <td>
+                    Experiment-tracking code and tests,
+                    <code>02_results_analysis.ipynb</code>,
+                    <code>report/report.md</code>, and
+                    <code>assignment1.html</code>.
+                  </td>
+                  <td>
+                    Checked reported metrics against saved run files,
+                    ran automated tests, and manually checked website
+                    links, figures, and readability.
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -1070,9 +1238,11 @@
             chat histories and can provide the verbatim prompts on request.
           </p>
           <p>
-            <strong>No AI-generated results.</strong> No metric, curve, confusion matrix, or prediction example on this
-            page was produced or estimated by an AI tool. Every M1 number is read from a real run preserved under
-            <code>assignment1/m1_draft_results/runs/&lt;model&gt;/&lt;run-id&gt;/</code>.
+            <strong>Results provenance.</strong> M2 metrics come from the saved
+            <code>training.json</code> and <code>evaluation.json</code> files.
+            Curves, confusion matrices, and prediction examples visualize outputs
+            from executed training and evaluation runs, not AI-estimated results.
+            AI assistance included drafting and reviewing explanatory text and HTML.
           </p>
           <p>
             <strong>Responsible members.</strong> Tran Manh Thang for the website, data pipeline, and training loop;
