@@ -99,6 +99,20 @@ python -m experiments.run --model transformer --epochs 20 --run-name m2-reproduc
 
 Each command creates a new `results/runs/<model>/<run-id>/` directory containing `best_model.pt`, `training.json`, `evaluation.json`, and generated figures. These run directories are Git-ignored, so the original checkpoints are not included in a fresh clone. Recreating the same protocol requires the corresponding code, configuration, and dependencies; results and timings may vary slightly between environments.
 
+The saved M2 baseline checkpoints are available in the
+[M2 baseline release](https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/releases/tag/a1-m2-baselines-2026-09-25).
+Download `a1-m2-baseline-runs-20260925-122457.zip`. Each folder in the ZIP
+is named by run ID; the table below maps each run ID to its model. To evaluate
+a checkpoint, place its run folder under `results/runs/<model>/` and use the
+code and configuration from the release tag.
+
+For example, after extracting the Linear run folder to
+`results/runs/linear/20260924-124837-513213-m2-baseline/`, run:
+
+```powershell
+python -m experiments.run --model linear --evaluate-only --run-id 20260924-124837-513213-m2-baseline
+```
+
 The results in this report came from these baseline runs:
 
 | Model | Run ID |
