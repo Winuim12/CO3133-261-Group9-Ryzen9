@@ -73,7 +73,7 @@ The following table compares test recall by class. Recall is the percentage of a
 | Bag | 94.2% | 97.5% | 98.3% | 97.8% | 96.9% |
 | Ankle boot | 92.2% | 95.4% | 96.1% | 95.4% | 95.2% |
 
-Shirt was the lowest-recall class for every model, supporting the difficulty anticipated from the EDA images. Shirt recall ranged from 50.9% for Linear to 71.8% for GRU; CNN correctly identified 717 of the 1,000 test shirts (71.7%). Of the shirts CNN missed, 114 were predicted as T-shirt/top and 81 as coat. These errors show that visually similar upper-body garments remain difficult even for the best overall model.
+Shirt was the lowest-recall class for every model supporting the difficulty anticipated from the EDA images. Shirt recall ranged from 50.9% for Linear to 71.8% for GRU; CNN correctly identified 717 of the 1,000 test shirts (71.7%). Of the shirts CNN missed, 114 were predicted as T-shirt/top and 81 as coat. These errors show that visually similar upper-body garments remain difficult even for the best overall model.
 
 <img src="figures/all_model_confusion_matrices.png" alt="Confusion matrices for Linear, MLP, CNN, GRU, and Transformer" width="2000">
 

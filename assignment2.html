@@ -6,6 +6,220 @@
   <title>Assignment 2</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" type="image/png" href="hcmut_logo.png" />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+#dataset-proposal {
+  --proposal-accent: #6d28d9;
+  --proposal-ink: #272139;
+  --proposal-muted: #64748b;
+  --proposal-line: #e9e6f0;
+}
+#dataset-proposal *,
+#dataset-proposal *::before,
+#dataset-proposal *::after { box-sizing: border-box; }
+#dataset-proposal .proposal-card {
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--proposal-line);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 12px 36px rgb(39 33 57 / 5%);
+}
+#dataset-proposal .proposal-hero {
+  padding: clamp(24px, 4vw, 48px);
+  background: linear-gradient(120deg, #faf8ff, #fff);
+  border-bottom: 1px solid var(--proposal-line);
+}
+#dataset-proposal .proposal-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+#dataset-proposal .status-badge,
+#dataset-proposal .due-badge {
+  display: inline-flex;
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+#dataset-proposal .status-badge {
+  align-items: center;
+  gap: 10px;
+  padding: 8px 15px 8px 8px;
+  border: 1px solid #f0dba9;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #fffbf1, #fff4da);
+  color: #805217;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  box-shadow: 0 3px 10px rgb(128 82 23 / 6%);
+}
+#dataset-proposal .status-badge-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #f9e8be;
+  color: #986817;
+}
+#dataset-proposal .status-badge-icon svg { display: block; width: 16px; height: 16px; }
+#dataset-proposal .due-badge { background: #eee8fa; color: var(--proposal-accent); }
+#dataset-proposal .proposal-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 56px);
+}
+#dataset-proposal .proposal-copy { min-width: 0; align-self: start; }
+#dataset-proposal .badge-track {
+  color: var(--proposal-accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+#dataset-proposal .proposal-title-box { margin: 14px 0 18px; }
+#dataset-proposal .proposal-title {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
+  letter-spacing: -0.055em;
+  line-height: 1.08;
+  color: var(--proposal-ink);
+}
+#dataset-proposal .proposal-desc {
+  margin: 0 0 24px;
+  max-width: 52ch;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--proposal-muted);
+}
+#dataset-proposal .action-links { display: flex; flex-wrap: wrap; gap: 10px; }
+#dataset-proposal .action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid #ddd5ed;
+  border-radius: 9px;
+  background: #fff;
+  color: var(--proposal-accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 150ms ease;
+}
+#dataset-proposal .action-btn.primary { background: var(--proposal-accent); border-color: var(--proposal-accent); color: #fff; }
+#dataset-proposal .action-btn:hover { background: #f0eafa; }
+#dataset-proposal .action-btn.primary:hover { background: #5b21b6; }
+#dataset-proposal a:focus-visible { outline: 3px solid #a78bfa; outline-offset: 4px; }
+#dataset-proposal .proposal-preview { margin: 0; overflow: hidden; border: 1px solid var(--proposal-line); border-radius: 14px; background: #fff; }
+#dataset-proposal .proposal-preview img { display: block; width: 100%; height: 250px; object-fit: cover; object-position: center; }
+#dataset-proposal .proposal-preview figcaption { padding: 16px 18px; }
+#dataset-proposal .proposal-preview figcaption span { display: block; margin-bottom: 6px; color: var(--proposal-accent); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; }
+#dataset-proposal .proposal-preview figcaption strong { font-size: 0.85rem; color: var(--proposal-ink); }
+#dataset-proposal .proposal-body { padding: 0 clamp(24px, 4vw, 48px); background: #fff; }
+#dataset-proposal .proposal-section {
+  padding: 32px 0;
+  border-bottom: 1px solid var(--proposal-line);
+  min-width: 0;
+}
+#dataset-proposal .proposal-section:last-child { border-bottom: 0; }
+#dataset-proposal .section-heading { margin-bottom: 24px; }
+#dataset-proposal .section-heading-left { display: flex; align-items: center; gap: 14px; }
+#dataset-proposal .section-badge-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: #f1ebfc;
+  color: var(--proposal-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+#dataset-proposal .section-heading h3 { margin: 0; color: var(--proposal-ink); font-size: 1rem; line-height: 1.5; letter-spacing: -0.015em; }
+#dataset-proposal .proposal-section p { margin: 0; color: #596579; font-size: 0.85rem; line-height: 1.8; }
+#dataset-proposal .dataset-overview { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr); gap: 32px; }
+#dataset-proposal .dataset-identity { padding-top: 4px; }
+#dataset-proposal .dataset-identity h4 { margin: 0 0 8px; color: var(--proposal-ink); font-size: 1.7rem; letter-spacing: -0.04em; }
+#dataset-proposal .dataset-identity p { max-width: 25ch; }
+#dataset-proposal .dataset-details { margin: 0; }
+#dataset-proposal .dataset-details > div { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 20px; padding: 12px 0; border-bottom: 1px solid var(--proposal-line); }
+#dataset-proposal .dataset-details > div:first-child { padding-top: 4px; }
+#dataset-proposal .dataset-details > div:last-child { border-bottom: 0; padding-bottom: 0; }
+#dataset-proposal .dataset-details dt { color: var(--proposal-muted); font-size: 0.8rem; line-height: 1.6; }
+#dataset-proposal .dataset-details dd { margin: 0; color: var(--proposal-ink); font-size: 0.85rem; font-weight: 600; line-height: 1.6; }
+#dataset-proposal .dataset-details a { color: var(--proposal-accent); text-decoration: none; }
+#dataset-proposal .dataset-details a:hover { text-decoration: underline; text-underline-offset: 4px; }
+#dataset-proposal .detail-muted { display: block; margin-top: 4px; font-size: 0.8rem; color: var(--proposal-muted); font-weight: 400; }
+#dataset-proposal .license-source { display: inline-block; margin-top: 6px; font-size: 0.8rem; }
+#dataset-proposal .protocol-grid,
+#dataset-proposal .sample-annotation-details { display: grid; gap: 24px; }
+#dataset-proposal .protocol-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+#dataset-proposal .sample-annotation-details { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+#dataset-proposal .protocol-tile { min-width: 0; padding: 0 0 0 16px; border-left: 2px solid #e8e0f3; }
+#dataset-proposal .tile-label { display: block; margin-bottom: 9px; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.065em; text-transform: uppercase; color: #80738f; }
+#dataset-proposal .protocol-tile > strong { display: block; margin-bottom: 8px; color: var(--proposal-ink); font-size: 0.95rem; line-height: 1.55; }
+#dataset-proposal .protocol-tile > .tile-number { font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+#dataset-proposal .metric-primary { border-left-color: var(--proposal-accent); }
+#dataset-proposal .metric-primary > strong { color: var(--proposal-accent); }
+#dataset-proposal .distribution-chart { margin: 0 0 28px; padding: 20px; background: #fcfbfe; border: 1px solid var(--proposal-line); border-radius: 12px; }
+#dataset-proposal .distribution-chart img { display: block; width: 100%; max-width: 720px; height: auto; margin: 0 auto; }
+#dataset-proposal .distribution-chart figcaption { margin-top: 12px; color: var(--proposal-muted); font-size: 0.75rem; text-align: center; line-height: 1.6; }
+#dataset-proposal .proposal-note { margin-top: 24px; padding: 14px 18px; border-radius: 9px; background: #f7f4fc; color: #62566f; font-size: 0.8rem; line-height: 1.8; }
+#dataset-proposal .section-heading + .proposal-note { margin-top: 0; }
+#dataset-proposal .split-progress-bar { display: flex; overflow: hidden; margin: 24px 0 0; border-radius: 10px; }
+#dataset-proposal .split-segment { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; min-width: 0; padding: 18px 8px; }
+#dataset-proposal .split-train { flex: 70; color: #fff; background: #6d28d9; }
+#dataset-proposal .split-val { flex: 15; color: #4c1d95; background: #e4d9f7; }
+#dataset-proposal .split-test { flex: 15; color: #5e4b77; background: #f0eafa; }
+#dataset-proposal .split-title { font-size: 0.8rem; font-weight: 700; }
+#dataset-proposal .split-subtitle { font-size: 0.7rem; font-variant-numeric: tabular-nums; }
+#dataset-proposal .protocol-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; list-style: none; counter-reset: steps; margin: 24px 0 0; padding: 0; }
+#dataset-proposal .protocol-steps li { counter-increment: steps; min-width: 0; padding-left: 16px; border-left: 2px solid #e8e0f3; }
+#dataset-proposal .protocol-steps li::before { content: '0' counter(steps); display: block; margin-bottom: 8px; color: var(--proposal-accent); font-size: 0.7rem; font-weight: 700; }
+#dataset-proposal .protocol-steps strong { display: block; margin-bottom: 8px; color: var(--proposal-ink); font-size: 0.9rem; }
+#dataset-proposal .protocol-steps span { display: block; color: #596579; font-size: 0.85rem; line-height: 1.8; }
+#dataset-proposal .model-candidates { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 0; padding: 0; list-style: none; }
+#dataset-proposal .model-candidates li { padding: 9px 14px; border: 1px solid var(--proposal-line); border-radius: 8px; color: #514464; font-size: 0.8rem; font-weight: 600; background: #fcfbfe; }
+@media (max-width: 900px) {
+  #dataset-proposal .protocol-grid,
+  #dataset-proposal .protocol-steps { grid-template-columns: 1fr; gap: 20px; }
+  #dataset-proposal .proposal-preview img { height: 210px; }
+}
+@media (max-width: 640px) {
+  #dataset-proposal .proposal-card { border-radius: 16px; }
+  #dataset-proposal .proposal-intro,
+  #dataset-proposal .dataset-overview,
+  #dataset-proposal .sample-annotation-details { grid-template-columns: 1fr; gap: 24px; }
+  #dataset-proposal .proposal-topbar { margin-bottom: 24px; }
+  #dataset-proposal .proposal-section { padding: 28px 0; }
+  #dataset-proposal .dataset-details > div { grid-template-columns: 100px minmax(0, 1fr); gap: 12px; }
+  #dataset-proposal .section-heading-left { gap: 10px; align-items: flex-start; }
+  #dataset-proposal .section-heading h3 { padding-top: 4px; }
+  #dataset-proposal .distribution-chart { padding: 10px; }
+  #dataset-proposal .split-progress-bar { flex-direction: column; }
+  #dataset-proposal .split-segment { flex: auto; flex-direction: row; justify-content: space-between; padding: 14px 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #dataset-proposal .action-btn { transition: none; }
+}
+  </style>
 </head>
 <body class="a2-page">
   <div class="bg-animated"></div>
@@ -31,7 +245,7 @@
       <div class="page-hero-bright a2-theme">
         <img class="hero-logo" src="hcmut_logo.png" alt="HCMUT Logo" />
         <div style="font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:700; color:#7c3aed; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.4rem;">
-          Assignment 02 · CO3133 · Semester-261
+          Assignment 02, CO3133, Semester-261
         </div>
         <h1 class="page-hero-title-bright">Deep Learning on Large-Scale Data and Specialized Tasks</h1>
         <p class="page-hero-topic-bright">
@@ -62,7 +276,7 @@
             </div>
             <div class="info-item">
               <div class="info-item-label">Group</div>
-              <div class="info-item-val">Group 09 - Ryzen9 · CO3133 · Semester-261</div>
+              <div class="info-item-val">Group 09 - Ryzen9 / CO3133 / Semester-261</div>
             </div>
           </div>
 
@@ -82,7 +296,7 @@
                 </tr>
                 <tr>
                   <td>2</td>
-                  <td><strong>Phan Tan Loc</strong> <span class="weight-pill">Lead</span></td>
+                  <td>Phan Tan Loc</td>
                   <td>2352712</td>
                   <td>Work on Assignment 2</td>
                   <td><a href="https://github.com/cspaull" target="_blank" rel="noopener" style="color:#7c3aed; font-weight:600;">@cspaull</a></td>
@@ -100,6 +314,137 @@
         </div>
       </section>
 
+      <!-- Dataset Proposal and Approval -->
+      <section class="section-block" id="dataset-proposal">
+        <div class="section-header">
+          <h2 class="section-title">Dataset Proposal</h2>
+        </div>
+        <div class="content-card proposal-card">
+
+          <!-- Hero Banner -->
+          <div class="proposal-hero">
+            <div class="proposal-topbar">
+                <span class="status-badge"><span class="status-badge-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></svg></span><span>Pending Instructor Approval</span></span>
+                <span class="due-badge"><span>Milestone M1</span></span>
+            </div>
+
+            <div class="proposal-intro">
+            <div class="proposal-copy">
+            <div class="badge-track"> Selected Track: Image Classification</div>
+
+            <div class="proposal-title-box">
+              <h3 class="proposal-title">30VNFoods</h3>
+            </div>
+
+            <p class="proposal-desc">Vietnamese food recognition across 30 categories, with similar dishes, varied preparation, cluttered backgrounds, and changing lighting.</p>
+            <div class="action-links">
+              <a href="https://www.kaggle.com/datasets/quandang/vietnamese-foods" target="_blank" rel="noopener" class="action-btn primary">Kaggle Benchmark<span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/18520339" target="_blank" rel="noopener" class="action-btn">Author’s GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+            </div>
+            <figure class="proposal-preview">
+              <img src="assets/eda/assignment2-example-batch.jpg" alt="Dataset samples including bánh bèo, bánh mì, phở, cơm tấm and other Vietnamese dishes" width="896" height="1000" />
+              <figcaption><span>REAL DATASET SAMPLES</span><strong>A taste of 30 Vietnamese food classes</strong></figcaption>
+            </figure>
+            </div>
+
+          </div>
+
+          <div class="proposal-body">
+            <div class="proposal-section">
+              <div class="section-heading"><div class="section-heading-left"><span class="section-badge-num">01</span><h3>Dataset Name, Source, Version, and License</h3></div></div>
+              <div class="dataset-overview">
+                <div class="dataset-identity">
+                  <h4>30VNFoods</h4>
+                  <p>Vietnamese Foods Image Dataset</p>
+                </div>
+                <dl class="dataset-details">
+                  <div><dt>Source</dt><dd><a href="https://www.kaggle.com/datasets/quandang/vietnamese-foods" target="_blank" rel="noopener">View dataset on Kaggle ↗</a></dd></div>
+                  <div><dt>Dataset version</dt><dd>Kaggle version 11<span class="detail-muted">Version used for this project</span></dd></div>
+                  <div><dt>Data checked</dt><dd>03 Oct 2026<span class="detail-muted">Date of the dataset audit</span></dd></div>
+                  <div><dt>License</dt><dd>MIT License<span class="detail-muted">Copyright &copy; 2021 Quan Dang</span><a class="license-source" href="https://www.kaggle.com/datasets/quandang/vietnamese-foods" target="_blank" rel="noopener">LICENSE file on Kaggle ↗</a></dd></div>
+                </dl>
+              </div>
+            </div>
+            <div class="proposal-section">
+              <div class="section-heading"><div class="section-heading-left"><span class="section-badge-num">02</span><h3>Task, Input, and Output Definitions</h3></div></div>
+              <div class="protocol-grid">
+                <div class="protocol-tile"><span class="tile-label">Input</span><strong>224 × 224 RGB</strong><p>Image resized and cropped to the standard resolution.</p></div>
+                <div class="protocol-tile"><span class="tile-label">Task</span><strong>Single-label classification</strong><p>Recognize the Vietnamese dish in each image.</p></div>
+                <div class="protocol-tile"><span class="tile-label">Output</span><strong>30 class scores</strong><p>The highest-scoring class is the prediction.</p></div>
+              </div>
+            </div>
+            <div class="proposal-section">
+              <div class="section-heading"><div class="section-heading-left"><span class="section-badge-num">03</span><h3>Number of Samples and Annotation Types</h3></div></div>
+              <div class="sample-annotation-details">
+                <div class="protocol-tile"><span class="tile-label">Number of samples</span><strong class="tile-number">25,136 images</strong><p>Original dataset across 30 Vietnamese food classes. Each image is one sample.</p></div>
+                <div class="protocol-tile"><span class="tile-label">Annotation type</span><strong>Food name for each image</strong><p>Each image is labeled with one of 30 food names, such as Pho or Banh mi. Images are grouped into folders named after the food; the folder name is used as the label.</p></div>
+              </div>
+            </div>
+            <div class="proposal-section">
+              <div class="section-heading"><div class="section-heading-left"><span class="section-badge-num">04</span><h3>Preliminary Distribution Analysis</h3></div></div>
+              <figure class="distribution-chart">
+                <span class="tile-label">Images per class</span>
+                <img src="assets/eda/assignment2-class-distribution.svg" alt="Bar chart showing image counts for all 30 food classes, from 444 images for Banh pia to 1,530 images for Bun bo Hue" width="1000" height="1050" loading="lazy" />
+                <figcaption>Original image counts for all 30 classes</figcaption>
+              </figure>
+              <div class="sample-annotation-details">
+                <div class="protocol-tile"><span class="tile-label">Class imbalance</span><strong>Largest class is 3.45 times the smallest</strong><p>Bun bo Hue has the most images (1,530), while Banh pia has the fewest (444). The ratio is 1,530 / 444 &asymp; 3.45.</p></div>
+                <div class="protocol-tile"><span class="tile-label">Image sizes</span><strong>Resolutions vary across images</strong><p>Median width is 1,000 pixels and median height is 720 pixels. Widths range from 100 to 7,360 pixels; heights range from 83 to 5,616 pixels. These are separate width and height statistics, rather than a single shared resolution.</p></div>
+              </div>
+            </div>
+            <div class="proposal-section">
+              <div class="section-heading"><div class="section-heading-left"><span class="section-badge-num">05</span><h3>Data-Splitting Plan</h3></div></div>
+              <p>Proposed class-stratified 70% / 15% / 15% split after cleaning, with <code>seed = 42</code>. Keep all 30 classes.</p>
+              <div class="split-progress-bar" aria-label="70% training, 15% validation, 15% test">
+                <div class="split-segment split-train"><span class="split-title">Train 70%</span><span class="split-subtitle">17,523 images</span></div>
+                <div class="split-segment split-val"><span class="split-title">Validation 15%</span><span class="split-subtitle">3,753 images</span></div>
+                <div class="split-segment split-test"><span class="split-title">Test 15%</span><span class="split-subtitle">3,749 images</span></div>
+              </div>
+              <div class="proposal-note">Use validation for model selection and reserve test data for final evaluation. Counts are provisional until duplicate review is complete.</div>
+            </div>
+            <div class="proposal-section">
+              <div class="section-heading"><div class="section-heading-left"><span class="section-badge-num">06</span><h3>Split Unit Used to Prevent Leakage</h3></div></div>
+              <div class="proposal-note"><strong>Proposed split unit: a group of duplicate or potentially near-duplicate images.</strong> All retained images in a group go into the same set: train, validation, or test. An image with no detected matches forms its own group.</div>
+              <ol class="protocol-steps">
+                <li><strong>Check exact copies</strong><span>Keep one copy when identical images share a label. Exclude identical images with conflicting labels pending manual review.</span></li>
+                <li><strong>Keep similar images together</strong><span>The provisional split keeps automatically flagged near-duplicate candidates in the same set. Review these candidates and source identities before finalizing the split.</span></li>
+                <li><strong>Prevent overlap</strong><span>This reduces the chance that the model is evaluated on a copy of a training image. Apply augmentation and fit dataset-derived normalization statistics using training data only.</span></li>
+              </ol>
+            </div>
+            <div class="proposal-section">
+              <div class="section-heading"><div class="section-heading-left"><span class="section-badge-num">07</span><h3>Evaluation Metrics</h3></div></div>
+              <div class="protocol-grid">
+                <div class="protocol-tile metric-primary"><span class="tile-label">Primary metric</span><strong>Macro-F1</strong><p>Calculate F1 for each food class, then average across all 30 classes. Each class has equal weight, including those with fewer images.</p></div>
+                <div class="protocol-tile"><span class="tile-label">Additional metrics</span><strong>Accuracy and per-class scores</strong><p>Accuracy measures the proportion of correctly classified images. Precision, recall, and F1 are also reported for each food class.</p></div>
+                <div class="protocol-tile"><span class="tile-label">Error analysis</span><strong>Confusion matrix</strong><p>A 30 &times; 30 matrix shows the true and predicted food classes, revealing which dishes the model commonly confuses.</p></div>
+              </div>
+              <div class="proposal-note">Select the model checkpoint using the highest validation Macro-F1. After model selection is complete, report all metrics on the held-out test set.</div>
+            </div>
+            <div class="proposal-section">
+              <div class="section-heading"><div class="section-heading-left"><span class="section-badge-num">08</span><h3>Baseline Plan</h3></div></div>
+              <div class="sample-annotation-details">
+                <div class="protocol-tile"><span class="tile-label">Model</span><strong>Lightweight CNN trained from scratch</strong><p>Start with randomly initialized weights. This simple model provides a reference for comparison with the pretrained model.</p></div>
+                <div class="protocol-tile"><span class="tile-label">Input and output</span><strong>224 &times; 224 RGB images to 30 food classes</strong><p>Each image produces 30 class scores. The class with the highest score is the predicted food name.</p></div>
+                <div class="protocol-tile"><span class="tile-label">Training plan</span><strong>Cross-Entropy loss and Adam optimizer</strong><p>Train for up to 20 epochs. Use the same data split as the pretrained model for a fair comparison.</p></div>
+                <div class="protocol-tile"><span class="tile-label">Evaluation plan</span><strong>Select by validation Macro-F1</strong><p>Keep the checkpoint with the highest validation Macro-F1. Report test Accuracy and Macro-F1, along with per-class scores and a confusion matrix.</p></div>
+              </div>
+            </div>
+            <div class="proposal-section">
+              <div class="section-heading"><div class="section-heading-left"><span class="section-badge-num">09</span><h3>Planned Pretrained Models</h3></div></div>
+              <p>Candidates under consideration; the final model has not been selected.</p>
+              <ul class="model-candidates" aria-label="Pretrained model candidates">
+                <li>EfficientNet-B0</li><li>ResNet-50</li><li>ConvNeXt-Tiny</li><li>ViT-B/16</li><li>MobileNetV3-Large</li>
+              </ul>
+            </div>
+            <div class="proposal-section">
+              <div class="section-heading"><div class="section-heading-left"><span class="section-badge-num">10</span><h3>Compute Estimate</h3></div></div>
+              <p>Experiments are planned to run on available local hardware or a cloud GPU environment. Compute requirements will depend on the selected model and training configuration. Training time, memory usage, and storage needs will be estimated through a short trial run before the main experiments.</p>
+            </div>
+          </div><!-- /.proposal-body -->
+        </div><!-- /.proposal-card -->
+      </section>
+
       <!-- Problem Statement -->
       <section class="section-block">
         <div class="section-header">
@@ -114,8 +459,7 @@
           
           <h3>Chosen Task Track</h3>
           <p>
-            <strong>[Fill in here]</strong> — State your selected task track: Image classification, Text classification / sequence labeling,
-            Object detection, Semantic / instance segmentation, Person / vehicle re-identification, Monocular depth estimation, or other approved task.
+            <strong>Track 1: Image Classification</strong> — Fine-grained Vietnamese Food Recognition across 30 categories (<strong>30VNFoods</strong>).
           </p>
 
           <h3>Learning Objectives</h3>
@@ -138,19 +482,15 @@
         <div class="content-card">
           <h3>Dataset Proposal &amp; Approval Record</h3>
           <p>
-            Status: <strong>[Approved / Approved with conditions / Rejected]</strong>
+            Status: <span class="status-pill status-pending" style="background:#fffbeb; color:#92400e; border:1px solid #fde68a; padding:0.25rem 0.75rem; border-radius:9999px; font-weight:700; font-size:0.82rem;">Pending Instructor Review (Submitted M1 Proposal)</span>
           </p>
-          <ul class="styled-list">
-            <li>Dataset name, source, version, and license.</li>
-            <li>Task, input, and output definitions.</li>
-            <li>Number of samples and annotation types.</li>
-            <li>Data-splitting plan and split unit used to prevent leakage.</li>
-            <li>Evaluation metric(s), baseline plan, planned pretrained model(s), compute estimate.</li>
-          </ul>
+          <p style="margin-top:0.6rem;">
+            Dataset details, the preliminary audit, data split, metrics, and model candidates are listed in the <a href="#dataset-proposal" style="color:#7c3aed; font-weight:700;">Assignment 2 Dataset Proposal</a> section above.
+          </p>
 
-          <h3>Task-Specific EDA Expectations</h3>
+          <h3 style="margin-top:1.25rem;">Task-Specific EDA Expectations (§22)</h3>
           <p>
-            <strong>[Fill in here]</strong> — Report task-specific EDA (class distribution, bounding-box distributions, pixel distributions, identity counts, depth scales as applicable), leakage prevention, preprocessing, and example batches.
+            Detailed exploratory data analysis (per-class frequency histogram, resolution heatmaps, RGB channel mean/std distributions, and example batches per dish category) will be generated and visualized here following formal approval of Milestone M1.
           </p>
         </div>
       </section>
@@ -282,11 +622,11 @@
               <span class="link-sub">CO3133-261-Group9-Ryzen9-Assignment2</span>
             </div>
           </a>
-          <a href="#" class="link-btn-card" target="_blank" rel="noopener">
+          <a href="#dataset-proposal" class="link-btn-card">
             <div class="link-icon-box" style="background:#f3e8ff; color:#7c3aed;">📋</div>
             <div>
               <span class="link-label">Dataset Proposal</span>
-              <span class="link-sub">[Proposal &amp; Status]</span>
+              <span class="link-sub">#dataset-proposal (Pending)</span>
             </div>
           </a>
         </div>
@@ -327,7 +667,7 @@
       <p>
         <strong>Ho Chi Minh City University of Technology – VNU-HCM</strong><br />
         Faculty of Computer Science and Engineering<br />
-        Deep Learning and Its Applications (CO3133) · Semester-261
+        Deep Learning and Its Applications (CO3133) / Semester-261
       </p>
     </div>
   </footer>
