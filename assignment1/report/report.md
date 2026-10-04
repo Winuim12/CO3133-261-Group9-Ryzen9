@@ -12,7 +12,7 @@ Fashion-MNIST contains 70,000 labelled grayscale images across ten clothing clas
 
 The official training set is balanced, with 6,000 images in each class, so class imbalance does not require weighting or resampling. Representative samples show that trousers and bags have distinctive outlines, while shirt, T-shirt/top, pullover, and coat look more similar at this resolution. This suggests that distinguishing those upper-body clothing classes may be challenging; the evaluation results will test whether that expectation appears in the models' errors.
 
-<img src="../../assets/assignment1/representative-samples.png" alt="Representative sample from each Fashion-MNIST class" width="800">
+<img src="../../assets/eda/representative-samples.png" alt="Representative sample from each Fashion-MNIST class" width="800">
 
 *Representative images from the ten Fashion-MNIST classes.*
 
