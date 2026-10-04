@@ -60,7 +60,7 @@ provide the verbatim prompts on request.
   EDA notebook output into the Dataset & EDA section of the Assignment 1 page; write the Problem
   Statement and Methodology sections from the handbook and the repository code.
 - **Affected sections / files:** `index.html`, `assignment1.html`, `assignment2.html`,
-  `assignment3.html`, `styles.css`, `README.md`, `assets/eda/`
+  `assignment3.html`, `styles.css`, `README.md`, `assets/assignment1/`
 - **Prompt summary:** Asked for an HTML page structure covering the minimum content required by the
   course handbook; asked to turn the exported EDA notebook into a page section; asked to write the
   Problem Statement and Methodology from the handbook plus the actual code in `src/`.

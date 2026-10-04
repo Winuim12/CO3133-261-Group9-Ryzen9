@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1050" viewBox="0 0 1000 1050">
+<rect width="1000" height="1050" fill="white"/>
+<text x="20" y="30" font-size="22">30VNFoods v11: measured images per class</text>
+<text x="15" y="73" font-size="15">Banh beo</text>
+<rect x="230" y="55" width="274.01960784313724" height="23" fill="#7c3aed"/>
+<text x="514.0196078431372" y="73" font-size="14">645</text>
+<text x="15" y="105" font-size="15">Banh bot loc</text>
+<rect x="230" y="87" width="305.88235294117646" height="23" fill="#7c3aed"/>
+<text x="545.8823529411765" y="105" font-size="14">720</text>
+<text x="15" y="137" font-size="15">Banh can</text>
+<rect x="230" y="119" width="316.078431372549" height="23" fill="#7c3aed"/>
+<text x="556.078431372549" y="137" font-size="14">744</text>
+<text x="15" y="169" font-size="15">Banh canh</text>
+<rect x="230" y="151" width="409.5424836601307" height="23" fill="#7c3aed"/>
+<text x="649.5424836601308" y="169" font-size="14">964</text>
+<text x="15" y="201" font-size="15">Banh chung</text>
+<rect x="230" y="183" width="214.9673202614379" height="23" fill="#7c3aed"/>
+<text x="454.96732026143786" y="201" font-size="14">506</text>
+<text x="15" y="233" font-size="15">Banh cuon</text>
+<rect x="230" y="215" width="484.3137254901961" height="23" fill="#7c3aed"/>
+<text x="724.313725490196" y="233" font-size="14">1140</text>
+<text x="15" y="265" font-size="15">Banh duc</text>
+<rect x="230" y="247" width="281.24183006535947" height="23" fill="#7c3aed"/>
+<text x="521.2418300653594" y="265" font-size="14">662</text>
+<text x="15" y="297" font-size="15">Banh gio</text>
+<rect x="230" y="279" width="272.3202614379085" height="23" fill="#7c3aed"/>
+<text x="512.3202614379086" y="297" font-size="14">641</text>
+<text x="15" y="329" font-size="15">Banh khot</text>
+<rect x="230" y="311" width="354.73856209150324" height="23" fill="#7c3aed"/>
+<text x="594.7385620915032" y="329" font-size="14">835</text>
+<text x="15" y="361" font-size="15">Banh mi</text>
+<rect x="230" y="343" width="567.5816993464052" height="23" fill="#7c3aed"/>
+<text x="807.5816993464052" y="361" font-size="14">1336</text>
+<text x="15" y="393" font-size="15">Banh pia</text>
+<rect x="230" y="375" width="188.62745098039218" height="23" fill="#7c3aed"/>
+<text x="428.62745098039215" y="393" font-size="14">444</text>
+<text x="15" y="425" font-size="15">Banh tet</text>
+<rect x="230" y="407" width="291.43790849673206" height="23" fill="#7c3aed"/>
+<text x="531.437908496732" y="425" font-size="14">686</text>
+<text x="15" y="457" font-size="15">Banh trang nuong</text>
+<rect x="230" y="439" width="337.7450980392157" height="23" fill="#7c3aed"/>
+<text x="577.7450980392157" y="457" font-size="14">795</text>
+<text x="15" y="489" font-size="15">Banh xeo</text>
+<rect x="230" y="471" width="498.33333333333337" height="23" fill="#7c3aed"/>
+<text x="738.3333333333334" y="489" font-size="14">1173</text>
+<text x="15" y="521" font-size="15">Bun bo Hue</text>
+<rect x="230" y="503" width="650.0" height="23" fill="#7c3aed"/>
+<text x="890.0" y="521" font-size="14">1530</text>
+<text x="15" y="553" font-size="15">Bun dau mam tom</text>
+<rect x="230" y="535" width="389.1503267973856" height="23" fill="#7c3aed"/>
+<text x="629.1503267973856" y="553" font-size="14">916</text>
+<text x="15" y="585" font-size="15">Bun mam</text>
+<rect x="230" y="567" width="328.39869281045753" height="23" fill="#7c3aed"/>
+<text x="568.3986928104575" y="585" font-size="14">773</text>
+<text x="15" y="617" font-size="15">Bun rieu</text>
+<rect x="230" y="599" width="488.98692810457516" height="23" fill="#7c3aed"/>
+<text x="728.9869281045751" y="617" font-size="14">1151</text>
+<text x="15" y="649" font-size="15">Bun thit nuong</text>
+<rect x="230" y="631" width="317.35294117647055" height="23" fill="#7c3aed"/>
+<text x="557.3529411764705" y="649" font-size="14">747</text>
+<text x="15" y="681" font-size="15">Ca kho to</text>
+<rect x="230" y="663" width="287.18954248366015" height="23" fill="#7c3aed"/>
+<text x="527.1895424836601" y="681" font-size="14">676</text>
+<text x="15" y="713" font-size="15">Canh chua</text>
+<rect x="230" y="695" width="350.4901960784314" height="23" fill="#7c3aed"/>
+<text x="590.4901960784314" y="713" font-size="14">825</text>
+<text x="15" y="745" font-size="15">Cao lau</text>
+<rect x="230" y="727" width="262.54901960784315" height="23" fill="#7c3aed"/>
+<text x="502.54901960784315" y="745" font-size="14">618</text>
+<text x="15" y="777" font-size="15">Chao long</text>
+<rect x="230" y="759" width="455.8496732026143" height="23" fill="#7c3aed"/>
+<text x="695.8496732026143" y="777" font-size="14">1073</text>
+<text x="15" y="809" font-size="15">Com tam</text>
+<rect x="230" y="791" width="400.1960784313726" height="23" fill="#7c3aed"/>
+<text x="640.1960784313726" y="809" font-size="14">942</text>
+<text x="15" y="841" font-size="15">Goi cuon</text>
+<rect x="230" y="823" width="363.2352941176471" height="23" fill="#7c3aed"/>
+<text x="603.2352941176471" y="841" font-size="14">855</text>
+<text x="15" y="873" font-size="15">Hu tieu</text>
+<rect x="230" y="855" width="417.61437908496737" height="23" fill="#7c3aed"/>
+<text x="657.6143790849674" y="873" font-size="14">983</text>
+<text x="15" y="905" font-size="15">Mi quang</text>
+<rect x="230" y="887" width="375.55555555555554" height="23" fill="#7c3aed"/>
+<text x="615.5555555555555" y="905" font-size="14">884</text>
+<text x="15" y="937" font-size="15">Nem chua</text>
+<rect x="230" y="919" width="230.26143790849673" height="23" fill="#7c3aed"/>
+<text x="470.26143790849676" y="937" font-size="14">542</text>
+<text x="15" y="969" font-size="15">Pho</text>
+<rect x="230" y="951" width="342.843137254902" height="23" fill="#7c3aed"/>
+<text x="582.843137254902" y="969" font-size="14">807</text>
+<text x="15" y="1001" font-size="15">Xoi xeo</text>
+<rect x="230" y="983" width="222.18954248366015" height="23" fill="#7c3aed"/>
+<text x="462.18954248366015" y="1001" font-size="14">523</text>
+</svg>

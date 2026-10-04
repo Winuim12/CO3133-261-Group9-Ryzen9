@@ -23,7 +23,7 @@ CO3133-261-Group9-Ryzen9/
 ├── assignment3.html      # Assignment 3 report page
 ├── styles.css            # Unified modern stylesheet
 ├── hcmut_logo.png        # University logo asset
-├── assets/eda/           # Figures exported from the Assignment 1 EDA notebook
+├── assets                # Exported figures
 ├── assignment1/          # Source code & pipelines for Assignment 1
 ├── assignment2/          # Source code & pipelines for Assignment 2
 ├── assignment3/          # Source code & pipelines for Assignment 3
