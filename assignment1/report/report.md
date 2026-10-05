@@ -30,7 +30,7 @@ The analysis notebook recorded the environment after the runs: Python 3.12.10, P
 
 ## 5. Results
 
-The following test results use each model's best-validation-loss checkpoint.
+The following test results use each model's best-validation-loss checkpoint:
 
 | Model | Test loss | Test accuracy | Macro-F1 |
 | --- | ---: | ---: | ---: |
