@@ -23,6 +23,7 @@ results/confusion_matrices
 results/predictions
 results/figures
 results/runs/
+presentation/
 
 #Jupyter
 .ipynb_checkpoints/
