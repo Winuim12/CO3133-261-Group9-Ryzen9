@@ -1,0 +1,6 @@
+seed: 42
+
+data:
+  image_size: 224
+  num_classes: 30
+  manifests_dir: data/manifests

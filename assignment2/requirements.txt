@@ -1,0 +1,13 @@
+# Preserve versions already present in the base image
+numpy==2.2.6
+Pillow==11.0.0
+PyYAML==6.0.2
+
+# Plotting and evaluation
+matplotlib==3.10.3
+scikit-learn==1.6.1
+
+# Testing and notebooks
+pytest==8.3.5
+ipykernel==6.29.5
+nbformat==5.10.4

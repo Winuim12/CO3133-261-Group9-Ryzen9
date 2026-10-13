@@ -1,0 +1,31 @@
+# Local environments and development metadata
+.git
+.venv
+venv
+**/__pycache__
+**/*.pyc
+**/.pytest_cache
+**/.ipynb_checkpoints
+.ruff_cache
+.mypy_cache
+.cache
+.coverage
+htmlcov
+
+# Data/output will be mounted separately; never bake them into an image
+data/
+results/
+**/*.pt
+**/*.pth
+**/*.ckpt
+
+# Local credentials and environment overrides
+.env
+.env.*
+!.env.example
+.aws
+.codex
+
+# Reference and reporting artifacts are unnecessary for the runtime image
+handbook-ene.pdf
+report/

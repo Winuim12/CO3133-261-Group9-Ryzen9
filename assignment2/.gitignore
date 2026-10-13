@@ -1,0 +1,28 @@
+# Local environments and Python/tool caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.ruff_cache/
+.mypy_cache/
+.cache/
+.coverage
+htmlcov/
+
+# Local credentials and environment overrides
+.env
+.env.*
+!.env.example
+
+# Original images and generated training runs stay outside Git
+/data/raw/*
+!/data/raw/.gitkeep
+/results/runs/*
+!/results/runs/.gitkeep
+*.pt
+*.pth
+*.ckpt
+
+# Preserve source notebooks, reviewed manifests and report figures
