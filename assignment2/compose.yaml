@@ -1,0 +1,22 @@
+services:
+  assignment2:
+    image: assignment2:dev
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    working_dir: /workspace/assignment2
+
+    environment:
+      TORCH_HOME: /cache/torch
+
+    volumes:
+      - ./data/raw:/workspace/assignment2/data/raw:ro
+      - ./data/manifests:/workspace/assignment2/data/manifests
+      - ./results:/workspace/assignment2/results
+      - torch-cache:/cache/torch
+
+    command: ["python", "--version"]
+
+volumes:
+  torch-cache:
