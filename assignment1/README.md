@@ -1,7 +1,7 @@
 # Assignment 1: Fashion-MNIST Classification
 
 This project trains and evaluates five Fashion-MNIST classifiers: Linear,
-MLP, CNN, RNN, and Transformer.
+MLP, CNN, RNN, and Transformer
 
 ## Setup
 
