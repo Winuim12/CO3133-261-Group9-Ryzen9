@@ -219,6 +219,15 @@
 @media (prefers-reduced-motion: reduce) {
   #dataset-proposal .action-btn { transition: none; }
 }
+  /* Dataset Description & EDA (audited results) */
+  #eda .eda-figure { margin: 1rem 0 1.5rem; padding: 14px; background: #fcfbfe; border: 1px solid #ece6f5; border-radius: 12px; }
+  #eda .eda-figure img { display: block; width: 100%; height: auto; margin: 0 auto; }
+  #eda .eda-figure.narrow img { max-width: 400px; }
+  #dataset-proposal .status-badge.approved { background: #ecfdf5; color: #065f46; border-color: #a7f3d0; }
+  #dataset-proposal .status-badge.approved .status-badge-icon { color: #047857; border-color: #6ee7b7; background: #d1fae5; }
+  #eda .eda-figure figcaption { margin-top: 10px; color: #6b6478; font-size: 0.8rem; text-align: center; line-height: 1.6; }
+  #eda .eda-note { margin: 1rem 0; padding: 12px 16px; border-radius: 9px; background: #f7f4fc; color: #62566f; font-size: 0.85rem; line-height: 1.8; }
+  #eda .rubric-table td:not(:first-child), #eda .rubric-table th:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
   </style>
 </head>
 <body class="a2-page">
@@ -319,7 +328,7 @@
           <!-- Hero Banner -->
           <div class="proposal-hero">
             <div class="proposal-topbar">
-                <span class="status-badge"><span class="status-badge-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></svg></span><span>Pending Instructor Approval</span></span>
+                <span class="status-badge approved"><span class="status-badge-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5" /><path d="M8.5 12.2l2.4 2.4 4.6-4.8" /></svg></span><span>Approved by Instructor</span></span>
                 <span class="due-badge"><span>Milestone M1</span></span>
             </div>
 
@@ -469,7 +478,7 @@
       </section>
 
       <!-- Dataset Description & EDA -->
-      <section class="section-block">
+      <section class="section-block" id="eda">
         <div class="section-header">
           <span class="section-icon">📊</span>
           <h2 class="section-title">Dataset Description &amp; EDA</h2>
@@ -477,16 +486,118 @@
         <div class="content-card">
           <h3>Dataset Proposal &amp; Approval Record</h3>
           <p>
-            Status: <span class="status-pill status-pending" style="background:#fffbeb; color:#92400e; border:1px solid #fde68a; padding:0.25rem 0.75rem; border-radius:9999px; font-weight:700; font-size:0.82rem;">Pending Instructor Review (Submitted M1 Proposal)</span>
+            Status: <span class="status-pill" style="background:#ecfdf5; color:#065f46; border:1px solid #a7f3d0; padding:0.25rem 0.75rem; border-radius:9999px; font-weight:700; font-size:0.82rem;">Approved by Instructor</span>
+            <span style="color:#6b6478; font-size:0.85rem;">(approval date and any conditions to be recorded)</span>
           </p>
           <p style="margin-top:0.6rem;">
-            Dataset details, the preliminary audit, data split, metrics, and model candidates are listed in the <a href="#dataset-proposal" style="color:#7c3aed; font-weight:700;">Assignment 2 Dataset Proposal</a> section above.
+            The submitted M1 proposal is kept unchanged in the <a href="#dataset-proposal" style="color:#7c3aed; font-weight:700;">Dataset Proposal</a> section above.
+            Its split counts were provisional; the audited counts below replace them.
           </p>
 
-          <h3 style="margin-top:1.25rem;">Task-Specific EDA Expectations (§22)</h3>
+          <h3 style="margin-top:1.5rem;">Dataset Audit</h3>
           <p>
-            Detailed exploratory data analysis (per-class frequency histogram, resolution heatmaps, RGB channel mean/std distributions, and example batches per dish category) will be generated and visualized here following formal approval of Milestone M1.
+            Every image of Kaggle version 11 was decoded and checked. The class label is the name of the image's folder.
+            The original Kaggle Train / Validate / Test folders were merged and re-split, because the images were collected
+            from the web (the package lists the source URL of every image) and the same picture can appear in more than one folder.
           </p>
+          <div class="table-container">
+            <table class="rubric-table">
+              <thead><tr><th>Audit step</th><th>Images</th></tr></thead>
+              <tbody>
+                <tr><td>Image files in the package (30 classes)</td><td>25,136</td></tr>
+                <tr><td>Unreadable / corrupt files</td><td>0</td></tr>
+                <tr><td>Exact copies (same SHA-256) with the same label &mdash; one copy kept</td><td>&minus;25</td></tr>
+                <tr><td>Exact copies with conflicting labels &mdash; all copies removed</td><td>&minus;79</td></tr>
+                <tr><td>Near-duplicates with conflicting labels &mdash; both removed after manual review (25 pairs)</td><td>&minus;50</td></tr>
+                <tr><td><strong>Images retained for the experiments</strong></td><td><strong>24,982</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            All retained images are RGB (24,854 JPEG, 119 PNG, 7 MPO, 2 BMP). The proposal's provisional total of 25,025 differs
+            because the duplicate review was not complete at that time; every exclusion is recorded with its reason in
+            <code>assignment2/data/manifests/audit.csv</code>.
+          </p>
+
+          <h3 style="margin-top:1.5rem;">Near-Duplicate Detection and Review</h3>
+          <ol class="styled-list">
+            <li><strong>Candidates:</strong> a 64-bit difference hash (dHash) of every image; pairs with Hamming distance &le; 8 are candidates (1,718 pairs).</li>
+            <li><strong>Confirmation:</strong> the mean absolute difference of 32 &times; 32 grayscale thumbnails must be &le; 30 (on a 0&ndash;255 scale). With dHash alone, different dishes with a similar layout (a round plate in the centre) were chained into groups of more than 250 images; the second check reduced the largest group to 9 images.</li>
+            <li><strong>Grouping:</strong> 480 confirmed same-label pairs form 412 duplicate groups. All images of a group are placed in the same split.</li>
+            <li><strong>Manual review:</strong> 54 confirmed pairs had different labels. 25 were the same picture filed under two dishes, so both images were removed; 29 were different dishes and both were kept as separate images.</li>
+          </ol>
+          <figure class="eda-figure narrow">
+            <img src="assets/eda/assignment2-duplicate-examples.jpg" alt="Four reviewed image pairs that were filed under two different food classes" width="720" height="1440" loading="lazy" />
+            <figcaption>Examples of reviewed near-duplicate pairs with conflicting labels (d = dHash distance, mae = thumbnail difference).</figcaption>
+          </figure>
+
+          <h3 style="margin-top:1.5rem;">Final Data Split</h3>
+          <p>
+            Split unit: duplicate group. For each class, its groups are shuffled with <code>seed = 42</code> and assigned to test
+            until about 15% of the class is reached, then to validation (about 15%); the remaining groups form the training set.
+          </p>
+          <div class="table-container">
+            <table class="rubric-table">
+              <thead><tr><th>Split</th><th>Images</th><th>Share</th><th>Smallest class</th><th>Largest class</th></tr></thead>
+              <tbody>
+                <tr><td>Train</td><td>17,486</td><td>70.0%</td><td>309</td><td>1,061</td></tr>
+                <tr><td>Validation</td><td>3,749</td><td>15.0%</td><td>66</td><td>228</td></tr>
+                <tr><td>Test</td><td>3,747</td><td>15.0%</td><td>66</td><td>228</td></tr>
+                <tr><td><strong>Total</strong></td><td><strong>24,982</strong></td><td>100%</td><td></td><td></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="eda-note">
+            Leakage checks on the final manifests: 0 image IDs, 0 duplicate groups and 0 identical files (SHA-256) are shared between
+            train, validation and test. The training set exceeds the handbook's 5,000-sample threshold (§19.1).
+          </div>
+          <figure class="eda-figure">
+            <img src="assets/eda/assignment2-split-distribution.png" alt="Grouped bar chart of image counts per class in the train, validation and test splits" width="2100" height="750" loading="lazy" />
+            <figcaption>Images per class in each split. Class proportions are preserved across the three splits.</figcaption>
+          </figure>
+
+          <h3 style="margin-top:1.5rem;">Class Imbalance and Input Sizes</h3>
+          <p>
+            The largest class (Bun bo Hue, 1,530 original images) is 3.45 times the smallest (Banh pia, 444). Macro-F1 is used as
+            the primary metric so that every class has equal weight. Image sizes vary widely: median 1,000 &times; 720 pixels,
+            widths 100&ndash;7,360 and heights 83&ndash;5,616 pixels. 346 retained images have a short side below 224 pixels and are
+            upscaled by the resize step.
+          </p>
+          <figure class="eda-figure">
+            <img src="assets/eda/assignment2-image-sizes.png" alt="Histograms of image width, height and aspect ratio" width="2250" height="600" loading="lazy" />
+            <figcaption>Width, height and aspect-ratio distributions of the retained images.</figcaption>
+          </figure>
+          <figure class="eda-figure">
+            <img src="assets/eda/assignment2-class-examples.jpg" alt="One training example for each of the 30 Vietnamese food classes" width="1400" height="1213" loading="lazy" />
+            <figcaption>One training example per class.</figcaption>
+          </figure>
+
+          <h3 style="margin-top:1.5rem;">Preprocessing</h3>
+          <div class="table-container">
+            <table class="rubric-table">
+              <thead><tr><th>Stage</th><th style="text-align:left;">Transforms</th></tr></thead>
+              <tbody>
+                <tr><td>Training only</td><td style="text-align:left;">RandomResizedCrop(224, scale 0.7&ndash;1.0), RandomHorizontalFlip, ColorJitter(brightness, contrast, saturation = 0.2)</td></tr>
+                <tr><td>Validation / test</td><td style="text-align:left;">Resize(232), CenterCrop(224) &mdash; the evaluation preprocessing of TorchVision <code>ResNet50_Weights.IMAGENET1K_V2</code></td></tr>
+                <tr><td>All splits</td><td style="text-align:left;">Convert to RGB, ToTensor, Normalize with ImageNet mean (0.485, 0.456, 0.406) and std (0.229, 0.224, 0.225)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            Normalization uses the constants published with the pretrained weights; no statistic is computed from validation or test data.
+            The same transforms are used for every model. A batch is a tensor of shape <code>[B, 3, 224, 224]</code> with integer labels 0&ndash;29.
+          </p>
+          <figure class="eda-figure">
+            <img src="assets/eda/assignment2-preprocessed-batch.jpg" alt="Sixteen training images after random crop, flip and colour jitter, each labelled with its food class" width="1600" height="450" loading="lazy" />
+            <figcaption>A training batch after augmentation (de-normalized for display), with each image's label.</figcaption>
+          </figure>
+
+          <h3 style="margin-top:1.5rem;">Bias and Limitations of the Data</h3>
+          <ul class="styled-list">
+            <li>Images were collected from the web: many are stock or recipe photos with clean backgrounds, which may not represent everyday photos of food.</li>
+            <li>Several dishes look alike (e.g. Banh duc and Banh gio, Bun rieu and Bun mam), and the label-conflict review shows that some web images are filed under the wrong dish; further label noise may remain.</li>
+            <li>The duplicate check does not detect heavily cropped, rotated or re-photographed copies, and only label-conflicting pairs were reviewed by hand, so some leakage risk remains.</li>
+          </ul>
         </div>
       </section>
 
@@ -621,7 +732,7 @@
             <div class="link-icon-box" style="background:#f3e8ff; color:#7c3aed;">📋</div>
             <div>
               <span class="link-label">Dataset Proposal</span>
-              <span class="link-sub">#dataset-proposal (Pending)</span>
+              <span class="link-sub">#dataset-proposal (Approved)</span>
             </div>
           </a>
         </div>
@@ -645,8 +756,18 @@
             September 2026, then reviewed and edited by the group against handbook §2.2. No text on this page states
             a result.
           </p>
+          <ul class="styled-list">
+            <li><strong>ChatGPT (OpenAI, model GPT-5.6)</strong> &mdash; Tran Manh Thang (2353124), September 2026: drafted the skeleton of this page
+              (HTML structure, section layout and shared stylesheet), then reviewed and edited by the group against handbook §2.2.</li>
+            <li><strong>OpenAI Codex (GPT-6)</strong> &mdash; 13 Oct 2026: project structure, module ownership and implementation plan in
+              <code>assignment2/README.md</code> and <code>AGENTS.md</code>.</li>
+            <li><strong>Claude (Anthropic, Cowork)</strong> &mdash; Tran Manh Thang (2353124), 16&ndash;22 Oct 2026: planned the data tasks; wrote the data
+              audit, duplicate detection, split, dataset, transform and data-loader modules with their tests; ran the audit and split on the
+              downloaded dataset; produced the EDA figures; drafted the Dataset Description &amp; EDA text above. The student chose the
+              review decisions for the 54 label-conflicting pairs and is responsible for verifying the code and numbers.</li>
+          </ul>
           <p>
-            This section will be completed with the full per-tool log required by handbook §5.2 as Assignment 2
+            The full per-tool log required by handbook §5.2 will be completed as Assignment 2
             progresses. The running log is kept in
             <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/main/AI_USAGE.md" target="_blank" rel="noopener"><strong>AI_USAGE.md</strong></a>.
           </p>

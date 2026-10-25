@@ -1,0 +1,1719 @@
+image_a,image_b,class_a,class_b,distance,mae,decision
+archive/Images/Test/Banh beo/154.jpg,archive/Images/Train/Banh beo/152.jpg,Banh beo,Banh beo,0,0.1,same_group
+archive/Images/Test/Banh beo/21.jpg,archive/Images/Validate/Banh canh/34.jpg,Banh beo,Banh canh,8,73.0,different
+archive/Images/Test/Banh beo/23.jpg,archive/Images/Train/Banh beo/642.jpg,Banh beo,Banh beo,0,0.2,same_group
+archive/Images/Test/Banh beo/43.jpg,archive/Images/Train/Banh beo/45.jpg,Banh beo,Banh beo,0,0.0,same_group
+archive/Images/Test/Banh beo/43.jpg,archive/Images/Train/Banh gio/220.jpg,Banh beo,Banh gio,7,48.8,different
+archive/Images/Test/Banh beo/5.jpg,archive/Images/Test/Banh beo/92.jpg,Banh beo,Banh beo,0,1.2,same_group
+archive/Images/Test/Banh beo/52.jpg,archive/Images/Test/Bun dau mam tom/31.jpg,Banh beo,Bun dau mam tom,8,53.6,different
+archive/Images/Test/Banh beo/52.jpg,archive/Images/Test/Goi cuon/128.jpg,Banh beo,Goi cuon,8,34.3,different
+archive/Images/Test/Banh beo/52.jpg,archive/Images/Train/Banh can/94.jpg,Banh beo,Banh can,8,36.4,different
+archive/Images/Test/Banh beo/52.jpg,archive/Images/Train/Banh cuon/217.jpg,Banh beo,Banh cuon,6,55.9,different
+archive/Images/Test/Banh beo/52.jpg,archive/Images/Train/Banh gio/134.jpg,Banh beo,Banh gio,8,37.1,different
+archive/Images/Test/Banh beo/52.jpg,archive/Images/Train/Banh mi/14.jpg,Banh beo,Banh mi,7,59.5,different
+archive/Images/Test/Banh beo/52.jpg,archive/Images/Train/Banh mi/438.jpg,Banh beo,Banh mi,7,50.1,different
+archive/Images/Test/Banh beo/52.jpg,archive/Images/Train/Banh pia/114.jpg,Banh beo,Banh pia,6,25.9,different
+archive/Images/Test/Banh beo/52.jpg,archive/Images/Train/Banh pia/320.jpg,Banh beo,Banh pia,7,44.5,different
+archive/Images/Test/Banh beo/52.jpg,archive/Images/Train/Banh trang nuong/53.jpg,Banh beo,Banh trang nuong,8,32.1,different
+archive/Images/Test/Banh beo/52.jpg,archive/Images/Train/Banh xeo/61.jpg,Banh beo,Banh xeo,8,50.1,different
+archive/Images/Test/Banh beo/52.jpg,archive/Images/Train/Banh xeo/71.jpg,Banh beo,Banh xeo,8,44.6,different
+archive/Images/Test/Banh beo/52.jpg,archive/Images/Train/Canh chua/292.jpg,Banh beo,Canh chua,8,52.4,different
+archive/Images/Test/Banh beo/52.jpg,archive/Images/Train/Cao lau/39.jpg,Banh beo,Cao lau,8,39.6,different
+archive/Images/Test/Banh beo/52.jpg,archive/Images/Validate/Banh gio/123.jpg,Banh beo,Banh gio,8,65.7,different
+archive/Images/Test/Banh beo/52.jpg,archive/Images/Validate/Banh trang nuong/152.jpg,Banh beo,Banh trang nuong,6,45.7,different
+archive/Images/Test/Banh beo/58.jpg,archive/Images/Test/Banh pia/118.jpg,Banh beo,Banh pia,8,57.6,different
+archive/Images/Test/Banh beo/58.jpg,archive/Images/Test/Banh trang nuong/30.jpg,Banh beo,Banh trang nuong,8,36.6,different
+archive/Images/Test/Banh beo/58.jpg,archive/Images/Train/Banh beo/50.jpg,Banh beo,Banh beo,0,0.5,same_group
+archive/Images/Test/Banh beo/58.jpg,archive/Images/Train/Banh bot loc/92.jpg,Banh beo,Banh bot loc,8,37.4,different
+archive/Images/Test/Banh beo/58.jpg,archive/Images/Train/Bun dau mam tom/92.jpg,Banh beo,Bun dau mam tom,8,48.3,different
+archive/Images/Test/Banh beo/58.jpg,archive/Images/Train/Nem chua/119.jpg,Banh beo,Nem chua,8,54.2,different
+archive/Images/Test/Banh beo/62.jpg,archive/Images/Test/Com tam/21.jpg,Banh beo,Com tam,8,60.4,different
+archive/Images/Test/Banh beo/62.jpg,archive/Images/Train/Banh beo/65.jpg,Banh beo,Banh beo,0,0.5,same_group
+archive/Images/Test/Banh beo/630.jpg,archive/Images/Train/Banh beo/35.jpg,Banh beo,Banh beo,7,31.9,different
+archive/Images/Test/Banh beo/79.jpg,archive/Images/Test/Banh xeo/850.jpg,Banh beo,Banh xeo,8,76.4,different
+archive/Images/Test/Banh beo/83.jpg,archive/Images/Test/Banh bot loc/311.jpg,Banh beo,Banh bot loc,0,0.2,exclude_both
+archive/Images/Test/Banh bot loc/101.jpg,archive/Images/Train/Banh bot loc/144.jpg,Banh bot loc,Banh bot loc,5,22.8,same_group
+archive/Images/Test/Banh bot loc/105.jpg,archive/Images/Validate/Banh bot loc/104.jpg,Banh bot loc,Banh bot loc,1,2.1,same_group
+archive/Images/Test/Banh bot loc/124.jpg,archive/Images/Train/Banh mi/723.jpg,Banh bot loc,Banh mi,8,42.1,different
+archive/Images/Test/Banh bot loc/124.jpg,archive/Images/Train/Bun mam/26.jpg,Banh bot loc,Bun mam,8,43.0,different
+archive/Images/Test/Banh bot loc/15.jpg,archive/Images/Train/Banh bot loc/11.jpg,Banh bot loc,Banh bot loc,0,0.1,same_group
+archive/Images/Test/Banh bot loc/17.jpg,archive/Images/Train/Banh bot loc/14.jpg,Banh bot loc,Banh bot loc,0,0.8,same_group
+archive/Images/Test/Banh bot loc/17.jpg,archive/Images/Train/Banh pia/44.jpg,Banh bot loc,Banh pia,8,35.3,different
+archive/Images/Test/Banh bot loc/176.jpg,archive/Images/Train/Banh bot loc/177.jpg,Banh bot loc,Banh bot loc,7,27.2,same_group
+archive/Images/Test/Banh bot loc/176.jpg,archive/Images/Train/Canh chua/186.jpg,Banh bot loc,Canh chua,8,55.0,different
+archive/Images/Test/Banh bot loc/18.jpg,archive/Images/Train/Banh bot loc/12.jpg,Banh bot loc,Banh bot loc,0,0.5,same_group
+archive/Images/Test/Banh bot loc/19.jpg,archive/Images/Test/Canh chua/77.jpg,Banh bot loc,Canh chua,8,35.6,different
+archive/Images/Test/Banh bot loc/19.jpg,archive/Images/Test/Com tam/47.jpg,Banh bot loc,Com tam,5,47.0,different
+archive/Images/Test/Banh bot loc/19.jpg,archive/Images/Train/Canh chua/82.jpg,Banh bot loc,Canh chua,8,52.8,different
+archive/Images/Test/Banh bot loc/19.jpg,archive/Images/Train/Chao long/549.jpg,Banh bot loc,Chao long,7,49.8,different
+archive/Images/Test/Banh bot loc/19.jpg,archive/Images/Train/Mi quang/10.jpg,Banh bot loc,Mi quang,5,36.0,different
+archive/Images/Test/Banh bot loc/19.jpg,archive/Images/Validate/Banh cuon/61.jpg,Banh bot loc,Banh cuon,8,39.1,different
+archive/Images/Test/Banh bot loc/22.jpg,archive/Images/Test/Banh cuon/1136.jpg,Banh bot loc,Banh cuon,8,49.8,different
+archive/Images/Test/Banh bot loc/261.jpg,archive/Images/Train/Banh bot loc/715.jpg,Banh bot loc,Banh bot loc,0,0.2,same_group
+archive/Images/Test/Banh bot loc/42.jpg,archive/Images/Validate/Banh cuon/61.jpg,Banh bot loc,Banh cuon,8,46.1,different
+archive/Images/Test/Banh bot loc/44.jpg,archive/Images/Test/Chao long/99.jpg,Banh bot loc,Chao long,8,38.0,different
+archive/Images/Test/Banh bot loc/457.jpg,archive/Images/Train/Hu tieu/128.jpg,Banh bot loc,Hu tieu,8,65.4,different
+archive/Images/Test/Banh bot loc/487.jpg,archive/Images/Validate/Bun mam/374.jpg,Banh bot loc,Bun mam,8,52.9,different
+archive/Images/Test/Banh bot loc/49.jpg,archive/Images/Train/Chao long/32.jpg,Banh bot loc,Chao long,8,52.3,different
+archive/Images/Test/Banh bot loc/49.jpg,archive/Images/Train/Mi quang/170.jpg,Banh bot loc,Mi quang,8,53.4,different
+archive/Images/Test/Banh bot loc/53.jpg,archive/Images/Test/Pho/206.jpg,Banh bot loc,Pho,8,38.7,different
+archive/Images/Test/Banh bot loc/53.jpg,archive/Images/Train/Banh duc/66.jpg,Banh bot loc,Banh duc,6,40.3,different
+archive/Images/Test/Banh bot loc/53.jpg,archive/Images/Train/Goi cuon/23.jpg,Banh bot loc,Goi cuon,8,57.5,different
+archive/Images/Test/Banh bot loc/53.jpg,archive/Images/Train/Goi cuon/25.jpg,Banh bot loc,Goi cuon,8,44.9,different
+archive/Images/Test/Banh bot loc/6.jpg,archive/Images/Train/Banh bot loc/713.jpg,Banh bot loc,Banh bot loc,1,0.7,same_group
+archive/Images/Test/Banh bot loc/6.jpg,archive/Images/Train/Banh bot loc/719.jpg,Banh bot loc,Banh bot loc,1,0.7,same_group
+archive/Images/Test/Banh bot loc/621.jpg,archive/Images/Train/Banh bot loc/335.jpg,Banh bot loc,Banh bot loc,1,9.5,same_group
+archive/Images/Test/Banh bot loc/68.jpg,archive/Images/Train/Banh bot loc/66.jpg,Banh bot loc,Banh bot loc,3,7.8,same_group
+archive/Images/Test/Banh bot loc/75.jpg,archive/Images/Train/Chao long/37.jpg,Banh bot loc,Chao long,7,54.9,different
+archive/Images/Test/Banh bot loc/75.jpg,archive/Images/Train/Chao long/606.jpg,Banh bot loc,Chao long,8,60.5,different
+archive/Images/Test/Banh bot loc/84.jpg,archive/Images/Train/Banh bot loc/81.jpg,Banh bot loc,Banh bot loc,1,1.1,same_group
+archive/Images/Test/Banh bot loc/93.jpg,archive/Images/Test/Banh trang nuong/30.jpg,Banh bot loc,Banh trang nuong,8,44.0,different
+archive/Images/Test/Banh bot loc/93.jpg,archive/Images/Train/Banh duc/38.jpg,Banh bot loc,Banh duc,8,80.9,different
+archive/Images/Test/Banh can/112.jpg,archive/Images/Test/Banh trang nuong/195.jpg,Banh can,Banh trang nuong,8,43.8,different
+archive/Images/Test/Banh can/112.jpg,archive/Images/Test/Bun dau mam tom/31.jpg,Banh can,Bun dau mam tom,7,55.7,different
+archive/Images/Test/Banh can/112.jpg,archive/Images/Test/Com tam/60.jpg,Banh can,Com tam,8,47.9,different
+archive/Images/Test/Banh can/112.jpg,archive/Images/Test/Nem chua/122.jpg,Banh can,Nem chua,7,37.6,different
+archive/Images/Test/Banh can/112.jpg,archive/Images/Train/Banh mi/14.jpg,Banh can,Banh mi,8,71.4,different
+archive/Images/Test/Banh can/112.jpg,archive/Images/Train/Banh pia/114.jpg,Banh can,Banh pia,7,42.7,different
+archive/Images/Test/Banh can/112.jpg,archive/Images/Train/Banh pia/199.jpg,Banh can,Banh pia,8,49.8,different
+archive/Images/Test/Banh can/112.jpg,archive/Images/Train/Cao lau/39.jpg,Banh can,Cao lau,7,47.2,different
+archive/Images/Test/Banh can/131.jpg,archive/Images/Train/Banh can/25.jpg,Banh can,Banh can,0,19.3,same_group
+archive/Images/Test/Banh can/226.jpg,archive/Images/Test/Banh can/227.jpg,Banh can,Banh can,0,0.1,same_group
+archive/Images/Test/Banh can/318.jpg,archive/Images/Train/Banh can/317.jpg,Banh can,Banh can,0,0.1,same_group
+archive/Images/Test/Banh can/523.jpg,archive/Images/Train/Pho/162.jpg,Banh can,Pho,8,41.2,different
+archive/Images/Test/Banh can/716.jpg,archive/Images/Train/Bun dau mam tom/193.jpg,Banh can,Bun dau mam tom,8,36.2,different
+archive/Images/Test/Banh canh/117.jpg,archive/Images/Train/Banh canh/115.jpg,Banh canh,Banh canh,0,0.1,same_group
+archive/Images/Test/Banh canh/16.jpg,archive/Images/Test/Bun mam/78.jpg,Banh canh,Bun mam,8,40.5,different
+archive/Images/Test/Banh canh/173.jpg,archive/Images/Train/Canh chua/296.jpg,Banh canh,Canh chua,8,36.4,different
+archive/Images/Test/Banh canh/270.jpg,archive/Images/Validate/Banh canh/31.jpg,Banh canh,Banh canh,8,33.3,different
+archive/Images/Test/Banh canh/329.jpg,archive/Images/Test/Canh chua/109.jpg,Banh canh,Canh chua,8,46.3,different
+archive/Images/Test/Banh canh/329.jpg,archive/Images/Train/Banh duc/141.jpg,Banh canh,Banh duc,8,57.6,different
+archive/Images/Test/Banh canh/366.jpg,archive/Images/Train/Banh trang nuong/276.jpg,Banh canh,Banh trang nuong,6,53.0,different
+archive/Images/Test/Banh canh/366.jpg,archive/Images/Train/Canh chua/188.jpg,Banh canh,Canh chua,8,72.0,different
+archive/Images/Test/Banh canh/366.jpg,archive/Images/Train/Canh chua/233.jpg,Banh canh,Canh chua,8,50.3,different
+archive/Images/Test/Banh canh/366.jpg,archive/Images/Train/Canh chua/51.jpg,Banh canh,Canh chua,8,50.0,different
+archive/Images/Test/Banh canh/42.jpg,archive/Images/Train/Banh mi/734.jpg,Banh canh,Banh mi,7,94.4,different
+archive/Images/Test/Banh canh/43.jpg,archive/Images/Train/Banh canh/759.jpg,Banh canh,Banh canh,4,18.4,same_group
+archive/Images/Test/Banh canh/61.jpg,archive/Images/Train/Banh canh/59.jpg,Banh canh,Banh canh,5,8.9,same_group
+archive/Images/Test/Banh canh/61.jpg,archive/Images/Validate/Xoi xeo/90.jpg,Banh canh,Xoi xeo,8,58.0,different
+archive/Images/Test/Banh canh/651.jpg,archive/Images/Train/Banh canh/250.jpg,Banh canh,Banh canh,6,49.2,different
+archive/Images/Test/Banh chung/104.jpg,archive/Images/Train/Banh chung/458.jpg,Banh chung,Banh chung,0,8.4,same_group
+archive/Images/Test/Banh chung/111.jpg,archive/Images/Train/Banh chung/453.jpg,Banh chung,Banh chung,0,0.2,same_group
+archive/Images/Test/Banh chung/112.jpg,archive/Images/Train/Banh tet/284.jpg,Banh chung,Banh tet,0,0.1,exclude_both
+archive/Images/Test/Banh chung/25.jpg,archive/Images/Train/Banh chung/482.jpg,Banh chung,Banh chung,0,0.0,same_group
+archive/Images/Test/Banh chung/277.jpg,archive/Images/Train/Banh chung/468.jpg,Banh chung,Banh chung,0,0.1,same_group
+archive/Images/Test/Banh chung/462.jpg,archive/Images/Train/Banh chung/5.jpg,Banh chung,Banh chung,3,9.2,same_group
+archive/Images/Test/Banh chung/471.jpg,archive/Images/Train/Banh chung/100.jpg,Banh chung,Banh chung,0,0.0,same_group
+archive/Images/Test/Banh chung/475.jpg,archive/Images/Train/Banh chung/217.jpg,Banh chung,Banh chung,0,0.0,same_group
+archive/Images/Test/Banh chung/483.jpg,archive/Images/Train/Banh chung/164.jpg,Banh chung,Banh chung,0,2.5,same_group
+archive/Images/Test/Banh chung/53.jpg,archive/Images/Train/Banh chung/451.jpg,Banh chung,Banh chung,0,0.1,same_group
+archive/Images/Test/Banh chung/64.jpg,archive/Images/Validate/Banh chung/495.jpg,Banh chung,Banh chung,0,0.1,same_group
+archive/Images/Test/Banh chung/66.jpg,archive/Images/Train/Banh mi/438.jpg,Banh chung,Banh mi,8,44.4,different
+archive/Images/Test/Banh chung/82.jpg,archive/Images/Validate/Banh gio/172.jpg,Banh chung,Banh gio,8,61.3,different
+archive/Images/Test/Banh cuon/1136.jpg,archive/Images/Test/Banh duc/37.jpg,Banh cuon,Banh duc,7,60.9,different
+archive/Images/Test/Banh cuon/1136.jpg,archive/Images/Train/Banh duc/38.jpg,Banh cuon,Banh duc,8,40.3,different
+archive/Images/Test/Banh cuon/1136.jpg,archive/Images/Train/Mi quang/10.jpg,Banh cuon,Mi quang,8,50.4,different
+archive/Images/Test/Banh cuon/115.jpg,archive/Images/Train/Canh chua/4.jpg,Banh cuon,Canh chua,8,50.0,different
+archive/Images/Test/Banh cuon/119.jpg,archive/Images/Train/Banh canh/218.jpg,Banh cuon,Banh canh,8,59.6,different
+archive/Images/Test/Banh cuon/119.jpg,archive/Images/Train/Bun bo Hue/1126.jpg,Banh cuon,Bun bo Hue,7,48.0,different
+archive/Images/Test/Banh cuon/17.jpg,archive/Images/Train/Banh cuon/1137.jpg,Banh cuon,Banh cuon,2,0.5,same_group
+archive/Images/Test/Banh cuon/184.jpg,archive/Images/Test/Canh chua/109.jpg,Banh cuon,Canh chua,8,36.8,different
+archive/Images/Test/Banh cuon/184.jpg,archive/Images/Train/Canh chua/102.jpg,Banh cuon,Canh chua,8,38.2,different
+archive/Images/Test/Banh cuon/211.jpg,archive/Images/Test/Banh pia/43.jpg,Banh cuon,Banh pia,8,52.3,different
+archive/Images/Test/Banh cuon/222.jpg,archive/Images/Train/Banh cuon/1132.jpg,Banh cuon,Banh cuon,3,6.6,same_group
+archive/Images/Test/Banh cuon/222.jpg,archive/Images/Train/Banh cuon/223.jpg,Banh cuon,Banh cuon,4,6.6,same_group
+archive/Images/Test/Banh cuon/241.jpg,archive/Images/Train/Banh cuon/410.jpg,Banh cuon,Banh cuon,8,45.6,different
+archive/Images/Test/Banh cuon/243.jpg,archive/Images/Test/Bun rieu/2.jpg,Banh cuon,Bun rieu,3,36.9,different
+archive/Images/Test/Banh cuon/243.jpg,archive/Images/Train/Banh canh/17.jpg,Banh cuon,Banh canh,8,43.5,different
+archive/Images/Test/Banh cuon/243.jpg,archive/Images/Train/Bun bo Hue/806.jpg,Banh cuon,Bun bo Hue,8,46.5,different
+archive/Images/Test/Banh cuon/243.jpg,archive/Images/Train/Com tam/57.jpg,Banh cuon,Com tam,8,48.2,different
+archive/Images/Test/Banh cuon/243.jpg,archive/Images/Train/Goi cuon/24.jpg,Banh cuon,Goi cuon,7,37.5,different
+archive/Images/Test/Banh cuon/288.jpg,archive/Images/Validate/Banh cuon/289.jpg,Banh cuon,Banh cuon,0,0.1,same_group
+archive/Images/Test/Banh cuon/406.jpg,archive/Images/Test/Bun mam/181.jpg,Banh cuon,Bun mam,8,67.8,different
+archive/Images/Test/Banh cuon/428.jpg,archive/Images/Train/Banh cuon/431.jpg,Banh cuon,Banh cuon,8,20.5,same_group
+archive/Images/Test/Banh cuon/481.jpg,archive/Images/Train/Chao long/134.jpg,Banh cuon,Chao long,8,42.0,different
+archive/Images/Test/Banh cuon/552.jpg,archive/Images/Train/Banh xeo/126.jpg,Banh cuon,Banh xeo,8,80.5,different
+archive/Images/Test/Banh cuon/569.jpg,archive/Images/Train/Nem chua/288.jpg,Banh cuon,Nem chua,8,45.5,different
+archive/Images/Test/Banh cuon/87.jpg,archive/Images/Train/Banh cuon/89.jpg,Banh cuon,Banh cuon,3,12.3,same_group
+archive/Images/Test/Banh cuon/93.jpg,archive/Images/Train/Banh cuon/519.jpg,Banh cuon,Banh cuon,6,26.1,same_group
+archive/Images/Test/Banh duc/144.jpg,archive/Images/Test/Canh chua/122.jpg,Banh duc,Canh chua,8,38.9,different
+archive/Images/Test/Banh duc/144.jpg,archive/Images/Train/Pho/776.jpg,Banh duc,Pho,8,32.7,different
+archive/Images/Test/Banh duc/179.jpg,archive/Images/Validate/Banh trang nuong/242.jpg,Banh duc,Banh trang nuong,7,34.5,different
+archive/Images/Test/Banh duc/18.jpg,archive/Images/Train/Banh duc/12.jpg,Banh duc,Banh duc,2,8.2,same_group
+archive/Images/Test/Banh duc/18.jpg,archive/Images/Train/Banh trang nuong/19.jpg,Banh duc,Banh trang nuong,8,48.2,different
+archive/Images/Test/Banh duc/227.jpg,archive/Images/Test/Banh gio/68.jpg,Banh duc,Banh gio,1,9.3,exclude_both
+archive/Images/Test/Banh duc/233.jpg,archive/Images/Train/Bun dau mam tom/62.jpg,Banh duc,Bun dau mam tom,8,55.6,different
+archive/Images/Test/Banh duc/286.jpg,archive/Images/Train/Bun rieu/48.jpg,Banh duc,Bun rieu,8,51.4,different
+archive/Images/Test/Banh duc/326.jpg,archive/Images/Train/Banh duc/209.jpg,Banh duc,Banh duc,2,33.0,different
+archive/Images/Test/Banh duc/37.jpg,archive/Images/Train/Banh tet/127.jpg,Banh duc,Banh tet,8,55.0,different
+archive/Images/Test/Banh duc/37.jpg,archive/Images/Train/Bun dau mam tom/10.jpg,Banh duc,Bun dau mam tom,8,46.5,different
+archive/Images/Test/Banh duc/37.jpg,archive/Images/Train/Chao long/35.jpg,Banh duc,Chao long,8,54.3,different
+archive/Images/Test/Banh duc/37.jpg,archive/Images/Train/Mi quang/10.jpg,Banh duc,Mi quang,7,67.8,different
+archive/Images/Test/Banh duc/400.jpg,archive/Images/Test/Banh mi/815.jpg,Banh duc,Banh mi,8,53.1,different
+archive/Images/Test/Banh duc/495.jpg,archive/Images/Train/Hu tieu/626.jpg,Banh duc,Hu tieu,7,92.0,different
+archive/Images/Test/Banh duc/523.jpg,archive/Images/Test/Canh chua/435.jpg,Banh duc,Canh chua,8,61.9,different
+archive/Images/Test/Banh duc/69.jpg,archive/Images/Train/Banh xeo/61.jpg,Banh duc,Banh xeo,8,47.8,different
+archive/Images/Test/Banh duc/88.jpg,archive/Images/Train/Banh bot loc/197.jpg,Banh duc,Banh bot loc,6,32.5,different
+archive/Images/Test/Banh duc/88.jpg,archive/Images/Train/Banh mi/106.jpg,Banh duc,Banh mi,8,45.6,different
+archive/Images/Test/Banh duc/88.jpg,archive/Images/Validate/Banh chung/185.jpg,Banh duc,Banh chung,8,32.3,different
+archive/Images/Test/Banh gio/12.jpg,archive/Images/Validate/Banh bot loc/413.jpg,Banh gio,Banh bot loc,8,97.2,different
+archive/Images/Test/Banh gio/127.jpg,archive/Images/Test/Goi cuon/128.jpg,Banh gio,Goi cuon,8,43.6,different
+archive/Images/Test/Banh gio/127.jpg,archive/Images/Train/Banh pia/114.jpg,Banh gio,Banh pia,8,37.3,different
+archive/Images/Test/Banh gio/24.jpg,archive/Images/Train/Banh tet/11.jpg,Banh gio,Banh tet,8,54.5,different
+archive/Images/Test/Banh gio/24.jpg,archive/Images/Train/Banh tet/639.jpg,Banh gio,Banh tet,7,47.7,different
+archive/Images/Test/Banh gio/24.jpg,archive/Images/Validate/Banh mi/141.jpg,Banh gio,Banh mi,8,69.3,different
+archive/Images/Test/Banh gio/245.jpg,archive/Images/Train/Canh chua/73.jpg,Banh gio,Canh chua,8,33.2,different
+archive/Images/Test/Banh gio/43.jpg,archive/Images/Train/Banh duc/100.jpg,Banh gio,Banh duc,8,32.6,different
+archive/Images/Test/Banh gio/53.jpg,archive/Images/Train/Banh gio/50.jpg,Banh gio,Banh gio,0,0.2,same_group
+archive/Images/Test/Banh gio/60.jpg,archive/Images/Train/Banh duc/110.jpg,Banh gio,Banh duc,7,22.5,exclude_both
+archive/Images/Test/Banh khot/10.jpg,archive/Images/Train/Banh khot/818.jpg,Banh khot,Banh khot,0,2.6,same_group
+archive/Images/Test/Banh khot/108.jpg,archive/Images/Train/Banh khot/208.jpg,Banh khot,Banh khot,2,12.8,same_group
+archive/Images/Test/Banh khot/215.jpg,archive/Images/Train/Banh can/233.jpg,Banh khot,Banh can,0,0.2,exclude_both
+archive/Images/Test/Banh khot/256.jpg,archive/Images/Train/Banh khot/36.jpg,Banh khot,Banh khot,4,17.1,same_group
+archive/Images/Test/Banh khot/31.jpg,archive/Images/Train/Banh khot/47.jpg,Banh khot,Banh khot,7,34.8,different
+archive/Images/Test/Banh khot/39.jpg,archive/Images/Train/Banh tet/11.jpg,Banh khot,Banh tet,8,32.3,different
+archive/Images/Test/Banh khot/39.jpg,archive/Images/Train/Chao long/240.jpg,Banh khot,Chao long,8,36.9,different
+archive/Images/Test/Banh khot/41.jpg,archive/Images/Test/Hu tieu/181.jpg,Banh khot,Hu tieu,6,43.5,different
+archive/Images/Test/Banh khot/41.jpg,archive/Images/Train/Banh bot loc/192.jpg,Banh khot,Banh bot loc,6,44.3,different
+archive/Images/Test/Banh khot/77.jpg,archive/Images/Train/Banh duc/142.jpg,Banh khot,Banh duc,8,47.5,different
+archive/Images/Test/Banh khot/808.jpg,archive/Images/Train/Banh khot/431.jpg,Banh khot,Banh khot,0,0.1,same_group
+archive/Images/Test/Banh khot/834.jpg,archive/Images/Validate/Banh khot/184.jpg,Banh khot,Banh khot,0,0.0,same_group
+archive/Images/Test/Banh mi/104.jpg,archive/Images/Test/Banh xeo/330.jpg,Banh mi,Banh xeo,2,16.3,different
+archive/Images/Test/Banh mi/104.jpg,archive/Images/Train/Banh tet/11.jpg,Banh mi,Banh tet,8,79.7,different
+archive/Images/Test/Banh mi/117.jpg,archive/Images/Train/Banh mi/134.jpg,Banh mi,Banh mi,8,18.6,same_group
+archive/Images/Test/Banh mi/170.jpg,archive/Images/Train/Banh mi/1225.jpg,Banh mi,Banh mi,5,22.1,same_group
+archive/Images/Test/Banh mi/170.jpg,archive/Images/Validate/Banh mi/202.jpg,Banh mi,Banh mi,4,6.5,same_group
+archive/Images/Test/Banh mi/214.jpg,archive/Images/Train/Banh mi/304.jpg,Banh mi,Banh mi,8,22.6,same_group
+archive/Images/Test/Banh mi/223.jpg,archive/Images/Train/Banh xeo/16.jpg,Banh mi,Banh xeo,7,82.1,different
+archive/Images/Test/Banh mi/223.jpg,archive/Images/Train/Ca kho to/47.jpg,Banh mi,Ca kho to,8,69.5,different
+archive/Images/Test/Banh mi/223.jpg,archive/Images/Train/Canh chua/133.jpg,Banh mi,Canh chua,8,57.5,different
+archive/Images/Test/Banh mi/271.jpg,archive/Images/Train/Banh mi/274.jpg,Banh mi,Banh mi,3,11.7,same_group
+archive/Images/Test/Banh mi/271.jpg,archive/Images/Train/Banh mi/276.jpg,Banh mi,Banh mi,3,11.7,same_group
+archive/Images/Test/Banh mi/294.jpg,archive/Images/Test/Pho/206.jpg,Banh mi,Pho,6,55.8,different
+archive/Images/Test/Banh mi/294.jpg,archive/Images/Train/Banh duc/66.jpg,Banh mi,Banh duc,8,51.1,different
+archive/Images/Test/Banh mi/352.jpg,archive/Images/Train/Banh mi/46.jpg,Banh mi,Banh mi,6,28.2,same_group
+archive/Images/Test/Banh mi/40.jpg,archive/Images/Train/Banh mi/471.jpg,Banh mi,Banh mi,5,13.9,same_group
+archive/Images/Test/Banh mi/473.jpg,archive/Images/Train/Banh mi/39.jpg,Banh mi,Banh mi,4,12.0,same_group
+archive/Images/Test/Banh mi/544.jpg,archive/Images/Train/Banh mi/589.jpg,Banh mi,Banh mi,8,13.4,same_group
+archive/Images/Test/Banh mi/59.jpg,archive/Images/Train/Banh beo/47.jpg,Banh mi,Banh beo,8,48.6,different
+archive/Images/Test/Banh mi/75.jpg,archive/Images/Train/Banh mi/94.jpg,Banh mi,Banh mi,7,20.1,same_group
+archive/Images/Test/Banh pia/111.jpg,archive/Images/Train/Banh xeo/635.jpg,Banh pia,Banh xeo,8,46.5,different
+archive/Images/Test/Banh pia/118.jpg,archive/Images/Train/Banh beo/50.jpg,Banh pia,Banh beo,8,57.8,different
+archive/Images/Test/Banh pia/17.jpg,archive/Images/Train/Cao lau/119.jpg,Banh pia,Cao lau,8,55.4,different
+archive/Images/Test/Banh pia/18.jpg,archive/Images/Test/Bun bo Hue/263.jpg,Banh pia,Bun bo Hue,7,61.3,different
+archive/Images/Test/Banh pia/18.jpg,archive/Images/Test/Goi cuon/12.jpg,Banh pia,Goi cuon,8,76.9,different
+archive/Images/Test/Banh pia/18.jpg,archive/Images/Test/Nem chua/63.jpg,Banh pia,Nem chua,7,67.8,different
+archive/Images/Test/Banh pia/18.jpg,archive/Images/Test/Pho/76.jpg,Banh pia,Pho,7,84.9,different
+archive/Images/Test/Banh pia/18.jpg,archive/Images/Test/Pho/81.jpg,Banh pia,Pho,8,79.9,different
+archive/Images/Test/Banh pia/18.jpg,archive/Images/Train/Banh cuon/388.jpg,Banh pia,Banh cuon,8,65.7,different
+archive/Images/Test/Banh pia/18.jpg,archive/Images/Train/Banh pia/15.jpg,Banh pia,Banh pia,1,0.1,same_group
+archive/Images/Test/Banh pia/18.jpg,archive/Images/Train/Banh xeo/331.jpg,Banh pia,Banh xeo,7,61.4,different
+archive/Images/Test/Banh pia/18.jpg,archive/Images/Train/Canh chua/102.jpg,Banh pia,Canh chua,8,48.1,different
+archive/Images/Test/Banh pia/18.jpg,archive/Images/Train/Chao long/231.jpg,Banh pia,Chao long,8,54.7,different
+archive/Images/Test/Banh pia/18.jpg,archive/Images/Train/Nem chua/25.jpg,Banh pia,Nem chua,8,115.3,different
+archive/Images/Test/Banh pia/197.jpg,archive/Images/Train/Banh pia/23.jpg,Banh pia,Banh pia,8,21.4,same_group
+archive/Images/Test/Banh pia/197.jpg,archive/Images/Train/Banh pia/60.jpg,Banh pia,Banh pia,8,20.0,same_group
+archive/Images/Test/Banh pia/198.jpg,archive/Images/Train/Banh pia/27.jpg,Banh pia,Banh pia,2,32.1,different
+archive/Images/Test/Banh pia/24.jpg,archive/Images/Train/Banh pia/35.jpg,Banh pia,Banh pia,8,51.1,different
+archive/Images/Test/Banh pia/43.jpg,archive/Images/Train/Banh xeo/114.jpg,Banh pia,Banh xeo,7,55.7,different
+archive/Images/Test/Banh pia/8.jpg,archive/Images/Train/Banh chung/227.jpg,Banh pia,Banh chung,8,53.0,different
+archive/Images/Test/Banh pia/8.jpg,archive/Images/Train/Banh pia/9.jpg,Banh pia,Banh pia,4,22.0,same_group
+archive/Images/Test/Banh pia/8.jpg,archive/Images/Train/Banh trang nuong/307.jpg,Banh pia,Banh trang nuong,6,29.3,different
+archive/Images/Test/Banh tet/15.jpg,archive/Images/Test/Bun rieu/50.jpg,Banh tet,Bun rieu,7,64.9,different
+archive/Images/Test/Banh tet/15.jpg,archive/Images/Test/Com tam/89.jpg,Banh tet,Com tam,7,41.9,different
+archive/Images/Test/Banh tet/15.jpg,archive/Images/Train/Com tam/112.jpg,Banh tet,Com tam,8,38.4,different
+archive/Images/Test/Banh tet/15.jpg,archive/Images/Train/Nem chua/4.jpg,Banh tet,Nem chua,7,41.5,different
+archive/Images/Test/Banh tet/20.jpg,archive/Images/Train/Banh canh/38.jpg,Banh tet,Banh canh,7,37.2,different
+archive/Images/Test/Banh tet/20.jpg,archive/Images/Train/Ca kho to/317.jpg,Banh tet,Ca kho to,8,47.5,different
+archive/Images/Test/Banh tet/20.jpg,archive/Images/Train/Mi quang/10.jpg,Banh tet,Mi quang,8,39.1,different
+archive/Images/Test/Banh tet/264.jpg,archive/Images/Train/Banh tet/265.jpg,Banh tet,Banh tet,5,35.1,different
+archive/Images/Test/Banh tet/308.jpg,archive/Images/Train/Banh tet/309.jpg,Banh tet,Banh tet,4,30.0,same_group
+archive/Images/Test/Banh tet/342.jpg,archive/Images/Train/Banh tet/651.jpg,Banh tet,Banh tet,0,0.1,same_group
+archive/Images/Test/Banh tet/369.jpg,archive/Images/Train/Ca kho to/313.jpg,Banh tet,Ca kho to,8,63.5,different
+archive/Images/Test/Banh tet/42.jpg,archive/Images/Train/Banh trang nuong/151.jpg,Banh tet,Banh trang nuong,8,65.8,different
+archive/Images/Test/Banh tet/42.jpg,archive/Images/Validate/Banh gio/67.jpg,Banh tet,Banh gio,8,57.4,different
+archive/Images/Test/Banh tet/646.jpg,archive/Images/Train/Banh tet/352.jpg,Banh tet,Banh tet,2,24.5,same_group
+archive/Images/Test/Banh tet/661.jpg,archive/Images/Train/Banh tet/119.jpg,Banh tet,Banh tet,0,0.5,same_group
+archive/Images/Test/Banh trang nuong/102.jpg,archive/Images/Train/Banh trang nuong/248.jpg,Banh trang nuong,Banh trang nuong,2,13.4,same_group
+archive/Images/Test/Banh trang nuong/115.jpg,archive/Images/Train/Banh trang nuong/121.jpg,Banh trang nuong,Banh trang nuong,1,0.1,same_group
+archive/Images/Test/Banh trang nuong/157.jpg,archive/Images/Train/Banh tet/323.jpg,Banh trang nuong,Banh tet,8,54.0,different
+archive/Images/Test/Banh trang nuong/157.jpg,archive/Images/Train/Banh trang nuong/150.jpg,Banh trang nuong,Banh trang nuong,6,27.3,same_group
+archive/Images/Test/Banh trang nuong/157.jpg,archive/Images/Train/Banh trang nuong/53.jpg,Banh trang nuong,Banh trang nuong,7,44.7,different
+archive/Images/Test/Banh trang nuong/28.jpg,archive/Images/Test/Banh xeo/564.jpg,Banh trang nuong,Banh xeo,7,39.1,different
+archive/Images/Test/Banh trang nuong/28.jpg,archive/Images/Train/Banh gio/134.jpg,Banh trang nuong,Banh gio,8,49.8,different
+archive/Images/Test/Banh trang nuong/28.jpg,archive/Images/Train/Banh trang nuong/151.jpg,Banh trang nuong,Banh trang nuong,7,50.5,different
+archive/Images/Test/Banh trang nuong/28.jpg,archive/Images/Validate/Com tam/173.jpg,Banh trang nuong,Com tam,8,33.3,different
+archive/Images/Test/Banh trang nuong/29.jpg,archive/Images/Train/Banh trang nuong/27.jpg,Banh trang nuong,Banh trang nuong,2,0.5,same_group
+archive/Images/Test/Banh trang nuong/29.jpg,archive/Images/Train/Banh trang nuong/90.jpg,Banh trang nuong,Banh trang nuong,1,0.3,same_group
+archive/Images/Test/Banh trang nuong/30.jpg,archive/Images/Test/Bun rieu/3.jpg,Banh trang nuong,Bun rieu,7,37.1,different
+archive/Images/Test/Banh trang nuong/30.jpg,archive/Images/Train/Banh beo/50.jpg,Banh trang nuong,Banh beo,8,36.7,different
+archive/Images/Test/Banh trang nuong/30.jpg,archive/Images/Train/Banh duc/63.jpg,Banh trang nuong,Banh duc,8,42.8,different
+archive/Images/Test/Banh trang nuong/30.jpg,archive/Images/Train/Banh xeo/82.jpg,Banh trang nuong,Banh xeo,7,38.1,different
+archive/Images/Test/Banh trang nuong/30.jpg,archive/Images/Train/Canh chua/39.jpg,Banh trang nuong,Canh chua,8,39.3,different
+archive/Images/Test/Banh trang nuong/30.jpg,archive/Images/Train/Goi cuon/24.jpg,Banh trang nuong,Goi cuon,8,45.0,different
+archive/Images/Test/Banh trang nuong/322.jpg,archive/Images/Validate/Goi cuon/612.jpg,Banh trang nuong,Goi cuon,8,71.8,different
+archive/Images/Test/Banh trang nuong/61.jpg,archive/Images/Train/Banh can/342.jpg,Banh trang nuong,Banh can,8,40.2,different
+archive/Images/Test/Banh trang nuong/61.jpg,archive/Images/Train/Banh gio/23.jpg,Banh trang nuong,Banh gio,8,46.2,different
+archive/Images/Test/Banh trang nuong/735.jpg,archive/Images/Train/Banh xeo/207.jpg,Banh trang nuong,Banh xeo,8,101.6,different
+archive/Images/Test/Banh xeo/1169.jpg,archive/Images/Train/Banh xeo/407.jpg,Banh xeo,Banh xeo,8,18.7,same_group
+archive/Images/Test/Banh xeo/1170.jpg,archive/Images/Train/Banh xeo/303.jpg,Banh xeo,Banh xeo,2,0.5,same_group
+archive/Images/Test/Banh xeo/268.jpg,archive/Images/Test/Bun rieu/50.jpg,Banh xeo,Bun rieu,8,79.4,different
+archive/Images/Test/Banh xeo/268.jpg,archive/Images/Test/Chao long/61.jpg,Banh xeo,Chao long,8,50.7,different
+archive/Images/Test/Banh xeo/268.jpg,archive/Images/Test/Com tam/89.jpg,Banh xeo,Com tam,6,58.4,different
+archive/Images/Test/Banh xeo/268.jpg,archive/Images/Train/Banh canh/153.jpg,Banh xeo,Banh canh,7,51.2,different
+archive/Images/Test/Banh xeo/268.jpg,archive/Images/Train/Banh canh/179.jpg,Banh xeo,Banh canh,8,46.1,different
+archive/Images/Test/Banh xeo/268.jpg,archive/Images/Train/Banh xeo/272.jpg,Banh xeo,Banh xeo,5,19.9,same_group
+archive/Images/Test/Banh xeo/268.jpg,archive/Images/Train/Ca kho to/33.jpg,Banh xeo,Ca kho to,6,58.2,different
+archive/Images/Test/Banh xeo/268.jpg,archive/Images/Train/Ca kho to/41.jpg,Banh xeo,Ca kho to,5,52.7,different
+archive/Images/Test/Banh xeo/268.jpg,archive/Images/Train/Canh chua/102.jpg,Banh xeo,Canh chua,4,36.7,different
+archive/Images/Test/Banh xeo/268.jpg,archive/Images/Train/Cao lau/1.jpg,Banh xeo,Cao lau,7,53.8,different
+archive/Images/Test/Banh xeo/268.jpg,archive/Images/Train/Chao long/55.jpg,Banh xeo,Chao long,8,63.4,different
+archive/Images/Test/Banh xeo/268.jpg,archive/Images/Train/Chao long/58.jpg,Banh xeo,Chao long,8,80.8,different
+archive/Images/Test/Banh xeo/268.jpg,archive/Images/Train/Com tam/112.jpg,Banh xeo,Com tam,7,40.5,different
+archive/Images/Test/Banh xeo/268.jpg,archive/Images/Train/Xoi xeo/15.jpg,Banh xeo,Xoi xeo,7,38.4,different
+archive/Images/Test/Banh xeo/268.jpg,archive/Images/Validate/Banh bot loc/413.jpg,Banh xeo,Banh bot loc,7,109.9,different
+archive/Images/Test/Banh xeo/268.jpg,archive/Images/Validate/Banh cuon/669.jpg,Banh xeo,Banh cuon,4,59.1,different
+archive/Images/Test/Banh xeo/320.jpg,archive/Images/Test/Banh xeo/478.jpg,Banh xeo,Banh xeo,3,10.2,same_group
+archive/Images/Test/Banh xeo/330.jpg,archive/Images/Train/Goi cuon/363.jpg,Banh xeo,Goi cuon,8,32.4,different
+archive/Images/Test/Banh xeo/450.jpg,archive/Images/Train/Banh xeo/365.jpg,Banh xeo,Banh xeo,4,12.1,same_group
+archive/Images/Test/Banh xeo/51.jpg,archive/Images/Train/Banh chung/504.jpg,Banh xeo,Banh chung,7,35.6,different
+archive/Images/Test/Banh xeo/51.jpg,archive/Images/Train/Banh trang nuong/151.jpg,Banh xeo,Banh trang nuong,8,64.9,different
+archive/Images/Test/Banh xeo/51.jpg,archive/Images/Train/Banh trang nuong/88.jpg,Banh xeo,Banh trang nuong,8,40.3,different
+archive/Images/Test/Banh xeo/51.jpg,archive/Images/Train/Banh xeo/73.jpg,Banh xeo,Banh xeo,8,37.9,different
+archive/Images/Test/Banh xeo/51.jpg,archive/Images/Train/Ca kho to/96.jpg,Banh xeo,Ca kho to,7,44.6,different
+archive/Images/Test/Banh xeo/51.jpg,archive/Images/Train/Cao lau/39.jpg,Banh xeo,Cao lau,7,41.2,different
+archive/Images/Test/Banh xeo/51.jpg,archive/Images/Train/Goi cuon/36.jpg,Banh xeo,Goi cuon,8,39.8,different
+archive/Images/Test/Banh xeo/51.jpg,archive/Images/Validate/Com tam/173.jpg,Banh xeo,Com tam,7,43.5,different
+archive/Images/Test/Banh xeo/534.jpg,archive/Images/Train/Bun thit nuong/288.jpg,Banh xeo,Bun thit nuong,8,57.1,different
+archive/Images/Test/Banh xeo/564.jpg,archive/Images/Train/Hu tieu/152.jpg,Banh xeo,Hu tieu,8,41.7,different
+archive/Images/Test/Banh xeo/564.jpg,archive/Images/Validate/Banh khot/105.jpg,Banh xeo,Banh khot,8,51.8,different
+archive/Images/Test/Banh xeo/70.jpg,archive/Images/Train/Bun bo Hue/400.jpg,Banh xeo,Bun bo Hue,6,45.9,different
+archive/Images/Test/Banh xeo/70.jpg,archive/Images/Validate/Banh pia/384.jpg,Banh xeo,Banh pia,4,52.9,different
+archive/Images/Test/Banh xeo/74.jpg,archive/Images/Train/Banh can/621.jpg,Banh xeo,Banh can,8,85.8,different
+archive/Images/Test/Banh xeo/80.jpg,archive/Images/Test/Chao long/94.jpg,Banh xeo,Chao long,8,48.7,different
+archive/Images/Test/Banh xeo/80.jpg,archive/Images/Train/Banh xeo/103.jpg,Banh xeo,Banh xeo,4,12.9,same_group
+archive/Images/Test/Banh xeo/80.jpg,archive/Images/Validate/Banh xeo/105.jpg,Banh xeo,Banh xeo,4,16.6,same_group
+archive/Images/Test/Banh xeo/850.jpg,archive/Images/Train/Banh xeo/46.jpg,Banh xeo,Banh xeo,7,85.8,different
+archive/Images/Test/Bun bo Hue/1043.jpg,archive/Images/Validate/Banh mi/326.jpg,Bun bo Hue,Banh mi,8,40.5,different
+archive/Images/Test/Bun bo Hue/1072.jpg,archive/Images/Validate/Bun bo Hue/1516.jpg,Bun bo Hue,Bun bo Hue,1,12.5,same_group
+archive/Images/Test/Bun bo Hue/1101.jpg,archive/Images/Train/Banh duc/55.jpg,Bun bo Hue,Banh duc,8,89.0,different
+archive/Images/Test/Bun bo Hue/156.jpg,archive/Images/Train/Banh gio/191.jpg,Bun bo Hue,Banh gio,7,53.5,different
+archive/Images/Test/Bun bo Hue/156.jpg,archive/Images/Train/Bun bo Hue/266.jpg,Bun bo Hue,Bun bo Hue,2,47.5,different
+archive/Images/Test/Bun bo Hue/171.jpg,archive/Images/Test/Ca kho to/46.jpg,Bun bo Hue,Ca kho to,8,72.5,different
+archive/Images/Test/Bun bo Hue/18.jpg,archive/Images/Train/Bun bo Hue/1528.jpg,Bun bo Hue,Bun bo Hue,3,4.7,same_group
+archive/Images/Test/Bun bo Hue/246.jpg,archive/Images/Train/Banh tet/103.jpg,Bun bo Hue,Banh tet,7,48.9,different
+archive/Images/Test/Bun bo Hue/263.jpg,archive/Images/Test/Chao long/251.jpg,Bun bo Hue,Chao long,8,35.3,different
+archive/Images/Test/Bun bo Hue/263.jpg,archive/Images/Train/Banh pia/15.jpg,Bun bo Hue,Banh pia,8,61.3,different
+archive/Images/Test/Bun bo Hue/263.jpg,archive/Images/Train/Ca kho to/241.jpg,Bun bo Hue,Ca kho to,7,39.2,different
+archive/Images/Test/Bun bo Hue/263.jpg,archive/Images/Train/Canh chua/4.jpg,Bun bo Hue,Canh chua,8,47.5,different
+archive/Images/Test/Bun bo Hue/271.jpg,archive/Images/Test/Chao long/68.jpg,Bun bo Hue,Chao long,8,45.2,different
+archive/Images/Test/Bun bo Hue/271.jpg,archive/Images/Train/Banh canh/179.jpg,Bun bo Hue,Banh canh,8,43.3,different
+archive/Images/Test/Bun bo Hue/271.jpg,archive/Images/Train/Ca kho to/33.jpg,Bun bo Hue,Ca kho to,8,47.5,different
+archive/Images/Test/Bun bo Hue/271.jpg,archive/Images/Train/Mi quang/80.jpg,Bun bo Hue,Mi quang,8,49.0,different
+archive/Images/Test/Bun bo Hue/315.jpg,archive/Images/Validate/Bun bo Hue/237.jpg,Bun bo Hue,Bun bo Hue,1,3.4,same_group
+archive/Images/Test/Bun bo Hue/370.jpg,archive/Images/Train/Bun bo Hue/206.jpg,Bun bo Hue,Bun bo Hue,2,5.9,same_group
+archive/Images/Test/Bun bo Hue/430.jpg,archive/Images/Train/Bun rieu/39.jpg,Bun bo Hue,Bun rieu,8,58.6,different
+archive/Images/Test/Bun bo Hue/430.jpg,archive/Images/Train/Bun rieu/420.jpg,Bun bo Hue,Bun rieu,8,52.9,different
+archive/Images/Test/Bun bo Hue/462.jpg,archive/Images/Test/Bun dau mam tom/31.jpg,Bun bo Hue,Bun dau mam tom,7,52.1,different
+archive/Images/Test/Bun bo Hue/462.jpg,archive/Images/Train/Banh xeo/61.jpg,Bun bo Hue,Banh xeo,7,60.2,different
+archive/Images/Test/Bun bo Hue/492.jpg,archive/Images/Test/Bun bo Hue/90.jpg,Bun bo Hue,Bun bo Hue,4,11.5,same_group
+archive/Images/Test/Bun bo Hue/501.jpg,archive/Images/Train/Chao long/32.jpg,Bun bo Hue,Chao long,8,49.6,different
+archive/Images/Test/Bun bo Hue/52.jpg,archive/Images/Train/Canh chua/326.jpg,Bun bo Hue,Canh chua,8,69.4,different
+archive/Images/Test/Bun bo Hue/529.jpg,archive/Images/Train/Bun bo Hue/1526.jpg,Bun bo Hue,Bun bo Hue,0,0.1,same_group
+archive/Images/Test/Bun bo Hue/611.jpg,archive/Images/Train/Bun bo Hue/596.jpg,Bun bo Hue,Bun bo Hue,2,17.4,same_group
+archive/Images/Test/Bun bo Hue/627.jpg,archive/Images/Validate/Banh canh/57.jpg,Bun bo Hue,Banh canh,7,50.0,different
+archive/Images/Test/Bun bo Hue/67.jpg,archive/Images/Train/Bun bo Hue/69.jpg,Bun bo Hue,Bun bo Hue,0,0.1,same_group
+archive/Images/Test/Bun bo Hue/884.jpg,archive/Images/Train/Pho/406.jpg,Bun bo Hue,Pho,0,0.2,exclude_both
+archive/Images/Test/Bun dau mam tom/205.jpg,archive/Images/Train/Bun dau mam tom/255.jpg,Bun dau mam tom,Bun dau mam tom,4,14.7,same_group
+archive/Images/Test/Bun dau mam tom/207.jpg,archive/Images/Train/Bun dau mam tom/913.jpg,Bun dau mam tom,Bun dau mam tom,6,15.7,same_group
+archive/Images/Test/Bun dau mam tom/266.jpg,archive/Images/Test/Bun rieu/65.jpg,Bun dau mam tom,Bun rieu,7,47.6,different
+archive/Images/Test/Bun dau mam tom/266.jpg,archive/Images/Train/Bun dau mam tom/267.jpg,Bun dau mam tom,Bun dau mam tom,4,19.5,same_group
+archive/Images/Test/Bun dau mam tom/298.jpg,archive/Images/Train/Bun dau mam tom/9.jpg,Bun dau mam tom,Bun dau mam tom,8,26.4,same_group
+archive/Images/Test/Bun dau mam tom/31.jpg,archive/Images/Test/Com tam/60.jpg,Bun dau mam tom,Com tam,7,52.6,different
+archive/Images/Test/Bun dau mam tom/31.jpg,archive/Images/Test/Nem chua/122.jpg,Bun dau mam tom,Nem chua,8,41.1,different
+archive/Images/Test/Bun dau mam tom/31.jpg,archive/Images/Train/Banh can/94.jpg,Bun dau mam tom,Banh can,8,60.1,different
+archive/Images/Test/Bun dau mam tom/31.jpg,archive/Images/Train/Banh cuon/217.jpg,Bun dau mam tom,Banh cuon,6,34.0,different
+archive/Images/Test/Bun dau mam tom/31.jpg,archive/Images/Train/Banh duc/55.jpg,Bun dau mam tom,Banh duc,7,52.4,different
+archive/Images/Test/Bun dau mam tom/31.jpg,archive/Images/Train/Banh gio/134.jpg,Bun dau mam tom,Banh gio,8,62.8,different
+archive/Images/Test/Bun dau mam tom/31.jpg,archive/Images/Train/Banh khot/150.jpg,Bun dau mam tom,Banh khot,7,46.6,different
+archive/Images/Test/Bun dau mam tom/31.jpg,archive/Images/Train/Banh mi/14.jpg,Bun dau mam tom,Banh mi,7,52.6,different
+archive/Images/Test/Bun dau mam tom/31.jpg,archive/Images/Train/Banh mi/438.jpg,Bun dau mam tom,Banh mi,5,90.7,different
+archive/Images/Test/Bun dau mam tom/31.jpg,archive/Images/Train/Banh trang nuong/151.jpg,Bun dau mam tom,Banh trang nuong,5,60.3,different
+archive/Images/Test/Bun dau mam tom/31.jpg,archive/Images/Train/Banh trang nuong/88.jpg,Bun dau mam tom,Banh trang nuong,7,52.6,different
+archive/Images/Test/Bun dau mam tom/31.jpg,archive/Images/Train/Banh xeo/61.jpg,Bun dau mam tom,Banh xeo,4,38.5,different
+archive/Images/Test/Bun dau mam tom/31.jpg,archive/Images/Train/Banh xeo/71.jpg,Bun dau mam tom,Banh xeo,4,40.0,different
+archive/Images/Test/Bun dau mam tom/31.jpg,archive/Images/Train/Banh xeo/73.jpg,Bun dau mam tom,Banh xeo,5,67.5,different
+archive/Images/Test/Bun dau mam tom/31.jpg,archive/Images/Train/Bun dau mam tom/83.jpg,Bun dau mam tom,Bun dau mam tom,8,43.5,different
+archive/Images/Test/Bun dau mam tom/31.jpg,archive/Images/Train/Bun rieu/349.jpg,Bun dau mam tom,Bun rieu,8,65.5,different
+archive/Images/Test/Bun dau mam tom/31.jpg,archive/Images/Train/Canh chua/531.jpg,Bun dau mam tom,Canh chua,7,40.5,different
+archive/Images/Test/Bun dau mam tom/31.jpg,archive/Images/Train/Cao lau/39.jpg,Bun dau mam tom,Cao lau,4,56.1,different
+archive/Images/Test/Bun dau mam tom/31.jpg,archive/Images/Train/Chao long/316.jpg,Bun dau mam tom,Chao long,6,42.0,different
+archive/Images/Test/Bun dau mam tom/31.jpg,archive/Images/Train/Com tam/40.jpg,Bun dau mam tom,Com tam,8,51.5,different
+archive/Images/Test/Bun dau mam tom/31.jpg,archive/Images/Train/Goi cuon/96.jpg,Bun dau mam tom,Goi cuon,7,51.1,different
+archive/Images/Test/Bun dau mam tom/31.jpg,archive/Images/Train/Nem chua/117.jpg,Bun dau mam tom,Nem chua,8,56.1,different
+archive/Images/Test/Bun dau mam tom/31.jpg,archive/Images/Train/Nem chua/119.jpg,Bun dau mam tom,Nem chua,7,68.2,different
+archive/Images/Test/Bun dau mam tom/31.jpg,archive/Images/Validate/Banh gio/123.jpg,Bun dau mam tom,Banh gio,6,56.4,different
+archive/Images/Test/Bun dau mam tom/31.jpg,archive/Images/Validate/Banh gio/67.jpg,Bun dau mam tom,Banh gio,5,46.9,different
+archive/Images/Test/Bun dau mam tom/31.jpg,archive/Images/Validate/Com tam/173.jpg,Bun dau mam tom,Com tam,4,45.5,different
+archive/Images/Test/Bun mam/181.jpg,archive/Images/Train/Banh duc/24.jpg,Bun mam,Banh duc,7,68.2,different
+archive/Images/Test/Bun mam/295.jpg,archive/Images/Train/Banh bot loc/26.jpg,Bun mam,Banh bot loc,8,51.6,different
+archive/Images/Test/Bun mam/295.jpg,archive/Images/Train/Com tam/778.jpg,Bun mam,Com tam,8,60.6,different
+archive/Images/Test/Bun mam/295.jpg,archive/Images/Train/Xoi xeo/97.jpg,Bun mam,Xoi xeo,8,50.5,different
+archive/Images/Test/Bun mam/432.jpg,archive/Images/Train/Bun rieu/519.jpg,Bun mam,Bun rieu,0,0.6,exclude_both
+archive/Images/Test/Bun rieu/109.jpg,archive/Images/Validate/Bun bo Hue/202.jpg,Bun rieu,Bun bo Hue,8,38.8,different
+archive/Images/Test/Bun rieu/140.jpg,archive/Images/Test/Ca kho to/114.jpg,Bun rieu,Ca kho to,7,50.7,different
+archive/Images/Test/Bun rieu/140.jpg,archive/Images/Train/Banh canh/153.jpg,Bun rieu,Banh canh,8,25.6,different
+archive/Images/Test/Bun rieu/140.jpg,archive/Images/Train/Banh duc/141.jpg,Bun rieu,Banh duc,7,44.3,different
+archive/Images/Test/Bun rieu/140.jpg,archive/Images/Train/Canh chua/12.jpg,Bun rieu,Canh chua,8,34.8,different
+archive/Images/Test/Bun rieu/140.jpg,archive/Images/Validate/Hu tieu/78.jpg,Bun rieu,Hu tieu,8,21.5,different
+archive/Images/Test/Bun rieu/2.jpg,archive/Images/Train/Banh bot loc/67.jpg,Bun rieu,Banh bot loc,8,36.7,different
+archive/Images/Test/Bun rieu/2.jpg,archive/Images/Train/Bun bo Hue/806.jpg,Bun rieu,Bun bo Hue,7,33.1,different
+archive/Images/Test/Bun rieu/2.jpg,archive/Images/Train/Com tam/57.jpg,Bun rieu,Com tam,7,49.9,different
+archive/Images/Test/Bun rieu/2.jpg,archive/Images/Train/Goi cuon/24.jpg,Bun rieu,Goi cuon,8,43.2,different
+archive/Images/Test/Bun rieu/3.jpg,archive/Images/Train/Bun bo Hue/892.jpg,Bun rieu,Bun bo Hue,6,45.7,different
+archive/Images/Test/Bun rieu/3.jpg,archive/Images/Train/Bun dau mam tom/10.jpg,Bun rieu,Bun dau mam tom,8,37.3,different
+archive/Images/Test/Bun rieu/3.jpg,archive/Images/Train/Goi cuon/23.jpg,Bun rieu,Goi cuon,8,48.4,different
+archive/Images/Test/Bun rieu/3.jpg,archive/Images/Train/Goi cuon/24.jpg,Bun rieu,Goi cuon,5,45.7,different
+archive/Images/Test/Bun rieu/357.jpg,archive/Images/Train/Banh duc/527.jpg,Bun rieu,Banh duc,8,53.7,different
+archive/Images/Test/Bun rieu/357.jpg,archive/Images/Train/Canh chua/108.jpg,Bun rieu,Canh chua,8,40.1,different
+archive/Images/Test/Bun rieu/4.jpg,archive/Images/Train/Banh trang nuong/142.jpg,Bun rieu,Banh trang nuong,8,61.0,different
+archive/Images/Test/Bun rieu/46.jpg,archive/Images/Validate/Bun rieu/146.jpg,Bun rieu,Bun rieu,4,12.9,same_group
+archive/Images/Test/Bun rieu/49.jpg,archive/Images/Train/Banh bot loc/235.jpg,Bun rieu,Banh bot loc,7,39.8,different
+archive/Images/Test/Bun rieu/49.jpg,archive/Images/Train/Banh bot loc/244.jpg,Bun rieu,Banh bot loc,8,54.6,different
+archive/Images/Test/Bun rieu/49.jpg,archive/Images/Train/Bun bo Hue/252.jpg,Bun rieu,Bun bo Hue,8,40.9,different
+archive/Images/Test/Bun rieu/49.jpg,archive/Images/Train/Xoi xeo/57.jpg,Bun rieu,Xoi xeo,6,37.2,different
+archive/Images/Test/Bun rieu/50.jpg,archive/Images/Test/Bun thit nuong/454.jpg,Bun rieu,Bun thit nuong,7,76.0,different
+archive/Images/Test/Bun rieu/50.jpg,archive/Images/Test/Com tam/89.jpg,Bun rieu,Com tam,8,55.1,different
+archive/Images/Test/Bun rieu/50.jpg,archive/Images/Test/Hu tieu/51.jpg,Bun rieu,Hu tieu,8,42.6,different
+archive/Images/Test/Bun rieu/50.jpg,archive/Images/Train/Banh cuon/147.jpg,Bun rieu,Banh cuon,7,75.8,different
+archive/Images/Test/Bun rieu/50.jpg,archive/Images/Train/Banh xeo/16.jpg,Bun rieu,Banh xeo,6,65.9,different
+archive/Images/Test/Bun rieu/50.jpg,archive/Images/Train/Banh xeo/327.jpg,Bun rieu,Banh xeo,6,67.2,different
+archive/Images/Test/Bun rieu/50.jpg,archive/Images/Validate/Banh cuon/669.jpg,Bun rieu,Banh cuon,8,50.8,different
+archive/Images/Test/Bun rieu/50.jpg,archive/Images/Validate/Ca kho to/45.jpg,Bun rieu,Ca kho to,8,61.7,different
+archive/Images/Test/Bun rieu/65.jpg,archive/Images/Test/Canh chua/77.jpg,Bun rieu,Canh chua,8,39.6,different
+archive/Images/Test/Bun rieu/65.jpg,archive/Images/Test/Com tam/47.jpg,Bun rieu,Com tam,7,42.2,different
+archive/Images/Test/Bun rieu/65.jpg,archive/Images/Train/Canh chua/82.jpg,Bun rieu,Canh chua,8,61.4,different
+archive/Images/Test/Bun rieu/65.jpg,archive/Images/Train/Com tam/20.jpg,Bun rieu,Com tam,8,63.7,different
+archive/Images/Test/Bun rieu/65.jpg,archive/Images/Train/Mi quang/10.jpg,Bun rieu,Mi quang,7,58.5,different
+archive/Images/Test/Bun rieu/65.jpg,archive/Images/Validate/Banh canh/34.jpg,Bun rieu,Banh canh,8,49.8,different
+archive/Images/Test/Bun rieu/65.jpg,archive/Images/Validate/Banh duc/36.jpg,Bun rieu,Banh duc,8,35.5,different
+archive/Images/Test/Bun rieu/737.jpg,archive/Images/Train/Banh mi/578.jpg,Bun rieu,Banh mi,8,50.8,different
+archive/Images/Test/Bun thit nuong/116.jpg,archive/Images/Train/Bun thit nuong/365.jpg,Bun thit nuong,Bun thit nuong,8,44.2,different
+archive/Images/Test/Bun thit nuong/354.jpg,archive/Images/Train/Bun thit nuong/150.jpg,Bun thit nuong,Bun thit nuong,4,7.9,same_group
+archive/Images/Test/Bun thit nuong/454.jpg,archive/Images/Test/Nem chua/58.jpg,Bun thit nuong,Nem chua,7,56.5,different
+archive/Images/Test/Bun thit nuong/454.jpg,archive/Images/Train/Banh xeo/16.jpg,Bun thit nuong,Banh xeo,7,35.9,different
+archive/Images/Test/Bun thit nuong/454.jpg,archive/Images/Train/Bun rieu/39.jpg,Bun thit nuong,Bun rieu,8,37.8,different
+archive/Images/Test/Bun thit nuong/454.jpg,archive/Images/Train/Goi cuon/19.jpg,Bun thit nuong,Goi cuon,8,46.3,different
+archive/Images/Test/Bun thit nuong/714.jpg,archive/Images/Train/Mi quang/16.jpg,Bun thit nuong,Mi quang,8,57.6,different
+archive/Images/Test/Bun thit nuong/97.jpg,archive/Images/Train/Bun thit nuong/100.jpg,Bun thit nuong,Bun thit nuong,6,29.0,same_group
+archive/Images/Test/Bun thit nuong/97.jpg,archive/Images/Train/Bun thit nuong/71.jpg,Bun thit nuong,Bun thit nuong,7,22.7,same_group
+archive/Images/Test/Bun thit nuong/97.jpg,archive/Images/Validate/Bun thit nuong/89.jpg,Bun thit nuong,Bun thit nuong,3,13.3,same_group
+archive/Images/Test/Ca kho to/114.jpg,archive/Images/Train/Xoi xeo/68.jpg,Ca kho to,Xoi xeo,8,38.5,different
+archive/Images/Test/Ca kho to/117.jpg,archive/Images/Train/Banh xeo/323.jpg,Ca kho to,Banh xeo,8,65.1,different
+archive/Images/Test/Ca kho to/117.jpg,archive/Images/Train/Ca kho to/120.jpg,Ca kho to,Ca kho to,0,1.3,same_group
+archive/Images/Test/Ca kho to/129.jpg,archive/Images/Train/Banh xeo/15.jpg,Ca kho to,Banh xeo,7,50.0,different
+archive/Images/Test/Ca kho to/129.jpg,archive/Images/Train/Ca kho to/47.jpg,Ca kho to,Ca kho to,8,38.6,different
+archive/Images/Test/Ca kho to/129.jpg,archive/Images/Validate/Nem chua/26.jpg,Ca kho to,Nem chua,7,55.8,different
+archive/Images/Test/Ca kho to/14.jpg,archive/Images/Train/Chao long/176.jpg,Ca kho to,Chao long,8,49.5,different
+archive/Images/Test/Ca kho to/198.jpg,archive/Images/Validate/Ca kho to/201.jpg,Ca kho to,Ca kho to,0,0.1,same_group
+archive/Images/Test/Ca kho to/34.jpg,archive/Images/Train/Ca kho to/32.jpg,Ca kho to,Ca kho to,6,17.0,same_group
+archive/Images/Test/Ca kho to/396.jpg,archive/Images/Train/Ca kho to/28.jpg,Ca kho to,Ca kho to,8,68.9,different
+archive/Images/Test/Ca kho to/396.jpg,archive/Images/Train/Ca kho to/47.jpg,Ca kho to,Ca kho to,7,50.6,different
+archive/Images/Test/Ca kho to/396.jpg,archive/Images/Train/Canh chua/266.jpg,Ca kho to,Canh chua,7,59.8,different
+archive/Images/Test/Ca kho to/396.jpg,archive/Images/Validate/Bun thit nuong/33.jpg,Ca kho to,Bun thit nuong,7,70.4,different
+archive/Images/Test/Ca kho to/406.jpg,archive/Images/Test/Canh chua/77.jpg,Ca kho to,Canh chua,8,49.2,different
+archive/Images/Test/Ca kho to/406.jpg,archive/Images/Train/Banh tet/18.jpg,Ca kho to,Banh tet,7,41.0,different
+archive/Images/Test/Ca kho to/406.jpg,archive/Images/Train/Canh chua/82.jpg,Ca kho to,Canh chua,2,70.4,different
+archive/Images/Test/Ca kho to/406.jpg,archive/Images/Train/Com tam/20.jpg,Ca kho to,Com tam,6,44.3,different
+archive/Images/Test/Ca kho to/406.jpg,archive/Images/Train/Mi quang/10.jpg,Ca kho to,Mi quang,7,54.2,different
+archive/Images/Test/Ca kho to/406.jpg,archive/Images/Validate/Banh cuon/61.jpg,Ca kho to,Banh cuon,8,41.9,different
+archive/Images/Test/Ca kho to/406.jpg,archive/Images/Validate/Bun mam/374.jpg,Ca kho to,Bun mam,7,52.0,different
+archive/Images/Test/Ca kho to/44.jpg,archive/Images/Train/Ca kho to/42.jpg,Ca kho to,Ca kho to,0,0.1,same_group
+archive/Images/Test/Ca kho to/46.jpg,archive/Images/Train/Banh can/199.jpg,Ca kho to,Banh can,8,62.3,different
+archive/Images/Test/Ca kho to/49.jpg,archive/Images/Train/Ca kho to/33.jpg,Ca kho to,Ca kho to,8,55.3,different
+archive/Images/Test/Ca kho to/5.jpg,archive/Images/Train/Ca kho to/7.jpg,Ca kho to,Ca kho to,0,0.2,same_group
+archive/Images/Test/Ca kho to/65.jpg,archive/Images/Train/Ca kho to/141.jpg,Ca kho to,Ca kho to,8,38.1,different
+archive/Images/Test/Canh chua/107.jpg,archive/Images/Train/Pho/254.jpg,Canh chua,Pho,8,37.1,different
+archive/Images/Test/Canh chua/109.jpg,archive/Images/Train/Banh canh/213.jpg,Canh chua,Banh canh,8,33.4,different
+archive/Images/Test/Canh chua/109.jpg,archive/Images/Train/Banh duc/141.jpg,Canh chua,Banh duc,8,32.1,different
+archive/Images/Test/Canh chua/109.jpg,archive/Images/Train/Banh trang nuong/307.jpg,Canh chua,Banh trang nuong,8,31.6,different
+archive/Images/Test/Canh chua/109.jpg,archive/Images/Train/Banh xeo/269.jpg,Canh chua,Banh xeo,4,39.1,different
+archive/Images/Test/Canh chua/109.jpg,archive/Images/Train/Bun mam/26.jpg,Canh chua,Bun mam,8,38.7,different
+archive/Images/Test/Canh chua/109.jpg,archive/Images/Train/Canh chua/102.jpg,Canh chua,Canh chua,8,29.6,same_group
+archive/Images/Test/Canh chua/109.jpg,archive/Images/Train/Cao lau/1.jpg,Canh chua,Cao lau,7,46.8,different
+archive/Images/Test/Canh chua/109.jpg,archive/Images/Train/Chao long/70.jpg,Canh chua,Chao long,6,71.3,different
+archive/Images/Test/Canh chua/109.jpg,archive/Images/Train/Hu tieu/439.jpg,Canh chua,Hu tieu,8,46.6,different
+archive/Images/Test/Canh chua/109.jpg,archive/Images/Train/Xoi xeo/15.jpg,Canh chua,Xoi xeo,7,30.1,different
+archive/Images/Test/Canh chua/109.jpg,archive/Images/Validate/Bun rieu/419.jpg,Canh chua,Bun rieu,8,31.1,different
+archive/Images/Test/Canh chua/122.jpg,archive/Images/Train/Canh chua/108.jpg,Canh chua,Canh chua,8,35.1,different
+archive/Images/Test/Canh chua/122.jpg,archive/Images/Train/Xoi xeo/68.jpg,Canh chua,Xoi xeo,8,32.5,different
+archive/Images/Test/Canh chua/148.jpg,archive/Images/Train/Canh chua/150.jpg,Canh chua,Canh chua,1,3.0,same_group
+archive/Images/Test/Canh chua/2.jpg,archive/Images/Train/Com tam/137.jpg,Canh chua,Com tam,7,48.4,different
+archive/Images/Test/Canh chua/2.jpg,archive/Images/Train/Com tam/240.jpg,Canh chua,Com tam,8,50.3,different
+archive/Images/Test/Canh chua/245.jpg,archive/Images/Validate/Canh chua/244.jpg,Canh chua,Canh chua,4,10.1,same_group
+archive/Images/Test/Canh chua/256.jpg,archive/Images/Test/Canh chua/258.jpg,Canh chua,Canh chua,8,9.5,same_group
+archive/Images/Test/Canh chua/258.jpg,archive/Images/Validate/Chao long/514.jpg,Canh chua,Chao long,8,39.0,different
+archive/Images/Test/Canh chua/265.jpg,archive/Images/Train/Bun bo Hue/600.jpg,Canh chua,Bun bo Hue,8,75.1,different
+archive/Images/Test/Canh chua/265.jpg,archive/Images/Train/Xoi xeo/129.jpg,Canh chua,Xoi xeo,8,51.6,different
+archive/Images/Test/Canh chua/30.jpg,archive/Images/Train/Canh chua/26.jpg,Canh chua,Canh chua,3,13.6,same_group
+archive/Images/Test/Canh chua/323.jpg,archive/Images/Train/Banh trang nuong/283.jpg,Canh chua,Banh trang nuong,6,47.8,different
+archive/Images/Test/Canh chua/435.jpg,archive/Images/Train/Canh chua/183.jpg,Canh chua,Canh chua,1,0.5,same_group
+archive/Images/Test/Canh chua/74.jpg,archive/Images/Train/Canh chua/72.jpg,Canh chua,Canh chua,6,20.2,same_group
+archive/Images/Test/Canh chua/77.jpg,archive/Images/Test/Com tam/47.jpg,Canh chua,Com tam,7,35.2,different
+archive/Images/Test/Canh chua/77.jpg,archive/Images/Train/Banh canh/60.jpg,Canh chua,Banh canh,8,26.1,different
+archive/Images/Test/Canh chua/77.jpg,archive/Images/Train/Banh xeo/258.jpg,Canh chua,Banh xeo,7,65.0,different
+archive/Images/Test/Canh chua/77.jpg,archive/Images/Train/Ca kho to/317.jpg,Canh chua,Ca kho to,7,48.1,different
+archive/Images/Test/Canh chua/77.jpg,archive/Images/Train/Canh chua/82.jpg,Canh chua,Canh chua,8,53.2,different
+archive/Images/Test/Canh chua/77.jpg,archive/Images/Train/Mi quang/10.jpg,Canh chua,Mi quang,5,35.4,different
+archive/Images/Test/Canh chua/77.jpg,archive/Images/Validate/Banh canh/34.jpg,Canh chua,Banh canh,8,61.1,different
+archive/Images/Test/Canh chua/78.jpg,archive/Images/Train/Banh canh/14.jpg,Canh chua,Banh canh,8,45.9,different
+archive/Images/Test/Canh chua/78.jpg,archive/Images/Train/Banh cuon/214.jpg,Canh chua,Banh cuon,8,44.8,different
+archive/Images/Test/Canh chua/94.jpg,archive/Images/Train/Banh pia/37.jpg,Canh chua,Banh pia,8,60.2,different
+archive/Images/Test/Cao lau/103.jpg,archive/Images/Test/Cao lau/615.jpg,Cao lau,Cao lau,1,0.7,same_group
+archive/Images/Test/Cao lau/17.jpg,archive/Images/Train/Bun thit nuong/74.jpg,Cao lau,Bun thit nuong,7,48.0,different
+archive/Images/Test/Cao lau/17.jpg,archive/Images/Train/Cao lau/44.jpg,Cao lau,Cao lau,1,0.4,same_group
+archive/Images/Test/Cao lau/27.jpg,archive/Images/Test/Cao lau/35.jpg,Cao lau,Cao lau,8,21.8,same_group
+archive/Images/Test/Cao lau/278.jpg,archive/Images/Train/Cao lau/275.jpg,Cao lau,Cao lau,1,2.5,same_group
+archive/Images/Test/Cao lau/311.jpg,archive/Images/Train/Mi quang/391.jpg,Cao lau,Mi quang,8,43.0,different
+archive/Images/Test/Cao lau/46.jpg,archive/Images/Train/Bun rieu/349.jpg,Cao lau,Bun rieu,8,52.2,different
+archive/Images/Test/Cao lau/507.jpg,archive/Images/Train/Banh canh/399.jpg,Cao lau,Banh canh,7,64.4,different
+archive/Images/Test/Cao lau/612.jpg,archive/Images/Train/Banh khot/155.jpg,Cao lau,Banh khot,8,40.4,different
+archive/Images/Test/Chao long/105.jpg,archive/Images/Train/Chao long/109.jpg,Chao long,Chao long,6,12.8,same_group
+archive/Images/Test/Chao long/156.jpg,archive/Images/Train/Chao long/153.jpg,Chao long,Chao long,2,14.1,same_group
+archive/Images/Test/Chao long/157.jpg,archive/Images/Train/Com tam/112.jpg,Chao long,Com tam,7,35.0,different
+archive/Images/Test/Chao long/158.jpg,archive/Images/Test/Chao long/339.jpg,Chao long,Chao long,2,20.4,same_group
+archive/Images/Test/Chao long/191.jpg,archive/Images/Test/Chao long/326.jpg,Chao long,Chao long,2,8.9,same_group
+archive/Images/Test/Chao long/212.jpg,archive/Images/Test/Chao long/36.jpg,Chao long,Chao long,4,12.3,same_group
+archive/Images/Test/Chao long/311.jpg,archive/Images/Test/Chao long/491.jpg,Chao long,Chao long,7,24.1,same_group
+archive/Images/Test/Chao long/311.jpg,archive/Images/Train/Chao long/317.jpg,Chao long,Chao long,5,23.3,same_group
+archive/Images/Test/Chao long/311.jpg,archive/Images/Validate/Chao long/510.jpg,Chao long,Chao long,5,15.6,same_group
+archive/Images/Test/Chao long/36.jpg,archive/Images/Train/Banh cuon/723.jpg,Chao long,Banh cuon,7,35.3,different
+archive/Images/Test/Chao long/41.jpg,archive/Images/Train/Chao long/32.jpg,Chao long,Chao long,6,15.3,same_group
+archive/Images/Test/Chao long/426.jpg,archive/Images/Train/Chao long/130.jpg,Chao long,Chao long,4,12.6,same_group
+archive/Images/Test/Chao long/43.jpg,archive/Images/Train/Banh canh/90.jpg,Chao long,Banh canh,5,14.9,exclude_both
+archive/Images/Test/Chao long/447.jpg,archive/Images/Train/Chao long/584.jpg,Chao long,Chao long,2,15.3,same_group
+archive/Images/Test/Chao long/458.jpg,archive/Images/Train/Chao long/213.jpg,Chao long,Chao long,8,20.2,same_group
+archive/Images/Test/Chao long/463.jpg,archive/Images/Train/Chao long/89.jpg,Chao long,Chao long,2,15.9,same_group
+archive/Images/Test/Chao long/481.jpg,archive/Images/Train/Chao long/2.jpg,Chao long,Chao long,5,13.2,same_group
+archive/Images/Test/Chao long/491.jpg,archive/Images/Train/Chao long/317.jpg,Chao long,Chao long,4,14.6,same_group
+archive/Images/Test/Chao long/512.jpg,archive/Images/Train/Pho/330.jpg,Chao long,Pho,8,51.6,different
+archive/Images/Test/Chao long/594.jpg,archive/Images/Validate/Banh pia/384.jpg,Chao long,Banh pia,8,47.2,different
+archive/Images/Test/Chao long/61.jpg,archive/Images/Train/Ca kho to/41.jpg,Chao long,Ca kho to,7,38.8,different
+archive/Images/Test/Chao long/68.jpg,archive/Images/Train/Bun bo Hue/250.jpg,Chao long,Bun bo Hue,8,44.1,different
+archive/Images/Test/Chao long/91.jpg,archive/Images/Test/Chao long/97.jpg,Chao long,Chao long,4,10.3,same_group
+archive/Images/Test/Chao long/94.jpg,archive/Images/Train/Banh chung/38.jpg,Chao long,Banh chung,8,47.6,different
+archive/Images/Test/Chao long/94.jpg,archive/Images/Train/Banh chung/39.jpg,Chao long,Banh chung,8,45.3,different
+archive/Images/Test/Chao long/94.jpg,archive/Images/Train/Banh xeo/103.jpg,Chao long,Banh xeo,8,47.9,different
+archive/Images/Test/Chao long/94.jpg,archive/Images/Train/Bun dau mam tom/27.jpg,Chao long,Bun dau mam tom,8,46.9,different
+archive/Images/Test/Chao long/94.jpg,archive/Images/Validate/Banh xeo/105.jpg,Chao long,Banh xeo,6,48.7,different
+archive/Images/Test/Chao long/99.jpg,archive/Images/Train/Bun mam/285.jpg,Chao long,Bun mam,5,45.8,different
+archive/Images/Test/Chao long/99.jpg,archive/Images/Train/Chao long/338.jpg,Chao long,Chao long,8,51.5,different
+archive/Images/Test/Com tam/10.jpg,archive/Images/Train/Com tam/121.jpg,Com tam,Com tam,4,12.8,same_group
+archive/Images/Test/Com tam/105.jpg,archive/Images/Train/Com tam/107.jpg,Com tam,Com tam,6,20.9,same_group
+archive/Images/Test/Com tam/108.jpg,archive/Images/Train/Banh beo/55.jpg,Com tam,Banh beo,6,89.3,different
+archive/Images/Test/Com tam/108.jpg,archive/Images/Train/Bun rieu/193.jpg,Com tam,Bun rieu,8,52.3,different
+archive/Images/Test/Com tam/108.jpg,archive/Images/Validate/Com tam/104.jpg,Com tam,Com tam,7,16.6,same_group
+archive/Images/Test/Com tam/181.jpg,archive/Images/Train/Bun mam/501.jpg,Com tam,Bun mam,6,48.7,different
+archive/Images/Test/Com tam/186.jpg,archive/Images/Validate/Com tam/940.jpg,Com tam,Com tam,2,8.9,same_group
+archive/Images/Test/Com tam/21.jpg,archive/Images/Train/Banh beo/65.jpg,Com tam,Banh beo,8,60.2,different
+archive/Images/Test/Com tam/21.jpg,archive/Images/Train/Mi quang/10.jpg,Com tam,Mi quang,8,61.5,different
+archive/Images/Test/Com tam/238.jpg,archive/Images/Train/Banh trang nuong/82.jpg,Com tam,Banh trang nuong,8,60.8,different
+archive/Images/Test/Com tam/247.jpg,archive/Images/Train/Com tam/249.jpg,Com tam,Com tam,6,14.8,same_group
+archive/Images/Test/Com tam/256.jpg,archive/Images/Train/Bun thit nuong/422.jpg,Com tam,Bun thit nuong,7,19.0,exclude_both
+archive/Images/Test/Com tam/322.jpg,archive/Images/Train/Com tam/245.jpg,Com tam,Com tam,8,21.4,same_group
+archive/Images/Test/Com tam/328.jpg,archive/Images/Train/Com tam/196.jpg,Com tam,Com tam,5,17.8,same_group
+archive/Images/Test/Com tam/35.jpg,archive/Images/Train/Com tam/32.jpg,Com tam,Com tam,5,17.9,same_group
+archive/Images/Test/Com tam/47.jpg,archive/Images/Train/Mi quang/10.jpg,Com tam,Mi quang,6,37.9,different
+archive/Images/Test/Com tam/73.jpg,archive/Images/Train/Com tam/71.jpg,Com tam,Com tam,4,19.3,same_group
+archive/Images/Test/Com tam/89.jpg,archive/Images/Train/Canh chua/102.jpg,Com tam,Canh chua,6,42.4,different
+archive/Images/Test/Com tam/89.jpg,archive/Images/Validate/Banh cuon/669.jpg,Com tam,Banh cuon,6,30.6,different
+archive/Images/Test/Goi cuon/12.jpg,archive/Images/Test/Nem chua/58.jpg,Goi cuon,Nem chua,8,46.0,different
+archive/Images/Test/Goi cuon/128.jpg,archive/Images/Train/Banh xeo/61.jpg,Goi cuon,Banh xeo,8,69.2,different
+archive/Images/Test/Goi cuon/128.jpg,archive/Images/Train/Banh xeo/71.jpg,Goi cuon,Banh xeo,8,58.0,different
+archive/Images/Test/Goi cuon/128.jpg,archive/Images/Train/Goi cuon/100.jpg,Goi cuon,Goi cuon,5,19.5,same_group
+archive/Images/Test/Goi cuon/129.jpg,archive/Images/Train/Banh duc/58.jpg,Goi cuon,Banh duc,8,41.4,different
+archive/Images/Test/Goi cuon/129.jpg,archive/Images/Train/Com tam/433.jpg,Goi cuon,Com tam,6,74.2,different
+archive/Images/Test/Goi cuon/195.jpg,archive/Images/Test/Goi cuon/360.jpg,Goi cuon,Goi cuon,8,20.1,same_group
+archive/Images/Test/Goi cuon/198.jpg,archive/Images/Train/Banh mi/861.jpg,Goi cuon,Banh mi,6,55.3,different
+archive/Images/Test/Goi cuon/26.jpg,archive/Images/Train/Bun rieu/195.jpg,Goi cuon,Bun rieu,8,42.8,different
+archive/Images/Test/Goi cuon/73.jpg,archive/Images/Train/Goi cuon/834.jpg,Goi cuon,Goi cuon,0,0.1,same_group
+archive/Images/Test/Goi cuon/846.jpg,archive/Images/Train/Goi cuon/355.jpg,Goi cuon,Goi cuon,2,0.1,same_group
+archive/Images/Test/Goi cuon/89.jpg,archive/Images/Train/Banh pia/14.jpg,Goi cuon,Banh pia,7,39.3,different
+archive/Images/Test/Hu tieu/123.jpg,archive/Images/Test/Hu tieu/200.jpg,Hu tieu,Hu tieu,3,11.0,same_group
+archive/Images/Test/Hu tieu/169.jpg,archive/Images/Train/Ca kho to/115.jpg,Hu tieu,Ca kho to,8,57.1,different
+archive/Images/Test/Hu tieu/17.jpg,archive/Images/Train/Bun rieu/47.jpg,Hu tieu,Bun rieu,8,36.5,different
+archive/Images/Test/Hu tieu/17.jpg,archive/Images/Validate/Canh chua/302.jpg,Hu tieu,Canh chua,8,42.5,different
+archive/Images/Test/Hu tieu/180.jpg,archive/Images/Train/Banh canh/189.jpg,Hu tieu,Banh canh,7,49.4,different
+archive/Images/Test/Hu tieu/207.jpg,archive/Images/Train/Hu tieu/210.jpg,Hu tieu,Hu tieu,1,0.5,same_group
+archive/Images/Test/Hu tieu/231.jpg,archive/Images/Train/Pho/275.jpg,Hu tieu,Pho,8,20.7,exclude_both
+archive/Images/Test/Hu tieu/27.jpg,archive/Images/Train/Ca kho to/124.jpg,Hu tieu,Ca kho to,8,39.2,different
+archive/Images/Test/Hu tieu/334.jpg,archive/Images/Train/Hu tieu/780.jpg,Hu tieu,Hu tieu,7,26.4,same_group
+archive/Images/Test/Hu tieu/485.jpg,archive/Images/Test/Hu tieu/95.jpg,Hu tieu,Hu tieu,7,15.3,same_group
+archive/Images/Test/Hu tieu/49.jpg,archive/Images/Train/Hu tieu/46.jpg,Hu tieu,Hu tieu,3,13.9,same_group
+archive/Images/Test/Hu tieu/51.jpg,archive/Images/Train/Banh xeo/16.jpg,Hu tieu,Banh xeo,8,62.0,different
+archive/Images/Test/Hu tieu/643.jpg,archive/Images/Train/Bun thit nuong/333.jpg,Hu tieu,Bun thit nuong,7,52.6,different
+archive/Images/Test/Hu tieu/98.jpg,archive/Images/Train/Hu tieu/97.jpg,Hu tieu,Hu tieu,5,43.1,different
+archive/Images/Test/Hu tieu/983.jpg,archive/Images/Train/Hu tieu/751.jpg,Hu tieu,Hu tieu,1,4.1,same_group
+archive/Images/Test/Mi quang/11.jpg,archive/Images/Train/Mi quang/15.jpg,Mi quang,Mi quang,4,8.2,same_group
+archive/Images/Test/Mi quang/131.jpg,archive/Images/Train/Mi quang/875.jpg,Mi quang,Mi quang,0,0.1,same_group
+archive/Images/Test/Mi quang/158.jpg,archive/Images/Test/Mi quang/822.jpg,Mi quang,Mi quang,0,0.5,same_group
+archive/Images/Test/Mi quang/175.jpg,archive/Images/Train/Mi quang/839.jpg,Mi quang,Mi quang,8,20.7,same_group
+archive/Images/Test/Mi quang/23.jpg,archive/Images/Train/Mi quang/829.jpg,Mi quang,Mi quang,0,0.1,same_group
+archive/Images/Test/Mi quang/277.jpg,archive/Images/Train/Banh cuon/1056.jpg,Mi quang,Banh cuon,8,56.0,different
+archive/Images/Test/Mi quang/310.jpg,archive/Images/Train/Mi quang/108.jpg,Mi quang,Mi quang,4,8.3,same_group
+archive/Images/Test/Mi quang/322.jpg,archive/Images/Test/Mi quang/827.jpg,Mi quang,Mi quang,2,7.0,same_group
+archive/Images/Test/Mi quang/33.jpg,archive/Images/Test/Mi quang/813.jpg,Mi quang,Mi quang,7,28.5,same_group
+archive/Images/Test/Mi quang/344.jpg,archive/Images/Train/Hu tieu/172.jpg,Mi quang,Hu tieu,7,39.0,different
+archive/Images/Test/Mi quang/344.jpg,archive/Images/Train/Mi quang/845.jpg,Mi quang,Mi quang,8,30.0,same_group
+archive/Images/Test/Mi quang/35.jpg,archive/Images/Train/Mi quang/38.jpg,Mi quang,Mi quang,5,22.1,same_group
+archive/Images/Test/Mi quang/35.jpg,archive/Images/Train/Xoi xeo/15.jpg,Mi quang,Xoi xeo,7,33.0,different
+archive/Images/Test/Mi quang/358.jpg,archive/Images/Test/Mi quang/835.jpg,Mi quang,Mi quang,0,0.0,same_group
+archive/Images/Test/Mi quang/358.jpg,archive/Images/Train/Mi quang/356.jpg,Mi quang,Mi quang,2,3.4,same_group
+archive/Images/Test/Mi quang/406.jpg,archive/Images/Train/Mi quang/864.jpg,Mi quang,Mi quang,0,0.1,same_group
+archive/Images/Test/Mi quang/819.jpg,archive/Images/Train/Mi quang/191.jpg,Mi quang,Mi quang,0,0.1,same_group
+archive/Images/Test/Mi quang/832.jpg,archive/Images/Train/Mi quang/136.jpg,Mi quang,Mi quang,0,0.3,same_group
+archive/Images/Test/Mi quang/835.jpg,archive/Images/Train/Mi quang/356.jpg,Mi quang,Mi quang,2,3.4,same_group
+archive/Images/Test/Mi quang/84.jpg,archive/Images/Validate/Mi quang/224.jpg,Mi quang,Mi quang,4,11.4,same_group
+archive/Images/Test/Mi quang/843.jpg,archive/Images/Train/Mi quang/49.jpg,Mi quang,Mi quang,7,21.5,same_group
+archive/Images/Test/Mi quang/870.jpg,archive/Images/Train/Mi quang/510.jpg,Mi quang,Mi quang,1,6.0,same_group
+archive/Images/Test/Mi quang/876.jpg,archive/Images/Train/Mi quang/375.jpg,Mi quang,Mi quang,8,18.3,same_group
+archive/Images/Test/Nem chua/122.jpg,archive/Images/Train/Banh duc/55.jpg,Nem chua,Banh duc,7,77.7,different
+archive/Images/Test/Nem chua/122.jpg,archive/Images/Train/Banh xeo/61.jpg,Nem chua,Banh xeo,8,52.6,different
+archive/Images/Test/Nem chua/122.jpg,archive/Images/Train/Banh xeo/71.jpg,Nem chua,Banh xeo,8,40.5,different
+archive/Images/Test/Nem chua/122.jpg,archive/Images/Train/Cao lau/39.jpg,Nem chua,Cao lau,8,37.6,different
+archive/Images/Test/Nem chua/122.jpg,archive/Images/Train/Hu tieu/624.jpg,Nem chua,Hu tieu,8,42.7,different
+archive/Images/Test/Nem chua/122.jpg,archive/Images/Validate/Com tam/173.jpg,Nem chua,Com tam,8,38.3,different
+archive/Images/Test/Nem chua/28.jpg,archive/Images/Train/Ca kho to/33.jpg,Nem chua,Ca kho to,7,42.6,different
+archive/Images/Test/Nem chua/353.jpg,archive/Images/Validate/Goi cuon/103.jpg,Nem chua,Goi cuon,0,0.8,exclude_both
+archive/Images/Test/Nem chua/58.jpg,archive/Images/Train/Goi cuon/19.jpg,Nem chua,Goi cuon,7,33.4,different
+archive/Images/Test/Nem chua/63.jpg,archive/Images/Train/Banh canh/178.jpg,Nem chua,Banh canh,8,30.3,different
+archive/Images/Test/Nem chua/63.jpg,archive/Images/Train/Banh pia/15.jpg,Nem chua,Banh pia,8,67.8,different
+archive/Images/Test/Nem chua/63.jpg,archive/Images/Train/Mi quang/38.jpg,Nem chua,Mi quang,8,48.8,different
+archive/Images/Test/Nem chua/80.jpg,archive/Images/Train/Nem chua/134.jpg,Nem chua,Nem chua,3,12.4,same_group
+archive/Images/Test/Pho/141.jpg,archive/Images/Train/Pho/780.jpg,Pho,Pho,8,31.0,different
+archive/Images/Test/Pho/206.jpg,archive/Images/Train/Banh cuon/637.jpg,Pho,Banh cuon,8,39.5,different
+archive/Images/Test/Pho/206.jpg,archive/Images/Train/Banh duc/66.jpg,Pho,Banh duc,8,39.3,different
+archive/Images/Test/Pho/396.jpg,archive/Images/Train/Hu tieu/868.jpg,Pho,Hu tieu,7,66.2,different
+archive/Images/Test/Pho/402.jpg,archive/Images/Train/Bun bo Hue/724.jpg,Pho,Bun bo Hue,7,44.0,different
+archive/Images/Test/Pho/41.jpg,archive/Images/Train/Pho/793.jpg,Pho,Pho,7,19.1,same_group
+archive/Images/Test/Pho/460.jpg,archive/Images/Train/Pho/391.jpg,Pho,Pho,3,9.0,same_group
+archive/Images/Test/Pho/57.jpg,archive/Images/Train/Banh duc/194.jpg,Pho,Banh duc,7,40.5,different
+archive/Images/Test/Pho/57.jpg,archive/Images/Train/Chao long/240.jpg,Pho,Chao long,8,47.5,different
+archive/Images/Test/Pho/618.jpg,archive/Images/Train/Pho/617.jpg,Pho,Pho,1,30.9,different
+archive/Images/Test/Pho/62.jpg,archive/Images/Train/Banh xeo/324.jpg,Pho,Banh xeo,8,42.1,different
+archive/Images/Test/Pho/63.jpg,archive/Images/Train/Pho/327.jpg,Pho,Pho,8,18.7,same_group
+archive/Images/Test/Pho/76.jpg,archive/Images/Train/Banh pia/15.jpg,Pho,Banh pia,8,84.9,different
+archive/Images/Test/Pho/796.jpg,archive/Images/Train/Pho/671.jpg,Pho,Pho,1,0.3,same_group
+archive/Images/Test/Pho/81.jpg,archive/Images/Train/Banh cuon/388.jpg,Pho,Banh cuon,6,46.1,different
+archive/Images/Test/Xoi xeo/105.jpg,archive/Images/Train/Banh mi/438.jpg,Xoi xeo,Banh mi,8,70.3,different
+archive/Images/Test/Xoi xeo/105.jpg,archive/Images/Train/Banh xeo/73.jpg,Xoi xeo,Banh xeo,8,46.3,different
+archive/Images/Test/Xoi xeo/122.jpg,archive/Images/Validate/Xoi xeo/121.jpg,Xoi xeo,Xoi xeo,1,20.8,same_group
+archive/Images/Test/Xoi xeo/25.jpg,archive/Images/Train/Chao long/88.jpg,Xoi xeo,Chao long,8,39.1,different
+archive/Images/Test/Xoi xeo/35.jpg,archive/Images/Train/Xoi xeo/32.jpg,Xoi xeo,Xoi xeo,7,26.0,same_group
+archive/Images/Test/Xoi xeo/51.jpg,archive/Images/Train/Banh gio/335.jpg,Xoi xeo,Banh gio,8,47.2,different
+archive/Images/Test/Xoi xeo/81.jpg,archive/Images/Validate/Xoi xeo/79.jpg,Xoi xeo,Xoi xeo,6,18.0,same_group
+archive/Images/Train/Banh beo/102.jpg,archive/Images/Train/Banh beo/98.jpg,Banh beo,Banh beo,0,0.1,same_group
+archive/Images/Train/Banh beo/128.jpg,archive/Images/Train/Nem chua/117.jpg,Banh beo,Nem chua,6,64.9,different
+archive/Images/Train/Banh beo/128.jpg,archive/Images/Train/Nem chua/119.jpg,Banh beo,Nem chua,5,77.6,different
+archive/Images/Train/Banh beo/128.jpg,archive/Images/Validate/Banh gio/67.jpg,Banh beo,Banh gio,7,58.0,different
+archive/Images/Train/Banh beo/136.jpg,archive/Images/Train/Banh beo/637.jpg,Banh beo,Banh beo,4,19.9,same_group
+archive/Images/Train/Banh beo/189.jpg,archive/Images/Train/Banh khot/489.jpg,Banh beo,Banh khot,4,67.0,different
+archive/Images/Train/Banh beo/20.jpg,archive/Images/Train/Banh beo/633.jpg,Banh beo,Banh beo,5,15.9,same_group
+archive/Images/Train/Banh beo/315.jpg,archive/Images/Train/Banh duc/17.jpg,Banh beo,Banh duc,8,45.6,different
+archive/Images/Train/Banh beo/315.jpg,archive/Images/Train/Bun bo Hue/341.jpg,Banh beo,Bun bo Hue,8,41.0,different
+archive/Images/Train/Banh beo/34.jpg,archive/Images/Validate/Banh beo/41.jpg,Banh beo,Banh beo,0,0.1,same_group
+archive/Images/Train/Banh beo/35.jpg,archive/Images/Train/Hu tieu/644.jpg,Banh beo,Hu tieu,8,44.5,different
+archive/Images/Train/Banh beo/37.jpg,archive/Images/Train/Canh chua/66.jpg,Banh beo,Canh chua,8,54.7,different
+archive/Images/Train/Banh beo/371.jpg,archive/Images/Train/Banh can/218.jpg,Banh beo,Banh can,7,24.0,exclude_both
+archive/Images/Train/Banh beo/401.jpg,archive/Images/Train/Com tam/25.jpg,Banh beo,Com tam,8,40.4,different
+archive/Images/Train/Banh beo/44.jpg,archive/Images/Train/Banh beo/75.jpg,Banh beo,Banh beo,4,26.3,same_group
+archive/Images/Train/Banh beo/45.jpg,archive/Images/Train/Banh gio/220.jpg,Banh beo,Banh gio,7,48.8,different
+archive/Images/Train/Banh beo/50.jpg,archive/Images/Train/Banh bot loc/92.jpg,Banh beo,Banh bot loc,8,37.6,different
+archive/Images/Train/Banh beo/50.jpg,archive/Images/Train/Bun dau mam tom/92.jpg,Banh beo,Bun dau mam tom,8,48.5,different
+archive/Images/Train/Banh beo/50.jpg,archive/Images/Train/Nem chua/119.jpg,Banh beo,Nem chua,8,54.6,different
+archive/Images/Train/Banh beo/55.jpg,archive/Images/Train/Banh xeo/123.jpg,Banh beo,Banh xeo,7,91.5,different
+archive/Images/Train/Banh beo/55.jpg,archive/Images/Train/Canh chua/39.jpg,Banh beo,Canh chua,8,115.4,different
+archive/Images/Train/Banh beo/55.jpg,archive/Images/Train/Pho/410.jpg,Banh beo,Pho,8,98.0,different
+archive/Images/Train/Banh beo/55.jpg,archive/Images/Validate/Com tam/104.jpg,Banh beo,Com tam,7,84.7,different
+archive/Images/Train/Banh beo/550.jpg,archive/Images/Train/Banh cuon/210.jpg,Banh beo,Banh cuon,8,51.9,different
+archive/Images/Train/Banh beo/550.jpg,archive/Images/Train/Banh duc/438.jpg,Banh beo,Banh duc,6,66.6,different
+archive/Images/Train/Banh beo/581.jpg,archive/Images/Train/Pho/115.jpg,Banh beo,Pho,8,63.1,different
+archive/Images/Train/Banh beo/625.jpg,archive/Images/Train/Banh beo/69.jpg,Banh beo,Banh beo,0,0.2,same_group
+archive/Images/Train/Banh beo/626.jpg,archive/Images/Train/Banh beo/99.jpg,Banh beo,Banh beo,0,2.8,same_group
+archive/Images/Train/Banh bot loc/102.jpg,archive/Images/Train/Banh bot loc/159.jpg,Banh bot loc,Banh bot loc,8,21.7,same_group
+archive/Images/Train/Banh bot loc/117.jpg,archive/Images/Train/Banh bot loc/711.jpg,Banh bot loc,Banh bot loc,2,0.5,same_group
+archive/Images/Train/Banh bot loc/127.jpg,archive/Images/Train/Banh xeo/269.jpg,Banh bot loc,Banh xeo,7,47.0,different
+archive/Images/Train/Banh bot loc/127.jpg,archive/Images/Train/Mi quang/38.jpg,Banh bot loc,Mi quang,8,54.5,different
+archive/Images/Train/Banh bot loc/128.jpg,archive/Images/Train/Banh bot loc/130.jpg,Banh bot loc,Banh bot loc,1,0.1,same_group
+archive/Images/Train/Banh bot loc/128.jpg,archive/Images/Train/Com tam/112.jpg,Banh bot loc,Com tam,7,61.9,different
+archive/Images/Train/Banh bot loc/129.jpg,archive/Images/Train/Com tam/112.jpg,Banh bot loc,Com tam,8,36.7,different
+archive/Images/Train/Banh bot loc/130.jpg,archive/Images/Train/Banh canh/153.jpg,Banh bot loc,Banh canh,8,47.1,different
+archive/Images/Train/Banh bot loc/130.jpg,archive/Images/Train/Banh khot/145.jpg,Banh bot loc,Banh khot,8,40.0,different
+archive/Images/Train/Banh bot loc/130.jpg,archive/Images/Train/Com tam/112.jpg,Banh bot loc,Com tam,6,61.9,different
+archive/Images/Train/Banh bot loc/14.jpg,archive/Images/Train/Banh pia/44.jpg,Banh bot loc,Banh pia,8,34.8,different
+archive/Images/Train/Banh bot loc/154.jpg,archive/Images/Train/Bun bo Hue/259.jpg,Banh bot loc,Bun bo Hue,7,29.7,different
+archive/Images/Train/Banh bot loc/172.jpg,archive/Images/Validate/Chao long/465.jpg,Banh bot loc,Chao long,8,45.4,different
+archive/Images/Train/Banh bot loc/177.jpg,archive/Images/Train/Cao lau/80.jpg,Banh bot loc,Cao lau,7,65.5,different
+archive/Images/Train/Banh bot loc/20.jpg,archive/Images/Train/Chao long/38.jpg,Banh bot loc,Chao long,8,46.6,different
+archive/Images/Train/Banh bot loc/20.jpg,archive/Images/Train/Nem chua/287.jpg,Banh bot loc,Nem chua,8,53.8,different
+archive/Images/Train/Banh bot loc/235.jpg,archive/Images/Train/Xoi xeo/57.jpg,Banh bot loc,Xoi xeo,7,41.8,different
+archive/Images/Train/Banh bot loc/236.jpg,archive/Images/Train/Nem chua/93.jpg,Banh bot loc,Nem chua,6,56.9,different
+archive/Images/Train/Banh bot loc/241.jpg,archive/Images/Train/Banh cuon/133.jpg,Banh bot loc,Banh cuon,5,56.3,different
+archive/Images/Train/Banh bot loc/241.jpg,archive/Images/Train/Mi quang/38.jpg,Banh bot loc,Mi quang,8,42.5,different
+archive/Images/Train/Banh bot loc/241.jpg,archive/Images/Train/Xoi xeo/15.jpg,Banh bot loc,Xoi xeo,8,39.9,different
+archive/Images/Train/Banh bot loc/241.jpg,archive/Images/Validate/Hu tieu/78.jpg,Banh bot loc,Hu tieu,8,34.8,different
+archive/Images/Train/Banh bot loc/244.jpg,archive/Images/Train/Bun rieu/106.jpg,Banh bot loc,Bun rieu,8,45.2,different
+archive/Images/Train/Banh bot loc/244.jpg,archive/Images/Train/Xoi xeo/57.jpg,Banh bot loc,Xoi xeo,8,61.3,different
+archive/Images/Train/Banh bot loc/246.jpg,archive/Images/Train/Banh bot loc/716.jpg,Banh bot loc,Banh bot loc,2,25.2,same_group
+archive/Images/Train/Banh bot loc/249.jpg,archive/Images/Train/Banh bot loc/251.jpg,Banh bot loc,Banh bot loc,0,4.9,same_group
+archive/Images/Train/Banh bot loc/249.jpg,archive/Images/Train/Banh bot loc/706.jpg,Banh bot loc,Banh bot loc,0,4.6,same_group
+archive/Images/Train/Banh bot loc/251.jpg,archive/Images/Train/Banh bot loc/706.jpg,Banh bot loc,Banh bot loc,0,1.0,same_group
+archive/Images/Train/Banh bot loc/255.jpg,archive/Images/Train/Banh bot loc/95.jpg,Banh bot loc,Banh bot loc,5,17.3,same_group
+archive/Images/Train/Banh bot loc/26.jpg,archive/Images/Train/Com tam/501.jpg,Banh bot loc,Com tam,8,53.4,different
+archive/Images/Train/Banh bot loc/274.jpg,archive/Images/Train/Banh bot loc/275.jpg,Banh bot loc,Banh bot loc,0,1.2,same_group
+archive/Images/Train/Banh bot loc/29.jpg,archive/Images/Validate/Banh bot loc/30.jpg,Banh bot loc,Banh bot loc,0,0.2,same_group
+archive/Images/Train/Banh bot loc/34.jpg,archive/Images/Train/Mi quang/702.jpg,Banh bot loc,Mi quang,7,45.1,different
+archive/Images/Train/Banh bot loc/40.jpg,archive/Images/Train/Banh bot loc/43.jpg,Banh bot loc,Banh bot loc,0,0.5,same_group
+archive/Images/Train/Banh bot loc/40.jpg,archive/Images/Train/Banh canh/62.jpg,Banh bot loc,Banh canh,8,34.5,different
+archive/Images/Train/Banh bot loc/43.jpg,archive/Images/Train/Banh canh/62.jpg,Banh bot loc,Banh canh,8,34.4,different
+archive/Images/Train/Banh bot loc/436.jpg,archive/Images/Train/Banh chung/29.jpg,Banh bot loc,Banh chung,6,41.0,different
+archive/Images/Train/Banh bot loc/45.jpg,archive/Images/Train/Canh chua/83.jpg,Banh bot loc,Canh chua,6,50.1,different
+archive/Images/Train/Banh bot loc/46.jpg,archive/Images/Validate/Banh canh/34.jpg,Banh bot loc,Banh canh,7,57.8,different
+archive/Images/Train/Banh bot loc/507.jpg,archive/Images/Train/Banh tet/11.jpg,Banh bot loc,Banh tet,6,70.4,different
+archive/Images/Train/Banh bot loc/54.jpg,archive/Images/Train/Chao long/176.jpg,Banh bot loc,Chao long,8,49.2,different
+archive/Images/Train/Banh bot loc/67.jpg,archive/Images/Train/Banh duc/38.jpg,Banh bot loc,Banh duc,8,42.5,different
+archive/Images/Train/Banh bot loc/713.jpg,archive/Images/Train/Banh bot loc/719.jpg,Banh bot loc,Banh bot loc,0,0.0,same_group
+archive/Images/Train/Banh bot loc/74.jpg,archive/Images/Train/Banh cuon/450.jpg,Banh bot loc,Banh cuon,7,52.1,different
+archive/Images/Train/Banh bot loc/92.jpg,archive/Images/Train/Banh chung/504.jpg,Banh bot loc,Banh chung,7,35.2,different
+archive/Images/Train/Banh bot loc/92.jpg,archive/Images/Train/Banh xeo/77.jpg,Banh bot loc,Banh xeo,8,31.3,different
+archive/Images/Train/Banh bot loc/94.jpg,archive/Images/Validate/Banh duc/504.jpg,Banh bot loc,Banh duc,7,95.1,different
+archive/Images/Train/Banh can/10.jpg,archive/Images/Train/Banh can/13.jpg,Banh can,Banh can,8,14.9,same_group
+archive/Images/Train/Banh can/101.jpg,archive/Images/Validate/Banh can/100.jpg,Banh can,Banh can,0,0.1,same_group
+archive/Images/Train/Banh can/103.jpg,archive/Images/Train/Banh can/105.jpg,Banh can,Banh can,4,13.5,same_group
+archive/Images/Train/Banh can/224.jpg,archive/Images/Validate/Banh can/98.jpg,Banh can,Banh can,5,13.8,same_group
+archive/Images/Train/Banh can/279.jpg,archive/Images/Train/Banh trang nuong/105.jpg,Banh can,Banh trang nuong,8,49.7,different
+archive/Images/Train/Banh can/324.jpg,archive/Images/Train/Banh duc/61.jpg,Banh can,Banh duc,8,65.2,different
+archive/Images/Train/Banh can/342.jpg,archive/Images/Train/Bun dau mam tom/166.jpg,Banh can,Bun dau mam tom,5,46.0,different
+archive/Images/Train/Banh can/353.jpg,archive/Images/Train/Banh trang nuong/151.jpg,Banh can,Banh trang nuong,8,58.8,different
+archive/Images/Train/Banh can/376.jpg,archive/Images/Train/Banh canh/62.jpg,Banh can,Banh canh,8,56.8,different
+archive/Images/Train/Banh can/376.jpg,archive/Images/Validate/Chao long/29.jpg,Banh can,Chao long,8,54.4,different
+archive/Images/Train/Banh can/382.jpg,archive/Images/Train/Banh trang nuong/53.jpg,Banh can,Banh trang nuong,5,34.5,different
+archive/Images/Train/Banh can/382.jpg,archive/Images/Train/Banh xeo/54.jpg,Banh can,Banh xeo,7,38.2,different
+archive/Images/Train/Banh can/382.jpg,archive/Images/Validate/Banh khot/105.jpg,Banh can,Banh khot,6,48.6,different
+archive/Images/Train/Banh can/383.jpg,archive/Images/Train/Cao lau/39.jpg,Banh can,Cao lau,8,39.8,different
+archive/Images/Train/Banh can/402.jpg,archive/Images/Train/Hu tieu/327.jpg,Banh can,Hu tieu,8,64.2,different
+archive/Images/Train/Banh can/46.jpg,archive/Images/Validate/Banh khot/50.jpg,Banh can,Banh khot,1,21.5,exclude_both
+archive/Images/Train/Banh can/621.jpg,archive/Images/Train/Banh trang nuong/11.jpg,Banh can,Banh trang nuong,8,77.5,different
+archive/Images/Train/Banh can/621.jpg,archive/Images/Train/Banh trang nuong/14.jpg,Banh can,Banh trang nuong,8,77.6,different
+archive/Images/Train/Banh can/94.jpg,archive/Images/Train/Banh xeo/61.jpg,Banh can,Banh xeo,8,60.4,different
+archive/Images/Train/Banh can/94.jpg,archive/Images/Train/Banh xeo/71.jpg,Banh can,Banh xeo,8,51.3,different
+archive/Images/Train/Banh can/94.jpg,archive/Images/Train/Cao lau/39.jpg,Banh can,Cao lau,8,39.8,different
+archive/Images/Train/Banh can/94.jpg,archive/Images/Validate/Banh gio/123.jpg,Banh can,Banh gio,8,76.5,different
+archive/Images/Train/Banh can/94.jpg,archive/Images/Validate/Banh trang nuong/152.jpg,Banh can,Banh trang nuong,8,49.0,different
+archive/Images/Train/Banh canh/133.jpg,archive/Images/Train/Banh tet/499.jpg,Banh canh,Banh tet,7,58.7,different
+archive/Images/Train/Banh canh/14.jpg,archive/Images/Train/Goi cuon/832.jpg,Banh canh,Goi cuon,8,42.6,different
+archive/Images/Train/Banh canh/149.jpg,archive/Images/Train/Hu tieu/163.jpg,Banh canh,Hu tieu,8,40.6,different
+archive/Images/Train/Banh canh/153.jpg,archive/Images/Train/Banh chung/476.jpg,Banh canh,Banh chung,8,53.7,different
+archive/Images/Train/Banh canh/153.jpg,archive/Images/Train/Banh cuon/133.jpg,Banh canh,Banh cuon,7,52.1,different
+archive/Images/Train/Banh canh/153.jpg,archive/Images/Train/Banh gio/191.jpg,Banh canh,Banh gio,7,46.6,different
+archive/Images/Train/Banh canh/153.jpg,archive/Images/Train/Banh mi/20.jpg,Banh canh,Banh mi,8,43.2,different
+archive/Images/Train/Banh canh/153.jpg,archive/Images/Train/Bun bo Hue/1001.jpg,Banh canh,Bun bo Hue,8,40.5,different
+archive/Images/Train/Banh canh/153.jpg,archive/Images/Train/Ca kho to/320.jpg,Banh canh,Ca kho to,8,40.8,different
+archive/Images/Train/Banh canh/153.jpg,archive/Images/Train/Ca kho to/41.jpg,Banh canh,Ca kho to,6,50.9,different
+archive/Images/Train/Banh canh/153.jpg,archive/Images/Train/Canh chua/102.jpg,Banh canh,Canh chua,7,37.9,different
+archive/Images/Train/Banh canh/153.jpg,archive/Images/Train/Canh chua/12.jpg,Banh canh,Canh chua,8,36.7,different
+archive/Images/Train/Banh canh/153.jpg,archive/Images/Train/Cao lau/1.jpg,Banh canh,Cao lau,8,31.4,different
+archive/Images/Train/Banh canh/153.jpg,archive/Images/Train/Chao long/57.jpg,Banh canh,Chao long,8,42.4,different
+archive/Images/Train/Banh canh/153.jpg,archive/Images/Train/Com tam/112.jpg,Banh canh,Com tam,6,34.8,different
+archive/Images/Train/Banh canh/153.jpg,archive/Images/Train/Mi quang/38.jpg,Banh canh,Mi quang,8,46.4,different
+archive/Images/Train/Banh canh/153.jpg,archive/Images/Train/Mi quang/80.jpg,Banh canh,Mi quang,7,43.6,different
+archive/Images/Train/Banh canh/153.jpg,archive/Images/Train/Xoi xeo/15.jpg,Banh canh,Xoi xeo,4,52.3,different
+archive/Images/Train/Banh canh/153.jpg,archive/Images/Validate/Banh bot loc/413.jpg,Banh canh,Banh bot loc,8,77.4,different
+archive/Images/Train/Banh canh/153.jpg,archive/Images/Validate/Canh chua/105.jpg,Banh canh,Canh chua,4,45.0,different
+archive/Images/Train/Banh canh/153.jpg,archive/Images/Validate/Canh chua/106.jpg,Banh canh,Canh chua,7,51.8,different
+archive/Images/Train/Banh canh/154.jpg,archive/Images/Train/Bun rieu/106.jpg,Banh canh,Bun rieu,8,42.5,different
+archive/Images/Train/Banh canh/17.jpg,archive/Images/Train/Banh duc/63.jpg,Banh canh,Banh duc,7,45.2,different
+archive/Images/Train/Banh canh/17.jpg,archive/Images/Train/Banh duc/68.jpg,Banh canh,Banh duc,6,51.6,different
+archive/Images/Train/Banh canh/17.jpg,archive/Images/Train/Banh mi/373.jpg,Banh canh,Banh mi,7,37.6,different
+archive/Images/Train/Banh canh/17.jpg,archive/Images/Train/Banh mi/416.jpg,Banh canh,Banh mi,8,42.6,different
+archive/Images/Train/Banh canh/17.jpg,archive/Images/Train/Banh trang nuong/50.jpg,Banh canh,Banh trang nuong,7,45.6,different
+archive/Images/Train/Banh canh/17.jpg,archive/Images/Train/Bun dau mam tom/92.jpg,Banh canh,Bun dau mam tom,7,46.6,different
+archive/Images/Train/Banh canh/17.jpg,archive/Images/Train/Com tam/57.jpg,Banh canh,Com tam,8,52.0,different
+archive/Images/Train/Banh canh/178.jpg,archive/Images/Train/Bun mam/35.jpg,Banh canh,Bun mam,8,52.7,different
+archive/Images/Train/Banh canh/178.jpg,archive/Images/Train/Xoi xeo/15.jpg,Banh canh,Xoi xeo,8,44.0,different
+archive/Images/Train/Banh canh/178.jpg,archive/Images/Validate/Canh chua/105.jpg,Banh canh,Canh chua,8,49.9,different
+archive/Images/Train/Banh canh/178.jpg,archive/Images/Validate/Hu tieu/78.jpg,Banh canh,Hu tieu,4,30.4,different
+archive/Images/Train/Banh canh/179.jpg,archive/Images/Train/Banh tet/170.jpg,Banh canh,Banh tet,8,54.4,different
+archive/Images/Train/Banh canh/179.jpg,archive/Images/Train/Ca kho to/33.jpg,Banh canh,Ca kho to,8,41.2,different
+archive/Images/Train/Banh canh/181.jpg,archive/Images/Train/Chao long/134.jpg,Banh canh,Chao long,8,46.2,different
+archive/Images/Train/Banh canh/204.jpg,archive/Images/Train/Banh canh/257.jpg,Banh canh,Banh canh,5,22.7,same_group
+archive/Images/Train/Banh canh/209.jpg,archive/Images/Train/Banh canh/212.jpg,Banh canh,Banh canh,6,7.6,same_group
+archive/Images/Train/Banh canh/209.jpg,archive/Images/Train/Banh canh/214.jpg,Banh canh,Banh canh,0,0.1,same_group
+archive/Images/Train/Banh canh/21.jpg,archive/Images/Train/Mi quang/8.jpg,Banh canh,Mi quang,8,50.2,different
+archive/Images/Train/Banh canh/212.jpg,archive/Images/Train/Banh canh/214.jpg,Banh canh,Banh canh,6,7.6,same_group
+archive/Images/Train/Banh canh/213.jpg,archive/Images/Train/Banh trang nuong/633.jpg,Banh canh,Banh trang nuong,8,36.5,different
+archive/Images/Train/Banh canh/213.jpg,archive/Images/Train/Banh xeo/269.jpg,Banh canh,Banh xeo,8,40.4,different
+archive/Images/Train/Banh canh/213.jpg,archive/Images/Train/Ca kho to/33.jpg,Banh canh,Ca kho to,8,49.8,different
+archive/Images/Train/Banh canh/213.jpg,archive/Images/Train/Canh chua/102.jpg,Banh canh,Canh chua,8,39.3,different
+archive/Images/Train/Banh canh/213.jpg,archive/Images/Train/Cao lau/6.jpg,Banh canh,Cao lau,7,63.1,different
+archive/Images/Train/Banh canh/213.jpg,archive/Images/Train/Xoi xeo/15.jpg,Banh canh,Xoi xeo,7,38.1,different
+archive/Images/Train/Banh canh/221.jpg,archive/Images/Train/Cao lau/1.jpg,Banh canh,Cao lau,8,37.6,different
+archive/Images/Train/Banh canh/26.jpg,archive/Images/Train/Cao lau/91.jpg,Banh canh,Cao lau,7,42.8,different
+archive/Images/Train/Banh canh/286.jpg,archive/Images/Train/Banh canh/288.jpg,Banh canh,Banh canh,0,0.1,same_group
+archive/Images/Train/Banh canh/289.jpg,archive/Images/Train/Xoi xeo/15.jpg,Banh canh,Xoi xeo,7,44.0,different
+archive/Images/Train/Banh canh/289.jpg,archive/Images/Validate/Banh bot loc/413.jpg,Banh canh,Banh bot loc,7,87.3,different
+archive/Images/Train/Banh canh/325.jpg,archive/Images/Train/Banh canh/326.jpg,Banh canh,Banh canh,0,0.0,same_group
+archive/Images/Train/Banh canh/328.jpg,archive/Images/Train/Bun bo Hue/344.jpg,Banh canh,Bun bo Hue,0,0.1,exclude_both
+archive/Images/Train/Banh canh/33.jpg,archive/Images/Train/Cao lau/379.jpg,Banh canh,Cao lau,8,36.8,different
+archive/Images/Train/Banh canh/342.jpg,archive/Images/Train/Cao lau/215.jpg,Banh canh,Cao lau,7,40.9,different
+archive/Images/Train/Banh canh/347.jpg,archive/Images/Validate/Pho/112.jpg,Banh canh,Pho,1,3.6,exclude_both
+archive/Images/Train/Banh canh/361.jpg,archive/Images/Train/Banh canh/582.jpg,Banh canh,Banh canh,4,18.0,same_group
+archive/Images/Train/Banh canh/363.jpg,archive/Images/Train/Canh chua/393.jpg,Banh canh,Canh chua,8,45.1,different
+archive/Images/Train/Banh canh/38.jpg,archive/Images/Train/Ca kho to/317.jpg,Banh canh,Ca kho to,7,45.0,different
+archive/Images/Train/Banh canh/38.jpg,archive/Images/Train/Hu tieu/118.jpg,Banh canh,Hu tieu,8,38.0,different
+archive/Images/Train/Banh canh/38.jpg,archive/Images/Train/Nem chua/170.jpg,Banh canh,Nem chua,8,40.3,different
+archive/Images/Train/Banh canh/454.jpg,archive/Images/Train/Bun dau mam tom/326.jpg,Banh canh,Bun dau mam tom,8,48.0,different
+archive/Images/Train/Banh canh/46.jpg,archive/Images/Train/Banh xeo/336.jpg,Banh canh,Banh xeo,8,39.6,different
+archive/Images/Train/Banh canh/46.jpg,archive/Images/Train/Ca kho to/70.jpg,Banh canh,Ca kho to,8,40.0,different
+archive/Images/Train/Banh canh/46.jpg,archive/Images/Train/Com tam/85.jpg,Banh canh,Com tam,8,38.0,different
+archive/Images/Train/Banh canh/47.jpg,archive/Images/Train/Banh tet/366.jpg,Banh canh,Banh tet,7,66.6,different
+archive/Images/Train/Banh canh/5.jpg,archive/Images/Train/Canh chua/260.jpg,Banh canh,Canh chua,7,46.6,different
+archive/Images/Train/Banh canh/5.jpg,archive/Images/Validate/Bun thit nuong/33.jpg,Banh canh,Bun thit nuong,6,55.8,different
+archive/Images/Train/Banh canh/60.jpg,archive/Images/Train/Bun bo Hue/357.jpg,Banh canh,Bun bo Hue,8,63.7,different
+archive/Images/Train/Banh canh/62.jpg,archive/Images/Train/Bun thit nuong/95.jpg,Banh canh,Bun thit nuong,8,40.3,different
+archive/Images/Train/Banh canh/65.jpg,archive/Images/Train/Banh khot/397.jpg,Banh canh,Banh khot,8,55.7,different
+archive/Images/Train/Banh canh/7.jpg,archive/Images/Train/Com tam/530.jpg,Banh canh,Com tam,6,44.2,different
+archive/Images/Train/Banh canh/80.jpg,archive/Images/Train/Banh canh/82.jpg,Banh canh,Banh canh,0,0.5,same_group
+archive/Images/Train/Banh canh/80.jpg,archive/Images/Train/Bun bo Hue/54.jpg,Banh canh,Bun bo Hue,8,52.1,different
+archive/Images/Train/Banh canh/82.jpg,archive/Images/Train/Bun bo Hue/54.jpg,Banh canh,Bun bo Hue,8,51.9,different
+archive/Images/Train/Banh canh/94.jpg,archive/Images/Train/Bun thit nuong/215.jpg,Banh canh,Bun thit nuong,6,57.6,different
+archive/Images/Train/Banh canh/94.jpg,archive/Images/Train/Ca kho to/41.jpg,Banh canh,Ca kho to,8,51.9,different
+archive/Images/Train/Banh canh/95.jpg,archive/Images/Train/Banh tet/364.jpg,Banh canh,Banh tet,7,81.3,different
+archive/Images/Train/Banh canh/95.jpg,archive/Images/Validate/Banh canh/99.jpg,Banh canh,Banh canh,3,15.2,same_group
+archive/Images/Train/Banh canh/95.jpg,archive/Images/Validate/Cao lau/50.jpg,Banh canh,Cao lau,7,37.8,different
+archive/Images/Train/Banh chung/106.jpg,archive/Images/Train/Ca kho to/33.jpg,Banh chung,Ca kho to,8,43.8,different
+archive/Images/Train/Banh chung/106.jpg,archive/Images/Train/Canh chua/108.jpg,Banh chung,Canh chua,6,37.7,different
+archive/Images/Train/Banh chung/106.jpg,archive/Images/Validate/Hu tieu/78.jpg,Banh chung,Hu tieu,7,28.5,different
+archive/Images/Train/Banh chung/108.jpg,archive/Images/Train/Banh chung/502.jpg,Banh chung,Banh chung,0,4.1,same_group
+archive/Images/Train/Banh chung/115.jpg,archive/Images/Train/Banh chung/477.jpg,Banh chung,Banh chung,0,0.5,same_group
+archive/Images/Train/Banh chung/116.jpg,archive/Images/Train/Banh chung/448.jpg,Banh chung,Banh chung,0,1.2,same_group
+archive/Images/Train/Banh chung/120.jpg,archive/Images/Train/Banh chung/278.jpg,Banh chung,Banh chung,5,16.9,same_group
+archive/Images/Train/Banh chung/157.jpg,archive/Images/Train/Banh chung/446.jpg,Banh chung,Banh chung,0,3.9,same_group
+archive/Images/Train/Banh chung/162.jpg,archive/Images/Train/Banh chung/500.jpg,Banh chung,Banh chung,0,0.0,same_group
+archive/Images/Train/Banh chung/166.jpg,archive/Images/Validate/Banh chung/480.jpg,Banh chung,Banh chung,0,0.1,same_group
+archive/Images/Train/Banh chung/183.jpg,archive/Images/Train/Banh chung/485.jpg,Banh chung,Banh chung,2,3.7,same_group
+archive/Images/Train/Banh chung/19.jpg,archive/Images/Train/Banh chung/499.jpg,Banh chung,Banh chung,0,0.2,same_group
+archive/Images/Train/Banh chung/204.jpg,archive/Images/Train/Banh chung/481.jpg,Banh chung,Banh chung,0,0.4,same_group
+archive/Images/Train/Banh chung/227.jpg,archive/Images/Train/Banh trang nuong/307.jpg,Banh chung,Banh trang nuong,8,57.1,different
+archive/Images/Train/Banh chung/227.jpg,archive/Images/Train/Canh chua/233.jpg,Banh chung,Canh chua,7,41.5,different
+archive/Images/Train/Banh chung/227.jpg,archive/Images/Train/Canh chua/51.jpg,Banh chung,Canh chua,7,41.5,different
+archive/Images/Train/Banh chung/234.jpg,archive/Images/Validate/Banh tet/462.jpg,Banh chung,Banh tet,0,0.5,exclude_both
+archive/Images/Train/Banh chung/27.jpg,archive/Images/Train/Bun thit nuong/325.jpg,Banh chung,Bun thit nuong,8,84.5,different
+archive/Images/Train/Banh chung/270.jpg,archive/Images/Train/Banh pia/9.jpg,Banh chung,Banh pia,8,90.0,different
+archive/Images/Train/Banh chung/318.jpg,archive/Images/Train/Banh tet/345.jpg,Banh chung,Banh tet,8,61.8,different
+archive/Images/Train/Banh chung/34.jpg,archive/Images/Train/Banh chung/492.jpg,Banh chung,Banh chung,2,4.7,same_group
+archive/Images/Train/Banh chung/407.jpg,archive/Images/Train/Banh chung/447.jpg,Banh chung,Banh chung,2,0.1,same_group
+archive/Images/Train/Banh chung/413.jpg,archive/Images/Train/Banh chung/476.jpg,Banh chung,Banh chung,1,0.3,same_group
+archive/Images/Train/Banh chung/444.jpg,archive/Images/Train/Banh chung/59.jpg,Banh chung,Banh chung,0,0.1,same_group
+archive/Images/Train/Banh chung/476.jpg,archive/Images/Train/Xoi xeo/15.jpg,Banh chung,Xoi xeo,8,63.0,different
+archive/Images/Train/Banh chung/493.jpg,archive/Images/Train/Banh chung/505.jpg,Banh chung,Banh chung,2,12.3,same_group
+archive/Images/Train/Banh chung/504.jpg,archive/Images/Train/Banh cuon/217.jpg,Banh chung,Banh cuon,8,65.5,different
+archive/Images/Train/Banh chung/504.jpg,archive/Images/Train/Nem chua/117.jpg,Banh chung,Nem chua,8,34.3,different
+archive/Images/Train/Banh chung/504.jpg,archive/Images/Train/Nem chua/119.jpg,Banh chung,Nem chua,7,38.4,different
+archive/Images/Train/Banh chung/76.jpg,archive/Images/Validate/Banh chung/185.jpg,Banh chung,Banh chung,8,33.2,different
+archive/Images/Train/Banh chung/98.jpg,archive/Images/Train/Pho/613.jpg,Banh chung,Pho,8,58.5,different
+archive/Images/Train/Banh cuon/100.jpg,archive/Images/Train/Banh cuon/98.jpg,Banh cuon,Banh cuon,1,0.6,same_group
+archive/Images/Train/Banh cuon/1076.jpg,archive/Images/Train/Bun bo Hue/968.jpg,Banh cuon,Bun bo Hue,7,49.7,different
+archive/Images/Train/Banh cuon/110.jpg,archive/Images/Train/Bun thit nuong/114.jpg,Banh cuon,Bun thit nuong,7,50.6,different
+archive/Images/Train/Banh cuon/110.jpg,archive/Images/Train/Hu tieu/20.jpg,Banh cuon,Hu tieu,8,41.7,different
+archive/Images/Train/Banh cuon/110.jpg,archive/Images/Validate/Banh cuon/39.jpg,Banh cuon,Banh cuon,8,36.7,different
+archive/Images/Train/Banh cuon/1132.jpg,archive/Images/Train/Banh cuon/223.jpg,Banh cuon,Banh cuon,1,0.9,same_group
+archive/Images/Train/Banh cuon/117.jpg,archive/Images/Train/Banh cuon/136.jpg,Banh cuon,Banh cuon,5,28.4,same_group
+archive/Images/Train/Banh cuon/117.jpg,archive/Images/Train/Banh mi/734.jpg,Banh cuon,Banh mi,8,61.7,different
+archive/Images/Train/Banh cuon/117.jpg,archive/Images/Train/Canh chua/35.jpg,Banh cuon,Canh chua,8,50.7,different
+archive/Images/Train/Banh cuon/122.jpg,archive/Images/Train/Banh cuon/124.jpg,Banh cuon,Banh cuon,7,19.3,same_group
+archive/Images/Train/Banh cuon/122.jpg,archive/Images/Train/Banh cuon/126.jpg,Banh cuon,Banh cuon,7,19.2,same_group
+archive/Images/Train/Banh cuon/124.jpg,archive/Images/Train/Banh cuon/126.jpg,Banh cuon,Banh cuon,0,0.2,same_group
+archive/Images/Train/Banh cuon/133.jpg,archive/Images/Train/Banh gio/191.jpg,Banh cuon,Banh gio,8,52.7,different
+archive/Images/Train/Banh cuon/133.jpg,archive/Images/Train/Banh tet/174.jpg,Banh cuon,Banh tet,7,65.0,different
+archive/Images/Train/Banh cuon/133.jpg,archive/Images/Train/Xoi xeo/15.jpg,Banh cuon,Xoi xeo,7,71.7,different
+archive/Images/Train/Banh cuon/133.jpg,archive/Images/Validate/Canh chua/106.jpg,Banh cuon,Canh chua,8,67.6,different
+archive/Images/Train/Banh cuon/136.jpg,archive/Images/Train/Banh mi/734.jpg,Banh cuon,Banh mi,7,65.1,different
+archive/Images/Train/Banh cuon/147.jpg,archive/Images/Train/Bun rieu/38.jpg,Banh cuon,Bun rieu,8,38.3,different
+archive/Images/Train/Banh cuon/147.jpg,archive/Images/Validate/Banh cuon/669.jpg,Banh cuon,Banh cuon,7,46.8,different
+archive/Images/Train/Banh cuon/155.jpg,archive/Images/Train/Banh cuon/156.jpg,Banh cuon,Banh cuon,0,0.0,same_group
+archive/Images/Train/Banh cuon/165.jpg,archive/Images/Train/Banh cuon/168.jpg,Banh cuon,Banh cuon,7,16.9,same_group
+archive/Images/Train/Banh cuon/204.jpg,archive/Images/Train/Bun bo Hue/636.jpg,Banh cuon,Bun bo Hue,8,38.2,different
+archive/Images/Train/Banh cuon/213.jpg,archive/Images/Validate/Cao lau/223.jpg,Banh cuon,Cao lau,7,73.3,different
+archive/Images/Train/Banh cuon/217.jpg,archive/Images/Train/Banh gio/134.jpg,Banh cuon,Banh gio,8,68.0,different
+archive/Images/Train/Banh cuon/217.jpg,archive/Images/Train/Banh pia/114.jpg,Banh cuon,Banh pia,8,63.5,different
+archive/Images/Train/Banh cuon/217.jpg,archive/Images/Train/Banh xeo/61.jpg,Banh cuon,Banh xeo,8,35.7,different
+archive/Images/Train/Banh cuon/217.jpg,archive/Images/Train/Banh xeo/73.jpg,Banh cuon,Banh xeo,7,67.0,different
+archive/Images/Train/Banh cuon/217.jpg,archive/Images/Train/Cao lau/39.jpg,Banh cuon,Cao lau,6,61.5,different
+archive/Images/Train/Banh cuon/217.jpg,archive/Images/Train/Nem chua/117.jpg,Banh cuon,Nem chua,8,59.1,different
+archive/Images/Train/Banh cuon/217.jpg,archive/Images/Train/Nem chua/119.jpg,Banh cuon,Nem chua,7,73.4,different
+archive/Images/Train/Banh cuon/217.jpg,archive/Images/Validate/Banh gio/123.jpg,Banh cuon,Banh gio,8,51.3,different
+archive/Images/Train/Banh cuon/249.jpg,archive/Images/Validate/Banh cuon/247.jpg,Banh cuon,Banh cuon,0,2.9,same_group
+archive/Images/Train/Banh cuon/27.jpg,archive/Images/Train/Pho/91.jpg,Banh cuon,Pho,7,84.1,different
+archive/Images/Train/Banh cuon/317.jpg,archive/Images/Train/Banh duc/141.jpg,Banh cuon,Banh duc,8,64.2,different
+archive/Images/Train/Banh cuon/319.jpg,archive/Images/Train/Banh cuon/323.jpg,Banh cuon,Banh cuon,0,0.1,same_group
+archive/Images/Train/Banh cuon/33.jpg,archive/Images/Train/Bun rieu/106.jpg,Banh cuon,Bun rieu,8,47.6,different
+archive/Images/Train/Banh cuon/34.jpg,archive/Images/Train/Ca kho to/29.jpg,Banh cuon,Ca kho to,8,67.2,different
+archive/Images/Train/Banh cuon/34.jpg,archive/Images/Validate/Canh chua/143.jpg,Banh cuon,Canh chua,8,46.0,different
+archive/Images/Train/Banh cuon/363.jpg,archive/Images/Train/Banh gio/126.jpg,Banh cuon,Banh gio,8,70.0,different
+archive/Images/Train/Banh cuon/365.jpg,archive/Images/Train/Banh duc/24.jpg,Banh cuon,Banh duc,8,31.9,different
+archive/Images/Train/Banh cuon/365.jpg,archive/Images/Train/Chao long/401.jpg,Banh cuon,Chao long,7,41.8,different
+archive/Images/Train/Banh cuon/365.jpg,archive/Images/Validate/Banh cuon/240.jpg,Banh cuon,Banh cuon,8,30.6,different
+archive/Images/Train/Banh cuon/376.jpg,archive/Images/Train/Banh cuon/431.jpg,Banh cuon,Banh cuon,8,15.7,same_group
+archive/Images/Train/Banh cuon/384.jpg,archive/Images/Train/Banh cuon/385.jpg,Banh cuon,Banh cuon,7,24.4,same_group
+archive/Images/Train/Banh cuon/388.jpg,archive/Images/Train/Ca kho to/33.jpg,Banh cuon,Ca kho to,8,48.2,different
+archive/Images/Train/Banh cuon/388.jpg,archive/Images/Validate/Hu tieu/78.jpg,Banh cuon,Hu tieu,7,23.5,different
+archive/Images/Train/Banh cuon/416.jpg,archive/Images/Train/Bun bo Hue/116.jpg,Banh cuon,Bun bo Hue,8,45.1,different
+archive/Images/Train/Banh cuon/457.jpg,archive/Images/Train/Banh cuon/458.jpg,Banh cuon,Banh cuon,0,0.0,same_group
+archive/Images/Train/Banh cuon/492.jpg,archive/Images/Train/Goi cuon/244.jpg,Banh cuon,Goi cuon,8,53.3,different
+archive/Images/Train/Banh cuon/539.jpg,archive/Images/Train/Banh cuon/597.jpg,Banh cuon,Banh cuon,8,22.0,same_group
+archive/Images/Train/Banh cuon/637.jpg,archive/Images/Validate/Banh cuon/1133.jpg,Banh cuon,Banh cuon,6,52.5,different
+archive/Images/Train/Banh cuon/717.jpg,archive/Images/Train/Bun mam/379.jpg,Banh cuon,Bun mam,7,40.0,different
+archive/Images/Train/Banh cuon/72.jpg,archive/Images/Train/Banh cuon/77.jpg,Banh cuon,Banh cuon,8,36.7,different
+archive/Images/Train/Banh cuon/72.jpg,archive/Images/Train/Bun thit nuong/74.jpg,Banh cuon,Bun thit nuong,8,57.1,different
+archive/Images/Train/Banh cuon/72.jpg,archive/Images/Train/Chao long/147.jpg,Banh cuon,Chao long,8,56.4,different
+archive/Images/Train/Banh cuon/72.jpg,archive/Images/Train/Com tam/778.jpg,Banh cuon,Com tam,6,57.0,different
+archive/Images/Train/Banh cuon/72.jpg,archive/Images/Train/Mi quang/10.jpg,Banh cuon,Mi quang,6,48.3,different
+archive/Images/Train/Banh cuon/74.jpg,archive/Images/Train/Bun bo Hue/357.jpg,Banh cuon,Bun bo Hue,6,57.9,different
+archive/Images/Train/Banh cuon/74.jpg,archive/Images/Train/Chao long/38.jpg,Banh cuon,Chao long,8,35.3,different
+archive/Images/Train/Banh cuon/74.jpg,archive/Images/Train/Nem chua/287.jpg,Banh cuon,Nem chua,8,26.9,different
+archive/Images/Train/Banh cuon/74.jpg,archive/Images/Validate/Banh cuon/61.jpg,Banh cuon,Banh cuon,8,35.3,different
+archive/Images/Train/Banh cuon/77.jpg,archive/Images/Train/Bun thit nuong/74.jpg,Banh cuon,Bun thit nuong,8,53.2,different
+archive/Images/Train/Banh cuon/77.jpg,archive/Images/Train/Chao long/176.jpg,Banh cuon,Chao long,8,35.8,different
+archive/Images/Train/Banh cuon/77.jpg,archive/Images/Train/Mi quang/10.jpg,Banh cuon,Mi quang,8,43.0,different
+archive/Images/Train/Banh cuon/79.jpg,archive/Images/Validate/Com tam/305.jpg,Banh cuon,Com tam,8,49.0,different
+archive/Images/Train/Banh duc/114.jpg,archive/Images/Train/Nem chua/93.jpg,Banh duc,Nem chua,8,86.5,different
+archive/Images/Train/Banh duc/132.jpg,archive/Images/Validate/Com tam/714.jpg,Banh duc,Com tam,7,71.9,different
+archive/Images/Train/Banh duc/133.jpg,archive/Images/Train/Banh pia/9.jpg,Banh duc,Banh pia,7,36.3,different
+archive/Images/Train/Banh duc/133.jpg,archive/Images/Train/Goi cuon/326.jpg,Banh duc,Goi cuon,8,50.1,different
+archive/Images/Train/Banh duc/141.jpg,archive/Images/Train/Banh mi/227.jpg,Banh duc,Banh mi,8,24.0,different
+archive/Images/Train/Banh duc/141.jpg,archive/Images/Train/Pho/613.jpg,Banh duc,Pho,8,36.0,different
+archive/Images/Train/Banh duc/141.jpg,archive/Images/Train/Xoi xeo/15.jpg,Banh duc,Xoi xeo,7,22.7,different
+archive/Images/Train/Banh duc/143.jpg,archive/Images/Train/Bun bo Hue/429.jpg,Banh duc,Bun bo Hue,8,57.8,different
+archive/Images/Train/Banh duc/169.jpg,archive/Images/Train/Banh duc/28.jpg,Banh duc,Banh duc,7,54.0,different
+archive/Images/Train/Banh duc/189.jpg,archive/Images/Train/Banh gio/104.jpg,Banh duc,Banh gio,2,0.3,exclude_both
+archive/Images/Train/Banh duc/225.jpg,archive/Images/Train/Banh tet/240.jpg,Banh duc,Banh tet,8,52.4,different
+archive/Images/Train/Banh duc/225.jpg,archive/Images/Train/Banh tet/669.jpg,Banh duc,Banh tet,8,52.5,different
+archive/Images/Train/Banh duc/24.jpg,archive/Images/Train/Bun bo Hue/924.jpg,Banh duc,Bun bo Hue,7,59.0,different
+archive/Images/Train/Banh duc/24.jpg,archive/Images/Train/Chao long/92.jpg,Banh duc,Chao long,8,56.6,different
+archive/Images/Train/Banh duc/25.jpg,archive/Images/Train/Banh duc/27.jpg,Banh duc,Banh duc,0,0.4,same_group
+archive/Images/Train/Banh duc/253.jpg,archive/Images/Train/Banh duc/68.jpg,Banh duc,Banh duc,8,45.0,different
+archive/Images/Train/Banh duc/253.jpg,archive/Images/Train/Canh chua/73.jpg,Banh duc,Canh chua,8,63.8,different
+archive/Images/Train/Banh duc/28.jpg,archive/Images/Validate/Banh canh/57.jpg,Banh duc,Banh canh,8,53.3,different
+archive/Images/Train/Banh duc/289.jpg,archive/Images/Train/Ca kho to/51.jpg,Banh duc,Ca kho to,7,51.3,different
+archive/Images/Train/Banh duc/289.jpg,archive/Images/Train/Goi cuon/363.jpg,Banh duc,Goi cuon,8,47.0,different
+archive/Images/Train/Banh duc/32.jpg,archive/Images/Train/Bun bo Hue/357.jpg,Banh duc,Bun bo Hue,8,36.4,different
+archive/Images/Train/Banh duc/324.jpg,archive/Images/Train/Banh tet/322.jpg,Banh duc,Banh tet,8,67.6,different
+archive/Images/Train/Banh duc/324.jpg,archive/Images/Train/Banh tet/345.jpg,Banh duc,Banh tet,8,78.2,different
+archive/Images/Train/Banh duc/324.jpg,archive/Images/Train/Bun bo Hue/1014.jpg,Banh duc,Bun bo Hue,8,84.8,different
+archive/Images/Train/Banh duc/324.jpg,archive/Images/Validate/Banh can/108.jpg,Banh duc,Banh can,8,77.3,different
+archive/Images/Train/Banh duc/324.jpg,archive/Images/Validate/Hu tieu/233.jpg,Banh duc,Hu tieu,8,61.3,different
+archive/Images/Train/Banh duc/33.jpg,archive/Images/Validate/Banh duc/21.jpg,Banh duc,Banh duc,0,0.5,same_group
+archive/Images/Train/Banh duc/38.jpg,archive/Images/Train/Canh chua/39.jpg,Banh duc,Canh chua,8,79.0,different
+archive/Images/Train/Banh duc/38.jpg,archive/Images/Train/Chao long/37.jpg,Banh duc,Chao long,8,56.5,different
+archive/Images/Train/Banh duc/440.jpg,archive/Images/Train/Bun bo Hue/163.jpg,Banh duc,Bun bo Hue,8,60.5,different
+archive/Images/Train/Banh duc/46.jpg,archive/Images/Train/Banh gio/46.jpg,Banh duc,Banh gio,0,0.1,exclude_both
+archive/Images/Train/Banh duc/53.jpg,archive/Images/Train/Banh xeo/61.jpg,Banh duc,Banh xeo,8,63.6,different
+archive/Images/Train/Banh duc/53.jpg,archive/Images/Train/Banh xeo/71.jpg,Banh duc,Banh xeo,8,53.4,different
+archive/Images/Train/Banh duc/55.jpg,archive/Images/Train/Banh mi/653.jpg,Banh duc,Banh mi,8,100.1,different
+archive/Images/Train/Banh duc/55.jpg,archive/Images/Train/Banh pia/199.jpg,Banh duc,Banh pia,8,79.4,different
+archive/Images/Train/Banh duc/55.jpg,archive/Images/Train/Banh trang nuong/151.jpg,Banh duc,Banh trang nuong,8,62.3,different
+archive/Images/Train/Banh duc/55.jpg,archive/Images/Train/Banh xeo/61.jpg,Banh duc,Banh xeo,3,46.0,different
+archive/Images/Train/Banh duc/55.jpg,archive/Images/Train/Banh xeo/71.jpg,Banh duc,Banh xeo,7,62.1,different
+archive/Images/Train/Banh duc/55.jpg,archive/Images/Train/Banh xeo/73.jpg,Banh duc,Banh xeo,8,92.9,different
+archive/Images/Train/Banh duc/55.jpg,archive/Images/Train/Cao lau/39.jpg,Banh duc,Cao lau,7,82.2,different
+archive/Images/Train/Banh duc/55.jpg,archive/Images/Train/Chao long/316.jpg,Banh duc,Chao long,7,73.5,different
+archive/Images/Train/Banh duc/55.jpg,archive/Images/Train/Goi cuon/96.jpg,Banh duc,Goi cuon,6,74.3,different
+archive/Images/Train/Banh duc/55.jpg,archive/Images/Validate/Com tam/173.jpg,Banh duc,Com tam,7,73.4,different
+archive/Images/Train/Banh duc/61.jpg,archive/Images/Train/Hu tieu/297.jpg,Banh duc,Hu tieu,7,48.9,different
+archive/Images/Train/Banh duc/61.jpg,archive/Images/Train/Hu tieu/868.jpg,Banh duc,Hu tieu,8,69.1,different
+archive/Images/Train/Banh duc/63.jpg,archive/Images/Train/Bun dau mam tom/92.jpg,Banh duc,Bun dau mam tom,8,54.7,different
+archive/Images/Train/Banh duc/66.jpg,archive/Images/Train/Goi cuon/25.jpg,Banh duc,Goi cuon,8,38.8,different
+archive/Images/Train/Banh duc/68.jpg,archive/Images/Train/Banh mi/416.jpg,Banh duc,Banh mi,8,65.1,different
+archive/Images/Train/Banh duc/68.jpg,archive/Images/Train/Banh trang nuong/65.jpg,Banh duc,Banh trang nuong,8,49.9,different
+archive/Images/Train/Banh duc/72.jpg,archive/Images/Train/Banh xeo/1165.jpg,Banh duc,Banh xeo,8,41.7,different
+archive/Images/Train/Banh duc/72.jpg,archive/Images/Train/Hu tieu/327.jpg,Banh duc,Hu tieu,8,41.4,different
+archive/Images/Train/Banh gio/103.jpg,archive/Images/Train/Chao long/231.jpg,Banh gio,Chao long,8,38.3,different
+archive/Images/Train/Banh gio/103.jpg,archive/Images/Validate/Chao long/514.jpg,Banh gio,Chao long,6,44.4,different
+archive/Images/Train/Banh gio/120.jpg,archive/Images/Train/Ca kho to/40.jpg,Banh gio,Ca kho to,8,63.6,different
+archive/Images/Train/Banh gio/130.jpg,archive/Images/Train/Banh gio/133.jpg,Banh gio,Banh gio,3,27.8,same_group
+archive/Images/Train/Banh gio/134.jpg,archive/Images/Train/Banh trang nuong/88.jpg,Banh gio,Banh trang nuong,5,43.2,different
+archive/Images/Train/Banh gio/134.jpg,archive/Images/Train/Banh xeo/61.jpg,Banh gio,Banh xeo,8,58.3,different
+archive/Images/Train/Banh gio/134.jpg,archive/Images/Train/Banh xeo/73.jpg,Banh gio,Banh xeo,7,43.2,different
+archive/Images/Train/Banh gio/134.jpg,archive/Images/Train/Bun dau mam tom/86.jpg,Banh gio,Bun dau mam tom,8,43.0,different
+archive/Images/Train/Banh gio/134.jpg,archive/Images/Train/Cao lau/39.jpg,Banh gio,Cao lau,6,33.6,different
+archive/Images/Train/Banh gio/134.jpg,archive/Images/Validate/Com tam/173.jpg,Banh gio,Com tam,8,52.5,different
+archive/Images/Train/Banh gio/135.jpg,archive/Images/Validate/Xoi xeo/44.jpg,Banh gio,Xoi xeo,7,63.9,different
+archive/Images/Train/Banh gio/143.jpg,archive/Images/Train/Canh chua/62.jpg,Banh gio,Canh chua,6,67.9,different
+archive/Images/Train/Banh gio/147.jpg,archive/Images/Train/Banh xeo/52.jpg,Banh gio,Banh xeo,8,50.1,different
+archive/Images/Train/Banh gio/177.jpg,archive/Images/Train/Ca kho to/33.jpg,Banh gio,Ca kho to,7,49.6,different
+archive/Images/Train/Banh gio/178.jpg,archive/Images/Validate/Bun thit nuong/89.jpg,Banh gio,Bun thit nuong,8,50.1,different
+archive/Images/Train/Banh gio/191.jpg,archive/Images/Train/Canh chua/596.jpg,Banh gio,Canh chua,7,48.5,different
+archive/Images/Train/Banh gio/199.jpg,archive/Images/Train/Banh trang nuong/50.jpg,Banh gio,Banh trang nuong,8,59.3,different
+archive/Images/Train/Banh gio/256.jpg,archive/Images/Train/Hu tieu/774.jpg,Banh gio,Hu tieu,7,52.6,different
+archive/Images/Train/Banh gio/275.jpg,archive/Images/Train/Com tam/296.jpg,Banh gio,Com tam,8,64.1,different
+archive/Images/Train/Banh gio/276.jpg,archive/Images/Train/Banh xeo/428.jpg,Banh gio,Banh xeo,8,70.5,different
+archive/Images/Train/Banh gio/276.jpg,archive/Images/Validate/Banh bot loc/413.jpg,Banh gio,Banh bot loc,8,87.2,different
+archive/Images/Train/Banh gio/299.jpg,archive/Images/Train/Banh gio/316.jpg,Banh gio,Banh gio,7,13.6,same_group
+archive/Images/Train/Banh gio/320.jpg,archive/Images/Train/Banh mi/86.jpg,Banh gio,Banh mi,8,54.8,different
+archive/Images/Train/Banh gio/33.jpg,archive/Images/Train/Banh trang nuong/151.jpg,Banh gio,Banh trang nuong,5,55.3,different
+archive/Images/Train/Banh gio/33.jpg,archive/Images/Train/Banh trang nuong/53.jpg,Banh gio,Banh trang nuong,6,41.9,different
+archive/Images/Train/Banh gio/33.jpg,archive/Images/Train/Banh trang nuong/88.jpg,Banh gio,Banh trang nuong,7,56.8,different
+archive/Images/Train/Banh gio/33.jpg,archive/Images/Train/Bun bo Hue/889.jpg,Banh gio,Bun bo Hue,8,61.7,different
+archive/Images/Train/Banh gio/33.jpg,archive/Images/Train/Bun dau mam tom/83.jpg,Banh gio,Bun dau mam tom,8,48.3,different
+archive/Images/Train/Banh gio/374.jpg,archive/Images/Train/Banh tet/639.jpg,Banh gio,Banh tet,8,88.9,different
+archive/Images/Train/Banh gio/6.jpg,archive/Images/Train/Banh gio/79.jpg,Banh gio,Banh gio,7,34.0,different
+archive/Images/Train/Banh khot/150.jpg,archive/Images/Train/Banh trang nuong/151.jpg,Banh khot,Banh trang nuong,6,62.6,different
+archive/Images/Train/Banh khot/150.jpg,archive/Images/Train/Banh trang nuong/88.jpg,Banh khot,Banh trang nuong,6,45.6,different
+archive/Images/Train/Banh khot/155.jpg,archive/Images/Train/Ca kho to/41.jpg,Banh khot,Ca kho to,8,58.3,different
+archive/Images/Train/Banh khot/186.jpg,archive/Images/Train/Hu tieu/786.jpg,Banh khot,Hu tieu,8,50.4,different
+archive/Images/Train/Banh khot/226.jpg,archive/Images/Train/Banh khot/330.jpg,Banh khot,Banh khot,7,14.9,same_group
+archive/Images/Train/Banh khot/3.jpg,archive/Images/Train/Banh khot/6.jpg,Banh khot,Banh khot,0,0.5,same_group
+archive/Images/Train/Banh khot/353.jpg,archive/Images/Train/Xoi xeo/293.jpg,Banh khot,Xoi xeo,8,35.2,different
+archive/Images/Train/Banh khot/374.jpg,archive/Images/Train/Xoi xeo/15.jpg,Banh khot,Xoi xeo,8,66.9,different
+archive/Images/Train/Banh khot/387.jpg,archive/Images/Train/Goi cuon/144.jpg,Banh khot,Goi cuon,8,65.2,different
+archive/Images/Train/Banh khot/388.jpg,archive/Images/Train/Banh trang nuong/518.jpg,Banh khot,Banh trang nuong,5,29.6,different
+archive/Images/Train/Banh khot/40.jpg,archive/Images/Train/Bun thit nuong/376.jpg,Banh khot,Bun thit nuong,8,50.7,different
+archive/Images/Train/Banh khot/403.jpg,archive/Images/Train/Mi quang/38.jpg,Banh khot,Mi quang,7,57.2,different
+archive/Images/Train/Banh khot/447.jpg,archive/Images/Train/Ca kho to/155.jpg,Banh khot,Ca kho to,8,65.2,different
+archive/Images/Train/Banh khot/486.jpg,archive/Images/Validate/Banh cuon/46.jpg,Banh khot,Banh cuon,8,41.4,different
+archive/Images/Train/Banh khot/74.jpg,archive/Images/Train/Banh xeo/263.jpg,Banh khot,Banh xeo,1,0.6,exclude_both
+archive/Images/Train/Banh khot/86.jpg,archive/Images/Validate/Banh xeo/76.jpg,Banh khot,Banh xeo,7,47.1,different
+archive/Images/Train/Banh mi/1028.jpg,archive/Images/Train/Chao long/266.jpg,Banh mi,Chao long,7,49.1,different
+archive/Images/Train/Banh mi/106.jpg,archive/Images/Validate/Banh mi/245.jpg,Banh mi,Banh mi,1,9.3,same_group
+archive/Images/Train/Banh mi/121.jpg,archive/Images/Train/Banh mi/126.jpg,Banh mi,Banh mi,2,17.2,same_group
+archive/Images/Train/Banh mi/1225.jpg,archive/Images/Validate/Banh mi/202.jpg,Banh mi,Banh mi,7,21.3,same_group
+archive/Images/Train/Banh mi/139.jpg,archive/Images/Validate/Banh mi/463.jpg,Banh mi,Banh mi,7,20.8,same_group
+archive/Images/Train/Banh mi/14.jpg,archive/Images/Train/Banh xeo/61.jpg,Banh mi,Banh xeo,7,48.6,different
+archive/Images/Train/Banh mi/14.jpg,archive/Images/Train/Banh xeo/73.jpg,Banh mi,Banh xeo,8,66.7,different
+archive/Images/Train/Banh mi/144.jpg,archive/Images/Validate/Banh cuon/46.jpg,Banh mi,Banh cuon,7,37.9,different
+archive/Images/Train/Banh mi/147.jpg,archive/Images/Train/Banh mi/499.jpg,Banh mi,Banh mi,8,14.5,same_group
+archive/Images/Train/Banh mi/151.jpg,archive/Images/Train/Banh mi/381.jpg,Banh mi,Banh mi,4,8.7,same_group
+archive/Images/Train/Banh mi/173.jpg,archive/Images/Validate/Banh mi/176.jpg,Banh mi,Banh mi,0,0.2,same_group
+archive/Images/Train/Banh mi/179.jpg,archive/Images/Train/Banh mi/649.jpg,Banh mi,Banh mi,3,8.1,same_group
+archive/Images/Train/Banh mi/179.jpg,archive/Images/Validate/Banh mi/309.jpg,Banh mi,Banh mi,1,4.8,same_group
+archive/Images/Train/Banh mi/185.jpg,archive/Images/Train/Banh mi/242.jpg,Banh mi,Banh mi,4,24.5,same_group
+archive/Images/Train/Banh mi/185.jpg,archive/Images/Train/Banh mi/246.jpg,Banh mi,Banh mi,1,19.2,same_group
+archive/Images/Train/Banh mi/20.jpg,archive/Images/Train/Xoi xeo/15.jpg,Banh mi,Xoi xeo,8,23.4,different
+archive/Images/Train/Banh mi/207.jpg,archive/Images/Train/Banh mi/434.jpg,Banh mi,Banh mi,4,8.7,same_group
+archive/Images/Train/Banh mi/209.jpg,archive/Images/Train/Banh mi/53.jpg,Banh mi,Banh mi,6,14.8,same_group
+archive/Images/Train/Banh mi/215.jpg,archive/Images/Train/Banh mi/322.jpg,Banh mi,Banh mi,0,3.3,same_group
+archive/Images/Train/Banh mi/218.jpg,archive/Images/Train/Banh mi/288.jpg,Banh mi,Banh mi,4,15.0,same_group
+archive/Images/Train/Banh mi/227.jpg,archive/Images/Train/Hu tieu/14.jpg,Banh mi,Hu tieu,8,32.2,different
+archive/Images/Train/Banh mi/242.jpg,archive/Images/Train/Banh mi/246.jpg,Banh mi,Banh mi,3,14.0,same_group
+archive/Images/Train/Banh mi/244.jpg,archive/Images/Train/Banh mi/543.jpg,Banh mi,Banh mi,5,11.8,same_group
+archive/Images/Train/Banh mi/274.jpg,archive/Images/Train/Banh mi/276.jpg,Banh mi,Banh mi,0,0.1,same_group
+archive/Images/Train/Banh mi/298.jpg,archive/Images/Train/Banh mi/571.jpg,Banh mi,Banh mi,2,11.7,same_group
+archive/Images/Train/Banh mi/317.jpg,archive/Images/Validate/Banh gio/205.jpg,Banh mi,Banh gio,8,35.2,different
+archive/Images/Train/Banh mi/329.jpg,archive/Images/Train/Banh mi/332.jpg,Banh mi,Banh mi,6,16.5,same_group
+archive/Images/Train/Banh mi/373.jpg,archive/Images/Train/Banh mi/417.jpg,Banh mi,Banh mi,2,5.9,same_group
+archive/Images/Train/Banh mi/404.jpg,archive/Images/Train/Ca kho to/115.jpg,Banh mi,Ca kho to,8,50.4,different
+archive/Images/Train/Banh mi/412.jpg,archive/Images/Train/Banh xeo/77.jpg,Banh mi,Banh xeo,8,36.6,different
+archive/Images/Train/Banh mi/412.jpg,archive/Images/Train/Pho/410.jpg,Banh mi,Pho,8,45.5,different
+archive/Images/Train/Banh mi/438.jpg,archive/Images/Train/Banh trang nuong/151.jpg,Banh mi,Banh trang nuong,8,73.5,different
+archive/Images/Train/Banh mi/438.jpg,archive/Images/Train/Banh trang nuong/88.jpg,Banh mi,Banh trang nuong,8,53.4,different
+archive/Images/Train/Banh mi/438.jpg,archive/Images/Train/Banh xeo/61.jpg,Banh mi,Banh xeo,7,90.7,different
+archive/Images/Train/Banh mi/438.jpg,archive/Images/Train/Banh xeo/71.jpg,Banh mi,Banh xeo,5,77.0,different
+archive/Images/Train/Banh mi/438.jpg,archive/Images/Train/Banh xeo/73.jpg,Banh mi,Banh xeo,6,43.7,different
+archive/Images/Train/Banh mi/438.jpg,archive/Images/Train/Canh chua/531.jpg,Banh mi,Canh chua,8,73.3,different
+archive/Images/Train/Banh mi/438.jpg,archive/Images/Train/Cao lau/39.jpg,Banh mi,Cao lau,5,54.3,different
+archive/Images/Train/Banh mi/438.jpg,archive/Images/Train/Chao long/316.jpg,Banh mi,Chao long,7,65.0,different
+archive/Images/Train/Banh mi/438.jpg,archive/Images/Train/Goi cuon/96.jpg,Banh mi,Goi cuon,8,66.8,different
+archive/Images/Train/Banh mi/438.jpg,archive/Images/Validate/Banh gio/123.jpg,Banh mi,Banh gio,7,99.6,different
+archive/Images/Train/Banh mi/438.jpg,archive/Images/Validate/Banh trang nuong/152.jpg,Banh mi,Banh trang nuong,7,71.6,different
+archive/Images/Train/Banh mi/438.jpg,archive/Images/Validate/Banh trang nuong/155.jpg,Banh mi,Banh trang nuong,8,84.6,different
+archive/Images/Train/Banh mi/438.jpg,archive/Images/Validate/Com tam/173.jpg,Banh mi,Com tam,5,63.6,different
+archive/Images/Train/Banh mi/444.jpg,archive/Images/Validate/Banh mi/440.jpg,Banh mi,Banh mi,1,9.6,same_group
+archive/Images/Train/Banh mi/488.jpg,archive/Images/Train/Bun rieu/420.jpg,Banh mi,Bun rieu,8,55.7,different
+archive/Images/Train/Banh mi/495.jpg,archive/Images/Train/Banh mi/97.jpg,Banh mi,Banh mi,7,11.5,same_group
+archive/Images/Train/Banh mi/520.jpg,archive/Images/Train/Banh mi/524.jpg,Banh mi,Banh mi,5,10.4,same_group
+archive/Images/Train/Banh mi/551.jpg,archive/Images/Train/Com tam/12.jpg,Banh mi,Com tam,6,59.9,different
+archive/Images/Train/Banh mi/578.jpg,archive/Images/Train/Banh trang nuong/154.jpg,Banh mi,Banh trang nuong,8,50.5,different
+archive/Images/Train/Banh mi/587.jpg,archive/Images/Train/Banh mi/994.jpg,Banh mi,Banh mi,4,10.3,same_group
+archive/Images/Train/Banh mi/6.jpg,archive/Images/Validate/Banh mi/8.jpg,Banh mi,Banh mi,7,10.8,same_group
+archive/Images/Train/Banh mi/607.jpg,archive/Images/Train/Banh mi/97.jpg,Banh mi,Banh mi,7,18.9,same_group
+archive/Images/Train/Banh mi/646.jpg,archive/Images/Train/Banh mi/91.jpg,Banh mi,Banh mi,4,12.3,same_group
+archive/Images/Train/Banh mi/649.jpg,archive/Images/Validate/Banh mi/309.jpg,Banh mi,Banh mi,2,9.9,same_group
+archive/Images/Train/Banh mi/653.jpg,archive/Images/Train/Banh trang nuong/151.jpg,Banh mi,Banh trang nuong,8,71.8,different
+archive/Images/Train/Banh mi/653.jpg,archive/Images/Train/Banh trang nuong/88.jpg,Banh mi,Banh trang nuong,8,43.2,different
+archive/Images/Train/Banh mi/653.jpg,archive/Images/Train/Banh xeo/61.jpg,Banh mi,Banh xeo,7,71.0,different
+archive/Images/Train/Banh mi/653.jpg,archive/Images/Train/Banh xeo/71.jpg,Banh mi,Banh xeo,7,54.0,different
+archive/Images/Train/Banh mi/653.jpg,archive/Images/Train/Chao long/316.jpg,Banh mi,Chao long,7,43.0,different
+archive/Images/Train/Banh mi/734.jpg,archive/Images/Train/Nem chua/151.jpg,Banh mi,Nem chua,7,87.6,different
+archive/Images/Train/Banh mi/74.jpg,archive/Images/Train/Com tam/46.jpg,Banh mi,Com tam,7,72.6,different
+archive/Images/Train/Banh mi/754.jpg,archive/Images/Train/Cao lau/119.jpg,Banh mi,Cao lau,8,64.1,different
+archive/Images/Train/Banh mi/754.jpg,archive/Images/Train/Com tam/769.jpg,Banh mi,Com tam,8,62.5,different
+archive/Images/Train/Banh mi/754.jpg,archive/Images/Validate/Bun rieu/419.jpg,Banh mi,Bun rieu,7,62.6,different
+archive/Images/Train/Banh mi/86.jpg,archive/Images/Train/Chao long/73.jpg,Banh mi,Chao long,8,39.6,different
+archive/Images/Train/Banh mi/94.jpg,archive/Images/Train/Bun dau mam tom/83.jpg,Banh mi,Bun dau mam tom,7,55.8,different
+archive/Images/Train/Banh mi/948.jpg,archive/Images/Validate/Banh mi/115.jpg,Banh mi,Banh mi,3,7.0,same_group
+archive/Images/Train/Banh pia/10.jpg,archive/Images/Train/Banh pia/12.jpg,Banh pia,Banh pia,7,21.0,same_group
+archive/Images/Train/Banh pia/10.jpg,archive/Images/Train/Banh pia/14.jpg,Banh pia,Banh pia,8,21.6,same_group
+archive/Images/Train/Banh pia/10.jpg,archive/Images/Train/Banh pia/16.jpg,Banh pia,Banh pia,8,19.0,same_group
+archive/Images/Train/Banh pia/10.jpg,archive/Images/Train/Banh pia/4.jpg,Banh pia,Banh pia,8,21.2,same_group
+archive/Images/Train/Banh pia/10.jpg,archive/Images/Train/Hu tieu/14.jpg,Banh pia,Hu tieu,7,24.2,different
+archive/Images/Train/Banh pia/114.jpg,archive/Images/Train/Banh trang nuong/53.jpg,Banh pia,Banh trang nuong,8,40.5,different
+archive/Images/Train/Banh pia/114.jpg,archive/Images/Train/Canh chua/40.jpg,Banh pia,Canh chua,7,49.8,different
+archive/Images/Train/Banh pia/114.jpg,archive/Images/Train/Cao lau/39.jpg,Banh pia,Cao lau,8,37.1,different
+archive/Images/Train/Banh pia/12.jpg,archive/Images/Train/Bun bo Hue/550.jpg,Banh pia,Bun bo Hue,8,29.6,different
+archive/Images/Train/Banh pia/14.jpg,archive/Images/Train/Banh pia/16.jpg,Banh pia,Banh pia,6,20.6,same_group
+archive/Images/Train/Banh pia/14.jpg,archive/Images/Train/Hu tieu/14.jpg,Banh pia,Hu tieu,5,21.0,different
+archive/Images/Train/Banh pia/15.jpg,archive/Images/Train/Banh xeo/331.jpg,Banh pia,Banh xeo,8,61.4,different
+archive/Images/Train/Banh pia/15.jpg,archive/Images/Train/Cao lau/1.jpg,Banh pia,Cao lau,8,74.1,different
+archive/Images/Train/Banh pia/15.jpg,archive/Images/Train/Com tam/112.jpg,Banh pia,Com tam,8,51.3,different
+archive/Images/Train/Banh pia/15.jpg,archive/Images/Train/Hu tieu/13.jpg,Banh pia,Hu tieu,8,59.8,different
+archive/Images/Train/Banh pia/15.jpg,archive/Images/Train/Mi quang/38.jpg,Banh pia,Mi quang,8,32.1,different
+archive/Images/Train/Banh pia/15.jpg,archive/Images/Train/Nem chua/25.jpg,Banh pia,Nem chua,7,115.4,different
+archive/Images/Train/Banh pia/15.jpg,archive/Images/Train/Xoi xeo/15.jpg,Banh pia,Xoi xeo,8,18.3,different
+archive/Images/Train/Banh pia/16.jpg,archive/Images/Train/Hu tieu/14.jpg,Banh pia,Hu tieu,5,15.6,different
+archive/Images/Train/Banh pia/199.jpg,archive/Images/Train/Banh xeo/61.jpg,Banh pia,Banh xeo,7,54.7,different
+archive/Images/Train/Banh pia/220.jpg,archive/Images/Train/Nem chua/152.jpg,Banh pia,Nem chua,8,24.9,different
+archive/Images/Train/Banh pia/222.jpg,archive/Images/Train/Bun bo Hue/76.jpg,Banh pia,Bun bo Hue,8,51.1,different
+archive/Images/Train/Banh pia/23.jpg,archive/Images/Train/Banh pia/60.jpg,Banh pia,Banh pia,6,12.3,same_group
+archive/Images/Train/Banh pia/4.jpg,archive/Images/Train/Hu tieu/14.jpg,Banh pia,Hu tieu,7,13.8,different
+archive/Images/Train/Banh pia/55.jpg,archive/Images/Train/Banh tet/639.jpg,Banh pia,Banh tet,7,48.9,different
+archive/Images/Train/Banh pia/55.jpg,archive/Images/Train/Ca kho to/41.jpg,Banh pia,Ca kho to,8,68.6,different
+archive/Images/Train/Banh pia/55.jpg,archive/Images/Train/Chao long/55.jpg,Banh pia,Chao long,7,33.4,different
+archive/Images/Train/Banh pia/55.jpg,archive/Images/Train/Chao long/58.jpg,Banh pia,Chao long,7,45.4,different
+archive/Images/Train/Banh pia/55.jpg,archive/Images/Train/Com tam/112.jpg,Banh pia,Com tam,8,46.8,different
+archive/Images/Train/Banh pia/66.jpg,archive/Images/Train/Banh trang nuong/307.jpg,Banh pia,Banh trang nuong,8,24.2,different
+archive/Images/Train/Banh pia/66.jpg,archive/Images/Train/Bun mam/26.jpg,Banh pia,Bun mam,6,46.5,different
+archive/Images/Train/Banh pia/87.jpg,archive/Images/Train/Banh pia/89.jpg,Banh pia,Banh pia,1,0.2,same_group
+archive/Images/Train/Banh pia/9.jpg,archive/Images/Train/Bun dau mam tom/166.jpg,Banh pia,Bun dau mam tom,8,53.2,different
+archive/Images/Train/Banh tet/103.jpg,archive/Images/Train/Bun mam/139.jpg,Banh tet,Bun mam,7,50.1,different
+archive/Images/Train/Banh tet/11.jpg,archive/Images/Train/Chao long/240.jpg,Banh tet,Chao long,8,33.1,different
+archive/Images/Train/Banh tet/112.jpg,archive/Images/Train/Cao lau/33.jpg,Banh tet,Cao lau,8,43.8,different
+archive/Images/Train/Banh tet/112.jpg,archive/Images/Train/Goi cuon/100.jpg,Banh tet,Goi cuon,7,34.8,different
+archive/Images/Train/Banh tet/112.jpg,archive/Images/Train/Hu tieu/624.jpg,Banh tet,Hu tieu,8,44.2,different
+archive/Images/Train/Banh tet/112.jpg,archive/Images/Validate/Banh duc/67.jpg,Banh tet,Banh duc,8,44.2,different
+archive/Images/Train/Banh tet/114.jpg,archive/Images/Validate/Banh tet/417.jpg,Banh tet,Banh tet,8,64.7,different
+archive/Images/Train/Banh tet/12.jpg,archive/Images/Validate/Bun thit nuong/291.jpg,Banh tet,Bun thit nuong,8,52.9,different
+archive/Images/Train/Banh tet/124.jpg,archive/Images/Train/Banh tet/211.jpg,Banh tet,Banh tet,6,16.3,same_group
+archive/Images/Train/Banh tet/127.jpg,archive/Images/Train/Bun bo Hue/357.jpg,Banh tet,Bun bo Hue,6,57.7,different
+archive/Images/Train/Banh tet/127.jpg,archive/Images/Train/Bun dau mam tom/10.jpg,Banh tet,Bun dau mam tom,8,60.8,different
+archive/Images/Train/Banh tet/127.jpg,archive/Images/Train/Mi quang/10.jpg,Banh tet,Mi quang,7,56.7,different
+archive/Images/Train/Banh tet/127.jpg,archive/Images/Train/Nem chua/287.jpg,Banh tet,Nem chua,8,55.1,different
+archive/Images/Train/Banh tet/13.jpg,archive/Images/Validate/Banh tet/230.jpg,Banh tet,Banh tet,1,19.2,same_group
+archive/Images/Train/Banh tet/141.jpg,archive/Images/Train/Banh trang nuong/307.jpg,Banh tet,Banh trang nuong,8,94.5,different
+archive/Images/Train/Banh tet/141.jpg,archive/Images/Train/Banh xeo/271.jpg,Banh tet,Banh xeo,8,56.5,different
+archive/Images/Train/Banh tet/16.jpg,archive/Images/Train/Banh tet/170.jpg,Banh tet,Banh tet,4,15.0,same_group
+archive/Images/Train/Banh tet/16.jpg,archive/Images/Train/Chao long/58.jpg,Banh tet,Chao long,8,65.2,different
+archive/Images/Train/Banh tet/174.jpg,archive/Images/Train/Ca kho to/239.jpg,Banh tet,Ca kho to,8,37.6,different
+archive/Images/Train/Banh tet/174.jpg,archive/Images/Train/Ca kho to/244.jpg,Banh tet,Ca kho to,8,42.8,different
+archive/Images/Train/Banh tet/174.jpg,archive/Images/Validate/Canh chua/106.jpg,Banh tet,Canh chua,7,57.7,different
+archive/Images/Train/Banh tet/179.jpg,archive/Images/Validate/Com tam/173.jpg,Banh tet,Com tam,8,56.2,different
+archive/Images/Train/Banh tet/187.jpg,archive/Images/Train/Banh tet/31.jpg,Banh tet,Banh tet,8,29.1,same_group
+archive/Images/Train/Banh tet/19.jpg,archive/Images/Train/Bun rieu/212.jpg,Banh tet,Bun rieu,8,80.8,different
+archive/Images/Train/Banh tet/190.jpg,archive/Images/Train/Banh tet/191.jpg,Banh tet,Banh tet,4,7.7,same_group
+archive/Images/Train/Banh tet/212.jpg,archive/Images/Train/Banh tet/240.jpg,Banh tet,Banh tet,6,29.5,same_group
+archive/Images/Train/Banh tet/212.jpg,archive/Images/Train/Banh tet/669.jpg,Banh tet,Banh tet,6,29.6,same_group
+archive/Images/Train/Banh tet/219.jpg,archive/Images/Train/Banh trang nuong/60.jpg,Banh tet,Banh trang nuong,8,51.7,different
+archive/Images/Train/Banh tet/240.jpg,archive/Images/Train/Banh tet/669.jpg,Banh tet,Banh tet,0,0.4,same_group
+archive/Images/Train/Banh tet/280.jpg,archive/Images/Train/Goi cuon/207.jpg,Banh tet,Goi cuon,6,58.3,different
+archive/Images/Train/Banh tet/280.jpg,archive/Images/Train/Goi cuon/261.jpg,Banh tet,Goi cuon,8,56.5,different
+archive/Images/Train/Banh tet/323.jpg,archive/Images/Train/Banh trang nuong/150.jpg,Banh tet,Banh trang nuong,6,67.2,different
+archive/Images/Train/Banh tet/331.jpg,archive/Images/Validate/Hu tieu/233.jpg,Banh tet,Hu tieu,8,56.0,different
+archive/Images/Train/Banh tet/364.jpg,archive/Images/Train/Chao long/102.jpg,Banh tet,Chao long,8,61.0,different
+archive/Images/Train/Banh tet/364.jpg,archive/Images/Validate/Banh canh/99.jpg,Banh tet,Banh canh,8,80.0,different
+archive/Images/Train/Banh tet/41.jpg,archive/Images/Train/Goi cuon/850.jpg,Banh tet,Goi cuon,8,54.3,different
+archive/Images/Train/Banh tet/416.jpg,archive/Images/Train/Banh tet/675.jpg,Banh tet,Banh tet,0,0.1,same_group
+archive/Images/Train/Banh tet/568.jpg,archive/Images/Train/Pho/776.jpg,Banh tet,Pho,8,38.2,different
+archive/Images/Train/Banh tet/583.jpg,archive/Images/Train/Ca kho to/33.jpg,Banh tet,Ca kho to,8,60.9,different
+archive/Images/Train/Banh tet/583.jpg,archive/Images/Validate/Chao long/248.jpg,Banh tet,Chao long,8,51.4,different
+archive/Images/Train/Banh tet/636.jpg,archive/Images/Train/Hu tieu/300.jpg,Banh tet,Hu tieu,8,55.7,different
+archive/Images/Train/Banh tet/636.jpg,archive/Images/Validate/Chao long/146.jpg,Banh tet,Chao long,8,38.1,different
+archive/Images/Train/Banh tet/639.jpg,archive/Images/Train/Chao long/240.jpg,Banh tet,Chao long,7,47.7,different
+archive/Images/Train/Banh tet/639.jpg,archive/Images/Train/Com tam/85.jpg,Banh tet,Com tam,8,57.6,different
+archive/Images/Train/Banh tet/64.jpg,archive/Images/Train/Pho/789.jpg,Banh tet,Pho,7,55.0,different
+archive/Images/Train/Banh tet/648.jpg,archive/Images/Train/Ca kho to/69.jpg,Banh tet,Ca kho to,8,84.6,different
+archive/Images/Train/Banh tet/69.jpg,archive/Images/Train/Hu tieu/75.jpg,Banh tet,Hu tieu,8,76.5,different
+archive/Images/Train/Banh tet/69.jpg,archive/Images/Validate/Mi quang/89.jpg,Banh tet,Mi quang,7,51.3,different
+archive/Images/Train/Banh trang nuong/11.jpg,archive/Images/Train/Banh trang nuong/14.jpg,Banh trang nuong,Banh trang nuong,0,0.1,same_group
+archive/Images/Train/Banh trang nuong/128.jpg,archive/Images/Train/Bun bo Hue/1038.jpg,Banh trang nuong,Bun bo Hue,7,46.7,different
+archive/Images/Train/Banh trang nuong/13.jpg,archive/Images/Train/Banh trang nuong/19.jpg,Banh trang nuong,Banh trang nuong,1,0.5,same_group
+archive/Images/Train/Banh trang nuong/139.jpg,archive/Images/Train/Bun rieu/349.jpg,Banh trang nuong,Bun rieu,7,45.4,different
+archive/Images/Train/Banh trang nuong/139.jpg,archive/Images/Train/Nem chua/119.jpg,Banh trang nuong,Nem chua,8,41.6,different
+archive/Images/Train/Banh trang nuong/143.jpg,archive/Images/Validate/Banh khot/105.jpg,Banh trang nuong,Banh khot,7,40.4,different
+archive/Images/Train/Banh trang nuong/145.jpg,archive/Images/Train/Banh trang nuong/394.jpg,Banh trang nuong,Banh trang nuong,2,11.7,same_group
+archive/Images/Train/Banh trang nuong/15.jpg,archive/Images/Train/Banh trang nuong/253.jpg,Banh trang nuong,Banh trang nuong,5,16.8,same_group
+archive/Images/Train/Banh trang nuong/150.jpg,archive/Images/Train/Banh trang nuong/53.jpg,Banh trang nuong,Banh trang nuong,7,40.0,different
+archive/Images/Train/Banh trang nuong/150.jpg,archive/Images/Train/Banh trang nuong/88.jpg,Banh trang nuong,Banh trang nuong,8,52.8,different
+archive/Images/Train/Banh trang nuong/151.jpg,archive/Images/Train/Banh trang nuong/53.jpg,Banh trang nuong,Banh trang nuong,5,43.5,different
+archive/Images/Train/Banh trang nuong/151.jpg,archive/Images/Train/Banh trang nuong/88.jpg,Banh trang nuong,Banh trang nuong,4,61.0,different
+archive/Images/Train/Banh trang nuong/151.jpg,archive/Images/Train/Banh xeo/152.jpg,Banh trang nuong,Banh xeo,7,62.2,different
+archive/Images/Train/Banh trang nuong/151.jpg,archive/Images/Train/Banh xeo/54.jpg,Banh trang nuong,Banh xeo,7,73.3,different
+archive/Images/Train/Banh trang nuong/151.jpg,archive/Images/Train/Banh xeo/61.jpg,Banh trang nuong,Banh xeo,5,54.4,different
+archive/Images/Train/Banh trang nuong/151.jpg,archive/Images/Train/Banh xeo/71.jpg,Banh trang nuong,Banh xeo,5,52.1,different
+archive/Images/Train/Banh trang nuong/151.jpg,archive/Images/Train/Banh xeo/73.jpg,Banh trang nuong,Banh xeo,8,56.4,different
+archive/Images/Train/Banh trang nuong/151.jpg,archive/Images/Train/Bun dau mam tom/83.jpg,Banh trang nuong,Bun dau mam tom,7,75.6,different
+archive/Images/Train/Banh trang nuong/151.jpg,archive/Images/Train/Canh chua/531.jpg,Banh trang nuong,Canh chua,8,58.5,different
+archive/Images/Train/Banh trang nuong/151.jpg,archive/Images/Train/Cao lau/39.jpg,Banh trang nuong,Cao lau,7,62.3,different
+archive/Images/Train/Banh trang nuong/151.jpg,archive/Images/Train/Chao long/316.jpg,Banh trang nuong,Chao long,7,66.0,different
+archive/Images/Train/Banh trang nuong/151.jpg,archive/Images/Train/Goi cuon/36.jpg,Banh trang nuong,Goi cuon,6,64.3,different
+archive/Images/Train/Banh trang nuong/151.jpg,archive/Images/Train/Goi cuon/96.jpg,Banh trang nuong,Goi cuon,8,65.4,different
+archive/Images/Train/Banh trang nuong/151.jpg,archive/Images/Train/Nem chua/119.jpg,Banh trang nuong,Nem chua,8,60.5,different
+archive/Images/Train/Banh trang nuong/151.jpg,archive/Images/Train/Nem chua/438.jpg,Banh trang nuong,Nem chua,8,81.0,different
+archive/Images/Train/Banh trang nuong/151.jpg,archive/Images/Validate/Banh gio/67.jpg,Banh trang nuong,Banh gio,8,44.6,different
+archive/Images/Train/Banh trang nuong/151.jpg,archive/Images/Validate/Banh khot/105.jpg,Banh trang nuong,Banh khot,8,64.9,different
+archive/Images/Train/Banh trang nuong/151.jpg,archive/Images/Validate/Banh pia/384.jpg,Banh trang nuong,Banh pia,6,77.9,different
+archive/Images/Train/Banh trang nuong/151.jpg,archive/Images/Validate/Banh trang nuong/155.jpg,Banh trang nuong,Banh trang nuong,8,59.2,different
+archive/Images/Train/Banh trang nuong/151.jpg,archive/Images/Validate/Banh trang nuong/223.jpg,Banh trang nuong,Banh trang nuong,8,63.9,different
+archive/Images/Train/Banh trang nuong/151.jpg,archive/Images/Validate/Com tam/173.jpg,Banh trang nuong,Com tam,5,53.6,different
+archive/Images/Train/Banh trang nuong/158.jpg,archive/Images/Train/Banh trang nuong/331.jpg,Banh trang nuong,Banh trang nuong,6,22.4,same_group
+archive/Images/Train/Banh trang nuong/158.jpg,archive/Images/Validate/Banh trang nuong/131.jpg,Banh trang nuong,Banh trang nuong,6,17.0,same_group
+archive/Images/Train/Banh trang nuong/158.jpg,archive/Images/Validate/Banh trang nuong/223.jpg,Banh trang nuong,Banh trang nuong,6,15.2,same_group
+archive/Images/Train/Banh trang nuong/159.jpg,archive/Images/Train/Banh trang nuong/18.jpg,Banh trang nuong,Banh trang nuong,4,14.9,same_group
+archive/Images/Train/Banh trang nuong/191.jpg,archive/Images/Train/Com tam/577.jpg,Banh trang nuong,Com tam,6,40.9,different
+archive/Images/Train/Banh trang nuong/192.jpg,archive/Images/Train/Bun mam/26.jpg,Banh trang nuong,Bun mam,7,39.8,different
+archive/Images/Train/Banh trang nuong/243.jpg,archive/Images/Validate/Chao long/27.jpg,Banh trang nuong,Chao long,6,33.5,different
+archive/Images/Train/Banh trang nuong/244.jpg,archive/Images/Train/Bun rieu/106.jpg,Banh trang nuong,Bun rieu,8,42.2,different
+archive/Images/Train/Banh trang nuong/27.jpg,archive/Images/Train/Banh trang nuong/90.jpg,Banh trang nuong,Banh trang nuong,1,0.4,same_group
+archive/Images/Train/Banh trang nuong/274.jpg,archive/Images/Train/Bun rieu/136.jpg,Banh trang nuong,Bun rieu,8,41.8,different
+archive/Images/Train/Banh trang nuong/276.jpg,archive/Images/Train/Canh chua/233.jpg,Banh trang nuong,Canh chua,8,35.6,different
+archive/Images/Train/Banh trang nuong/276.jpg,archive/Images/Train/Canh chua/51.jpg,Banh trang nuong,Canh chua,8,35.6,different
+archive/Images/Train/Banh trang nuong/276.jpg,archive/Images/Train/Hu tieu/13.jpg,Banh trang nuong,Hu tieu,8,45.3,different
+archive/Images/Train/Banh trang nuong/276.jpg,archive/Images/Train/Pho/18.jpg,Banh trang nuong,Pho,8,43.7,different
+archive/Images/Train/Banh trang nuong/307.jpg,archive/Images/Train/Bun mam/26.jpg,Banh trang nuong,Bun mam,8,50.8,different
+archive/Images/Train/Banh trang nuong/307.jpg,archive/Images/Train/Bun rieu/38.jpg,Banh trang nuong,Bun rieu,7,34.4,different
+archive/Images/Train/Banh trang nuong/307.jpg,archive/Images/Train/Canh chua/185.jpg,Banh trang nuong,Canh chua,8,34.9,different
+archive/Images/Train/Banh trang nuong/307.jpg,archive/Images/Train/Canh chua/233.jpg,Banh trang nuong,Canh chua,7,46.3,different
+archive/Images/Train/Banh trang nuong/307.jpg,archive/Images/Train/Canh chua/51.jpg,Banh trang nuong,Canh chua,7,46.6,different
+archive/Images/Train/Banh trang nuong/307.jpg,archive/Images/Train/Xoi xeo/289.jpg,Banh trang nuong,Xoi xeo,8,42.2,different
+archive/Images/Train/Banh trang nuong/307.jpg,archive/Images/Validate/Banh bot loc/413.jpg,Banh trang nuong,Banh bot loc,7,124.6,different
+archive/Images/Train/Banh trang nuong/307.jpg,archive/Images/Validate/Banh cuon/669.jpg,Banh trang nuong,Banh cuon,8,60.6,different
+archive/Images/Train/Banh trang nuong/307.jpg,archive/Images/Validate/Xoi xeo/290.jpg,Banh trang nuong,Xoi xeo,8,57.4,different
+archive/Images/Train/Banh trang nuong/315.jpg,archive/Images/Train/Banh xeo/35.jpg,Banh trang nuong,Banh xeo,8,56.2,different
+archive/Images/Train/Banh trang nuong/33.jpg,archive/Images/Validate/Com tam/173.jpg,Banh trang nuong,Com tam,8,41.6,different
+archive/Images/Train/Banh trang nuong/331.jpg,archive/Images/Validate/Banh trang nuong/131.jpg,Banh trang nuong,Banh trang nuong,6,27.7,same_group
+archive/Images/Train/Banh trang nuong/331.jpg,archive/Images/Validate/Banh trang nuong/223.jpg,Banh trang nuong,Banh trang nuong,4,20.9,same_group
+archive/Images/Train/Banh trang nuong/38.jpg,archive/Images/Train/Banh trang nuong/42.jpg,Banh trang nuong,Banh trang nuong,0,0.2,same_group
+archive/Images/Train/Banh trang nuong/38.jpg,archive/Images/Train/Banh trang nuong/46.jpg,Banh trang nuong,Banh trang nuong,7,46.6,different
+archive/Images/Train/Banh trang nuong/38.jpg,archive/Images/Train/Bun rieu/214.jpg,Banh trang nuong,Bun rieu,7,51.1,different
+archive/Images/Train/Banh trang nuong/38.jpg,archive/Images/Train/Bun thit nuong/74.jpg,Banh trang nuong,Bun thit nuong,7,60.0,different
+archive/Images/Train/Banh trang nuong/38.jpg,archive/Images/Validate/Hu tieu/233.jpg,Banh trang nuong,Hu tieu,6,56.2,different
+archive/Images/Train/Banh trang nuong/407.jpg,archive/Images/Train/Goi cuon/96.jpg,Banh trang nuong,Goi cuon,8,62.9,different
+archive/Images/Train/Banh trang nuong/407.jpg,archive/Images/Train/Nem chua/438.jpg,Banh trang nuong,Nem chua,6,48.7,different
+archive/Images/Train/Banh trang nuong/419.jpg,archive/Images/Train/Banh trang nuong/420.jpg,Banh trang nuong,Banh trang nuong,1,0.1,same_group
+archive/Images/Train/Banh trang nuong/42.jpg,archive/Images/Train/Banh trang nuong/46.jpg,Banh trang nuong,Banh trang nuong,7,46.6,different
+archive/Images/Train/Banh trang nuong/42.jpg,archive/Images/Train/Bun rieu/214.jpg,Banh trang nuong,Bun rieu,7,51.1,different
+archive/Images/Train/Banh trang nuong/42.jpg,archive/Images/Train/Bun thit nuong/74.jpg,Banh trang nuong,Bun thit nuong,7,60.0,different
+archive/Images/Train/Banh trang nuong/42.jpg,archive/Images/Validate/Hu tieu/233.jpg,Banh trang nuong,Hu tieu,6,56.2,different
+archive/Images/Train/Banh trang nuong/45.jpg,archive/Images/Train/Banh trang nuong/65.jpg,Banh trang nuong,Banh trang nuong,7,27.8,same_group
+archive/Images/Train/Banh trang nuong/50.jpg,archive/Images/Train/Bun dau mam tom/92.jpg,Banh trang nuong,Bun dau mam tom,8,54.7,different
+archive/Images/Train/Banh trang nuong/53.jpg,archive/Images/Train/Banh trang nuong/88.jpg,Banh trang nuong,Banh trang nuong,7,47.2,different
+archive/Images/Train/Banh trang nuong/53.jpg,archive/Images/Train/Banh xeo/123.jpg,Banh trang nuong,Banh xeo,8,52.5,different
+archive/Images/Train/Banh trang nuong/53.jpg,archive/Images/Train/Banh xeo/54.jpg,Banh trang nuong,Banh xeo,4,48.5,different
+archive/Images/Train/Banh trang nuong/53.jpg,archive/Images/Train/Bun dau mam tom/11.jpg,Banh trang nuong,Bun dau mam tom,8,53.8,different
+archive/Images/Train/Banh trang nuong/53.jpg,archive/Images/Train/Bun dau mam tom/151.jpg,Banh trang nuong,Bun dau mam tom,7,51.1,different
+archive/Images/Train/Banh trang nuong/53.jpg,archive/Images/Train/Bun dau mam tom/83.jpg,Banh trang nuong,Bun dau mam tom,8,53.6,different
+archive/Images/Train/Banh trang nuong/53.jpg,archive/Images/Train/Ca kho to/314.jpg,Banh trang nuong,Ca kho to,8,64.0,different
+archive/Images/Train/Banh trang nuong/53.jpg,archive/Images/Train/Cao lau/39.jpg,Banh trang nuong,Cao lau,8,45.2,different
+archive/Images/Train/Banh trang nuong/53.jpg,archive/Images/Validate/Banh khot/105.jpg,Banh trang nuong,Banh khot,5,55.1,different
+archive/Images/Train/Banh trang nuong/88.jpg,archive/Images/Train/Banh xeo/73.jpg,Banh trang nuong,Banh xeo,8,41.5,different
+archive/Images/Train/Banh trang nuong/88.jpg,archive/Images/Train/Bun dau mam tom/83.jpg,Banh trang nuong,Bun dau mam tom,7,73.6,different
+archive/Images/Train/Banh trang nuong/88.jpg,archive/Images/Train/Canh chua/531.jpg,Banh trang nuong,Canh chua,8,40.9,different
+archive/Images/Train/Banh trang nuong/88.jpg,archive/Images/Train/Cao lau/39.jpg,Banh trang nuong,Cao lau,5,38.1,different
+archive/Images/Train/Banh xeo/100.jpg,archive/Images/Train/Banh xeo/50.jpg,Banh xeo,Banh xeo,4,11.8,same_group
+archive/Images/Train/Banh xeo/103.jpg,archive/Images/Validate/Banh xeo/105.jpg,Banh xeo,Banh xeo,2,9.4,same_group
+archive/Images/Train/Banh xeo/103.jpg,archive/Images/Validate/Bun bo Hue/808.jpg,Banh xeo,Bun bo Hue,8,42.4,different
+archive/Images/Train/Banh xeo/114.jpg,archive/Images/Train/Canh chua/70.jpg,Banh xeo,Canh chua,8,45.5,different
+archive/Images/Train/Banh xeo/126.jpg,archive/Images/Train/Nem chua/362.jpg,Banh xeo,Nem chua,7,35.9,different
+archive/Images/Train/Banh xeo/15.jpg,archive/Images/Train/Com tam/90.jpg,Banh xeo,Com tam,6,44.3,different
+archive/Images/Train/Banh xeo/156.jpg,archive/Images/Validate/Banh trang nuong/25.jpg,Banh xeo,Banh trang nuong,8,49.2,different
+archive/Images/Train/Banh xeo/16.jpg,archive/Images/Train/Banh xeo/327.jpg,Banh xeo,Banh xeo,4,35.8,different
+archive/Images/Train/Banh xeo/16.jpg,archive/Images/Train/Bun thit nuong/213.jpg,Banh xeo,Bun thit nuong,7,37.2,different
+archive/Images/Train/Banh xeo/16.jpg,archive/Images/Train/Ca kho to/69.jpg,Banh xeo,Ca kho to,8,41.3,different
+archive/Images/Train/Banh xeo/16.jpg,archive/Images/Train/Xoi xeo/87.jpg,Banh xeo,Xoi xeo,8,56.3,different
+archive/Images/Train/Banh xeo/190.jpg,archive/Images/Train/Banh xeo/538.jpg,Banh xeo,Banh xeo,4,11.2,same_group
+archive/Images/Train/Banh xeo/202.jpg,archive/Images/Train/Banh xeo/71.jpg,Banh xeo,Banh xeo,8,47.2,different
+archive/Images/Train/Banh xeo/229.jpg,archive/Images/Train/Banh xeo/488.jpg,Banh xeo,Banh xeo,0,15.6,same_group
+archive/Images/Train/Banh xeo/237.jpg,archive/Images/Validate/Goi cuon/797.jpg,Banh xeo,Goi cuon,8,80.7,different
+archive/Images/Train/Banh xeo/240.jpg,archive/Images/Train/Banh xeo/37.jpg,Banh xeo,Banh xeo,0,1.0,same_group
+archive/Images/Train/Banh xeo/249.jpg,archive/Images/Validate/Banh xeo/146.jpg,Banh xeo,Banh xeo,2,12.6,same_group
+archive/Images/Train/Banh xeo/258.jpg,archive/Images/Train/Ca kho to/317.jpg,Banh xeo,Ca kho to,8,81.3,different
+archive/Images/Train/Banh xeo/258.jpg,archive/Images/Train/Mi quang/10.jpg,Banh xeo,Mi quang,8,70.4,different
+archive/Images/Train/Banh xeo/269.jpg,archive/Images/Train/Ca kho to/33.jpg,Banh xeo,Ca kho to,8,55.1,different
+archive/Images/Train/Banh xeo/269.jpg,archive/Images/Train/Canh chua/120.jpg,Banh xeo,Canh chua,8,50.9,different
+archive/Images/Train/Banh xeo/269.jpg,archive/Images/Train/Cao lau/1.jpg,Banh xeo,Cao lau,7,38.1,different
+archive/Images/Train/Banh xeo/269.jpg,archive/Images/Train/Chao long/57.jpg,Banh xeo,Chao long,7,51.5,different
+archive/Images/Train/Banh xeo/269.jpg,archive/Images/Train/Chao long/70.jpg,Banh xeo,Chao long,8,55.1,different
+archive/Images/Train/Banh xeo/271.jpg,archive/Images/Validate/Banh chung/185.jpg,Banh xeo,Banh chung,5,24.4,different
+archive/Images/Train/Banh xeo/272.jpg,archive/Images/Train/Bun bo Hue/1001.jpg,Banh xeo,Bun bo Hue,8,52.1,different
+archive/Images/Train/Banh xeo/273.jpg,archive/Images/Train/Nem chua/32.jpg,Banh xeo,Nem chua,8,67.9,different
+archive/Images/Train/Banh xeo/322.jpg,archive/Images/Train/Goi cuon/476.jpg,Banh xeo,Goi cuon,8,45.2,different
+archive/Images/Train/Banh xeo/323.jpg,archive/Images/Train/Ca kho to/120.jpg,Banh xeo,Ca kho to,8,65.1,different
+archive/Images/Train/Banh xeo/323.jpg,archive/Images/Train/Canh chua/101.jpg,Banh xeo,Canh chua,8,42.2,different
+archive/Images/Train/Banh xeo/325.jpg,archive/Images/Train/Ca kho to/69.jpg,Banh xeo,Ca kho to,8,41.8,different
+archive/Images/Train/Banh xeo/326.jpg,archive/Images/Train/Banh xeo/428.jpg,Banh xeo,Banh xeo,8,45.7,different
+archive/Images/Train/Banh xeo/327.jpg,archive/Images/Train/Xoi xeo/87.jpg,Banh xeo,Xoi xeo,8,45.0,different
+archive/Images/Train/Banh xeo/327.jpg,archive/Images/Validate/Ca kho to/45.jpg,Banh xeo,Ca kho to,8,56.1,different
+archive/Images/Train/Banh xeo/331.jpg,archive/Images/Train/Bun bo Hue/193.jpg,Banh xeo,Bun bo Hue,7,56.6,different
+archive/Images/Train/Banh xeo/331.jpg,archive/Images/Train/Xoi xeo/68.jpg,Banh xeo,Xoi xeo,7,33.6,different
+archive/Images/Train/Banh xeo/337.jpg,archive/Images/Train/Cao lau/221.jpg,Banh xeo,Cao lau,7,67.6,different
+archive/Images/Train/Banh xeo/428.jpg,archive/Images/Validate/Banh bot loc/413.jpg,Banh xeo,Banh bot loc,8,127.9,different
+archive/Images/Train/Banh xeo/479.jpg,archive/Images/Train/Banh xeo/481.jpg,Banh xeo,Banh xeo,8,34.0,different
+archive/Images/Train/Banh xeo/483.jpg,archive/Images/Train/Hu tieu/74.jpg,Banh xeo,Hu tieu,8,35.5,different
+archive/Images/Train/Banh xeo/524.jpg,archive/Images/Validate/Banh xeo/523.jpg,Banh xeo,Banh xeo,1,0.6,same_group
+archive/Images/Train/Banh xeo/54.jpg,archive/Images/Train/Chao long/606.jpg,Banh xeo,Chao long,8,36.2,different
+archive/Images/Train/Banh xeo/54.jpg,archive/Images/Train/Hu tieu/152.jpg,Banh xeo,Hu tieu,7,51.3,different
+archive/Images/Train/Banh xeo/54.jpg,archive/Images/Validate/Banh khot/105.jpg,Banh xeo,Banh khot,5,45.5,different
+archive/Images/Train/Banh xeo/558.jpg,archive/Images/Train/Banh xeo/560.jpg,Banh xeo,Banh xeo,6,18.6,same_group
+archive/Images/Train/Banh xeo/570.jpg,archive/Images/Validate/Banh xeo/143.jpg,Banh xeo,Banh xeo,2,5.3,same_group
+archive/Images/Train/Banh xeo/61.jpg,archive/Images/Train/Banh xeo/71.jpg,Banh xeo,Banh xeo,4,38.3,different
+archive/Images/Train/Banh xeo/61.jpg,archive/Images/Train/Banh xeo/73.jpg,Banh xeo,Banh xeo,5,61.4,different
+archive/Images/Train/Banh xeo/61.jpg,archive/Images/Train/Ca kho to/94.jpg,Banh xeo,Ca kho to,7,60.5,different
+archive/Images/Train/Banh xeo/61.jpg,archive/Images/Train/Cao lau/39.jpg,Banh xeo,Cao lau,6,59.3,different
+archive/Images/Train/Banh xeo/61.jpg,archive/Images/Train/Chao long/316.jpg,Banh xeo,Chao long,4,52.8,different
+archive/Images/Train/Banh xeo/61.jpg,archive/Images/Train/Goi cuon/96.jpg,Banh xeo,Goi cuon,7,46.2,different
+archive/Images/Train/Banh xeo/61.jpg,archive/Images/Train/Nem chua/117.jpg,Banh xeo,Nem chua,8,53.1,different
+archive/Images/Train/Banh xeo/61.jpg,archive/Images/Train/Nem chua/119.jpg,Banh xeo,Nem chua,7,66.0,different
+archive/Images/Train/Banh xeo/61.jpg,archive/Images/Validate/Banh gio/123.jpg,Banh xeo,Banh gio,6,51.8,different
+archive/Images/Train/Banh xeo/61.jpg,archive/Images/Validate/Banh gio/67.jpg,Banh xeo,Banh gio,7,41.1,different
+archive/Images/Train/Banh xeo/61.jpg,archive/Images/Validate/Bun rieu/251.jpg,Banh xeo,Bun rieu,7,64.4,different
+archive/Images/Train/Banh xeo/61.jpg,archive/Images/Validate/Com tam/173.jpg,Banh xeo,Com tam,4,49.1,different
+archive/Images/Train/Banh xeo/640.jpg,archive/Images/Train/Bun thit nuong/588.jpg,Banh xeo,Bun thit nuong,7,47.5,different
+archive/Images/Train/Banh xeo/71.jpg,archive/Images/Train/Banh xeo/73.jpg,Banh xeo,Banh xeo,7,52.8,different
+archive/Images/Train/Banh xeo/71.jpg,archive/Images/Train/Bun rieu/349.jpg,Banh xeo,Bun rieu,8,53.0,different
+archive/Images/Train/Banh xeo/71.jpg,archive/Images/Train/Cao lau/39.jpg,Banh xeo,Cao lau,6,52.9,different
+archive/Images/Train/Banh xeo/71.jpg,archive/Images/Train/Chao long/316.jpg,Banh xeo,Chao long,4,41.8,different
+archive/Images/Train/Banh xeo/71.jpg,archive/Images/Train/Goi cuon/96.jpg,Banh xeo,Goi cuon,7,46.5,different
+archive/Images/Train/Banh xeo/71.jpg,archive/Images/Train/Nem chua/117.jpg,Banh xeo,Nem chua,8,43.2,different
+archive/Images/Train/Banh xeo/71.jpg,archive/Images/Train/Nem chua/119.jpg,Banh xeo,Nem chua,7,53.9,different
+archive/Images/Train/Banh xeo/71.jpg,archive/Images/Validate/Banh gio/123.jpg,Banh xeo,Banh gio,8,55.0,different
+archive/Images/Train/Banh xeo/71.jpg,archive/Images/Validate/Banh gio/67.jpg,Banh xeo,Banh gio,7,44.1,different
+archive/Images/Train/Banh xeo/71.jpg,archive/Images/Validate/Banh trang nuong/152.jpg,Banh xeo,Banh trang nuong,8,39.7,different
+archive/Images/Train/Banh xeo/71.jpg,archive/Images/Validate/Com tam/173.jpg,Banh xeo,Com tam,4,37.2,different
+archive/Images/Train/Banh xeo/73.jpg,archive/Images/Train/Canh chua/531.jpg,Banh xeo,Canh chua,8,54.0,different
+archive/Images/Train/Banh xeo/73.jpg,archive/Images/Train/Cao lau/39.jpg,Banh xeo,Cao lau,5,51.7,different
+archive/Images/Train/Banh xeo/73.jpg,archive/Images/Train/Goi cuon/96.jpg,Banh xeo,Goi cuon,8,51.7,different
+archive/Images/Train/Banh xeo/73.jpg,archive/Images/Train/Nem chua/119.jpg,Banh xeo,Nem chua,8,33.7,different
+archive/Images/Train/Banh xeo/73.jpg,archive/Images/Validate/Com tam/173.jpg,Banh xeo,Com tam,5,47.5,different
+archive/Images/Train/Banh xeo/79.jpg,archive/Images/Train/Banh xeo/81.jpg,Banh xeo,Banh xeo,1,3.0,same_group
+archive/Images/Train/Banh xeo/85.jpg,archive/Images/Train/Banh xeo/92.jpg,Banh xeo,Banh xeo,6,19.1,same_group
+archive/Images/Train/Banh xeo/94.jpg,archive/Images/Validate/Com tam/940.jpg,Banh xeo,Com tam,7,51.8,different
+archive/Images/Train/Bun bo Hue/1001.jpg,archive/Images/Train/Canh chua/12.jpg,Bun bo Hue,Canh chua,8,46.3,different
+archive/Images/Train/Bun bo Hue/1001.jpg,archive/Images/Train/Xoi xeo/15.jpg,Bun bo Hue,Xoi xeo,8,54.0,different
+archive/Images/Train/Bun bo Hue/1001.jpg,archive/Images/Validate/Canh chua/105.jpg,Bun bo Hue,Canh chua,8,52.8,different
+archive/Images/Train/Bun bo Hue/116.jpg,archive/Images/Train/Com tam/400.jpg,Bun bo Hue,Com tam,8,44.2,different
+archive/Images/Train/Bun bo Hue/117.jpg,archive/Images/Train/Canh chua/260.jpg,Bun bo Hue,Canh chua,6,48.9,different
+archive/Images/Train/Bun bo Hue/117.jpg,archive/Images/Train/Xoi xeo/68.jpg,Bun bo Hue,Xoi xeo,8,36.9,different
+archive/Images/Train/Bun bo Hue/1184.jpg,archive/Images/Train/Bun bo Hue/755.jpg,Bun bo Hue,Bun bo Hue,7,20.5,same_group
+archive/Images/Train/Bun bo Hue/12.jpg,archive/Images/Train/Bun bo Hue/869.jpg,Bun bo Hue,Bun bo Hue,3,13.7,same_group
+archive/Images/Train/Bun bo Hue/1403.jpg,archive/Images/Train/Com tam/778.jpg,Bun bo Hue,Com tam,7,75.7,different
+archive/Images/Train/Bun bo Hue/1524.jpg,archive/Images/Validate/Banh canh/34.jpg,Bun bo Hue,Banh canh,7,67.6,different
+archive/Images/Train/Bun bo Hue/1529.jpg,archive/Images/Train/Bun bo Hue/532.jpg,Bun bo Hue,Bun bo Hue,1,0.1,same_group
+archive/Images/Train/Bun bo Hue/206.jpg,archive/Images/Train/Bun bo Hue/245.jpg,Bun bo Hue,Bun bo Hue,7,25.1,same_group
+archive/Images/Train/Bun bo Hue/247.jpg,archive/Images/Train/Xoi xeo/403.jpg,Bun bo Hue,Xoi xeo,8,54.6,different
+archive/Images/Train/Bun bo Hue/257.jpg,archive/Images/Train/Bun bo Hue/260.jpg,Bun bo Hue,Bun bo Hue,0,0.1,same_group
+archive/Images/Train/Bun bo Hue/268.jpg,archive/Images/Train/Chao long/55.jpg,Bun bo Hue,Chao long,7,55.6,different
+archive/Images/Train/Bun bo Hue/268.jpg,archive/Images/Train/Chao long/58.jpg,Bun bo Hue,Chao long,7,73.0,different
+archive/Images/Train/Bun bo Hue/29.jpg,archive/Images/Train/Bun bo Hue/31.jpg,Bun bo Hue,Bun bo Hue,5,18.2,same_group
+archive/Images/Train/Bun bo Hue/328.jpg,archive/Images/Train/Bun bo Hue/930.jpg,Bun bo Hue,Bun bo Hue,8,28.1,same_group
+archive/Images/Train/Bun bo Hue/355.jpg,archive/Images/Train/Bun bo Hue/356.jpg,Bun bo Hue,Bun bo Hue,0,0.0,same_group
+archive/Images/Train/Bun bo Hue/357.jpg,archive/Images/Train/Chao long/38.jpg,Bun bo Hue,Chao long,8,56.0,different
+archive/Images/Train/Bun bo Hue/357.jpg,archive/Images/Train/Nem chua/287.jpg,Bun bo Hue,Nem chua,6,50.5,different
+archive/Images/Train/Bun bo Hue/362.jpg,archive/Images/Train/Bun bo Hue/539.jpg,Bun bo Hue,Bun bo Hue,8,16.2,same_group
+archive/Images/Train/Bun bo Hue/362.jpg,archive/Images/Train/Bun bo Hue/75.jpg,Bun bo Hue,Bun bo Hue,8,22.6,same_group
+archive/Images/Train/Bun bo Hue/40.jpg,archive/Images/Train/Pho/441.jpg,Bun bo Hue,Pho,0,1.2,exclude_both
+archive/Images/Train/Bun bo Hue/409.jpg,archive/Images/Train/Bun bo Hue/410.jpg,Bun bo Hue,Bun bo Hue,0,0.1,same_group
+archive/Images/Train/Bun bo Hue/411.jpg,archive/Images/Validate/Bun bo Hue/735.jpg,Bun bo Hue,Bun bo Hue,8,27.6,same_group
+archive/Images/Train/Bun bo Hue/422.jpg,archive/Images/Train/Bun bo Hue/424.jpg,Bun bo Hue,Bun bo Hue,1,0.3,same_group
+archive/Images/Train/Bun bo Hue/429.jpg,archive/Images/Train/Chao long/240.jpg,Bun bo Hue,Chao long,8,37.3,different
+archive/Images/Train/Bun bo Hue/453.jpg,archive/Images/Train/Canh chua/266.jpg,Bun bo Hue,Canh chua,8,51.5,different
+archive/Images/Train/Bun bo Hue/5.jpg,archive/Images/Train/Bun bo Hue/832.jpg,Bun bo Hue,Bun bo Hue,8,30.6,different
+archive/Images/Train/Bun bo Hue/54.jpg,archive/Images/Train/Bun bo Hue/570.jpg,Bun bo Hue,Bun bo Hue,7,17.9,same_group
+archive/Images/Train/Bun bo Hue/565.jpg,archive/Images/Validate/Bun bo Hue/164.jpg,Bun bo Hue,Bun bo Hue,3,19.4,same_group
+archive/Images/Train/Bun bo Hue/600.jpg,archive/Images/Validate/Banh bot loc/85.jpg,Bun bo Hue,Banh bot loc,7,39.9,different
+archive/Images/Train/Bun bo Hue/661.jpg,archive/Images/Train/Hu tieu/760.jpg,Bun bo Hue,Hu tieu,8,76.8,different
+archive/Images/Train/Bun bo Hue/75.jpg,archive/Images/Train/Bun thit nuong/130.jpg,Bun bo Hue,Bun thit nuong,8,49.2,different
+archive/Images/Train/Bun bo Hue/794.jpg,archive/Images/Validate/Bun bo Hue/113.jpg,Bun bo Hue,Bun bo Hue,7,23.5,same_group
+archive/Images/Train/Bun bo Hue/806.jpg,archive/Images/Train/Com tam/235.jpg,Bun bo Hue,Com tam,5,41.4,different
+archive/Images/Train/Bun bo Hue/809.jpg,archive/Images/Train/Bun rieu/250.jpg,Bun bo Hue,Bun rieu,6,10.8,exclude_both
+archive/Images/Train/Bun bo Hue/811.jpg,archive/Images/Train/Bun rieu/600.jpg,Bun bo Hue,Bun rieu,1,1.0,exclude_both
+archive/Images/Train/Bun bo Hue/854.jpg,archive/Images/Train/Bun rieu/1046.jpg,Bun bo Hue,Bun rieu,8,55.6,different
+archive/Images/Train/Bun bo Hue/892.jpg,archive/Images/Train/Bun dau mam tom/92.jpg,Bun bo Hue,Bun dau mam tom,7,52.1,different
+archive/Images/Train/Bun bo Hue/892.jpg,archive/Images/Validate/Banh duc/67.jpg,Bun bo Hue,Banh duc,8,63.6,different
+archive/Images/Train/Bun bo Hue/92.jpg,archive/Images/Train/Bun bo Hue/96.jpg,Bun bo Hue,Bun bo Hue,0,0.1,same_group
+archive/Images/Train/Bun dau mam tom/10.jpg,archive/Images/Train/Com tam/57.jpg,Bun dau mam tom,Com tam,8,55.7,different
+archive/Images/Train/Bun dau mam tom/10.jpg,archive/Images/Train/Mi quang/10.jpg,Bun dau mam tom,Mi quang,7,60.2,different
+archive/Images/Train/Bun dau mam tom/166.jpg,archive/Images/Train/Bun dau mam tom/168.jpg,Bun dau mam tom,Bun dau mam tom,8,61.6,different
+archive/Images/Train/Bun dau mam tom/3.jpg,archive/Images/Train/Bun dau mam tom/77.jpg,Bun dau mam tom,Bun dau mam tom,7,20.7,same_group
+archive/Images/Train/Bun dau mam tom/83.jpg,archive/Images/Train/Cao lau/39.jpg,Bun dau mam tom,Cao lau,8,67.1,different
+archive/Images/Train/Bun dau mam tom/83.jpg,archive/Images/Validate/Com tam/173.jpg,Bun dau mam tom,Com tam,8,69.2,different
+archive/Images/Train/Bun dau mam tom/86.jpg,archive/Images/Train/Bun dau mam tom/91.jpg,Bun dau mam tom,Bun dau mam tom,4,22.8,same_group
+archive/Images/Train/Bun mam/135.jpg,archive/Images/Train/Xoi xeo/276.jpg,Bun mam,Xoi xeo,8,51.5,different
+archive/Images/Train/Bun mam/194.jpg,archive/Images/Train/Bun mam/82.jpg,Bun mam,Bun mam,8,26.1,same_group
+archive/Images/Train/Bun mam/198.jpg,archive/Images/Train/Bun mam/199.jpg,Bun mam,Bun mam,8,49.5,different
+archive/Images/Train/Bun mam/206.jpg,archive/Images/Train/Bun mam/91.jpg,Bun mam,Bun mam,7,38.9,different
+archive/Images/Train/Bun mam/247.jpg,archive/Images/Train/Bun mam/76.jpg,Bun mam,Bun mam,3,15.7,same_group
+archive/Images/Train/Bun mam/439.jpg,archive/Images/Train/Bun rieu/884.jpg,Bun mam,Bun rieu,0,0.1,exclude_both
+archive/Images/Train/Bun mam/5.jpg,archive/Images/Train/Pho/401.jpg,Bun mam,Pho,0,0.1,exclude_both
+archive/Images/Train/Bun rieu/105.jpg,archive/Images/Train/Bun rieu/55.jpg,Bun rieu,Bun rieu,4,13.4,same_group
+archive/Images/Train/Bun rieu/212.jpg,archive/Images/Train/Chao long/176.jpg,Bun rieu,Chao long,8,53.5,different
+archive/Images/Train/Bun rieu/212.jpg,archive/Images/Train/Com tam/310.jpg,Bun rieu,Com tam,7,60.1,different
+archive/Images/Train/Bun rieu/242.jpg,archive/Images/Validate/Banh canh/57.jpg,Bun rieu,Banh canh,8,40.4,different
+archive/Images/Train/Bun rieu/246.jpg,archive/Images/Validate/Banh canh/34.jpg,Bun rieu,Banh canh,7,57.7,different
+archive/Images/Train/Bun rieu/255.jpg,archive/Images/Train/Canh chua/361.jpg,Bun rieu,Canh chua,8,51.0,different
+archive/Images/Train/Bun rieu/265.jpg,archive/Images/Validate/Bun rieu/1145.jpg,Bun rieu,Bun rieu,4,8.6,same_group
+archive/Images/Train/Bun rieu/339.jpg,archive/Images/Train/Com tam/208.jpg,Bun rieu,Com tam,8,71.9,different
+archive/Images/Train/Bun rieu/349.jpg,archive/Images/Train/Cao lau/39.jpg,Bun rieu,Cao lau,8,44.3,different
+archive/Images/Train/Bun rieu/349.jpg,archive/Images/Train/Nem chua/117.jpg,Bun rieu,Nem chua,6,35.2,different
+archive/Images/Train/Bun rieu/349.jpg,archive/Images/Train/Nem chua/119.jpg,Bun rieu,Nem chua,5,30.3,different
+archive/Images/Train/Bun rieu/349.jpg,archive/Images/Validate/Banh gio/67.jpg,Bun rieu,Banh gio,7,55.0,different
+archive/Images/Train/Bun rieu/38.jpg,archive/Images/Train/Xoi xeo/15.jpg,Bun rieu,Xoi xeo,8,21.6,different
+archive/Images/Train/Bun rieu/39.jpg,archive/Images/Train/Com tam/474.jpg,Bun rieu,Com tam,7,42.0,different
+archive/Images/Train/Bun rieu/39.jpg,archive/Images/Train/Goi cuon/19.jpg,Bun rieu,Goi cuon,8,43.9,different
+archive/Images/Train/Bun rieu/428.jpg,archive/Images/Train/Bun rieu/513.jpg,Bun rieu,Bun rieu,6,29.0,same_group
+archive/Images/Train/Bun rieu/480.jpg,archive/Images/Train/Bun rieu/78.jpg,Bun rieu,Bun rieu,7,56.3,different
+archive/Images/Train/Bun rieu/529.jpg,archive/Images/Train/Com tam/310.jpg,Bun rieu,Com tam,8,50.9,different
+archive/Images/Train/Bun rieu/67.jpg,archive/Images/Train/Bun rieu/72.jpg,Bun rieu,Bun rieu,0,0.1,same_group
+archive/Images/Train/Bun rieu/74.jpg,archive/Images/Train/Bun thit nuong/39.jpg,Bun rieu,Bun thit nuong,8,44.2,different
+archive/Images/Train/Bun rieu/90.jpg,archive/Images/Validate/Bun bo Hue/541.jpg,Bun rieu,Bun bo Hue,6,29.3,different
+archive/Images/Train/Bun thit nuong/100.jpg,archive/Images/Train/Bun thit nuong/71.jpg,Bun thit nuong,Bun thit nuong,1,11.3,same_group
+archive/Images/Train/Bun thit nuong/100.jpg,archive/Images/Train/Com tam/25.jpg,Bun thit nuong,Com tam,8,48.0,different
+archive/Images/Train/Bun thit nuong/100.jpg,archive/Images/Validate/Bun thit nuong/89.jpg,Bun thit nuong,Bun thit nuong,5,21.7,same_group
+archive/Images/Train/Bun thit nuong/12.jpg,archive/Images/Train/Bun thit nuong/155.jpg,Bun thit nuong,Bun thit nuong,1,34.6,different
+archive/Images/Train/Bun thit nuong/151.jpg,archive/Images/Train/Bun thit nuong/154.jpg,Bun thit nuong,Bun thit nuong,7,15.2,same_group
+archive/Images/Train/Bun thit nuong/164.jpg,archive/Images/Train/Bun thit nuong/328.jpg,Bun thit nuong,Bun thit nuong,4,17.7,same_group
+archive/Images/Train/Bun thit nuong/20.jpg,archive/Images/Validate/Bun rieu/146.jpg,Bun thit nuong,Bun rieu,8,54.3,different
+archive/Images/Train/Bun thit nuong/213.jpg,archive/Images/Train/Canh chua/185.jpg,Bun thit nuong,Canh chua,7,38.7,different
+archive/Images/Train/Bun thit nuong/214.jpg,archive/Images/Validate/Bun rieu/354.jpg,Bun thit nuong,Bun rieu,8,45.3,different
+archive/Images/Train/Bun thit nuong/260.jpg,archive/Images/Train/Bun thit nuong/45.jpg,Bun thit nuong,Bun thit nuong,7,12.9,same_group
+archive/Images/Train/Bun thit nuong/271.jpg,archive/Images/Train/Com tam/565.jpg,Bun thit nuong,Com tam,8,50.7,different
+archive/Images/Train/Bun thit nuong/375.jpg,archive/Images/Train/Bun thit nuong/472.jpg,Bun thit nuong,Bun thit nuong,1,3.3,same_group
+archive/Images/Train/Bun thit nuong/421.jpg,archive/Images/Train/Com tam/310.jpg,Bun thit nuong,Com tam,8,44.0,different
+archive/Images/Train/Bun thit nuong/460.jpg,archive/Images/Validate/Bun thit nuong/208.jpg,Bun thit nuong,Bun thit nuong,6,13.0,same_group
+archive/Images/Train/Bun thit nuong/461.jpg,archive/Images/Train/Chao long/425.jpg,Bun thit nuong,Chao long,8,53.6,different
+archive/Images/Train/Bun thit nuong/54.jpg,archive/Images/Train/Mi quang/38.jpg,Bun thit nuong,Mi quang,8,66.4,different
+archive/Images/Train/Bun thit nuong/548.jpg,archive/Images/Train/Chao long/223.jpg,Bun thit nuong,Chao long,8,47.4,different
+archive/Images/Train/Bun thit nuong/71.jpg,archive/Images/Train/Com tam/25.jpg,Bun thit nuong,Com tam,7,44.8,different
+archive/Images/Train/Bun thit nuong/71.jpg,archive/Images/Validate/Bun thit nuong/89.jpg,Bun thit nuong,Bun thit nuong,6,17.4,same_group
+archive/Images/Train/Bun thit nuong/74.jpg,archive/Images/Train/Cao lau/44.jpg,Bun thit nuong,Cao lau,6,47.9,different
+archive/Images/Train/Bun thit nuong/74.jpg,archive/Images/Train/Com tam/778.jpg,Bun thit nuong,Com tam,8,73.7,different
+archive/Images/Train/Bun thit nuong/74.jpg,archive/Images/Train/Mi quang/10.jpg,Bun thit nuong,Mi quang,6,64.3,different
+archive/Images/Train/Bun thit nuong/95.jpg,archive/Images/Train/Ca kho to/317.jpg,Bun thit nuong,Ca kho to,8,56.0,different
+archive/Images/Train/Bun thit nuong/95.jpg,archive/Images/Validate/Chao long/29.jpg,Bun thit nuong,Chao long,8,44.8,different
+archive/Images/Train/Ca kho to/133.jpg,archive/Images/Train/Ca kho to/139.jpg,Ca kho to,Ca kho to,1,1.0,same_group
+archive/Images/Train/Ca kho to/134.jpg,archive/Images/Train/Ca kho to/166.jpg,Ca kho to,Ca kho to,8,43.9,different
+archive/Images/Train/Ca kho to/151.jpg,archive/Images/Train/Com tam/137.jpg,Ca kho to,Com tam,7,49.3,different
+archive/Images/Train/Ca kho to/155.jpg,archive/Images/Train/Com tam/400.jpg,Ca kho to,Com tam,5,50.3,different
+archive/Images/Train/Ca kho to/169.jpg,archive/Images/Train/Ca kho to/171.jpg,Ca kho to,Ca kho to,1,17.8,same_group
+archive/Images/Train/Ca kho to/202.jpg,archive/Images/Validate/Ca kho to/199.jpg,Ca kho to,Ca kho to,0,0.1,same_group
+archive/Images/Train/Ca kho to/239.jpg,archive/Images/Train/Ca kho to/244.jpg,Ca kho to,Ca kho to,4,13.3,same_group
+archive/Images/Train/Ca kho to/255.jpg,archive/Images/Train/Pho/156.jpg,Ca kho to,Pho,8,55.4,different
+archive/Images/Train/Ca kho to/255.jpg,archive/Images/Train/Pho/158.jpg,Ca kho to,Pho,7,56.8,different
+archive/Images/Train/Ca kho to/257.jpg,archive/Images/Train/Ca kho to/259.jpg,Ca kho to,Ca kho to,0,0.1,same_group
+archive/Images/Train/Ca kho to/28.jpg,archive/Images/Train/Canh chua/108.jpg,Ca kho to,Canh chua,8,45.1,different
+archive/Images/Train/Ca kho to/28.jpg,archive/Images/Train/Mi quang/83.jpg,Ca kho to,Mi quang,8,49.9,different
+archive/Images/Train/Ca kho to/28.jpg,archive/Images/Train/Xoi xeo/68.jpg,Ca kho to,Xoi xeo,8,47.1,different
+archive/Images/Train/Ca kho to/317.jpg,archive/Images/Train/Com tam/778.jpg,Ca kho to,Com tam,6,58.4,different
+archive/Images/Train/Ca kho to/317.jpg,archive/Images/Train/Mi quang/10.jpg,Ca kho to,Mi quang,8,54.6,different
+archive/Images/Train/Ca kho to/317.jpg,archive/Images/Validate/Chao long/146.jpg,Ca kho to,Chao long,8,41.9,different
+archive/Images/Train/Ca kho to/320.jpg,archive/Images/Train/Canh chua/185.jpg,Ca kho to,Canh chua,7,42.9,different
+archive/Images/Train/Ca kho to/33.jpg,archive/Images/Train/Canh chua/102.jpg,Ca kho to,Canh chua,8,50.1,different
+archive/Images/Train/Ca kho to/33.jpg,archive/Images/Train/Chao long/69.jpg,Ca kho to,Chao long,7,64.5,different
+archive/Images/Train/Ca kho to/33.jpg,archive/Images/Train/Chao long/73.jpg,Ca kho to,Chao long,8,51.4,different
+archive/Images/Train/Ca kho to/33.jpg,archive/Images/Train/Xoi xeo/15.jpg,Ca kho to,Xoi xeo,7,64.7,different
+archive/Images/Train/Ca kho to/33.jpg,archive/Images/Train/Xoi xeo/68.jpg,Ca kho to,Xoi xeo,8,40.7,different
+archive/Images/Train/Ca kho to/341.jpg,archive/Images/Train/Cao lau/16.jpg,Ca kho to,Cao lau,8,44.0,different
+archive/Images/Train/Ca kho to/41.jpg,archive/Images/Train/Canh chua/102.jpg,Ca kho to,Canh chua,7,43.5,different
+archive/Images/Train/Ca kho to/41.jpg,archive/Images/Train/Cao lau/1.jpg,Ca kho to,Cao lau,8,56.9,different
+archive/Images/Train/Ca kho to/41.jpg,archive/Images/Train/Com tam/112.jpg,Ca kho to,Com tam,6,41.8,different
+archive/Images/Train/Ca kho to/41.jpg,archive/Images/Train/Goi cuon/363.jpg,Ca kho to,Goi cuon,8,39.1,different
+archive/Images/Train/Ca kho to/41.jpg,archive/Images/Train/Xoi xeo/15.jpg,Ca kho to,Xoi xeo,8,33.3,different
+archive/Images/Train/Ca kho to/41.jpg,archive/Images/Validate/Canh chua/105.jpg,Ca kho to,Canh chua,8,68.3,different
+archive/Images/Train/Ca kho to/415.jpg,archive/Images/Train/Ca kho to/416.jpg,Ca kho to,Ca kho to,0,0.8,same_group
+archive/Images/Train/Ca kho to/52.jpg,archive/Images/Train/Mi quang/241.jpg,Ca kho to,Mi quang,8,58.1,different
+archive/Images/Train/Ca kho to/54.jpg,archive/Images/Validate/Ca kho to/62.jpg,Ca kho to,Ca kho to,5,19.7,same_group
+archive/Images/Train/Ca kho to/547.jpg,archive/Images/Validate/Ca kho to/604.jpg,Ca kho to,Ca kho to,8,29.4,same_group
+archive/Images/Train/Ca kho to/567.jpg,archive/Images/Train/Ca kho to/81.jpg,Ca kho to,Ca kho to,8,19.9,same_group
+archive/Images/Train/Ca kho to/70.jpg,archive/Images/Train/Nem chua/137.jpg,Ca kho to,Nem chua,7,59.5,different
+archive/Images/Train/Ca kho to/80.jpg,archive/Images/Train/Pho/256.jpg,Ca kho to,Pho,8,32.7,different
+archive/Images/Train/Ca kho to/85.jpg,archive/Images/Train/Com tam/336.jpg,Ca kho to,Com tam,8,80.4,different
+archive/Images/Train/Ca kho to/85.jpg,archive/Images/Train/Com tam/400.jpg,Ca kho to,Com tam,8,79.0,different
+archive/Images/Train/Ca kho to/85.jpg,archive/Images/Train/Hu tieu/764.jpg,Ca kho to,Hu tieu,6,43.4,different
+archive/Images/Train/Ca kho to/86.jpg,archive/Images/Train/Xoi xeo/386.jpg,Ca kho to,Xoi xeo,8,79.0,different
+archive/Images/Train/Ca kho to/90.jpg,archive/Images/Train/Hu tieu/764.jpg,Ca kho to,Hu tieu,8,59.6,different
+archive/Images/Train/Ca kho to/97.jpg,archive/Images/Validate/Ca kho to/256.jpg,Ca kho to,Ca kho to,8,13.4,same_group
+archive/Images/Train/Canh chua/10.jpg,archive/Images/Train/Canh chua/9.jpg,Canh chua,Canh chua,5,50.4,different
+archive/Images/Train/Canh chua/102.jpg,archive/Images/Train/Cao lau/1.jpg,Canh chua,Cao lau,7,41.7,different
+archive/Images/Train/Canh chua/102.jpg,archive/Images/Train/Chao long/73.jpg,Canh chua,Chao long,8,38.6,different
+archive/Images/Train/Canh chua/102.jpg,archive/Images/Train/Com tam/112.jpg,Canh chua,Com tam,7,40.7,different
+archive/Images/Train/Canh chua/102.jpg,archive/Images/Train/Hu tieu/40.jpg,Canh chua,Hu tieu,8,43.3,different
+archive/Images/Train/Canh chua/102.jpg,archive/Images/Train/Xoi xeo/15.jpg,Canh chua,Xoi xeo,5,39.3,different
+archive/Images/Train/Canh chua/102.jpg,archive/Images/Train/Xoi xeo/68.jpg,Canh chua,Xoi xeo,8,43.0,different
+archive/Images/Train/Canh chua/102.jpg,archive/Images/Validate/Banh cuon/669.jpg,Canh chua,Banh cuon,8,46.1,different
+archive/Images/Train/Canh chua/108.jpg,archive/Images/Train/Hu tieu/40.jpg,Canh chua,Hu tieu,8,39.4,different
+archive/Images/Train/Canh chua/108.jpg,archive/Images/Train/Xoi xeo/68.jpg,Canh chua,Xoi xeo,6,27.5,different
+archive/Images/Train/Canh chua/108.jpg,archive/Images/Validate/Hu tieu/78.jpg,Canh chua,Hu tieu,7,38.1,different
+archive/Images/Train/Canh chua/12.jpg,archive/Images/Train/Nem chua/55.jpg,Canh chua,Nem chua,7,73.5,different
+archive/Images/Train/Canh chua/12.jpg,archive/Images/Train/Xoi xeo/15.jpg,Canh chua,Xoi xeo,8,78.3,different
+archive/Images/Train/Canh chua/12.jpg,archive/Images/Validate/Canh chua/105.jpg,Canh chua,Canh chua,8,36.8,different
+archive/Images/Train/Canh chua/120.jpg,archive/Images/Train/Hu tieu/12.jpg,Canh chua,Hu tieu,8,51.6,different
+archive/Images/Train/Canh chua/127.jpg,archive/Images/Train/Canh chua/134.jpg,Canh chua,Canh chua,2,13.7,same_group
+archive/Images/Train/Canh chua/139.jpg,archive/Images/Train/Canh chua/144.jpg,Canh chua,Canh chua,8,19.1,same_group
+archive/Images/Train/Canh chua/183.jpg,archive/Images/Validate/Banh duc/67.jpg,Canh chua,Banh duc,8,43.1,different
+archive/Images/Train/Canh chua/185.jpg,archive/Images/Train/Com tam/85.jpg,Canh chua,Com tam,8,43.1,different
+archive/Images/Train/Canh chua/186.jpg,archive/Images/Train/Canh chua/231.jpg,Canh chua,Canh chua,7,61.8,different
+archive/Images/Train/Canh chua/233.jpg,archive/Images/Train/Canh chua/51.jpg,Canh chua,Canh chua,0,0.4,same_group
+archive/Images/Train/Canh chua/233.jpg,archive/Images/Validate/Banh bot loc/413.jpg,Canh chua,Banh bot loc,8,91.9,different
+archive/Images/Train/Canh chua/235.jpg,archive/Images/Train/Nem chua/93.jpg,Canh chua,Nem chua,8,81.1,different
+archive/Images/Train/Canh chua/260.jpg,archive/Images/Train/Xoi xeo/68.jpg,Canh chua,Xoi xeo,8,37.9,different
+archive/Images/Train/Canh chua/266.jpg,archive/Images/Validate/Bun thit nuong/33.jpg,Canh chua,Bun thit nuong,8,40.3,different
+archive/Images/Train/Canh chua/273.jpg,archive/Images/Train/Canh chua/515.jpg,Canh chua,Canh chua,7,19.1,same_group
+archive/Images/Train/Canh chua/275.jpg,archive/Images/Train/Canh chua/278.jpg,Canh chua,Canh chua,0,0.1,same_group
+archive/Images/Train/Canh chua/326.jpg,archive/Images/Train/Hu tieu/42.jpg,Canh chua,Hu tieu,7,29.3,different
+archive/Images/Train/Canh chua/363.jpg,archive/Images/Validate/Canh chua/360.jpg,Canh chua,Canh chua,0,0.1,same_group
+archive/Images/Train/Canh chua/39.jpg,archive/Images/Train/Pho/410.jpg,Canh chua,Pho,8,42.3,different
+archive/Images/Train/Canh chua/48.jpg,archive/Images/Validate/Canh chua/49.jpg,Canh chua,Canh chua,0,0.4,same_group
+archive/Images/Train/Canh chua/51.jpg,archive/Images/Validate/Banh bot loc/413.jpg,Canh chua,Banh bot loc,8,91.5,different
+archive/Images/Train/Canh chua/531.jpg,archive/Images/Train/Cao lau/39.jpg,Canh chua,Cao lau,5,42.3,different
+archive/Images/Train/Canh chua/531.jpg,archive/Images/Validate/Banh gio/123.jpg,Canh chua,Banh gio,7,55.3,different
+archive/Images/Train/Canh chua/531.jpg,archive/Images/Validate/Bun rieu/251.jpg,Canh chua,Bun rieu,8,47.8,different
+archive/Images/Train/Canh chua/642.jpg,archive/Images/Train/Hu tieu/338.jpg,Canh chua,Hu tieu,8,48.3,different
+archive/Images/Train/Canh chua/82.jpg,archive/Images/Train/Com tam/20.jpg,Canh chua,Com tam,4,44.9,different
+archive/Images/Train/Canh chua/82.jpg,archive/Images/Train/Mi quang/10.jpg,Canh chua,Mi quang,5,51.4,different
+archive/Images/Train/Canh chua/82.jpg,archive/Images/Train/Nem chua/288.jpg,Canh chua,Nem chua,8,55.6,different
+archive/Images/Train/Canh chua/82.jpg,archive/Images/Validate/Banh cuon/61.jpg,Canh chua,Banh cuon,6,42.8,different
+archive/Images/Train/Cao lau/1.jpg,archive/Images/Train/Chao long/57.jpg,Cao lau,Chao long,8,43.6,different
+archive/Images/Train/Cao lau/1.jpg,archive/Images/Train/Mi quang/38.jpg,Cao lau,Mi quang,8,55.8,different
+archive/Images/Train/Cao lau/1.jpg,archive/Images/Train/Nem chua/25.jpg,Cao lau,Nem chua,7,64.2,different
+archive/Images/Train/Cao lau/1.jpg,archive/Images/Train/Xoi xeo/15.jpg,Cao lau,Xoi xeo,8,60.6,different
+archive/Images/Train/Cao lau/1.jpg,archive/Images/Validate/Banh bot loc/413.jpg,Cao lau,Banh bot loc,8,82.0,different
+archive/Images/Train/Cao lau/1.jpg,archive/Images/Validate/Canh chua/105.jpg,Cao lau,Canh chua,8,45.4,different
+archive/Images/Train/Cao lau/12.jpg,archive/Images/Train/Com tam/57.jpg,Cao lau,Com tam,7,52.1,different
+archive/Images/Train/Cao lau/13.jpg,archive/Images/Train/Com tam/310.jpg,Cao lau,Com tam,8,46.7,different
+archive/Images/Train/Cao lau/147.jpg,archive/Images/Train/Nem chua/143.jpg,Cao lau,Nem chua,7,52.1,different
+archive/Images/Train/Cao lau/178.jpg,archive/Images/Validate/Banh gio/172.jpg,Cao lau,Banh gio,6,55.2,different
+archive/Images/Train/Cao lau/188.jpg,archive/Images/Train/Chao long/100.jpg,Cao lau,Chao long,8,54.4,different
+archive/Images/Train/Cao lau/310.jpg,archive/Images/Train/Cao lau/618.jpg,Cao lau,Cao lau,0,0.1,same_group
+archive/Images/Train/Cao lau/341.jpg,archive/Images/Train/Com tam/400.jpg,Cao lau,Com tam,6,47.6,different
+archive/Images/Train/Cao lau/379.jpg,archive/Images/Train/Hu tieu/118.jpg,Cao lau,Hu tieu,8,46.3,different
+archive/Images/Train/Cao lau/379.jpg,archive/Images/Train/Nem chua/170.jpg,Cao lau,Nem chua,6,38.1,different
+archive/Images/Train/Cao lau/39.jpg,archive/Images/Train/Chao long/316.jpg,Cao lau,Chao long,8,39.5,different
+archive/Images/Train/Cao lau/39.jpg,archive/Images/Train/Com tam/40.jpg,Cao lau,Com tam,6,41.5,different
+archive/Images/Train/Cao lau/39.jpg,archive/Images/Validate/Banh gio/123.jpg,Cao lau,Banh gio,6,66.9,different
+archive/Images/Train/Cao lau/39.jpg,archive/Images/Validate/Com tam/173.jpg,Cao lau,Com tam,6,43.6,different
+archive/Images/Train/Cao lau/48.jpg,archive/Images/Validate/Cao lau/161.jpg,Cao lau,Cao lau,8,46.3,different
+archive/Images/Train/Cao lau/53.jpg,archive/Images/Validate/Cao lau/160.jpg,Cao lau,Cao lau,0,2.7,same_group
+archive/Images/Train/Cao lau/6.jpg,archive/Images/Train/Hu tieu/12.jpg,Cao lau,Hu tieu,7,60.1,different
+archive/Images/Train/Cao lau/97.jpg,archive/Images/Train/Cao lau/99.jpg,Cao lau,Cao lau,4,25.1,same_group
+archive/Images/Train/Chao long/100.jpg,archive/Images/Train/Chao long/108.jpg,Chao long,Chao long,1,9.9,same_group
+archive/Images/Train/Chao long/100.jpg,archive/Images/Validate/Chao long/253.jpg,Chao long,Chao long,6,68.6,different
+archive/Images/Train/Chao long/102.jpg,archive/Images/Validate/Chao long/95.jpg,Chao long,Chao long,4,36.0,different
+archive/Images/Train/Chao long/106.jpg,archive/Images/Train/Chao long/148.jpg,Chao long,Chao long,7,12.4,same_group
+archive/Images/Train/Chao long/107.jpg,archive/Images/Train/Chao long/543.jpg,Chao long,Chao long,0,0.7,same_group
+archive/Images/Train/Chao long/108.jpg,archive/Images/Train/Com tam/180.jpg,Chao long,Com tam,8,40.8,different
+archive/Images/Train/Chao long/108.jpg,archive/Images/Validate/Chao long/253.jpg,Chao long,Chao long,5,69.8,different
+archive/Images/Train/Chao long/129.jpg,archive/Images/Train/Chao long/262.jpg,Chao long,Chao long,5,11.1,same_group
+archive/Images/Train/Chao long/135.jpg,archive/Images/Train/Chao long/423.jpg,Chao long,Chao long,3,4.7,same_group
+archive/Images/Train/Chao long/153.jpg,archive/Images/Train/Chao long/163.jpg,Chao long,Chao long,7,51.1,different
+archive/Images/Train/Chao long/176.jpg,archive/Images/Train/Com tam/310.jpg,Chao long,Com tam,7,53.4,different
+archive/Images/Train/Chao long/20.jpg,archive/Images/Validate/Bun rieu/151.jpg,Chao long,Bun rieu,8,42.0,different
+archive/Images/Train/Chao long/231.jpg,archive/Images/Validate/Chao long/514.jpg,Chao long,Chao long,8,36.8,different
+archive/Images/Train/Chao long/26.jpg,archive/Images/Train/Mi quang/345.jpg,Chao long,Mi quang,8,37.7,different
+archive/Images/Train/Chao long/316.jpg,archive/Images/Validate/Banh gio/123.jpg,Chao long,Banh gio,6,63.0,different
+archive/Images/Train/Chao long/316.jpg,archive/Images/Validate/Com tam/173.jpg,Chao long,Com tam,6,33.7,different
+archive/Images/Train/Chao long/317.jpg,archive/Images/Validate/Chao long/510.jpg,Chao long,Chao long,8,25.4,same_group
+archive/Images/Train/Chao long/38.jpg,archive/Images/Train/Nem chua/287.jpg,Chao long,Nem chua,8,34.4,different
+archive/Images/Train/Chao long/549.jpg,archive/Images/Train/Mi quang/10.jpg,Chao long,Mi quang,8,45.7,different
+archive/Images/Train/Chao long/55.jpg,archive/Images/Train/Chao long/58.jpg,Chao long,Chao long,2,28.6,same_group
+archive/Images/Train/Chao long/56.jpg,archive/Images/Train/Chao long/81.jpg,Chao long,Chao long,7,20.3,same_group
+archive/Images/Train/Chao long/57.jpg,archive/Images/Validate/Canh chua/105.jpg,Chao long,Canh chua,8,39.7,different
+archive/Images/Train/Chao long/60.jpg,archive/Images/Train/Com tam/112.jpg,Chao long,Com tam,8,48.6,different
+archive/Images/Train/Chao long/606.jpg,archive/Images/Validate/Banh khot/105.jpg,Chao long,Banh khot,7,58.8,different
+archive/Images/Train/Chao long/70.jpg,archive/Images/Train/Hu tieu/439.jpg,Chao long,Hu tieu,8,57.3,different
+archive/Images/Train/Chao long/717.jpg,archive/Images/Train/Nem chua/93.jpg,Chao long,Nem chua,8,75.5,different
+archive/Images/Train/Chao long/73.jpg,archive/Images/Train/Xoi xeo/68.jpg,Chao long,Xoi xeo,8,37.2,different
+archive/Images/Train/Chao long/86.jpg,archive/Images/Validate/Chao long/84.jpg,Chao long,Chao long,0,0.6,same_group
+archive/Images/Train/Com tam/106.jpg,archive/Images/Train/Com tam/227.jpg,Com tam,Com tam,5,8.6,same_group
+archive/Images/Train/Com tam/11.jpg,archive/Images/Train/Com tam/120.jpg,Com tam,Com tam,0,0.5,same_group
+archive/Images/Train/Com tam/112.jpg,archive/Images/Train/Goi cuon/363.jpg,Com tam,Goi cuon,8,46.9,different
+archive/Images/Train/Com tam/112.jpg,archive/Images/Train/Xoi xeo/15.jpg,Com tam,Xoi xeo,8,41.9,different
+archive/Images/Train/Com tam/112.jpg,archive/Images/Validate/Canh chua/105.jpg,Com tam,Canh chua,8,50.2,different
+archive/Images/Train/Com tam/134.jpg,archive/Images/Train/Com tam/137.jpg,Com tam,Com tam,4,16.7,same_group
+archive/Images/Train/Com tam/134.jpg,archive/Images/Train/Com tam/240.jpg,Com tam,Com tam,3,20.5,same_group
+archive/Images/Train/Com tam/134.jpg,archive/Images/Train/Com tam/296.jpg,Com tam,Com tam,7,29.9,same_group
+archive/Images/Train/Com tam/137.jpg,archive/Images/Train/Com tam/240.jpg,Com tam,Com tam,3,17.0,same_group
+archive/Images/Train/Com tam/137.jpg,archive/Images/Train/Com tam/296.jpg,Com tam,Com tam,7,19.2,same_group
+archive/Images/Train/Com tam/180.jpg,archive/Images/Validate/Chao long/253.jpg,Com tam,Chao long,7,48.3,different
+archive/Images/Train/Com tam/19.jpg,archive/Images/Train/Com tam/67.jpg,Com tam,Com tam,2,7.2,same_group
+archive/Images/Train/Com tam/19.jpg,archive/Images/Validate/Com tam/16.jpg,Com tam,Com tam,1,1.5,same_group
+archive/Images/Train/Com tam/19.jpg,archive/Images/Validate/Com tam/58.jpg,Com tam,Com tam,5,24.5,same_group
+archive/Images/Train/Com tam/20.jpg,archive/Images/Train/Mi quang/10.jpg,Com tam,Mi quang,7,46.3,different
+archive/Images/Train/Com tam/20.jpg,archive/Images/Train/Nem chua/288.jpg,Com tam,Nem chua,8,62.9,different
+archive/Images/Train/Com tam/202.jpg,archive/Images/Train/Com tam/204.jpg,Com tam,Com tam,0,0.1,same_group
+archive/Images/Train/Com tam/240.jpg,archive/Images/Train/Com tam/296.jpg,Com tam,Com tam,6,29.1,same_group
+archive/Images/Train/Com tam/259.jpg,archive/Images/Train/Com tam/261.jpg,Com tam,Com tam,0,0.1,same_group
+archive/Images/Train/Com tam/288.jpg,archive/Images/Validate/Com tam/289.jpg,Com tam,Com tam,0,0.1,same_group
+archive/Images/Train/Com tam/29.jpg,archive/Images/Validate/Banh canh/34.jpg,Com tam,Banh canh,7,62.2,different
+archive/Images/Train/Com tam/313.jpg,archive/Images/Train/Com tam/427.jpg,Com tam,Com tam,6,17.6,same_group
+archive/Images/Train/Com tam/333.jpg,archive/Images/Train/Com tam/351.jpg,Com tam,Com tam,5,9.9,same_group
+archive/Images/Train/Com tam/378.jpg,archive/Images/Train/Com tam/425.jpg,Com tam,Com tam,4,23.8,same_group
+archive/Images/Train/Com tam/403.jpg,archive/Images/Train/Hu tieu/607.jpg,Com tam,Hu tieu,8,78.2,different
+archive/Images/Train/Com tam/433.jpg,archive/Images/Train/Hu tieu/297.jpg,Com tam,Hu tieu,7,50.4,different
+archive/Images/Train/Com tam/447.jpg,archive/Images/Validate/Com tam/158.jpg,Com tam,Com tam,4,10.5,same_group
+archive/Images/Train/Com tam/459.jpg,archive/Images/Train/Com tam/461.jpg,Com tam,Com tam,0,0.0,same_group
+archive/Images/Train/Com tam/46.jpg,archive/Images/Validate/Banh pia/384.jpg,Com tam,Banh pia,8,45.1,different
+archive/Images/Train/Com tam/46.jpg,archive/Images/Validate/Banh trang nuong/155.jpg,Com tam,Banh trang nuong,8,52.0,different
+archive/Images/Train/Com tam/463.jpg,archive/Images/Train/Com tam/465.jpg,Com tam,Com tam,7,20.0,same_group
+archive/Images/Train/Com tam/463.jpg,archive/Images/Validate/Com tam/4.jpg,Com tam,Com tam,8,15.5,same_group
+archive/Images/Train/Com tam/465.jpg,archive/Images/Validate/Com tam/4.jpg,Com tam,Com tam,5,13.8,same_group
+archive/Images/Train/Com tam/474.jpg,archive/Images/Train/Goi cuon/19.jpg,Com tam,Goi cuon,7,31.7,different
+archive/Images/Train/Com tam/528.jpg,archive/Images/Train/Com tam/656.jpg,Com tam,Com tam,8,9.7,same_group
+archive/Images/Train/Com tam/55.jpg,archive/Images/Train/Pho/212.jpg,Com tam,Pho,7,53.3,different
+archive/Images/Train/Com tam/55.jpg,archive/Images/Train/Pho/778.jpg,Com tam,Pho,7,53.3,different
+archive/Images/Train/Com tam/574.jpg,archive/Images/Validate/Banh gio/22.jpg,Com tam,Banh gio,7,91.7,different
+archive/Images/Train/Com tam/577.jpg,archive/Images/Train/Goi cuon/363.jpg,Com tam,Goi cuon,8,61.6,different
+archive/Images/Train/Com tam/577.jpg,archive/Images/Train/Xoi xeo/68.jpg,Com tam,Xoi xeo,7,43.8,different
+archive/Images/Train/Com tam/577.jpg,archive/Images/Validate/Bun thit nuong/33.jpg,Com tam,Bun thit nuong,8,52.7,different
+archive/Images/Train/Com tam/67.jpg,archive/Images/Validate/Com tam/16.jpg,Com tam,Com tam,3,7.4,same_group
+archive/Images/Train/Com tam/67.jpg,archive/Images/Validate/Com tam/58.jpg,Com tam,Com tam,7,27.2,same_group
+archive/Images/Train/Com tam/72.jpg,archive/Images/Validate/Com tam/50.jpg,Com tam,Com tam,3,3.1,same_group
+archive/Images/Train/Com tam/778.jpg,archive/Images/Train/Mi quang/10.jpg,Com tam,Mi quang,6,40.1,different
+archive/Images/Train/Com tam/778.jpg,archive/Images/Validate/Bun mam/374.jpg,Com tam,Bun mam,8,74.1,different
+archive/Images/Train/Goi cuon/127.jpg,archive/Images/Train/Goi cuon/184.jpg,Goi cuon,Goi cuon,7,24.2,same_group
+archive/Images/Train/Goi cuon/177.jpg,archive/Images/Train/Goi cuon/319.jpg,Goi cuon,Goi cuon,7,18.5,same_group
+archive/Images/Train/Goi cuon/187.jpg,archive/Images/Train/Goi cuon/188.jpg,Goi cuon,Goi cuon,0,0.9,same_group
+archive/Images/Train/Goi cuon/187.jpg,archive/Images/Validate/Goi cuon/190.jpg,Goi cuon,Goi cuon,0,0.1,same_group
+archive/Images/Train/Goi cuon/188.jpg,archive/Images/Validate/Goi cuon/190.jpg,Goi cuon,Goi cuon,0,1.0,same_group
+archive/Images/Train/Goi cuon/215.jpg,archive/Images/Train/Goi cuon/217.jpg,Goi cuon,Goi cuon,7,17.7,same_group
+archive/Images/Train/Goi cuon/225.jpg,archive/Images/Train/Goi cuon/227.jpg,Goi cuon,Goi cuon,1,0.4,same_group
+archive/Images/Train/Goi cuon/23.jpg,archive/Images/Train/Goi cuon/24.jpg,Goi cuon,Goi cuon,7,38.0,different
+archive/Images/Train/Goi cuon/24.jpg,archive/Images/Train/Goi cuon/44.jpg,Goi cuon,Goi cuon,6,41.0,different
+archive/Images/Train/Goi cuon/27.jpg,archive/Images/Validate/Banh khot/105.jpg,Goi cuon,Banh khot,8,61.3,different
+archive/Images/Train/Goi cuon/3.jpg,archive/Images/Train/Goi cuon/80.jpg,Goi cuon,Goi cuon,5,37.2,different
+archive/Images/Train/Goi cuon/323.jpg,archive/Images/Train/Mi quang/194.jpg,Goi cuon,Mi quang,8,38.2,different
+archive/Images/Train/Goi cuon/36.jpg,archive/Images/Validate/Com tam/173.jpg,Goi cuon,Com tam,7,42.8,different
+archive/Images/Train/Goi cuon/363.jpg,archive/Images/Train/Hu tieu/40.jpg,Goi cuon,Hu tieu,7,72.1,different
+archive/Images/Train/Goi cuon/39.jpg,archive/Images/Train/Goi cuon/43.jpg,Goi cuon,Goi cuon,0,0.4,same_group
+archive/Images/Train/Goi cuon/440.jpg,archive/Images/Validate/Banh cuon/174.jpg,Goi cuon,Banh cuon,7,27.0,exclude_both
+archive/Images/Train/Goi cuon/47.jpg,archive/Images/Validate/Goi cuon/849.jpg,Goi cuon,Goi cuon,2,0.5,same_group
+archive/Images/Train/Goi cuon/60.jpg,archive/Images/Validate/Goi cuon/58.jpg,Goi cuon,Goi cuon,7,57.4,different
+archive/Images/Train/Goi cuon/62.jpg,archive/Images/Train/Goi cuon/75.jpg,Goi cuon,Goi cuon,1,0.5,same_group
+archive/Images/Train/Goi cuon/652.jpg,archive/Images/Validate/Pho/7.jpg,Goi cuon,Pho,8,45.3,different
+archive/Images/Train/Goi cuon/96.jpg,archive/Images/Validate/Com tam/173.jpg,Goi cuon,Com tam,5,50.4,different
+archive/Images/Train/Hu tieu/106.jpg,archive/Images/Train/Pho/633.jpg,Hu tieu,Pho,8,48.2,different
+archive/Images/Train/Hu tieu/109.jpg,archive/Images/Train/Hu tieu/91.jpg,Hu tieu,Hu tieu,2,19.6,same_group
+archive/Images/Train/Hu tieu/116.jpg,archive/Images/Train/Hu tieu/71.jpg,Hu tieu,Hu tieu,6,18.6,same_group
+archive/Images/Train/Hu tieu/118.jpg,archive/Images/Train/Nem chua/170.jpg,Hu tieu,Nem chua,6,60.7,different
+archive/Images/Train/Hu tieu/118.jpg,archive/Images/Validate/Chao long/29.jpg,Hu tieu,Chao long,7,47.3,different
+archive/Images/Train/Hu tieu/119.jpg,archive/Images/Train/Hu tieu/569.jpg,Hu tieu,Hu tieu,7,21.8,same_group
+archive/Images/Train/Hu tieu/120.jpg,archive/Images/Train/Hu tieu/438.jpg,Hu tieu,Hu tieu,5,12.1,same_group
+archive/Images/Train/Hu tieu/122.jpg,archive/Images/Train/Hu tieu/125.jpg,Hu tieu,Hu tieu,6,12.3,same_group
+archive/Images/Train/Hu tieu/13.jpg,archive/Images/Validate/Banh cuon/29.jpg,Hu tieu,Banh cuon,7,44.4,different
+archive/Images/Train/Hu tieu/135.jpg,archive/Images/Train/Hu tieu/147.jpg,Hu tieu,Hu tieu,8,12.4,same_group
+archive/Images/Train/Hu tieu/14.jpg,archive/Images/Train/Nem chua/93.jpg,Hu tieu,Nem chua,7,17.4,different
+archive/Images/Train/Hu tieu/142.jpg,archive/Images/Train/Mi quang/349.jpg,Hu tieu,Mi quang,8,39.9,different
+archive/Images/Train/Hu tieu/145.jpg,archive/Images/Train/Hu tieu/148.jpg,Hu tieu,Hu tieu,8,29.8,same_group
+archive/Images/Train/Hu tieu/148.jpg,archive/Images/Train/Hu tieu/150.jpg,Hu tieu,Hu tieu,1,11.7,same_group
+archive/Images/Train/Hu tieu/152.jpg,archive/Images/Validate/Bun bo Hue/808.jpg,Hu tieu,Bun bo Hue,8,56.4,different
+archive/Images/Train/Hu tieu/171.jpg,archive/Images/Validate/Hu tieu/173.jpg,Hu tieu,Hu tieu,2,17.2,same_group
+archive/Images/Train/Hu tieu/179.jpg,archive/Images/Train/Hu tieu/359.jpg,Hu tieu,Hu tieu,6,11.8,same_group
+archive/Images/Train/Hu tieu/20.jpg,archive/Images/Validate/Banh chung/185.jpg,Hu tieu,Banh chung,8,44.0,different
+archive/Images/Train/Hu tieu/20.jpg,archive/Images/Validate/Banh cuon/39.jpg,Hu tieu,Banh cuon,8,48.0,different
+archive/Images/Train/Hu tieu/21.jpg,archive/Images/Train/Hu tieu/579.jpg,Hu tieu,Hu tieu,5,51.6,different
+archive/Images/Train/Hu tieu/213.jpg,archive/Images/Train/Hu tieu/215.jpg,Hu tieu,Hu tieu,0,0.0,same_group
+archive/Images/Train/Hu tieu/230.jpg,archive/Images/Train/Hu tieu/232.jpg,Hu tieu,Hu tieu,7,16.1,same_group
+archive/Images/Train/Hu tieu/242.jpg,archive/Images/Validate/Xoi xeo/90.jpg,Hu tieu,Xoi xeo,8,55.1,different
+archive/Images/Train/Hu tieu/253.jpg,archive/Images/Train/Hu tieu/91.jpg,Hu tieu,Hu tieu,8,12.6,same_group
+archive/Images/Train/Hu tieu/270.jpg,archive/Images/Train/Nem chua/21.jpg,Hu tieu,Nem chua,8,44.1,different
+archive/Images/Train/Hu tieu/274.jpg,archive/Images/Train/Hu tieu/276.jpg,Hu tieu,Hu tieu,6,14.4,same_group
+archive/Images/Train/Hu tieu/33.jpg,archive/Images/Train/Hu tieu/44.jpg,Hu tieu,Hu tieu,1,0.6,same_group
+archive/Images/Train/Hu tieu/365.jpg,archive/Images/Train/Hu tieu/375.jpg,Hu tieu,Hu tieu,7,11.5,same_group
+archive/Images/Train/Hu tieu/40.jpg,archive/Images/Validate/Hu tieu/41.jpg,Hu tieu,Hu tieu,7,33.3,different
+archive/Images/Train/Hu tieu/439.jpg,archive/Images/Validate/Banh khot/612.jpg,Hu tieu,Banh khot,7,40.8,different
+archive/Images/Train/Hu tieu/53.jpg,archive/Images/Train/Hu tieu/55.jpg,Hu tieu,Hu tieu,6,15.3,same_group
+archive/Images/Train/Hu tieu/591.jpg,archive/Images/Validate/Banh cuon/616.jpg,Hu tieu,Banh cuon,8,56.6,different
+archive/Images/Train/Hu tieu/602.jpg,archive/Images/Validate/Banh xeo/72.jpg,Hu tieu,Banh xeo,5,72.7,different
+archive/Images/Train/Hu tieu/613.jpg,archive/Images/Train/Hu tieu/614.jpg,Hu tieu,Hu tieu,0,0.3,same_group
+archive/Images/Train/Hu tieu/67.jpg,archive/Images/Train/Hu tieu/76.jpg,Hu tieu,Hu tieu,5,12.0,same_group
+archive/Images/Train/Hu tieu/69.jpg,archive/Images/Validate/Hu tieu/211.jpg,Hu tieu,Hu tieu,5,15.6,same_group
+archive/Images/Train/Mi quang/10.jpg,archive/Images/Validate/Banh cuon/61.jpg,Mi quang,Banh cuon,7,36.8,different
+archive/Images/Train/Mi quang/106.jpg,archive/Images/Train/Mi quang/874.jpg,Mi quang,Mi quang,0,0.5,same_group
+archive/Images/Train/Mi quang/112.jpg,archive/Images/Train/Mi quang/833.jpg,Mi quang,Mi quang,0,0.9,same_group
+archive/Images/Train/Mi quang/123.jpg,archive/Images/Train/Mi quang/865.jpg,Mi quang,Mi quang,4,19.0,same_group
+archive/Images/Train/Mi quang/151.jpg,archive/Images/Train/Mi quang/872.jpg,Mi quang,Mi quang,0,0.0,same_group
+archive/Images/Train/Mi quang/159.jpg,archive/Images/Train/Mi quang/237.jpg,Mi quang,Mi quang,1,6.6,same_group
+archive/Images/Train/Mi quang/169.jpg,archive/Images/Validate/Mi quang/858.jpg,Mi quang,Mi quang,0,0.0,same_group
+archive/Images/Train/Mi quang/183.jpg,archive/Images/Train/Mi quang/258.jpg,Mi quang,Mi quang,2,8.1,same_group
+archive/Images/Train/Mi quang/193.jpg,archive/Images/Validate/Mi quang/66.jpg,Mi quang,Mi quang,3,17.2,same_group
+archive/Images/Train/Mi quang/232.jpg,archive/Images/Train/Xoi xeo/293.jpg,Mi quang,Xoi xeo,7,42.2,different
+archive/Images/Train/Mi quang/26.jpg,archive/Images/Train/Mi quang/32.jpg,Mi quang,Mi quang,0,0.1,same_group
+archive/Images/Train/Mi quang/304.jpg,archive/Images/Train/Mi quang/877.jpg,Mi quang,Mi quang,1,14.2,same_group
+archive/Images/Train/Mi quang/329.jpg,archive/Images/Train/Mi quang/859.jpg,Mi quang,Mi quang,8,24.7,same_group
+archive/Images/Train/Mi quang/34.jpg,archive/Images/Validate/Mi quang/828.jpg,Mi quang,Mi quang,5,6.1,same_group
+archive/Images/Train/Mi quang/371.jpg,archive/Images/Train/Mi quang/77.jpg,Mi quang,Mi quang,7,23.5,same_group
+archive/Images/Train/Mi quang/38.jpg,archive/Images/Train/Xoi xeo/15.jpg,Mi quang,Xoi xeo,6,29.2,different
+archive/Images/Train/Mi quang/38.jpg,archive/Images/Validate/Banh bot loc/413.jpg,Mi quang,Banh bot loc,8,112.3,different
+archive/Images/Train/Mi quang/384.jpg,archive/Images/Validate/Mi quang/830.jpg,Mi quang,Mi quang,4,14.6,same_group
+archive/Images/Train/Mi quang/397.jpg,archive/Images/Validate/Mi quang/208.jpg,Mi quang,Mi quang,3,9.3,same_group
+archive/Images/Train/Mi quang/461.jpg,archive/Images/Train/Mi quang/878.jpg,Mi quang,Mi quang,1,0.5,same_group
+archive/Images/Train/Mi quang/487.jpg,archive/Images/Train/Mi quang/879.jpg,Mi quang,Mi quang,0,0.5,same_group
+archive/Images/Train/Mi quang/494.jpg,archive/Images/Train/Mi quang/861.jpg,Mi quang,Mi quang,0,15.8,same_group
+archive/Images/Train/Mi quang/742.jpg,archive/Images/Train/Nem chua/55.jpg,Mi quang,Nem chua,8,60.7,different
+archive/Images/Train/Mi quang/817.jpg,archive/Images/Validate/Mi quang/58.jpg,Mi quang,Mi quang,0,0.1,same_group
+archive/Images/Train/Mi quang/83.jpg,archive/Images/Train/Xoi xeo/68.jpg,Mi quang,Xoi xeo,8,41.6,different
+archive/Images/Train/Mi quang/846.jpg,archive/Images/Validate/Mi quang/31.jpg,Mi quang,Mi quang,0,0.7,same_group
+archive/Images/Train/Mi quang/869.jpg,archive/Images/Validate/Mi quang/160.jpg,Mi quang,Mi quang,0,0.7,same_group
+archive/Images/Train/Mi quang/882.jpg,archive/Images/Validate/Mi quang/63.jpg,Mi quang,Mi quang,0,0.1,same_group
+archive/Images/Train/Nem chua/117.jpg,archive/Images/Train/Nem chua/119.jpg,Nem chua,Nem chua,1,15.0,same_group
+archive/Images/Train/Nem chua/119.jpg,archive/Images/Validate/Banh gio/67.jpg,Nem chua,Banh gio,8,56.5,different
+archive/Images/Train/Nem chua/274.jpg,archive/Images/Train/Nem chua/91.jpg,Nem chua,Nem chua,3,6.8,same_group
+archive/Images/Train/Nem chua/286.jpg,archive/Images/Train/Nem chua/288.jpg,Nem chua,Nem chua,1,0.1,same_group
+archive/Images/Train/Nem chua/438.jpg,archive/Images/Validate/Banh pia/384.jpg,Nem chua,Banh pia,8,34.7,different
+archive/Images/Train/Nem chua/51.jpg,archive/Images/Train/Nem chua/53.jpg,Nem chua,Nem chua,0,0.5,same_group
+archive/Images/Train/Nem chua/57.jpg,archive/Images/Train/Nem chua/59.jpg,Nem chua,Nem chua,0,9.6,same_group
+archive/Images/Train/Nem chua/93.jpg,archive/Images/Validate/Bun rieu/146.jpg,Nem chua,Bun rieu,7,87.5,different
+archive/Images/Train/Pho/12.jpg,archive/Images/Train/Pho/222.jpg,Pho,Pho,2,15.7,same_group
+archive/Images/Train/Pho/144.jpg,archive/Images/Train/Pho/159.jpg,Pho,Pho,2,9.4,same_group
+archive/Images/Train/Pho/15.jpg,archive/Images/Train/Pho/4.jpg,Pho,Pho,7,23.4,same_group
+archive/Images/Train/Pho/156.jpg,archive/Images/Train/Pho/158.jpg,Pho,Pho,3,9.0,same_group
+archive/Images/Train/Pho/212.jpg,archive/Images/Train/Pho/778.jpg,Pho,Pho,0,0.1,same_group
+archive/Images/Train/Pho/231.jpg,archive/Images/Validate/Canh chua/106.jpg,Pho,Canh chua,8,60.9,different
+archive/Images/Train/Pho/232.jpg,archive/Images/Train/Pho/795.jpg,Pho,Pho,0,0.0,same_group
+archive/Images/Train/Pho/256.jpg,archive/Images/Validate/Ca kho to/167.jpg,Pho,Ca kho to,8,53.6,different
+archive/Images/Train/Pho/285.jpg,archive/Images/Train/Pho/436.jpg,Pho,Pho,7,24.1,same_group
+archive/Images/Train/Pho/393.jpg,archive/Images/Train/Pho/477.jpg,Pho,Pho,3,14.1,same_group
+archive/Images/Train/Pho/395.jpg,archive/Images/Validate/Banh canh/57.jpg,Pho,Banh canh,8,57.3,different
+archive/Images/Train/Pho/40.jpg,archive/Images/Train/Pho/403.jpg,Pho,Pho,6,15.2,same_group
+archive/Images/Train/Pho/427.jpg,archive/Images/Train/Pho/429.jpg,Pho,Pho,0,0.1,same_group
+archive/Images/Train/Pho/499.jpg,archive/Images/Train/Pho/82.jpg,Pho,Pho,8,22.2,same_group
+archive/Images/Train/Pho/711.jpg,archive/Images/Validate/Pho/184.jpg,Pho,Pho,8,19.0,same_group
+archive/Images/Train/Pho/72.jpg,archive/Images/Train/Pho/794.jpg,Pho,Pho,0,1.3,same_group
+archive/Images/Train/Pho/776.jpg,archive/Images/Train/Xoi xeo/68.jpg,Pho,Xoi xeo,8,44.3,different
+archive/Images/Train/Pho/776.jpg,archive/Images/Validate/Bun rieu/189.jpg,Pho,Bun rieu,8,47.2,different
+archive/Images/Train/Pho/89.jpg,archive/Images/Validate/Chao long/195.jpg,Pho,Chao long,7,51.6,different
+archive/Images/Train/Xoi xeo/15.jpg,archive/Images/Validate/Banh bot loc/413.jpg,Xoi xeo,Banh bot loc,6,125.9,different
+archive/Images/Train/Xoi xeo/15.jpg,archive/Images/Validate/Banh duc/411.jpg,Xoi xeo,Banh duc,8,41.5,different
+archive/Images/Train/Xoi xeo/15.jpg,archive/Images/Validate/Canh chua/105.jpg,Xoi xeo,Canh chua,6,82.4,different
+archive/Images/Train/Xoi xeo/15.jpg,archive/Images/Validate/Hu tieu/78.jpg,Xoi xeo,Hu tieu,8,59.3,different
+archive/Images/Train/Xoi xeo/192.jpg,archive/Images/Train/Xoi xeo/194.jpg,Xoi xeo,Xoi xeo,0,23.0,same_group
+archive/Images/Train/Xoi xeo/192.jpg,archive/Images/Train/Xoi xeo/37.jpg,Xoi xeo,Xoi xeo,6,15.5,same_group
+archive/Images/Train/Xoi xeo/194.jpg,archive/Images/Train/Xoi xeo/37.jpg,Xoi xeo,Xoi xeo,6,28.3,same_group
+archive/Images/Train/Xoi xeo/289.jpg,archive/Images/Validate/Banh cuon/669.jpg,Xoi xeo,Banh cuon,8,51.8,different
+archive/Images/Train/Xoi xeo/57.jpg,archive/Images/Validate/Banh cuon/40.jpg,Xoi xeo,Banh cuon,6,35.7,different
+archive/Images/Train/Xoi xeo/57.jpg,archive/Images/Validate/Hu tieu/41.jpg,Xoi xeo,Hu tieu,8,44.2,different
+archive/Images/Validate/Banh bot loc/413.jpg,archive/Images/Validate/Canh chua/105.jpg,Banh bot loc,Canh chua,8,74.6,different
+archive/Images/Validate/Banh bot loc/413.jpg,archive/Images/Validate/Canh chua/302.jpg,Banh bot loc,Canh chua,8,62.9,different
+archive/Images/Validate/Banh bot loc/85.jpg,archive/Images/Validate/Goi cuon/309.jpg,Banh bot loc,Goi cuon,7,31.9,different
+archive/Images/Validate/Banh can/259.jpg,archive/Images/Validate/Banh can/261.jpg,Banh can,Banh can,0,0.2,same_group
+archive/Images/Validate/Banh canh/99.jpg,archive/Images/Validate/Cao lau/50.jpg,Banh canh,Cao lau,8,39.9,different
+archive/Images/Validate/Banh chung/31.jpg,archive/Images/Validate/Banh chung/497.jpg,Banh chung,Banh chung,0,0.6,same_group
+archive/Images/Validate/Banh cuon/12.jpg,archive/Images/Validate/Bun bo Hue/826.jpg,Banh cuon,Bun bo Hue,8,53.0,different
+archive/Images/Validate/Banh cuon/39.jpg,archive/Images/Validate/Banh cuon/40.jpg,Banh cuon,Banh cuon,8,38.2,different
+archive/Images/Validate/Banh gio/123.jpg,archive/Images/Validate/Bun rieu/251.jpg,Banh gio,Bun rieu,5,77.7,different
+archive/Images/Validate/Banh gio/123.jpg,archive/Images/Validate/Com tam/173.jpg,Banh gio,Com tam,8,62.0,different
+archive/Images/Validate/Banh gio/67.jpg,archive/Images/Validate/Com tam/173.jpg,Banh gio,Com tam,5,43.9,different
+archive/Images/Validate/Banh trang nuong/131.jpg,archive/Images/Validate/Banh trang nuong/223.jpg,Banh trang nuong,Banh trang nuong,6,15.4,same_group
+archive/Images/Validate/Banh trang nuong/242.jpg,archive/Images/Validate/Com tam/211.jpg,Banh trang nuong,Com tam,8,67.7,different
+archive/Images/Validate/Bun bo Hue/187.jpg,archive/Images/Validate/Bun bo Hue/86.jpg,Bun bo Hue,Bun bo Hue,5,14.2,same_group
+archive/Images/Validate/Ca kho to/31.jpg,archive/Images/Validate/Ca kho to/39.jpg,Ca kho to,Ca kho to,0,0.1,same_group
+archive/Images/Validate/Canh chua/105.jpg,archive/Images/Validate/Canh chua/106.jpg,Canh chua,Canh chua,7,73.3,different
+archive/Images/Validate/Chao long/686.jpg,archive/Images/Validate/Nem chua/36.jpg,Chao long,Nem chua,8,65.7,different
+archive/Images/Validate/Com tam/16.jpg,archive/Images/Validate/Com tam/58.jpg,Com tam,Com tam,4,24.8,same_group

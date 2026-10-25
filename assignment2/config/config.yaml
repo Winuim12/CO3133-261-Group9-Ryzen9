@@ -4,3 +4,8 @@ data:
   image_size: 224
   num_classes: 30
   manifests_dir: data/manifests
+  raw_dir: data/raw
+  val_size: 0.15
+  test_size: 0.15
+  batch_size: 64
+  num_workers: 2
