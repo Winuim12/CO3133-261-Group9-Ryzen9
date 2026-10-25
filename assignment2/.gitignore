@@ -24,6 +24,8 @@ htmlcov/
 *.pt
 *.pth
 *.ckpt
+/data/archive.zip
 
-# Preserve source notebooks, reviewed manifests and report figures
-handbook-ene.pdf
+# Local reference and agent instructions
+/handbook-ene.pdf
+/AGENTS.md

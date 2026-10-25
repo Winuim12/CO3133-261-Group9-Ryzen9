@@ -6,6 +6,7 @@ services:
       dockerfile: Dockerfile
 
     working_dir: /workspace/assignment2
+    shm_size: "1gb"
 
     environment:
       TORCH_HOME: /cache/torch
