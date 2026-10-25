@@ -26,3 +26,4 @@ htmlcov/
 *.ckpt
 
 # Preserve source notebooks, reviewed manifests and report figures
+handbook-ene.pdf
