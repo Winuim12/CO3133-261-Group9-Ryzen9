@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Assignment 2</title>
+  <title>Assignment 2 | M2 Draft | 30VNFoods</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" type="image/png" href="hcmut_logo.png" />
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -228,6 +228,21 @@
   #eda .eda-figure figcaption { margin-top: 10px; color: #6b6478; font-size: 0.8rem; text-align: center; line-height: 1.6; }
   #eda .eda-note { margin: 1rem 0; padding: 12px 16px; border-radius: 9px; background: #f7f4fc; color: #62566f; font-size: 0.85rem; line-height: 1.8; }
   #eda .rubric-table td:not(:first-child), #eda .rubric-table th:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
+
+  /* M2 report content reuses the existing assignment theme. */
+  .a2-page .m2-note { padding: 1rem 1.2rem; margin: 1rem 0; border-left: 4px solid var(--accent-purple); border-radius: var(--radius-sm); background: #f7f4fc; color: var(--text-secondary); }
+  .a2-page .m2-contents { display: flex; flex-wrap: wrap; gap: .6rem 1rem; margin: 1rem 0 .25rem; }
+  .a2-page .m2-contents a { color: #6d28d9; font-weight: 600; text-underline-offset: 3px; }
+  .a2-page .content-card a:focus-visible, .a2-page .m2-figure a:focus-visible, .a2-page .table-container:focus-visible { outline: 3px solid var(--accent-purple); outline-offset: 4px; }
+  .a2-page .m2-figure { margin: 1.25rem 0; padding: .8rem; background: var(--bg-card-subtle); border: 1px solid var(--border-card); border-radius: var(--radius-md); }
+  .a2-page .m2-figure img { display: block; width: 100%; height: auto; }
+  .a2-page .m2-figure figcaption { margin-top: .75rem; color: var(--text-secondary); font-size: .85rem; line-height: 1.65; }
+  .a2-page .rubric-table caption { padding: .8rem 1.1rem; text-align: left; color: var(--text-secondary); font-weight: 600; background: var(--bg-card-solid); }
+  .a2-page .m2-code { max-width: 100%; overflow-x: auto; padding: 1rem; margin: 1rem 0; background: var(--bg-card-subtle); border: 1px solid var(--border-card); border-radius: var(--radius-sm); font-size: .82rem; line-height: 1.7; }
+  .a2-page .m2-break { overflow-wrap: anywhere; }
+  .a2-page .content-card > p + p { margin-top: .8rem; }
+  @media (max-width: 640px) { .a2-page .rubric-table th, .a2-page .rubric-table td { padding: .7rem .8rem; } }
+  @media (prefers-reduced-motion: reduce) { .a2-page .link-btn-card { transition: none; } .a2-page .link-btn-card:hover { transform: none; } }
   </style>
 </head>
 <body class="a2-page">
@@ -258,7 +273,7 @@
         </div>
         <h1 class="page-hero-title-bright">Deep Learning on Large-Scale Data and Specialized Tasks</h1>
         <p class="page-hero-topic-bright">
-          Deep Learning on Large-Scale Data for Specialized Computer Vision or Language Tasks.
+          30VNFoods &middot; M2 Draft &middot; Scratch CNN and frozen pretrained ResNet-50
         </p>
       </div>
 
@@ -288,33 +303,34 @@
           <div class="table-container">
             <table class="rubric-table">
               <thead>
-                <tr><th>#</th><th>Full Name</th><th>Student ID</th><th>Role</th><th>GitHub</th></tr>
+                <tr><th>#</th><th>Full Name</th><th>Student ID</th><th>GitHub</th></tr>
               </thead>
               <tbody>
                 <tr>
                   <td>1</td>
                   <td>Hoang Kim Cuong</td>
                   <td>2352145</td>
-                  <td>Work on Assignment 1</td>
                   <td><a href="https://github.com/DiamondHoang" target="_blank" rel="noopener" style="color:#7c3aed; font-weight:600;">@DiamondHoang</a></td>
                 </tr>
                 <tr>
                   <td>2</td>
                   <td>Phan Tan Loc</td>
                   <td>2352712</td>
-                  <td>Work on Assignment 2</td>
                   <td><a href="https://github.com/cspaull" target="_blank" rel="noopener" style="color:#7c3aed; font-weight:600;">@cspaull</a></td>
                 </tr>
                 <tr>
                   <td>3</td>
                   <td>Tran Manh Thang</td>
                   <td>2353124</td>
-                  <td>Work on Assignment 3</td>
                   <td><a href="https://github.com/Winuim12" target="_blank" rel="noopener" style="color:#7c3aed; font-weight:600;">@Winuim12</a></td>
                 </tr>
               </tbody>
             </table>
           </div>
+          <p class="m2-note"><strong>M2 Draft &middot; updated 26 Oct 2026.</strong> EDA and both 20-epoch runs are complete; checkpoint reloads reproduced the saved validation metrics. Full fine-tuning, detailed qualitative analysis, final slides and the mandatory YouTube video remain M3 work. The M2 deadline is 28 Oct 2026, 23:59 GMT+7, unless the LMS states otherwise.</p>
+          <nav class="m2-contents" aria-label="Assignment 2 sections">
+            <a href="#eda">Data &amp; EDA</a><a href="#methodology">Methodology</a><a href="#experimental-setup">Setup</a><a href="#m2-results">Results</a><a href="#error-analysis">Errors</a><a href="#checkpoint-reproduction">Reproduce</a><a href="#deliverables">Links</a><a href="#ai-disclosure">AI use</a>
+          </nav>
         </div>
       </section>
 
@@ -466,6 +482,8 @@
             <strong>Track 1: Image Classification</strong> — Fine-grained Vietnamese Food Recognition across 30 categories (<strong>30VNFoods</strong>).
           </p>
 
+          <p>Given one food photograph, predict its single dish label among 30 categories. The final model input is a 224 &times; 224 RGB image and the output is 30 logits. Similar dishes, varied preparation, lighting, background clutter and class imbalance make recognition difficult.</p>
+
           <h3>Learning Objectives</h3>
           <ul class="styled-list">
             <li>Propose, justify, and obtain approval for a dataset and task protocol suitable for specialized deep learning work.</li>
@@ -601,176 +619,222 @@
         </div>
       </section>
 
-      <!-- Methodology -->
-      <section class="section-block">
+      <!-- Methodology: implemented M2 models -->
+      <section class="section-block" id="methodology" aria-labelledby="methodology-title">
         <div class="section-header">
-          <span class="section-icon">⚙️</span>
-          <h2 class="section-title">Methodology</h2>
+          <span class="section-icon" aria-hidden="true">&#9881;</span>
+          <h2 class="section-title" id="methodology-title">Methodology</h2>
         </div>
         <div class="content-card">
-          <h3>Pipeline Overview</h3>
-          <div class="pipeline-diagram" style="color: #7c3aed;">
-            Raw data → preprocessing → data loader → model → loss → optimization → prediction → post-processing → evaluation
+          <h3>Task and model outputs</h3>
+          <p>Predict one of 30 Vietnamese food labels from an RGB image. Each model receives tensors shaped <code>[B, 3, 224, 224]</code> and returns 30 raw logits. Cross-entropy is applied directly to the logits; the largest logit determines the predicted class.</p>
+          <h3>Scratch CNN baseline</h3>
+          <p>The group-implemented CNN has 33 convolutional layers with BatchNorm and ReLU, spatial downsampling, global average pooling, and a two-layer classification head. All weights start from random initialization. This is a substantial scratch baseline; it has 21,249,886 trainable parameters.</p>
+          <h3>Pretrained ResNet-50</h3>
+          <p>TorchVision ResNet-50 uses <code>ResNet50_Weights.IMAGENET1K_V2</code>. Its original output layer is replaced by a linear head mapping 2,048 features to 30 logits. For M2, the backbone is frozen and only the new head is optimized. Backbone BatchNorm running statistics remain fixed, including when the training loop switches the model to training mode.</p>
+          <div class="table-container" role="region" aria-label="Parameter counts for the implemented 30-class models" tabindex="0">
+            <table class="rubric-table">
+              <caption>Parameter counts for the implemented 30-class models</caption>
+              <thead><tr><th scope="col">Model</th><th scope="col">Total parameters</th><th scope="col">Trainable parameters</th><th scope="col">Updated layers</th></tr></thead>
+              <tbody><tr><td>Scratch CNN</td><td>21,249,886</td><td>21,249,886</td><td>All layers</td></tr>
+<tr><td>Frozen ResNet-50</td><td>23,569,502</td><td>61,470</td><td>New classification head only</td></tr></tbody>
+            </table>
           </div>
+          <h3>Preprocessing and pipeline</h3>
+          <div class="pipeline-diagram">Reviewed manifests &rarr; RGB image loading &rarr; preprocessing &rarr; DataLoader &rarr; model &rarr; cross-entropy &rarr; Adam update &rarr; validation &rarr; checkpoint selection</div>
+          <p>Training uses RandomResizedCrop to 224 &times; 224 (scale 0.7&ndash;1.0), random horizontal flipping, and brightness/contrast/saturation jitter of 0.2. Validation resizes the shorter side to 232 pixels and center-crops to 224 &times; 224. Both models use ImageNet mean (0.485, 0.456, 0.406) and standard deviation (0.229, 0.224, 0.225). These fixed constants are not fitted on validation or test images.</p>
+          <p>The group provides the scratch architecture and orchestration code. ResNet-50, transforms, optimizers and tensor operations come from PyTorch/TorchVision; metric calculations use scikit-learn. The planned M3 controlled study compares the same pretrained ResNet-50 with a frozen backbone versus full fine-tuning.</p>
+        </div>
+      </section>
 
-          <h3>Technical Requirements</h3>
+      <section class="section-block" id="experimental-setup" aria-labelledby="experimental-setup-title">
+        <div class="section-header">
+          <span class="section-icon" aria-hidden="true">&#129514;</span>
+          <h2 class="section-title" id="experimental-setup-title">Experimental Setup</h2>
+        </div>
+        <div class="content-card">
+          <h3>M2 question and comparison</h3>
+          <p>Does a pretrained ResNet-50 with a frozen backbone achieve higher validation Macro-F1 than the scratch CNN under the recorded 20-epoch configurations? Model selection uses the highest validation Macro-F1, with earlier epochs retained on ties. The two M2 configurations differ in architecture, initialization and learning rate; this comparison does not isolate a single factor.</p>
+          <div class="table-container" role="region" aria-label="Training settings saved with the M2 runs" tabindex="0">
+            <table class="rubric-table">
+              <caption>Training settings saved with the M2 runs</caption>
+              <thead><tr><th scope="col">Setting</th><th scope="col">Scratch CNN</th><th scope="col">Frozen ResNet-50</th></tr></thead>
+              <tbody><tr><td>Initialization</td><td>Random</td><td>ImageNet V2 backbone; random 30-class head</td></tr>
+<tr><td>Optimizer / loss</td><td>Adam / cross-entropy</td><td>Adam / cross-entropy</td></tr>
+<tr><td>Learning rate</td><td>0.001</td><td>0.0001</td></tr>
+<tr><td>Epochs / batch size</td><td>20 / 64</td><td>20 / 64</td></tr>
+<tr><td>Weight decay / scheduler</td><td>0 / none</td><td>0 / none</td></tr>
+<tr><td>Seed / data-loader workers</td><td>42 / 2</td><td>42 / 2</td></tr>
+<tr><td>Early stopping / mixed precision</td><td>Not used / not used</td><td>Not used / not used</td></tr></tbody>
+            </table>
+          </div>
+          <p>Both runs use identical reviewed manifests: 17,486 training, 3,749 validation and 3,747 test images, with the same class mapping and augmentation policy. Python, NumPy and PyTorch are seeded. Test predictions have not been evaluated.</p>
+          <h3>Hardware and software</h3>
+          <p>NVIDIA GeForce RTX 5070 Ti (approximately 16 GB VRAM); Python 3.11.13; PyTorch 2.7.1+cu128; TorchVision 0.22.1+cu128; CUDA runtime 12.8. Docker mounts images read-only and preserves results on the host, with a 1 GB shared-memory limit for data-loader workers.</p>
+          <h3>Run provenance and timing</h3>
+          <p>Both experiments record source commit <code class="m2-break">5d106abab40a6720ebc5874b9a748f01356c965c</code>. Each run saves its resolved configuration, manifest hashes, class mapping, environment details, checkpoint and epoch history. Elapsed times include training, validation, data loading and checkpoint saving inside the epoch loop; initial setup and pretrained-weight downloading are excluded.</p>
+          <p><a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/main/assignment2/docs/environment.md">Read the environment and reproduction guide</a>. The user-reported full Docker CPU test suite passed 25 tests; a separate GPU calculation and both training runs also completed.</p>
+        </div>
+      </section>
+
+      <section class="section-block" id="m2-results" aria-labelledby="m2-results-title">
+        <div class="section-header">
+          <span class="section-icon" aria-hidden="true">&#128200;</span>
+          <h2 class="section-title" id="m2-results-title">Results</h2>
+        </div>
+        <div class="content-card">
+          <p class="m2-note"><strong>M2 preliminary validation results.</strong> These are single-seed results on the validation split, not held-out test scores. Each selected checkpoint was reloaded and reproduced its saved Accuracy and Macro-F1.</p>
+          <div class="table-container" role="region" aria-label="Verified validation results for the selected checkpoints" tabindex="0">
+            <table class="rubric-table">
+              <caption>Verified validation results for the selected checkpoints</caption>
+              <thead><tr><th scope="col">Model</th><th scope="col">Epoch budget</th><th scope="col">Selected epoch</th><th scope="col">Val Accuracy</th><th scope="col">Val Macro-F1</th><th scope="col">Elapsed time</th></tr></thead>
+              <tbody><tr><td>Scratch CNN</td><td>20</td><td>19</td><td>25.10%</td><td>0.2005</td><td>45m 15s</td></tr>
+<tr><td>Frozen ResNet-50</td><td>20</td><td>20</td><td>72.45%</td><td>0.7231</td><td>45m 44s</td></tr></tbody>
+            </table>
+          </div>
+          <figure class="m2-figure">
+            <a href="assignment2/results/figures/m2_training_histories.png"><img src="assignment2/results/figures/m2_training_histories.png" alt="Six panels showing training and validation loss, Accuracy and Macro-F1 across 20 epochs for the scratch CNN and frozen ResNet-50" width="2400" height="1280" loading="lazy" /></a>
+            <figcaption>Training and validation histories. Dotted lines mark the selected epochs: CNN 19, frozen ResNet-50 20. Accuracy and Macro-F1 share a 0&ndash;1 scale; loss panels have individual scales. Open the image for full resolution.</figcaption>
+          </figure>
+          <p><a href="assignment2/results/comparison.csv" download>Download the comparison CSV</a> &middot; <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/main/assignment2/report/report.md">Read the M2 draft report</a></p>
+          <h3>Recorded run IDs</h3>
           <ul class="styled-list">
-            <li><strong>1. Simple Baseline:</strong> A lightweight baseline model suitable for the task.</li>
-            <li><strong>2. Pretrained / Modern Model:</strong> Pretrained backbone with a documented fine-tuning procedure (freeze vs. full fine-tune).</li>
-            <li><strong>3. Controlled Experiment:</strong> At least one controlled factor study (e.g. freeze vs. fine-tune, augmentations, loss functions, backbones).</li>
-            <li><strong>4. Metrics &amp; Compute Cost:</strong> Task-specific metrics (mAP, mIoU, Rank-1/mAP, RMSE/δ, etc.) + training/inference compute cost.</li>
+            <li>Scratch CNN: <code class="m2-break">20261025T103059Z_a86f4102</code></li>
+            <li>Frozen ResNet-50: <code class="m2-break">20261025T112235Z_014bbc02</code></li>
           </ul>
-
-          <p style="margin-top:0.75rem">
-            <strong>[Fill in here]</strong> — Architecture details, parameter counts, loss formulations, training configurations, optimizer, lr schedule, hardware.
-          </p>
         </div>
       </section>
 
-      <!-- Experimental Setup -->
-      <section class="section-block">
+      <section class="section-block" id="comparison-discussion" aria-labelledby="comparison-discussion-title">
         <div class="section-header">
-          <span class="section-icon">🧪</span>
-          <h2 class="section-title">Experimental Setup</h2>
+          <span class="section-icon" aria-hidden="true">&#9878;</span>
+          <h2 class="section-title" id="comparison-discussion-title">Comparison &amp; Discussion</h2>
         </div>
         <div class="content-card">
-          <p>
-            <strong>[Fill in here]</strong> — For each experiment: state hypothesis, changed factor, fixed factors, evaluation metrics, and decision criteria.
-            Include hardware, software versions, seeds, checkpoint selection rules.
-          </p>
+          <p>Frozen ResNet-50 reached validation Accuracy of <strong>72.45%</strong> and Macro-F1 of <strong>0.7231</strong>, compared with <strong>25.10%</strong> and <strong>0.2005</strong> for the scratch CNN. The differences are 47.35 percentage points in Accuracy and 0.5227 in Macro-F1.</p>
+          <p>The CNN improved through much of training but had fluctuating validation metrics, including a large validation-loss spike at epoch 2; its best validation Macro-F1 occurred at epoch 19. Frozen ResNet-50 improved more smoothly and reached its highest validation Macro-F1 at epoch 20. A fixed 20-epoch budget does not establish that either model has fully converged.</p>
+          <p>Only 61,470 head parameters were trainable in the frozen model, but the full backbone still computed image features. The measured epoch-loop times were similar: 2,715.15 seconds for the CNN and 2,744.06 seconds for ResNet-50. These totals do not identify a particular performance bottleneck; profiling is deferred until after M2.</p>
+          <p><strong>Interpretation:</strong> the pretrained frozen configuration performs better in these runs. Architecture, initialization and learning rate changed together, so the gain cannot be attributed to one factor in isolation. M3 will compare frozen and fully trainable ResNet-50 while keeping the other factors fixed.</p>
         </div>
       </section>
 
-      <!-- Results -->
-      <section class="section-block">
+      <section class="section-block" id="error-analysis" aria-labelledby="error-analysis-title">
         <div class="section-header">
-          <span class="section-icon">📈</span>
-          <h2 class="section-title">Results</h2>
+          <span class="section-icon" aria-hidden="true">&#128269;</span>
+          <h2 class="section-title" id="error-analysis-title">Error Analysis</h2>
         </div>
         <div class="content-card">
-          <p>
-            <strong>[Fill in here]</strong> — Quantitative comparison tables, loss/metric curves, checkpoint selection, compute time, and qualitative visualization results.
-          </p>
+          <h3>Initial validation error analysis</h3>
+          <p>The following counts come from the reloaded frozen ResNet-50 checkpoint at epoch 20. They summarize the most frequent off-diagonal entries of its 30 &times; 30 validation confusion matrix.</p>
+          <div class="table-container" role="region" aria-label="Most frequent directed validation confusions: frozen ResNet-50" tabindex="0">
+            <table class="rubric-table">
+              <caption>Most frequent directed validation confusions: frozen ResNet-50</caption>
+              <thead><tr><th scope="col">True class</th><th scope="col">Predicted class</th><th scope="col">Misclassified images</th></tr></thead>
+              <tbody><tr><td>Bun rieu</td><td>Bun bo Hue</td><td>37</td></tr>
+<tr><td>Pho</td><td>Bun bo Hue</td><td>30</td></tr>
+<tr><td>Banh canh</td><td>Bun bo Hue</td><td>26</td></tr>
+<tr><td>Bun mam</td><td>Bun bo Hue</td><td>24</td></tr>
+<tr><td>Hu tieu</td><td>Bun bo Hue</td><td>16</td></tr></tbody>
+            </table>
+          </div>          <div class="table-container" role="region" aria-label="Three classes with the lowest validation F1: frozen ResNet-50" tabindex="0">
+            <table class="rubric-table">
+              <caption>Three classes with the lowest validation F1: frozen ResNet-50</caption>
+              <thead><tr><th scope="col">Class</th><th scope="col">Validation F1</th><th scope="col">Validation support</th></tr></thead>
+              <tbody><tr><td>Banh duc</td><td>0.3562</td><td>98</td></tr>
+<tr><td>Banh canh</td><td>0.4494</td><td>143</td></tr>
+<tr><td>Hu tieu</td><td>0.5122</td><td>146</td></tr></tbody>
+            </table>
+          </div>
+          <p>These are observed classification errors, not established visual causes. Low per-class F1 indicates where to focus the next review. Qualitative prediction examples, manually reviewed failure categories, and complete per-class discussion remain M3 work. No error analysis here uses test predictions.</p>
         </div>
       </section>
 
-      <!-- Comparison & Discussion -->
-      <section class="section-block">
+      <section class="section-block" id="limitations-conclusion" aria-labelledby="limitations-conclusion-title">
         <div class="section-header">
-          <span class="section-icon">⚖️</span>
-          <h2 class="section-title">Comparison &amp; Discussion</h2>
+          <span class="section-icon" aria-hidden="true">&#128161;</span>
+          <h2 class="section-title" id="limitations-conclusion-title">Limitations &amp; Conclusion</h2>
         </div>
         <div class="content-card">
-          <p>
-            <strong>[Fill in here]</strong> — Comparison of baseline vs. modern models; compute-cost vs. performance trade-offs; hypothesis validation.
-          </p>
-        </div>
-      </section>
-
-      <!-- Error Analysis -->
-      <section class="section-block">
-        <div class="section-header">
-          <span class="section-icon">🔍</span>
-          <h2 class="section-title">Error Analysis</h2>
-        </div>
-        <div class="content-card">
-          <p>
-            <strong>[Fill in here]</strong> — Error categories, failure cases, ablation analysis, and proposed improvements.
-          </p>
-        </div>
-      </section>
-
-      <!-- Limitations & Conclusion -->
-      <section class="section-block">
-        <div class="section-header">
-          <span class="section-icon">💡</span>
-          <h2 class="section-title">Limitations &amp; Conclusion</h2>
-        </div>
-        <div class="content-card">
-          <p>
-            <strong>[Fill in here]</strong> — Limitations, generalization capabilities, future directions, and concise project summary.
-          </p>
-        </div>
-      </section>
-
-      <!-- Links & Deliverables -->
-      <section class="section-block">
-        <div class="section-header">
-          <span class="section-icon">🔗</span>
-          <h2 class="section-title">Deliverables &amp; Links</h2>
-        </div>
-        <div class="links-grid">
-          <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/tree/main/assignment2" class="link-btn-card" target="_blank" rel="noopener">
-            <div class="link-icon-box" style="background:#f3e8ff; color:#7c3aed;">💻</div>
-            <div>
-              <span class="link-label">Source Code</span>
-              <span class="link-sub">assignment2/</span>
-            </div>
-          </a>
-          <a href="#" class="link-btn-card" target="_blank" rel="noopener">
-            <div class="link-icon-box" style="background:#f3e8ff; color:#7c3aed;">🗂️</div>
-            <div>
-              <span class="link-label">Checkpoints</span>
-              <span class="link-sub">[Model Weights]</span>
-            </div>
-          </a>
-          <a href="#" class="link-btn-card" target="_blank" rel="noopener">
-            <div class="link-icon-box" style="background:#f3e8ff; color:#7c3aed;">📄</div>
-            <div>
-              <span class="link-label">Report / Slides</span>
-              <span class="link-sub">[PDF / Slides]</span>
-            </div>
-          </a>
-          <a href="#" class="link-btn-card" target="_blank" rel="noopener">
-            <div class="link-icon-box" style="background:#f3e8ff; color:#7c3aed;">▶️</div>
-            <div>
-              <span class="link-label">YouTube Video</span>
-              <span class="link-sub">CO3133-261-Group9-Ryzen9-Assignment2</span>
-            </div>
-          </a>
-          <a href="#dataset-proposal" class="link-btn-card">
-            <div class="link-icon-box" style="background:#f3e8ff; color:#7c3aed;">📋</div>
-            <div>
-              <span class="link-label">Dataset Proposal</span>
-              <span class="link-sub">#dataset-proposal (Approved)</span>
-            </div>
-          </a>
-        </div>
-      </section>
-
-      <!-- AI Usage Disclosure -->
-      <section class="section-block">
-        <div class="section-header">
-          <span class="section-icon">🛡️</span>
-          <h2 class="section-title">AI Usage Disclosure</h2>
-        </div>
-        <div class="disclosure-card">
-          <h3>Assignment 2 AI Usage Disclosure</h3>
-          <p>
-            Work on Assignment 2 has not started yet, so no AI tool has been used for its content, code,
-            experiments, or results.
-          </p>
-          <p>
-            One disclosure already applies: the skeleton of this page — its HTML structure, section layout, and the
-            shared stylesheet — was drafted with <strong>Codex (OpenAI, model GPT-5.6)</strong> by Tran Manh Thang (2353124) in
-            September 2026, then reviewed and edited by the group against handbook §2.2. No text on this page states
-            a result.
-          </p>
           <ul class="styled-list">
-            <li><strong>ChatGPT (OpenAI, model GPT-5.6)</strong> &mdash; Tran Manh Thang (2353124), September 2026: drafted the skeleton of this page
-              (HTML structure, section layout and shared stylesheet), then reviewed and edited by the group against handbook §2.2.</li>
-            <li><strong>OpenAI Codex (GPT-6)</strong> &mdash; 13 Oct 2026: project structure, module ownership and implementation plan in
-              <code>assignment2/README.md</code> and <code>AGENTS.md</code>.</li>
-            <li><strong>Claude (Anthropic, Cowork)</strong> &mdash; Tran Manh Thang (2353124), 16&ndash;22 Oct 2026: planned the data tasks; wrote the data
-              audit, duplicate detection, split, dataset, transform and data-loader modules with their tests; ran the audit and split on the
-              downloaded dataset; produced the EDA figures; drafted the Dataset Description &amp; EDA text above. The student chose the
-              review decisions for the 54 label-conflicting pairs and is responsible for verifying the code and numbers.</li>
+            <li>Results cover one seed, one custom group-aware split and a fixed 20-epoch budget; run-to-run uncertainty has not been measured.</li>
+            <li>The scratch CNN has 33 convolutional layers and 21.25 million trainable parameters. Its continuing improvement suggests that a weak 20-epoch result is not evidence that every scratch CNN is unsuitable.</li>
+            <li>Web-photo bias, residual label noise and undetected transformed duplicates may affect generalization. The audit reduces known leakage but cannot guarantee its absence.</li>
+            <li>The held-out test set remains unused. Full fine-tuning, the controlled study, early-stopping extension, throughput profiling, inference-cost measurements and detailed qualitative error analysis are pending.</li>
           </ul>
-          <p>
-            The full per-tool log required by handbook §5.2 will be completed as Assignment 2
-            progresses. The running log is kept in
-            <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/main/AI_USAGE.md" target="_blank" rel="noopener"><strong>AI_USAGE.md</strong></a>.
-          </p>
+          <p><strong>M2 conclusion:</strong> a reproducible pipeline, audited EDA, a completed scratch baseline and a completed pretrained frozen-backbone run are available. The selected frozen model reaches validation Macro-F1 0.7231. This is preliminary validation evidence; final generalization claims await the M3 study and locked-model test evaluation.</p>
+        </div>
+      </section>
+
+      <section class="section-block" id="checkpoint-reproduction" aria-labelledby="checkpoint-reproduction-title">
+        <div class="section-header">
+          <span class="section-icon" aria-hidden="true">&#128190;</span>
+          <h2 class="section-title" id="checkpoint-reproduction-title">Checkpoint Access and Reproduction</h2>
+        </div>
+        <div class="content-card">
+          <p>The recorded checkpoints are stored locally in their run directories and excluded from Git. No checkpoint-download URL has been published. The following instructions describe how to reconstruct new runs; regenerated numerical results may vary across environments.</p>
+          <ol class="styled-list">
+            <li>Obtain the repository source and Kaggle version 11 images. Preserve paths under <code>assignment2/data/raw/archive/Images/</code>, then use the committed manifests rather than regenerating the split.</li>
+            <li>For a reported run, commit the source/configuration and build the Docker image from those files. The current run records identify training source commit <code class="m2-break">5d106abab40a6720ebc5874b9a748f01356c965c</code>; later comparison/plotting scripts are packaging additions.</li>
+            <li>Run the commands below from <code>assignment2/</code>. Copy the new printed run IDs when verifying reproduced runs; the existing M2 run IDs are not automatically recreated.</li>
+          </ol>
+          <pre class="m2-code"><code>$trainingCommit = git rev-parse HEAD
+docker compose build
+
+docker compose -f compose.yaml -f compose.gpu.yaml run --rm assignment2 python -m experiments.run --config config/baseline_cnn.yaml --epochs 20 --code_commit $trainingCommit
+
+docker compose -f compose.yaml -f compose.gpu.yaml run --rm assignment2 python -m experiments.run --config config/resnet50.yaml --experiment-config config/ablation_frozen.yaml --epochs 20 --code_commit $trainingCommit</code></pre>
+          <p>GPU execution requires compatible NVIDIA hardware/drivers and configured Docker GPU access (WSL 2 backend on Windows). Each command saves configuration, metadata, the best validation checkpoint, history and timing. Use <code>python -m experiments.verify_checkpoint --run-dir RUN_DIRECTORY</code> inside the same Docker GPU service to check a saved run. This reloads saved settings and evaluates validation only.</p>
+          <p><a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/main/assignment2/docs/environment.md">Full dataset, environment and checkpoint-reproduction instructions</a> &middot; <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/main/assignment2/README.md">Project README</a></p>
+        </div>
+      </section>
+
+      <section class="section-block" id="deliverables" aria-labelledby="deliverables-title">
+        <div class="section-header">
+          <span class="section-icon" aria-hidden="true">&#128279;</span>
+          <h2 class="section-title" id="deliverables-title">Deliverables &amp; Links</h2>
+        </div>
+        <div class="content-card">
+          <div class="links-grid">
+            <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/tree/main/assignment2" class="link-btn-card" target="_blank" rel="noopener"><div><span class="link-label">Source code</span><span class="link-sub">Assignment 2 repository</span></div></a>
+            <a href="#checkpoint-reproduction" class="link-btn-card"><div><span class="link-label">Reproduce checkpoints</span><span class="link-sub">Dataset and training instructions</span></div></a>
+            <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/main/assignment2/report/report.md" class="link-btn-card" target="_blank" rel="noopener"><div><span class="link-label">M2 draft report</span><span class="link-sub">Problem, methods, setup and results</span></div></a>
+            <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/main/assignment2/notebooks/01_eda.ipynb" class="link-btn-card" target="_blank" rel="noopener"><div><span class="link-label">EDA notebook</span><span class="link-sub">Audit and exploratory analysis</span></div></a>
+            <a href="assignment2/results/comparison.csv" class="link-btn-card" download><div><span class="link-label">Validation comparison CSV</span><span class="link-sub">Metrics, parameter counts and timing</span></div></a>
+            <a href="#presentation-video" class="link-btn-card"><div><span class="link-label">Presentation status</span><span class="link-sub">Slides and YouTube video planned for M3</span></div></a>
+            <a href="#dataset-proposal" class="link-btn-card"><div><span class="link-label">Dataset proposal</span><span class="link-sub">M1 record and approval status</span></div></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block" id="presentation-video" aria-labelledby="presentation-video-title">
+        <div class="section-header">
+          <span class="section-icon" aria-hidden="true">&#9654;</span>
+          <h2 class="section-title" id="presentation-video-title">Slides and YouTube Presentation Video</h2>
+        </div>
+        <div class="content-card">
+          <p><strong>Not yet published.</strong> There is currently no YouTube presentation URL or completed slide deck for Assignment 2. The mandatory presentation link will be added for M3 after the group records, uploads and checks the video; an empty or unrelated video link is not used.</p>
+          <p>Planned title: <strong>CO3133-Semester-261 &ndash; Group 09 &ndash; Assignment 2</strong>. Every member must present or defend part of the work. The video should cover the problem/data, methods, setup, results, error analysis and conclusion, and be Public or Unlisted.</p>
+        </div>
+      </section>
+
+      <section class="section-block" id="ai-disclosure" aria-labelledby="ai-disclosure-title">
+        <div class="section-header">
+          <span class="section-icon" aria-hidden="true">&#128737;</span>
+          <h2 class="section-title" id="ai-disclosure-title">AI Usage Disclosure</h2>
+        </div>
+        <div class="content-card">
+          <h3>Assignment-specific AI assistance</h3>
+          <p>AI tools assisted with planning, implementation guidance, debugging, EDA preparation and report/page drafting. The training runs were executed by the student using the repository code; the reported numbers come from saved run artifacts and matching checkpoint-reload results, not generated estimates.</p>
+          <ul class="styled-list">
+            <li><strong>ChatGPT / OpenAI GPT-5.6, September 2026:</strong> the existing disclosure attributes the original page skeleton and shared stylesheet to Tran Manh Thang (2353124), followed by group review against handbook Section 2.2.</li>
+            <li><strong>OpenAI Codex / GPT-6, 13&ndash;26 Oct 2026:</strong> project structure and ownership planning; incremental guidance for Docker, configuration, seeding, orchestration, checkpoint verification, comparison and plotting; debugging; and M2 README/report/page drafts. The student implemented the guided changes and supplied test/training outputs. The assistant inspected local source, manifests, run JSONs and the exported curves. Current student user and overall final verifier: Trần Mạnh Thắng (2353124), confirmed by the user.</li>
+            <li><strong>Claude / Anthropic Cowork, 16&ndash;22 Oct 2026:</strong> the existing group disclosure attributes data-task planning, audit/duplicate/split/dataset/transform/loader code and tests, audit/EDA execution, figures and EDA text to assistance used by Tran Manh Thang (2353124). Student review decisions for 54 label-conflicting pairs are recorded separately; the student is responsible for checking the code and numbers.</li>
+            <li><strong>Claude / Anthropic Opus 5.5 (user-reported), Assignment 2 M2:</strong> Hoang Kim Cuong (2352145) and Phan Tan Loc (2352712) used Claude for their work, as reported by Trần Mạnh Thắng (2353124). Repository commits associate the former with models/training/evaluation and the latter with data/EDA; this does not establish which parts were AI-generated. Each member must confirm exact dates, prompts, student edits and personal verification steps in the detailed log.</li>
+          </ul>
+          <h3>Verification and disclosure completion</h3>
+          <p>Verification evidence includes the user-reported 25 passing Docker CPU tests, successful GPU training, recorded configurations and split hashes, and exact validation Accuracy/Macro-F1 matches after reloading both selected checkpoints. Representative requests included guidance on the training runner and the request to update this page against the handbook checklist.</p>
+          <p>Detailed per-tool logs must identify the actual user, purpose, dates, affected files, representative prompts, edits, verification sources and final reviewer. M2 entries and member summaries are now recorded. The two teammate entries remain drafts pending their exact usage details; the earlier data/EDA attribution must also be reconciled by the group before submission.</p>
+          <p><a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/main/assignment2/docs/ai_usage.md">Assignment AI-use log</a> &middot; <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/main/AI_USAGE.md">Repository AI_USAGE.md</a></p>
         </div>
       </section>
 

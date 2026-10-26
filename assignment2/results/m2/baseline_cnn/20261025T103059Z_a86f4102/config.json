@@ -1,0 +1,23 @@
+{
+  "seed": 42,
+  "data": {
+    "image_size": 224,
+    "num_classes": 30,
+    "manifests_dir": "data/manifests",
+    "raw_dir": "data/raw",
+    "val_size": 0.15,
+    "test_size": 0.15,
+    "batch_size": 64,
+    "num_workers": 2
+  },
+  "model": {
+    "name": "baseline_cnn",
+    "num_classes": 30
+  },
+  "training": {
+    "epochs": 20,
+    "optimizer": "adam",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0
+  }
+}
