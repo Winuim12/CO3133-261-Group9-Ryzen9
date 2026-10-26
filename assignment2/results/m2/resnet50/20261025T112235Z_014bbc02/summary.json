@@ -1,0 +1,7 @@
+{
+  "training_seconds": 2744.0629528399995,
+  "timing_scope": "Training, validation, data loading and checkpoint saving inside the epoch loop; excludes initial setup",
+  "epochs_completed": 20,
+  "best_epoch": 20,
+  "best_val_macro_f1": 0.7231208645886478
+}
