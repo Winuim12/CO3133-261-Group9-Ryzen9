@@ -19,7 +19,7 @@ Trần Mạnh Thắng (2353124).
 | CNN run evidence | [CNN JSON records](../results/m2/baseline_cnn/20261025T103059Z_a86f4102/) | Copied and checked |
 | Frozen ResNet run evidence | [ResNet JSON records](../results/m2/resnet50/20261025T112235Z_014bbc02/) | Copied and checked |
 | Assignment webpage | [HTML source](../../assignment2.html) | Updated locally; publication pending |
-| AI-use disclosure | [Assignment log](../docs/ai_usage.md) | Completion pending |
+| AI-use disclosure | [AI_USAGE.md, Assignment 2](../../AI_USAGE.md#assignment-2) | Completion pending |
 
 ## Checkpoints
 

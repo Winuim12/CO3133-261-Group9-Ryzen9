@@ -42,7 +42,9 @@ class BestCheckpoint:
         }
 
         self.path.parent.mkdir(parents=True, exist_ok=True)
-        torch.save(checkpoint, self.path)
+        temporary = self.path.with_suffix(".pt.tmp")
+        torch.save(checkpoint, temporary)
+        temporary.replace(self.path)
 
         self.best_score = score
         self.best_epoch = epoch

@@ -1,0 +1,24 @@
+{
+  "base_commit": "824e8bece470bda0bc1663e3e84d427cd000d8da",
+  "uncommitted_changes": true,
+  "exact_source": "source_snapshot.zip",
+  "runtime_override": {
+    "data": {
+      "batch_size": 64,
+      "num_workers": 4,
+      "persistent_workers": true,
+      "prefetch_factor": 2
+    },
+    "training": {
+      "epochs": 20,
+      "amp": true,
+      "fast_cuda": true,
+      "channels_last": true,
+      "save_last": true,
+      "early_stopping_patience": 5
+    },
+    "model": {
+      "freeze_backbone": false
+    }
+  }
+}

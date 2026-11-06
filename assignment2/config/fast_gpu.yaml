@@ -1,0 +1,12 @@
+# Optional override for local CUDA runs. Kaggle enables these via its runner.
+# Changes precision/kernel selection; record separately from the original M2 runs.
+data:
+  persistent_workers: true
+  prefetch_factor: 2
+
+training:
+  amp: true
+  channels_last: true
+  fast_cuda: true
+  save_last: true
+  early_stopping_patience: 5

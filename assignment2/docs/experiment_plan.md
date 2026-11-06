@@ -27,3 +27,5 @@ AI disclosures, and verify submission/checkpoint-access links.
 Other post-M2 work already discussed: the frozen-versus-full-fine-tuning study
 and a documented early-stopping extension with patience 5 and a maximum epoch
 budget. Existing M2 runs retain their fixed 20-epoch protocol.
+Early stopping is now implemented (`training.early_stopping_patience`, monitoring
+validation Macro F1) and enabled by default in the Kaggle notebook with patience 5.

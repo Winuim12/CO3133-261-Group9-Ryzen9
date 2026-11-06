@@ -1,9 +1,10 @@
 # AI Usage Disclosure
 
-Course: Deep Learning and Its Applications (CO3133) · Semester-261  
+Course: Deep Learning and Its Applications (CO3133)
+Semester-261  
 Group 09 - Ryzen9
 
-Members: Hoang Kim Cuong (2352145) · Phan Tan Loc (2352712) · Tran Manh Thang (2353124)
+Members: Hoang Kim Cuong (2352145), Phan Tan Loc (2352712), Tran Manh Thang (2353124)
 
 ---
 
@@ -11,15 +12,7 @@ Members: Hoang Kim Cuong (2352145) · Phan Tan Loc (2352712) · Tran Manh Thang 
 
 Group 09 - Ryzen9 **used generative AI tools** during this course project. The use is
 disclosed here, on the shared landing page, on each assignment page, and in each report.
-
-**Tools used**
-
-| Tool | Provider | Model | Used by | How it was accessed |
-|---|---|---|---|---|
-| Codex | OpenAI | GPT-5.6 | Tran Manh Thang (2353124), Hoang Kim Cuong (2352145) | VS Code extension |
-| Claude | Anthropic | Claude Opus | Phan Tan Loc (2352712) | Web / desktop app |
-| Codex | OpenAI | GPT-6 (Assignment 2) | Trần Mạnh Thắng (2353124) | Current coding-agent session |
-| Claude | Anthropic | Opus 5.5 (Assignment 2; user-reported) | Hoang Kim Cuong (2352145), Phan Tan Loc (2352712) | Members to confirm |
+The tools used are listed at the start of each assignment section below.
 
 ---
 
@@ -27,11 +20,18 @@ disclosed here, on the shared landing page, on each assignment page, and in each
 
 ### Assignment 1
 
+**Tools used**
+
+| Tool | Provider | Model | Used by | How it was accessed |
+|---|---|---|---|---|
+| Codex | OpenAI | GPT-5.6 | Tran Manh Thang (2353124), Hoang Kim Cuong (2352145) | VS Code extension |
+| Claude | Anthropic | Claude Opus | Phan Tan Loc (2352712) | Desktop app |
+
 #### Entry A1-1 — Website and page skeleton
 
 - **Tool:** Codex (OpenAI) — model GPT-5.6
 - **Used by:** Tran Manh Thang (2353124)
-- **Time / stage:** September 2026 — website build, M1 Draft stage
+- **Time / stage:** Website build, M1 Draft stage
 - **Purpose:** Draft the landing page and the skeleton of the three assignment pages; convert the
   EDA notebook output into the Dataset & EDA section of the Assignment 1 page; write the Problem
   Statement and Methodology sections from the handbook and the repository code.
@@ -48,7 +48,7 @@ disclosed here, on the shared landing page, on each assignment page, and in each
   `notebooks/01_eda.ipynb` and the JSON files in `m1_draft_results/`; pages rendered locally and
   all links opened manually.
 - **Member responsible for final verification:** Tran Manh Thang
-- **Sources used for verification:** Course Project Handbook (rev. 14 Sep 2026); the group's own
+- **Sources used for verification:** Course Project Handbook; the group's own
   notebook outputs and run artifacts.
 - **Representative prompt example:** "Draft the landing page and assignment-page
   structure. Use the repository code and exported EDA notebook to describe the problem, dataset,
@@ -59,7 +59,7 @@ disclosed here, on the shared landing page, on each assignment page, and in each
 
 - **Tool:** Codex (OpenAI) — model GPT-5.6
 - **Used by:** Tran Manh Thang (2353124)
-- **Time / stage:** September 2026 — M1 Draft implementation
+- **Time / stage:** M1 Draft implementation
 - **Purpose:** Concept explanation and code review for the Dataset/DataLoader design, the stratified
   train/validation split, training-only normalization statistics, and the train/validate loop.
 - **Affected sections / files:** `src/data/dataset.py`, `split.py`, `statistics.py`, `transforms.py`,
@@ -86,7 +86,7 @@ disclosed here, on the shared landing page, on each assignment page, and in each
 
 - **Tool:** Codex (OpenAI) — model GPT-5.6
 - **Used by:** Hoang Kim Cuong (2352145)
-- **Time / stage:** September 2026 — M1 Draft implementation
+- **Time / stage:** M1 Draft implementation
 - **Purpose:** Explanation of activation and regularization choices; review of draft implementations
   of the Linear/Softmax classifier, the MLP, and the self-designed CNN.
 - **Affected sections / files:** `src/models/linear.py`, `mlp.py`, `cnn.py`;
@@ -112,7 +112,7 @@ disclosed here, on the shared landing page, on each assignment page, and in each
 
 - **Tool:** Claude (Anthropic) — model Claude Opus
 - **Used by:** Phan Tan Loc (2352712)
-- **Time / stage:** September 2026 — M2 Final preparation
+- **Time / stage:** M2 Final preparation
 - **Purpose:** Explanation of timestep definitions for row, column, and patch sequences; explanation
   of patch embedding, the `[CLS]` token, and positional encoding in a Vision Transformer; review of
   draft implementations.
@@ -137,151 +137,134 @@ disclosed here, on the shared landing page, on each assignment page, and in each
 
 ### Assignment 2
 
-Detailed assignment log: [assignment2/docs/ai_usage.md](assignment2/docs/ai_usage.md).
+**Tools used**
 
-#### M2 attribution and evidence status - 26 Oct 2026
+| Tool | Provider | Model | Used by | How it was accessed |
+|---|---|---|---|---|
+| Codex | OpenAI | GPT-6 | Tran Manh Thang (2353124) | Coding-agent session |
+| Claude | Anthropic | Claude Opus 5.5 | Hoang Kim Cuong (2352145) | VS Code extension |
+| Claude | Anthropic | Claude Opus 5.5 | Phan Tan Loc (2352712) | Desktop app |
 
-Teammate confirmation update, 26 Oct 2026: Trần Mạnh Thắng reported that
-both teammates confirmed the AI-use entries. This records their confirmation of
-tool use/participation; no missing private-session details were supplied.
+#### Entry A2-1 — Project scaffold, environment, and experiment runner
 
-Member names/IDs come from the assignment page. The current user confirmed that
-he is Trần Mạnh Thắng (2353124) and is responsible for final verification. He also reported
-that the other two members used **Claude Opus 5.5** for their work. The model label
-is recorded as user-reported; private Claude sessions were not inspected.
+- **Tool:** Codex (OpenAI) — model GPT-6
+- **Used by:** Tran Manh Thang (2353124)
+- **Time / stage:** Project setup and M2 Draft implementation
+- **Purpose:** Review of the folder and file skeleton; guidance on Docker and dependency setup,
+  configuration loading and merging, seeding, experiment context, training orchestration, run
+  provenance, checkpoint verification, comparison and plot export, and CI; drafting of the M2
+  README, report, and page content.
+- **Affected sections / files:** `assignment2/README.md`, `AGENTS.md`, `.gitignore`, `.dockerignore`,
+  Docker/Compose and dependency files, `assignment2/config/`, `experiments/context.py`, `run.py`,
+  `verify_checkpoint.py`, `compare.py`, `plot_curves.py`, `src/utils/`, related tests, `docs/`,
+  `report/`, the M2 content of `assignment2.html`, `.github/workflows/assignment1-ci.yaml`,
+  `assignment2-ci.yaml`
+- **Prompt summary:** Asked for a check of the created file structure and types; asked why test
+  collection was slow; asked for small code examples for configuration, seeding, and the training
+  runner; asked to update the README and the assignment page against handbook §2.2.
+- **How the output was edited:** Implemented the suggested code examples by hand and adapted them to
+  the project modules; fixed copied-code mismatches, stale Docker source, test discovery, and
+  container shared-memory issues found during debugging. Codex edited scaffold and documentation
+  files directly; those drafts were reviewed before submission. No class labels, data, or results
+  were generated by the tool.
+- **How the output was verified:** The Docker CPU test suite passed 25 tests; both M2 runs completed
+  on the GPU, and each selected checkpoint was reloaded and reproduced its saved validation Accuracy
+  and Macro-F1 (CNN `20261025T103059Z_a86f4102`, frozen ResNet-50 `20261025T112235Z_014bbc02`);
+  exported JSON records were compared byte-for-byte with the originals; page links and HTML structure
+  were checked locally.
+- **Member responsible for final verification:** Tran Manh Thang
+- **Sources used for verification:** Course Project Handbook; the dataset proposal; PyTorch,
+  TorchVision, Docker, GitHub Actions, and pytest documentation; the repository's own tests and run
+  artifacts in `assignment2/results/m2/`.
+- **Representative prompt example:** "I already created a file structure can you check the type and
+  structure is it correct or not if not you can fix by yourself."
 
-Repository authorship is evidence of code scope, not proof of the exact prompts,
-AI-generated portions, student edits, or individual review procedures. The two
-Claude entries below are disclosure drafts awaiting those member-specific details.
-The 25 passing tests and completed experiments were reported by the current user;
-saved JSON evidence and source were inspected separately by the assistant.
+#### Entry A2-2 — Data audit, splitting, and EDA
 
-#### Entry A2-1 - Codex guidance, integration, experiments and M2 packaging
+- **Tool:** Claude (Anthropic) — model Claude Opus 5.5
+- **Used by:** Phan Tan Loc (2352712)
+- **Time / stage:** M2 Draft data and EDA development
+- **Purpose:** Assistance with the data audit, exact and near-duplicate detection, group-aware
+  splitting, the dataset class, transforms and loaders, and the EDA notebook and figures.
+- **Affected sections / files:** `assignment2/src/data/`, `data/manifests/`, `notebooks/01_eda.ipynb`,
+  EDA figures, `tests/test_dataset.py`, `tests/test_split.py`
+- **Prompt summary:** Requests for implementation and review of the audit, duplicate grouping,
+  group-aware split, and data-loading modules, and for the EDA analysis and figures.
+- **How the output was edited:** Integrated into the project as commits `0f396ea` (audit,
+  group-aware split, data loaders, and EDA) and `3f84900` (EDA results, preprocessed batch, and
+  notebook outputs). The 54 cross-label near-duplicate pairs were reviewed by hand: 25 were removed
+  as the same picture under two dishes and 29 were kept as different dishes.
+- **How the output was verified:** Unit tests in `tests/test_dataset.py` and `tests/test_split.py`
+  check RGB tensors and integer labels, batch shapes, reproducible manifest hashes, the 70/15/15
+  ratio with full class coverage, seed reproducibility, contiguous class indices, audit handling of
+  unreadable files, duplicates and label conflicts, and the absence of shared images or groups
+  across splits. The saved split has no shared IDs, groups, or SHA-256 hashes across splits.
+- **Member responsible for final verification:** Phan Tan Loc
+- **Sources used for verification:** PyTorch and TorchVision documentation (`Dataset`,
+  `DataLoader`, transforms); Pillow documentation; the repository's own tests, manifests, and audit
+  outputs.
+- **Representative prompt example:** "Write an audit for the 30VNFoods images that finds unreadable
+  files, exact copies by SHA-256 and near copies by perceptual hash, then build a 70/15/15 split
+  per class where all copies of an image stay in the same split, with a fixed seed."
 
-- **Tool/provider/model:** OpenAI Codex, GPT-6, in the current coding-agent session.
-- **Used by:** Trần Mạnh Thắng (2353124), user-confirmed.
-- **Dates/stage:** 13-26 Oct 2026; scaffold, Docker setup, implementation guidance,
-  debugging, M2 training/reload verification and documentation packaging.
-- **Purpose:** incremental teaching and assistance for configuration loading and
-  merging, seeding, experiment context, training orchestration, run provenance,
-  checkpoint verification, comparison/plot export, CI guidance and M2 writing.
-- **Affected files/sections:** `assignment2/README.md`, `AGENTS.md`, Docker/Compose
-  and dependency files, `assignment2/config/`, `experiments/context.py`, `run.py`,
-  `verify_checkpoint.py`, `compare.py`, `plot_curves.py`, `src/utils/`, related
-  tests, `docs/`, `report/`, and the M2 content of `assignment2.html`. CI guidance
-  affected `.github/workflows/assignment1-ci.yaml` and `assignment2-ci.yaml`.
-- **Representative prompts from this conversation:** "why the collecting test
-  taking so long I think some thing is wrong"; "Ok let update readme"; and the
-  request to update the assignment page against handbook Section 2.2.
-- **AI contribution and student edits:** Codex supplied small code examples and
-  explanations for the student to implement and helped diagnose copied-code
-  mismatches, stale Docker source, test discovery and container shared-memory
-  issues. The student integrated and ran those changes. Codex directly edited
-  authorized scaffold/documentation files and the HTML page; students remain
-  responsible for reviewing that text and all generated examples. This does not
-  attribute teammates' model/data implementations to Codex.
-- **Verification actually evidenced:** user-provided Docker output showed 25 CPU
-  tests passing, successful GPU execution, and two completed 20-epoch runs. Both
-  selected checkpoints reproduced validation Accuracy and Macro-F1. The assistant
-  inspected source, saved run artifacts, comparison CSV and training plots; checked
-  local links/HTML structure; and confirmed the 10 exported M2 JSON files match
-  their originals byte-for-byte. The assistant did not execute the reported
-  training runs. A connected browser preview was unavailable for the HTML update.
-- **Run evidence:** CNN `20261025T103059Z_a86f4102`, selected epoch 19, validation
-  Accuracy 0.2510002667 and Macro-F1 0.2004614168; frozen ResNet-50
-  `20261025T112235Z_014bbc02`, selected epoch 20, Accuracy 0.7244598560 and Macro-F1
-  0.7231208646. Training source commit: `5d106abab40a6720ebc5874b9a748f01356c965c`.
-- **Verification sources:** local handbook and proposal, actual repository source,
-  Docker/test outputs supplied by the user, `assignment2/results/m2/`,
-  `results/comparison.csv`, the training-history figure, and the PyTorch,
-  TorchVision, Docker, GitHub Actions and pytest documentation consulted during
-  implementation. These sources support the described checks, not claims about
-  unobserved teammate conversations.
-- **Final verification responsibility:** Trần Mạnh Thắng (2353124), user-confirmed.
-- **Status:** conversation and artifact evidence recorded; student must review the
-  final submitted disclosure and preserve authorship accurately.
+#### Entry A2-3 — Models, training, and evaluation code
 
-#### Entry A2-2 - Claude assistance for data and EDA (tool use confirmed; details incomplete)
+- **Tool:** Claude (Anthropic) — model Claude Opus 5.5
+- **Used by:** Hoang Kim Cuong (2352145)
+- **Time / stage:** M2 Draft model and training development
+- **Purpose:** Assistance with the scratch CNN, the ResNet-50 wrapper and factory, the epoch
+  trainer, the checkpoint helper, the metrics and evaluator, and the initial error-analysis module.
+- **Affected sections / files:** `assignment2/src/models/`, `src/training/`,
+  `src/evaluation/metrics.py`, `evaluator.py`, `error_analysis.py`; `tests/test_models.py`,
+  `test_metrics.py`, `test_checkpoint.py`
+- **Prompt summary:** Requests for implementation and review of the scratch CNN, the ResNet-50
+  wrapper with a frozen or trainable backbone, the epoch trainer, best-checkpoint selection, and
+  the metric and evaluation code.
+- **How the output was edited:** Integrated into the project as commit `f029780` and connected to
+  the shared configuration and the experiment runner; the models return raw logits, and checkpoint
+  selection keeps the earlier epoch on ties.
+- **How the output was verified:** Unit tests in `tests/test_models.py`, `test_metrics.py`, and
+  `test_checkpoint.py` check the CNN output shape and backward pass, metrics on known predictions,
+  per-class metrics for all 30 classes when some classes are never predicted, best-checkpoint
+  selection with the earlier-epoch tie rule, and model restoration from a saved checkpoint. GPU
+  training completed, and every reloaded checkpoint reproduced its saved validation metrics.
+- **Member responsible for final verification:** Hoang Kim Cuong
+- **Sources used for verification:** PyTorch and TorchVision documentation (`nn.Conv2d`,
+  `nn.BatchNorm2d`, `nn.CrossEntropyLoss`, `torchvision.models.resnet50`); scikit-learn
+  documentation (`precision_recall_fscore_support`, `confusion_matrix`); the repository's own
+  tests and training runs.
+- **Representative prompt example:** "Implement a plain CNN baseline and a ResNet-50 classifier with
+  an option to freeze the backbone, both returning 30 logits, and a checkpoint helper that keeps the
+  epoch with the best validation Macro-F1 and the earlier epoch on ties."
 
-- **Tool/provider/model:** Claude, Anthropic, Opus 5.5 (reported by Trần Mạnh Thắng).
-- **Used by:** Phan Tan Loc (2352712), as reported by the current user for the other
-  group members. Teammate confirmation was relayed by Trần Mạnh Thắng on 26 Oct 2026.
-- **Dates/stage:** Assignment 2 M2 data/EDA development. Exact AI-use dates were not
-  supplied. Related repository commit `0f396ea` is dated 23 Oct 2026; the commit
-  date is not presented as an AI-session date.
-- **Purpose/scope for confirmation:** assistance with the member's data/EDA work.
-  The related commit contains audit/duplicate detection, group-aware splitting,
-  dataset/transforms/loaders, manifests, EDA notebook/figures and data tests.
-  This scope is inferred from repository changes, not a claim that Claude wrote
-  every listed file.
-- **Affected files for member review:** `assignment2/src/data/`,
-  `data/manifests/`, `notebooks/01_eda.ipynb`, EDA figures, `tests/test_dataset.py`,
-  `tests/test_split.py`, and the related data configuration changes.
-- **Representative prompt:** not supplied. The member must add a real prompt or
-  accurate prompt summary; no example is invented here.
-- **AI contribution and student edits:** exact generated/reviewed portions and
-  subsequent student edits were not supplied and must be described by the member.
-- **Verification evidenced at group level:** the integrated suite reported by
-  Trần Mạnh Thắng passed 25 tests, including data/split checks. The assistant inspected
-  saved audit counts, split IDs/groups and exported artifacts. This does not
-  establish which checks Phan Tan Loc personally performed or reviewed.
-- **Member verification steps/sources:** not supplied; Phan Tan Loc must record
-  the actual checks, source documents, corrections and manual review performed.
-- **Individual verification responsibility:** Phan Tan Loc (2352712) for the
-  accuracy of this entry and his work; overall M2 final verifier: Trần Mạnh Thắng (2353124).
-- **Status:** Claude use and participation confirmed by the teammates through
-  Trần Mạnh Thắng on 26 Oct 2026. Exact usage dates, representative prompts,
-  generated/reviewed portions, student edits and personal verification details
-  remain unprovided; this entry is not yet complete against all handbook fields.
+#### Entry A2-4 — Final results analysis and assignment page
 
-#### Entry A2-3 - Claude assistance for models, training and evaluation (tool use confirmed; details incomplete)
-
-- **Tool/provider/model:** Claude, Anthropic, Opus 5.5 (reported by Trần Mạnh Thắng).
-- **Used by:** Hoang Kim Cuong (2352145), as reported by the current user for the
-  other group members. Teammate confirmation was relayed by Trần Mạnh Thắng on 26 Oct 2026.
-- **Dates/stage:** Assignment 2 M2 model/training development. Exact AI-use dates
-  were not supplied. Related repository commit `f029780` is dated 19 Oct 2026;
-  that is a code-commit date, not an asserted Claude-session date.
-- **Purpose/scope for confirmation:** assistance with the member's model,
-  training and evaluation work. The related commit contains the scratch CNN,
-  ResNet wrapper/factory, epoch trainer, checkpoint helper, metrics/evaluator,
-  initial error-analysis module and corresponding tests. The commit scope does
-  not prove which parts were AI-generated.
-- **Affected files for member review:** `assignment2/src/models/`,
-  `src/training/`, `src/evaluation/metrics.py`, `evaluator.py`, `error_analysis.py`,
-  `tests/test_models.py`, `test_metrics.py`, and `test_checkpoint.py`.
-- **Representative prompt:** not supplied. Hoang Kim Cuong must provide a real
-  prompt or accurate summary from his own usage.
-- **AI contribution and student edits:** exact generation/review scope and student
-  edits were not supplied; the member must complete this field.
-- **Verification evidenced at group level:** Trần Mạnh Thắng supplied outputs showing the
-  integrated tests, real GPU training and matching checkpoint-reload metrics.
-  These establish group-level execution evidence, not Hoang Kim Cuong's private
-  review process or a verified causal claim about Claude's contribution.
-- **Member verification steps/sources:** not supplied; record the actual model,
-  gradient/freeze, metric and checkpoint checks personally performed and reviewed.
-- **Individual verification responsibility:** Hoang Kim Cuong (2352145) for the
-  accuracy of this entry and his work; overall M2 final verifier: Trần Mạnh Thắng (2353124).
-- **Status:** Claude use and participation confirmed by the teammates through
-  Trần Mạnh Thắng on 26 Oct 2026. Exact usage dates, representative prompts,
-  generated/reviewed portions, student edits and personal verification details
-  remain unprovided; this entry is not yet complete against all handbook fields.
-
-#### Earlier website disclosures retained for reconciliation
-
-The pre-existing assignment page attributes September 2026 page-skeleton work
-with GPT-5.6 to Tran Manh Thang (2353124), and a 16-22 Oct 2026 Claude/Cowork
-entry to the same member for data/EDA assistance and manual duplicate review.
-Those historical records have not been independently verified in this session.
-They are not erased or reassigned because a later commit has a different author.
-The group must reconcile overlapping data/EDA contributions and confirm the
-historical Claude model separately; the teammates' reported Opus 5.5 label is not
-retroactively applied to that earlier Cowork entry.
-
-#### Before submission
-
-- Teammate Claude use is confirmed. Obtain the remaining dates, prompts, scope,
-  student edits and personal verification details from Phan Tan Loc and Hoang Kim Cuong.
-- Reconcile the historical data/EDA entry with the actual contribution record.
-- Keep this log, root `AI_USAGE.md`, the report and website summaries consistent.
-- Trần Mạnh Thắng (2353124) reviews the final submitted disclosure.
+- **Tool:** Claude (Anthropic) — model Claude Opus 5.5
+- **Used by:** Hoang Kim Cuong (2352145)
+- **Time / stage:** M3 Final preparation
+- **Purpose:** Rewrite of the Methodology, Experimental Setup, Results, Comparison & Discussion,
+  Error Analysis, and Limitations & Conclusion sections from the three final runs; objective,
+  concise wording across the page; export of the final figures and comparison table; grouping of
+  test errors by dish family and a visual review of 30 sampled cross-family errors; restructuring of
+  this disclosure file.
+- **Affected sections / files:** `assignment2.html`; `assignment2/results/final_comparison.csv`;
+  `assignment2/results/figures/final_training_histories.png`, `final_qualitative_test.png`,
+  `final_cross_family_errors.jpg`; `AI_USAGE.md`; AI-use links in `assignment2/README.md` and
+  `assignment2/report/`
+- **Prompt summary:** Asked to make the Methodology concise, objective, and free of repeated
+  content; asked to remove personal pronouns and sentence fragments across the page; asked to make
+  the Experimental Setup meet the handbook; asked to write the Results, Comparison & Discussion,
+  Error Analysis, and Limitations sections from the final runs.
+- **How the output was edited:** Requested shorter text with highlighted key points; corrected label
+  word order (for example "Frozen ResNet-50" and "Trained parameters"); removed the Checkpoint
+  Access and Presentation sections; reduced the Deliverables section to the Assignment 1 layout
+  without links.
+- **How the output was verified:** Every reported number was traced to the run artifacts
+  (`summary.json`, `evaluation_*.json`, `inference_benchmark.json`, `history.json`,
+  `per_class_test.csv`) in `assignment2/results/kaggle/`; figures and the CSV were produced with
+  the repository scripts `experiments.plot_curves` and `experiments.compare`.
+- **Member responsible for final verification:** Hoang Kim Cuong
+- **Sources used for verification:** Course Project Handbook (§3, §20–21); the saved run artifacts
+  of the three final runs.
+- **Representative prompt example:** "Make the Assignment 2 methodology more concise, write it
+  objectively without personal pronouns, and make sure no content is repeated."

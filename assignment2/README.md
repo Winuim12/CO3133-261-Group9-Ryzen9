@@ -1,5 +1,9 @@
 # Assignment 2: Vietnamese Food Recognition
 
+Train without a local GPU: [Kaggle setup and result export](docs/kaggle.md),
+using [the training and results analysis notebook](notebooks/02_results_analysis.ipynb),
+which trains all three runs with early stopping and reports every Assignment 2 analysis.
+
 ## Current status - M2 Draft
 
 This project classifies **30 Vietnamese food categories** using a CNN trained
@@ -19,7 +23,7 @@ freeze-versus-full-fine-tuning comparison remain M3 work.
 - [EDA notebook](notebooks/01_eda.ipynb)
 - [Assignment webpage source and proposal record](../assignment2.html)
 - [Experiment priorities and post-M2 follow-up](docs/experiment_plan.md)
-- [Assignment AI-use log](docs/ai_usage.md)
+- [AI-use log (Assignment 2 section)](../AI_USAGE.md#assignment-2)
 
 The local assignment webpage records **Approved by Instructor**. Its approval
 date and any conditions still need to be recorded by the group. The original
@@ -175,9 +179,12 @@ passed with `--config`, then optional `--experiment-config`. The `--epochs`
 override is applied before the resolved configuration is saved. The commit flag
 is spelled **`--code_commit`** with an underscore.
 
-Each invocation starts a new model and unique run directory. Resume training and
-early stopping are not implemented. Epoch progress prints after the training and
-validation passes finish. Training does not automatically evaluate the test set.
+Each invocation starts a new model and unique run directory. Early stopping is off
+unless `training.early_stopping_patience` is set (as in `config/fast_gpu.yaml` and
+the Kaggle runner) or `--patience N` is passed; it stops after N epochs without a
+new best validation Macro F1. `--resume <run_dir>` continues a run saved with
+`save_last: true`. Epoch progress prints after the training and validation passes
+finish. Training does not automatically evaluate the test set.
 
 ```text
 results/runs/<model>/<run-id>/
@@ -225,10 +232,29 @@ For new training runs, replace the variables with the directories printed by
 those runs. The comparison command requires successful verification records and
 matching manifest hashes.
 
-There is no `--evaluate-only` or `--split test` option in the current training
-runner. `experiments/prepare_data.py` remains an empty placeholder; data audit
+## Final evaluation, error analysis and inference cost
+
+After a run passes verification, evaluate its selected checkpoint once:
+
+```powershell
+docker compose -f compose.yaml -f compose.gpu.yaml run --rm assignment2 python -m experiments.evaluate --run-dir $resnetRun
+```
+
+The checkpoint is chosen on validation Macro-F1 before this step; do not change
+models or hyperparameters based on test results. Per split (`val`, `test`) the run
+directory gains `evaluation_<split>.json` (metrics, confusion matrix, most-confused
+class pairs, errors by confidence, end-to-end timing), `predictions_<split>.csv`
+(one row per image with top-3 probabilities), `per_class_<split>.csv`,
+`confusion_<split>.png` and `qualitative_<split>.png` (confident correct, hard
+correct and confident wrong examples). `inference_benchmark.json` records
+model-only latency and throughput at batch 1 and 64 (FP32, plus AMP FP16 on CUDA).
+The validation pass must reproduce the saved history exactly. `--splits val`
+skips the test set; `--no-benchmark` skips timing. `experiments.compare` adds test
+and inference columns when these files exist. The Kaggle runner runs this step
+automatically.
+
+`experiments/prepare_data.py` remains an empty placeholder; data audit
 and splitting functions are in `src/data/` and used by the EDA workflow.
-Inference-cost benchmarking in `src/evaluation/benchmark.py` is also pending.
 
 ## Project layout and ownership
 
@@ -240,15 +266,17 @@ assignment2/
 |-- src/data/                  # Audit, splitting, dataset, transforms and loaders
 |-- src/models/                # Scratch CNN, ResNet-50 wrapper and model factory
 |-- src/training/              # Epoch execution and best-checkpoint saving
-|-- src/evaluation/            # Metrics/evaluator; further analysis and benchmarking pending
+|-- src/evaluation/            # Metrics, evaluator, error analysis and inference benchmark
 |-- src/utils/                 # Configuration, seeding and run metadata
 |-- experiments/
 |   |-- context.py            # Configuration, device and loader preparation
 |   |-- run.py                # Training CLI and multi-epoch orchestration
 |   |-- verify_checkpoint.py  # Saved-run validation reload check
+|   |-- evaluate.py           # Test metrics, predictions, error analysis, inference cost
 |   |-- compare.py            # Verified-run comparison CSV
 |   `-- plot_curves.py        # Saved-history figure export
 |-- notebooks/01_eda.ipynb     # Data audit and exploratory analysis
+|-- notebooks/02_results_analysis.ipynb  # Kaggle training, evaluation and full results analysis
 |-- results/                  # Comparison CSV, exported figures and ignored run directories
 |-- tests/                    # Data, model, checkpoint and integration checks
 |-- docs/                     # Environment, experiment priorities and disclosure log
@@ -298,9 +326,10 @@ the LMS. The LMS has not been checked here.
 
 - Run the controlled frozen-versus-full-fine-tuning comparison from the same
   pretrained weights and seeded head initialization. Keep shared factors fixed.
-- Add a documented early-stopping extension: validation-loss non-improvement for
-  five consecutive epochs, with a configured maximum budget; checkpoint selection
-  remains validation Macro-F1. Do not relabel completed fixed-budget runs.
+- [x] Early stopping extension: patience 5 with a 20 epoch maximum budget. It
+  monitors validation Macro F1, the same metric as checkpoint selection, so the
+  stopping rule survives resume without extra state. Completed fixed-budget M2
+  runs are not relabelled.
 - Profile batch waiting, transfer and GPU computation before optimizing throughput.
   The similar observed run times and low reported GPU utilization do not prove
   a particular bottleneck.
@@ -320,10 +349,9 @@ roles should be attributed accurately rather than claiming the assistant ran the
 reported model-training experiments.
 
 This README was updated on **26 Oct 2026** from the local M2 artifacts and source.
-The [assignment log](docs/ai_usage.md) records the subsequent implementation and
-writing assistance. Trần Mạnh Thắng (2353124) confirmed his Codex use and overall
+The [repository AI-use log](../AI_USAGE.md#assignment-2) records the subsequent
+implementation and writing assistance. Trần Mạnh Thắng (2353124) confirmed his Codex use and overall
 final-verification responsibility. Claude Opus 5.5 entries for Hoang Kim Cuong
 (2352145) and Phan Tan Loc (2352712) are user-reported drafts; those members must
 confirm exact usage dates, prompts, student edits and personal checks. Reconcile
-these details with [the repository log](../AI_USAGE.md), report and website before
-submission. Historical website/EDA entries are retained for group review.
+these details with the report and website before submission. Historical website/EDA entries are retained for group review.

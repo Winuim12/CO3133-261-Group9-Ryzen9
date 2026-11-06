@@ -74,4 +74,6 @@ def prepare_data_loaders(context):
         batch_size=data_config["batch_size"],
         num_workers=data_config["num_workers"],
         seed=context.config["seed"],
+        persistent_workers=data_config.get("persistent_workers", False),
+        prefetch_factor=data_config.get("prefetch_factor", 2),
     )

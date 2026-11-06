@@ -1,0 +1,7 @@
+{
+  "epochs_completed": 20,
+  "best_epoch": 19,
+  "best_val_macro_f1": 0.7244922525469442,
+  "training_seconds": 3327.7462589860006,
+  "stopped_early": false
+}

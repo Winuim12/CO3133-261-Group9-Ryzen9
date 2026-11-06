@@ -1,0 +1,33 @@
+Run directory: /tmp/assignment2_20261103T145357_826640Z/results/runs/baseline_cnn/20261103T145419Z_7a003524
+Device: cuda
+Epoch 1/20 | train loss=3.3692 | val loss=3.3669 | val Macro F1=0.0038 | epoch=764.5s | train=27.8 img/s | loader wait=590.1s
+Epoch 2/20 | train loss=3.2894 | val loss=3.2190 | val Macro F1=0.0185 | epoch=170.2s | train=124.0 img/s | loader wait=110.2s
+Epoch 3/20 | train loss=3.2377 | val loss=3.4097 | val Macro F1=0.0222 | epoch=166.7s | train=126.1 img/s | loader wait=106.9s
+Epoch 4/20 | train loss=3.2144 | val loss=3.2673 | val Macro F1=0.0281 | epoch=171.8s | train=122.7 img/s | loader wait=111.1s
+Epoch 5/20 | train loss=3.1773 | val loss=3.1995 | val Macro F1=0.0426 | epoch=172.6s | train=122.2 img/s | loader wait=111.7s
+Epoch 6/20 | train loss=3.1393 | val loss=3.5130 | val Macro F1=0.0347 | epoch=175.5s | train=119.5 img/s | loader wait=114.4s
+Epoch 7/20 | train loss=3.0947 | val loss=3.4822 | val Macro F1=0.0426 | epoch=173.0s | train=120.5 img/s | loader wait=113.3s
+Epoch 8/20 | train loss=3.0612 | val loss=3.1171 | val Macro F1=0.0660 | epoch=163.6s | train=129.7 img/s | loader wait=103.7s
+Epoch 9/20 | train loss=3.0147 | val loss=3.0010 | val Macro F1=0.0897 | epoch=169.7s | train=124.9 img/s | loader wait=108.5s
+Epoch 10/20 | train loss=2.9862 | val loss=3.1610 | val Macro F1=0.0754 | epoch=168.6s | train=124.7 img/s | loader wait=108.9s
+Epoch 11/20 | train loss=2.9474 | val loss=2.9984 | val Macro F1=0.1004 | epoch=167.6s | train=125.6 img/s | loader wait=108.2s
+Epoch 12/20 | train loss=2.9088 | val loss=3.1037 | val Macro F1=0.0939 | epoch=164.3s | train=128.0 img/s | loader wait=105.6s
+Epoch 13/20 | train loss=2.8758 | val loss=2.9353 | val Macro F1=0.1044 | epoch=162.5s | train=129.9 img/s | loader wait=103.8s
+Epoch 14/20 | train loss=2.8452 | val loss=2.8735 | val Macro F1=0.1261 | epoch=163.4s | train=129.0 img/s | loader wait=104.1s
+Epoch 15/20 | train loss=2.8164 | val loss=2.8851 | val Macro F1=0.1134 | epoch=162.3s | train=130.0 img/s | loader wait=103.4s
+Epoch 16/20 | train loss=2.7792 | val loss=2.9501 | val Macro F1=0.1189 | epoch=163.9s | train=128.5 img/s | loader wait=104.7s
+Epoch 17/20 | train loss=2.7522 | val loss=2.7907 | val Macro F1=0.1459 | epoch=162.7s | train=129.8 img/s | loader wait=103.9s
+Epoch 18/20 | train loss=2.7190 | val loss=2.6922 | val Macro F1=0.1719 | epoch=157.5s | train=134.5 img/s | loader wait=99.4s
+Epoch 19/20 | train loss=2.6825 | val loss=2.6807 | val Macro F1=0.1898 | epoch=158.0s | train=133.8 img/s | loader wait=99.7s
+Epoch 20/20 | train loss=2.6500 | val loss=2.6707 | val Macro F1=0.1665 | epoch=154.7s | train=137.0 img/s | loader wait=96.9s
+Training finished. Outputs: /tmp/assignment2_20261103T145357_826640Z/results/runs/baseline_cnn/20261103T145419Z_7a003524
+accuracy: saved=0.2293945052, reloaded=0.2293945052
+macro_f1: saved=0.1897806545, reloaded=0.1897806545
+Checkpoint reload verified.
+val: Accuracy=0.2294, Macro F1=0.1898, 3749 images
+test: Accuracy=0.2330, Macro F1=0.1885, 3747 images
+batch=1 fp32: 8.732 ms/image, 114.5 images/s
+batch=1 amp_fp16: 3.239 ms/image, 308.7 images/s
+batch=64 fp32: 3.091 ms/image, 323.5 images/s
+batch=64 amp_fp16: 0.652 ms/image, 1533.9 images/s
+Saved curves: /kaggle/working/outputs/baseline_cnn_20261103T145357_826640Z/results/runs/baseline_cnn/20261103T145419Z_7a003524/curves.png

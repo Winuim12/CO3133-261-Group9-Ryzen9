@@ -59,7 +59,7 @@ def test_checkpoint_restores_saved_model(tmp_path):
         run_metadata={},
     )
 
-    # Đổi trọng số hiện tại thành 0.
+    # Set the current weights to zero.
     with torch.no_grad():
         model.weight.fill_(0.0)
 
