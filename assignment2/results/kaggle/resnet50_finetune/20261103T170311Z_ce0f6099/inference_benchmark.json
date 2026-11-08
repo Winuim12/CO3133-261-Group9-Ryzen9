@@ -1,0 +1,48 @@
+{
+  "device": "Tesla T4",
+  "torch": "2.11.0+cu130",
+  "parameter_count": {
+    "total": 23569502,
+    "trainable": 23569502
+  },
+  "checkpoint_mb": 270.17497158050537,
+  "timing_scope": "Model forward pass only on synthetic inputs; excludes data loading",
+  "results": [
+    {
+      "batch_size": 1,
+      "precision": "fp32",
+      "iterations": 50,
+      "ms_per_batch": 8.273621299995284,
+      "ms_per_image": 8.273621299995284,
+      "images_per_second": 120.86605897717001,
+      "peak_allocated_mb": 115.173828125
+    },
+    {
+      "batch_size": 1,
+      "precision": "amp_fp16",
+      "iterations": 50,
+      "ms_per_batch": 5.877366620006796,
+      "ms_per_image": 5.877366620006796,
+      "images_per_second": 170.14422693931652,
+      "peak_allocated_mb": 156.8017578125
+    },
+    {
+      "batch_size": 64,
+      "precision": "fp32",
+      "iterations": 50,
+      "ms_per_batch": 263.4271291999903,
+      "ms_per_image": 4.1160488937498485,
+      "images_per_second": 242.9514385794793,
+      "peak_allocated_mb": 776.521484375
+    },
+    {
+      "batch_size": 64,
+      "precision": "amp_fp16",
+      "iterations": 50,
+      "ms_per_batch": 79.58680132000154,
+      "ms_per_image": 1.243543770625024,
+      "images_per_second": 804.153439245154,
+      "peak_allocated_mb": 505.8759765625
+    }
+  ]
+}

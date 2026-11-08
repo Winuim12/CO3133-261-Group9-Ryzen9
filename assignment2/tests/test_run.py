@@ -1,5 +1,7 @@
 #test_run.py
 
+import json
+
 import torch
 from torch import nn
 
@@ -55,3 +57,36 @@ def test_train_epochs_saves_best_validation_checkpoint(tmp_path):
     assert saved["val_macro_f1"] == max(
         record["val"]["macro_f1"] for record in history
     )
+
+def test_train_epochs_stops_early_and_resume_keeps_stop(tmp_path):
+    context = ExperimentContext(
+        project_root=tmp_path,
+        config={
+            "training": {"epochs": 10, "save_last": True, "early_stopping_patience": 2},
+            "data": {"num_classes": 3},
+        },
+        device=torch.device("cpu"),
+    )
+    model = nn.Linear(2, 3)
+    loader = [(torch.rand(4, 2), torch.tensor([0, 1, 2, 0]))]
+
+    def train(resume=False):
+        # Zero learning rate keeps validation Macro-F1 flat after epoch 1.
+        return train_epochs(
+            context=context,
+            model=model,
+            criterion=nn.CrossEntropyLoss(),
+            optimizer=torch.optim.Adam(model.parameters(), lr=0.0),
+            train_loader=loader,
+            val_loader=loader,
+            checkpoint_path=tmp_path / "best_model.pt",
+            run_metadata={},
+            resume=resume,
+        )
+
+    assert [record["epoch"] for record in train()] == [1, 2, 3]
+    progress = json.loads((tmp_path / "progress.json").read_text())
+    assert progress["stopped_early"] is True
+    assert progress["best_epoch"] == 1
+
+    assert [record["epoch"] for record in train(resume=True)] == [1, 2, 3]

@@ -37,6 +37,20 @@ def load_comparison_row(run_dir):
         "code_commit": metadata["code_commit"],
     }
 
+    # Present after experiments.evaluate; M2 runs predate it.
+    test_path = run_dir / "evaluation_test.json"
+    if test_path.is_file():
+        test = json.loads(test_path.read_text(encoding="utf-8"))
+        row["test_accuracy"] = test["metrics"]["accuracy"]
+        row["test_macro_f1"] = test["metrics"]["macro_f1"]
+    benchmark_path = run_dir / "inference_benchmark.json"
+    if benchmark_path.is_file():
+        benchmark = json.loads(benchmark_path.read_text(encoding="utf-8"))
+        for result in benchmark["results"]:
+            name = f"b{result['batch_size']}_{result['precision']}"
+            row[f"{name}_ms_per_image"] = result["ms_per_image"]
+            row[f"{name}_images_per_second"] = result["images_per_second"]
+
     return row, metadata["manifest_hashes"]
 
 def main():
@@ -62,7 +76,8 @@ def main():
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
     with output_path.open("w", newline="", encoding="utf-8") as output:
-        writer = csv.DictWriter(output, fieldnames=list(rows[0]))
+        fieldnames = list(dict.fromkeys(name for row in rows for name in row))
+        writer = csv.DictWriter(output, fieldnames=fieldnames, restval="")
         writer.writeheader()
         writer.writerows(rows)
 
@@ -70,7 +85,7 @@ def main():
         print(
             f"{row['model']}: "
             f"val Accuracy={row['validation_accuracy']:.4f}, "
-            f"val Macro-F1={row['validation_macro_f1']:.4f}, "
+            f"val Macro F1={row['validation_macro_f1']:.4f}, "
             f"best epoch={row['best_epoch']}"
         )
 

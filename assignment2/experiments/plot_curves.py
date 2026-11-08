@@ -21,9 +21,9 @@ def plot_curves(run_dirs, output_path):
     )
 
     metrics = (
-        ("loss", "Cross-Entropy loss"),
+        ("loss", "Cross entropy loss"),
         ("accuracy", "Accuracy"),
-        ("macro_f1", "Macro-F1"),
+        ("macro_f1", "Macro F1"),
     )
 
     for row, run_dir in enumerate(run_dirs):
@@ -37,7 +37,7 @@ def plot_curves(run_dirs, output_path):
             label += (
                 " (frozen)"
                 if model.get("freeze_backbone")
-                else " (full fine-tune)"
+                else " (full fine tuning)"
             )
 
         epochs = [record["epoch"] for record in history]
@@ -68,7 +68,7 @@ def plot_curves(run_dirs, output_path):
             if metric != "loss":
                 axis.set_ylim(0, 1)
 
-    figure.suptitle("M2: training and validation histories")
+    figure.suptitle("Training and validation histories")
     figure.tight_layout(rect=(0, 0, 1, 0.96))
 
     output_path.parent.mkdir(parents=True, exist_ok=True)

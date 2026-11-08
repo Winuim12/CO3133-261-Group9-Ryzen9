@@ -1,0 +1,11 @@
+{
+  "model": "resnet50",
+  "finetune": false,
+  "epochs": 20,
+  "patience": 5,
+  "batch_size": 64,
+  "workers": 4,
+  "no_amp": false,
+  "no_fast_cuda": false,
+  "no_channels_last": false
+}

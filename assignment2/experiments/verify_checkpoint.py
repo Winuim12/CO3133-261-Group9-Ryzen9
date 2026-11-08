@@ -16,9 +16,11 @@ from src.evaluation.evaluator import evaluate
 from src.models.factory import build_model
 from src.utils.run_info import collect_run_metadata
 from src.utils.seed import set_seed
+from src.training.runtime import configure_runtime
 
 
-def verify_checkpoint(run_dir):
+def load_best_model(run_dir):
+    """Load best_model.pt after checking it matches the saved run and manifests."""
     run_dir = PROJECT_ROOT / Path(run_dir)
 
     config = json.loads(
@@ -40,6 +42,7 @@ def verify_checkpoint(run_dir):
         config=config,
         device=device,
     )
+    runtime = configure_runtime(config, device)
 
     current_metadata = collect_run_metadata(context, run_dir)
     if current_metadata["manifest_hashes"] != metadata["manifest_hashes"]:
@@ -60,6 +63,24 @@ def verify_checkpoint(run_dir):
     model = build_model(model_config)
     model.load_state_dict(checkpoint["model_state_dict"], strict=True)
     model = model.to(device)
+    if runtime["channels_last"]:
+        model = model.to(memory_format=torch.channels_last)
+
+    return {
+        "run_dir": run_dir, "config": config, "metadata": metadata, "history": history,
+        "context": context, "runtime": runtime, "checkpoint": checkpoint, "model": model,
+    }
+
+
+def verify_checkpoint(run_dir):
+    loaded = load_best_model(run_dir)
+    run_dir, config, metadata, history = (
+        loaded[name] for name in ("run_dir", "config", "metadata", "history")
+    )
+    context, runtime, checkpoint, model = (
+        loaded[name] for name in ("context", "runtime", "checkpoint", "model")
+    )
+    device = context.device
 
     _, val_loader, _ = prepare_data_loaders(context)
 
@@ -71,6 +92,7 @@ def verify_checkpoint(run_dir):
         val_loader,
         device,
         num_classes=config["data"]["num_classes"],
+        channels_last=runtime["channels_last"],
     )
 
     saved_record = next(

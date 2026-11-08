@@ -3,7 +3,7 @@ import torch
 from src.evaluation.metrics import compute_metrics
 
 
-def evaluate(model, loader, device, num_classes=30):
+def evaluate(model, loader, device, num_classes=30, channels_last=False):
     model = model.to(device)
     model.eval()
 
@@ -12,7 +12,9 @@ def evaluate(model, loader, device, num_classes=30):
 
     with torch.no_grad():
         for images, labels in loader:
-            images = images.to(device)
+            images = images.to(device, non_blocking=True, memory_format=(
+                torch.channels_last if channels_last else torch.preserve_format
+            ))
 
             logits = model(images)
             predictions = logits.argmax(dim=1)

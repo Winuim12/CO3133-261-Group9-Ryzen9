@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Assignment 2 | M2 Draft | 30VNFoods</title>
+  <title>Assignment 2 - Food Classification</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" type="image/png" href="hcmut_logo.png" />
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -219,29 +219,202 @@
 @media (prefers-reduced-motion: reduce) {
   #dataset-proposal .action-btn { transition: none; }
 }
-  /* Dataset Description & EDA (audited results) */
-  #eda .eda-figure { margin: 1rem 0 1.5rem; padding: 14px; background: #fcfbfe; border: 1px solid #ece6f5; border-radius: 12px; }
-  #eda .eda-figure img { display: block; width: 100%; height: auto; margin: 0 auto; }
-  #eda .eda-figure.narrow img { max-width: 400px; }
+  /* Dataset Description & EDA */
+  #eda {
+    --eda-ink: #1e1b4b;
+    --eda-violet: #5b21b6;
+    --eda-lilac: #a78bfa;
+    --eda-mist: #ddd6fe;
+    --eda-line: #e9e4f5;
+    --eda-soft: #f8f6fd;
+  }
+  #eda .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  #eda a { color: var(--eda-violet); font-weight: 600; text-underline-offset: 3px; }
+  #eda a:focus-visible, #eda .eda-ledger-scroll:focus-visible, #eda summary:focus-visible { outline: 3px solid var(--accent-purple); outline-offset: 3px; border-radius: 4px; }
+  #eda [id] { scroll-margin-top: 88px; }
+
+  /* Count trail: the stages an image passes through */
+
+  /* Parts */
+  #eda .eda-part { margin-top: 1.6rem; padding-top: 1.1rem; border-top: 1px solid var(--eda-line); }
+  #eda .eda-part:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+  #eda .eda-part > h3 { margin: 0 0 0.6rem; font-size: 1.2rem; color: var(--eda-ink); }
+  #eda h4 { margin: 1.1rem 0 0.4rem; font-family: 'Space Grotesk', sans-serif; font-size: 0.98rem; font-weight: 700; color: var(--eda-ink); }
+  #eda h4.eda-h4-first { margin-top: 0; }
+  #eda p { max-width: 75ch; font-size: 0.9rem; }
+  #eda .eda-aside { margin-top: 0.4rem; font-size: 0.84rem; line-height: 1.6; color: var(--text-muted); }
+  #eda .eda-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem 2.25rem; align-items: start; }
+  #eda .eda-pill { display: inline-block; margin-right: 0.3rem; padding: 0 0.5rem; border: 1px solid #a7f3d0; border-radius: var(--radius-full); background: #ecfdf5; color: #065f46; font-size: 0.76rem; font-weight: 700; }
+
+  /* Compact key-value list */
+  #eda .eda-kv { margin: 0; font-size: 0.86rem; line-height: 1.5; }
+  #eda .eda-kv > div { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 0.75rem; padding: 0.35rem 0; border-bottom: 1px solid var(--eda-line); }
+  #eda .eda-kv > div:first-child { border-top: 1px solid var(--eda-line); }
+  #eda .eda-kv-wide { max-width: 52rem; }
+  #eda .eda-kv dt { font-weight: 600; color: var(--eda-violet); }
+  #eda .eda-kv dd { margin: 0; color: var(--text-secondary); font-variant-numeric: tabular-nums; }
+
+  /* Tables */
+  #eda .table-container { margin: 0.5rem 0; }
+  #eda .eda-flush { margin-top: 0; }
+  #eda .eda-tight { font-size: 0.85rem; }
+  #eda .eda-tight th, #eda .eda-tight td { padding: 0.4rem 0.9rem; line-height: 1.5; }
+  #eda .eda-num td:not(:first-child), #eda .eda-num th:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
+  #eda .eda-total td { font-weight: 700; color: var(--eda-ink); border-top: 2px solid var(--eda-line); }
+
+  /* Source platforms: ranked bars */
+
+  /* Class ledger: the per-class distribution */
+  #eda .eda-ledger-wrap { margin: 0.25rem 0 1.25rem; }
+  #eda .eda-ledger-key { display: flex; flex-wrap: wrap; gap: 0.3rem 1.1rem; margin-bottom: 0.4rem; font-size: 0.8rem; color: var(--text-secondary); }
+  #eda .eda-ledger-key span { display: inline-flex; align-items: center; gap: 0.35rem; }
+  #eda .eda-ledger-key i { display: inline-block; width: 14px; height: 9px; border-radius: 2px; }
+  #eda .eda-ledger-key .key-mean { width: 0; height: 12px; border-left: 2px dashed var(--eda-ink); border-radius: 0; }
+  #eda .seg-train { background: var(--eda-violet); }
+  #eda .seg-val { background: var(--eda-lilac); }
+  #eda .seg-test { background: var(--eda-mist); }
+  #eda .eda-ledger-scroll { margin: 0; }
+  #eda .eda-ledger { width: 100%; min-width: 540px; border-collapse: collapse; table-layout: fixed; font-size: 0.82rem; line-height: 1.35; font-variant-numeric: tabular-nums; background: #fff; }
+  #eda .eda-ledger caption { padding: 0.5rem 0.9rem; text-align: left; font-weight: 600; color: var(--text-secondary); background: var(--eda-soft); border-bottom: 1px solid var(--eda-line); }
+  #eda .eda-ledger thead th { padding: 0.35rem 0.6rem; font-size: 0.76rem; font-weight: 600; color: var(--text-muted); text-align: right; border-bottom: 1px solid var(--eda-line); }
+  #eda .eda-ledger thead th:first-child { width: 10.5rem; text-align: left; }
+  #eda .eda-ledger thead th:nth-child(n+3) { width: 4rem; }
+  #eda .eda-ledger thead th:last-child { width: 4.75rem; }
+  #eda .eda-ledger tbody th, #eda .eda-ledger tfoot th { padding: 0.12rem 0.6rem 0.12rem 0.9rem; text-align: left; font-weight: 500; color: var(--eda-ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #eda .eda-ledger td { padding: 0.12rem 0.6rem; text-align: right; color: var(--text-muted); }
+  #eda .eda-ledger td:last-child { padding-right: 0.9rem; color: var(--eda-ink); font-weight: 600; }
+  #eda .eda-ledger td.ledger-bar { padding: 0.12rem 0.4rem 0.12rem 0; }
+  #eda .ledger-bar .bar { position: relative; display: flex; height: 11px; }
+  #eda .ledger-bar .bar::after { content: ''; position: absolute; top: -4px; bottom: -4px; left: 54.89%; border-left: 2px dashed var(--eda-ink); opacity: 0.55; }
+  #eda .ledger-bar .seg { height: 100%; }
+  #eda .ledger-bar .seg + .seg { box-shadow: inset 1px 0 0 #fff; }
+  #eda .eda-ledger tbody tr:hover { background: var(--eda-soft); }
+  #eda .eda-ledger tr.is-edge th { font-weight: 700; }
+  #eda .eda-ledger tfoot th, #eda .eda-ledger tfoot td { padding-top: 0.4rem; padding-bottom: 0.4rem; border-top: 2px solid var(--eda-ink); font-weight: 700; color: var(--eda-ink); }
+
+  /* Figures */
+  #eda .eda-figure { margin: 0.75rem 0 0; padding: 8px; background: var(--eda-soft); border: 1px solid var(--eda-line); border-radius: var(--radius-md); }
+  #eda .eda-figure img { display: block; width: 100%; height: auto; border-radius: 6px; }
+  #eda .eda-figure figcaption { margin-top: 6px; color: var(--text-muted); font-size: 0.8rem; line-height: 1.5; }
+  #eda .eda-figure-capped { max-width: 54rem; }
+  #eda .eda-gallery { display: grid; grid-template-columns: 2.1fr 1fr; gap: 1rem; align-items: start; }
+  #eda .eda-gallery .eda-figure { margin: 0; }
+
+  /* Collapsible procedure */
+  #eda .eda-details { margin-top: 0.9rem; border: 1px solid var(--eda-line); border-radius: var(--radius-sm); }
+  #eda .eda-details summary { padding: 0.5rem 0.9rem; cursor: pointer; font-size: 0.88rem; font-weight: 600; color: var(--eda-violet); }
+  #eda .eda-details[open] summary { border-bottom: 1px solid var(--eda-line); }
+  #eda .eda-steps { margin: 0; padding: 0.5rem 0.9rem 0.6rem 2.2rem; font-size: 0.86rem; line-height: 1.55; }
+  #eda .eda-steps li { padding: 0.2rem 0; }
+  #eda .eda-steps strong { color: var(--eda-ink); }
+
+  /* Limitations: two short columns */
+  #eda .eda-limits { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.4rem 2rem; margin: 0; padding: 0; list-style: none; font-size: 0.86rem; line-height: 1.55; }
+  #eda .eda-limits li { padding-left: 0.75rem; border-left: 2px solid var(--eda-mist); }
+  #eda .eda-limits strong { color: var(--eda-ink); }
+
+  @media (max-width: 860px) {
+    #eda .eda-cols, #eda .eda-gallery, #eda .eda-limits { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    #eda .eda-kv > div { grid-template-columns: 6rem minmax(0, 1fr); gap: 0.5rem; }
+  }
+  /* Methodology */
+  #methodology { --mt-ink: #1e1b4b; --mt-violet: #5b21b6; --mt-mist: #ddd6fe; --mt-line: #e9e4f5; --mt-soft: #f8f6fd; }
+  #methodology a { color: var(--mt-violet); font-weight: 600; text-underline-offset: 3px; }
+  #methodology a:focus-visible, #methodology .table-container:focus-visible { outline: 3px solid var(--accent-purple); outline-offset: 3px; border-radius: 4px; }
+  #methodology .mt-part + .mt-part { margin-top: 1.6rem; padding-top: 1.1rem; border-top: 1px solid var(--mt-line); }
+  #methodology h3 { margin: 0 0 0.6rem; font-size: 1.2rem; color: var(--mt-ink); }
+
+  /* Pipeline: seven stages on one rail */
+  #methodology .mt-flow { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; counter-reset: mt-stage; }
+  #methodology .mt-flow li { counter-increment: mt-stage; position: relative; padding: 1.35rem 0.6rem 0 0; border-top: 2px solid var(--mt-ink); font-size: 0.78rem; line-height: 1.45; color: var(--text-muted); }
+  #methodology .mt-flow li::before { content: counter(mt-stage); position: absolute; top: -0.7rem; left: 0; width: 1.3rem; height: 1.3rem; border-radius: 50%; background: var(--mt-ink); color: #fff; font-family: 'Space Grotesk', sans-serif; font-size: 0.72rem; font-weight: 700; line-height: 1.3rem; text-align: center; }
+  #methodology .mt-flow li:nth-child(3)::before { background: var(--mt-violet); box-shadow: 0 0 0 3px var(--mt-mist); }
+  #methodology .mt-flow strong { display: block; margin-bottom: 0.15rem; font-family: 'Space Grotesk', sans-serif; font-size: 0.86rem; color: var(--mt-ink); }
+
+  /* Model comparison */
+  #methodology .mt-models { font-size: 0.85rem; table-layout: fixed; min-width: 640px; }
+  #methodology .mt-models caption { padding: 0.55rem 0.9rem; text-align: left; font-weight: 600; color: var(--text-secondary); background: var(--mt-soft); }
+  #methodology .mt-models th, #methodology .mt-models td { padding: 0.5rem 0.9rem; line-height: 1.5; vertical-align: top; }
+  #methodology .mt-models thead th { text-transform: none; letter-spacing: 0; font-size: 0.86rem; color: var(--mt-ink); }
+  #methodology .mt-models thead th:first-child { width: 9rem; }
+  #methodology .mt-models tbody th { text-transform: none; letter-spacing: 0; font-size: 0.85rem; font-family: inherit; font-weight: 600; color: var(--mt-violet); background: transparent; border-bottom: 1px solid #f1f5f9; }
+  #methodology .mt-num td { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--mt-ink); }
+
+  /* Ordered steps and key-value lists */
+  #methodology .mt-steps { margin: 0; padding-left: 1.4rem; font-size: 0.9rem; line-height: 1.6; max-width: 82ch; }
+  #methodology .mt-steps li { padding: 0.15rem 0 0.15rem 0.2rem; }
+  #methodology .mt-steps li::marker { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--mt-violet); }
+  #methodology .mt-steps strong { color: var(--mt-ink); }
+  #methodology .mt-kv { margin: 0; font-size: 0.86rem; line-height: 1.5; }
+  #methodology .mt-kv > div { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 0.75rem; padding: 0.35rem 0; border-bottom: 1px solid var(--mt-line); }
+  #methodology .mt-kv > div:first-child { border-top: 1px solid var(--mt-line); }
+  #methodology .mt-kv dt { font-weight: 600; color: var(--mt-violet); }
+  #methodology .mt-kv dd { margin: 0; color: var(--text-secondary); }
+
+  @media (max-width: 1000px) {
+    #methodology .mt-flow { grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 1.4rem; }
+  }
+  @media (max-width: 600px) {
+    #methodology .mt-flow { grid-template-columns: 1fr; row-gap: 0; border-left: 2px solid var(--mt-ink); margin-left: 0.6rem; }
+    #methodology .mt-flow li { padding: 0 0 0.7rem 1.2rem; border-top: 0; }
+    #methodology .mt-flow li::before { top: 0; left: -0.7rem; }
+    #methodology .mt-kv > div { grid-template-columns: 7rem minmax(0, 1fr); gap: 0.5rem; }
+  }
   #dataset-proposal .status-badge.approved { background: #ecfdf5; color: #065f46; border-color: #a7f3d0; }
   #dataset-proposal .status-badge.approved .status-badge-icon { color: #047857; border-color: #6ee7b7; background: #d1fae5; }
-  #eda .eda-figure figcaption { margin-top: 10px; color: #6b6478; font-size: 0.8rem; text-align: center; line-height: 1.6; }
-  #eda .eda-note { margin: 1rem 0; padding: 12px 16px; border-radius: 9px; background: #f7f4fc; color: #62566f; font-size: 0.85rem; line-height: 1.8; }
-  #eda .rubric-table td:not(:first-child), #eda .rubric-table th:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
 
   /* M2 report content reuses the existing assignment theme. */
   .a2-page .m2-note { padding: 1rem 1.2rem; margin: 1rem 0; border-left: 4px solid var(--accent-purple); border-radius: var(--radius-sm); background: #f7f4fc; color: var(--text-secondary); }
-  .a2-page .m2-contents { display: flex; flex-wrap: wrap; gap: .6rem 1rem; margin: 1rem 0 .25rem; }
-  .a2-page .m2-contents a { color: #6d28d9; font-weight: 600; text-underline-offset: 3px; }
+  .a2-page .hero-archive { max-width: 34rem; margin: 1.5rem auto 0; text-wrap: balance; padding-top: 1.1rem; border-top: 1px solid #e4dcf7; font-size: .875rem; line-height: 1.6; color: var(--text-muted); }
+  .a2-page .hero-archive > span { display: inline-block; }
+  .a2-page .hero-archive a { color: var(--text-secondary); font-weight: 600; text-decoration: underline; text-decoration-color: #c4b5fd; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+  .a2-page .hero-archive a:hover { color: #6d28d9; text-decoration-color: currentColor; }
+  .a2-page .hero-archive a:focus-visible { outline: 3px solid var(--accent-purple); outline-offset: 2px; border-radius: 2px; }
+  .a2-page .ps-lead { font-size: 1.02rem; color: var(--text-secondary); }
+  .a2-page .ps-defs { display: grid; margin: 1rem 0 0; border-top: 1px solid #e4dcf7; }
+  .a2-page .ps-defs > div { display: grid; grid-template-columns: 9.5rem 1fr; gap: 1rem; padding: .6rem 0; border-bottom: 1px solid #efeaf9; }
+  .a2-page .ps-defs dt { font-weight: 700; color: #4c1d95; }
+  .a2-page .ps-defs dd { margin: 0; color: var(--text-secondary); }
+  .a2-page .ps-track { display: flex; flex-wrap: wrap; align-items: baseline; gap: .4rem 1rem; margin-bottom: 1.1rem; padding-bottom: 1.1rem; border-bottom: 1px solid #e4dcf7; }
+  .a2-page .ps-track-name { padding: .3rem .9rem; border-radius: var(--radius-sm); background: #6d28d9; color: #fff; font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; }
+  .a2-page .ps-math { margin: 1.25rem 0 .5rem; padding: .5rem 1.25rem .9rem; border-left: 3px solid #7c3aed; background: #f7f4fc; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; color: #1e1b4b; }
+  .a2-page .ps-math-row { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); align-items: center; gap: 1rem; border-bottom: 1px solid #ebe4fa; }
+  .a2-page .ps-math-row > div { overflow-x: auto; overflow-y: hidden; }
+  .a2-page .ps-math-row mjx-container[display="true"] { margin: .55rem 0 !important; text-align: left !important; }
+  .a2-page .ps-math-key { font-size: .85rem; font-weight: 600; color: var(--text-muted); }
+  .a2-page .ps-legend { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: .3rem 1.5rem; margin: .9rem 0 0; font-size: .85rem; }
+  .a2-page .ps-legend > div { display: flex; align-items: baseline; gap: .6rem; }
+  .a2-page .ps-legend dt { flex: none; color: #1e1b4b; }
+  .a2-page .ps-legend dd { margin: 0; color: var(--text-secondary); }
+  .a2-page .ps-labels { margin: 1rem 0 .5rem; border-top: 2px solid #4c1d95; }
+  .a2-page .ps-family { display: grid; grid-template-columns: 13rem 1fr; gap: 1.25rem; padding: .85rem 0; border-bottom: 1px solid #e4dcf7; }
+  .a2-page .ps-family-name { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #1e1b4b; line-height: 1.35; }
+  .a2-page .ps-family-name span { display: block; margin-top: .15rem; font-family: 'Plus Jakarta Sans', sans-serif; font-size: .8rem; font-weight: 500; color: var(--text-muted); }
+  .a2-page .ps-family ul { display: flex; flex-wrap: wrap; gap: .35rem 1.4rem; margin: 0; padding: 0; list-style: none; }
+  .a2-page .ps-family li { font-size: 1.02rem; font-weight: 500; color: var(--text-main); }
+  .a2-page .ps-questions { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: .75rem; }
+  .a2-page .ps-questions > div { padding-top: .75rem; border-top: 2px solid #c4b5fd; }
+  .a2-page .ps-questions h4 { margin: 0 0 .35rem; font-family: 'Space Grotesk', sans-serif; font-size: 1rem; color: #1e1b4b; }
+  .a2-page .ps-questions p { margin: 0; color: var(--text-secondary); }
+  @media (max-width: 640px) {
+    .a2-page .ps-defs > div, .a2-page .ps-family { grid-template-columns: 1fr; gap: .25rem; }
+    .a2-page .ps-math-row { grid-template-columns: 1fr; gap: 0; padding-top: .5rem; }
+    .a2-page .ps-questions { grid-template-columns: 1fr; }
+  }
   .a2-page .content-card a:focus-visible, .a2-page .m2-figure a:focus-visible, .a2-page .table-container:focus-visible { outline: 3px solid var(--accent-purple); outline-offset: 4px; }
   .a2-page .m2-figure { margin: 1.25rem 0; padding: .8rem; background: var(--bg-card-subtle); border: 1px solid var(--border-card); border-radius: var(--radius-md); }
   .a2-page .m2-figure img { display: block; width: 100%; height: auto; }
   .a2-page .m2-figure figcaption { margin-top: .75rem; color: var(--text-secondary); font-size: .85rem; line-height: 1.65; }
   .a2-page .rubric-table caption { padding: .8rem 1.1rem; text-align: left; color: var(--text-secondary); font-weight: 600; background: var(--bg-card-solid); }
-  .a2-page .m2-code { max-width: 100%; overflow-x: auto; padding: 1rem; margin: 1rem 0; background: var(--bg-card-subtle); border: 1px solid var(--border-card); border-radius: var(--radius-sm); font-size: .82rem; line-height: 1.7; }
   .a2-page .m2-break { overflow-wrap: anywhere; }
   .a2-page .content-card > p + p { margin-top: .8rem; }
-  @media (max-width: 640px) { .a2-page .rubric-table th, .a2-page .rubric-table td { padding: .7rem .8rem; } }
+  @media (max-width: 640px) {
+    .a2-page .rubric-table th, .a2-page .rubric-table td { padding: .7rem .8rem; }
+    /* Keep the disclosure table identical to Assignment 1. */
+    .a2-page .disclosure-card .rubric-table th, .a2-page .disclosure-card .rubric-table td { padding: .85rem 1.25rem; }
+  }
   @media (prefers-reduced-motion: reduce) { .a2-page .link-btn-card { transition: none; } .a2-page .link-btn-card:hover { transform: none; } }
   </style>
 </head>
@@ -273,7 +446,22 @@
         </div>
         <h1 class="page-hero-title-bright">Deep Learning on Large-Scale Data and Specialized Tasks</h1>
         <p class="page-hero-topic-bright">
-          30VNFoods &middot; M2 Draft &middot; Scratch CNN and frozen pretrained ResNet-50
+          Deep Learning on Large-Scale Data for Specialized Computer Vision or Language Tasks.
+        </p>
+        <p style="max-width:900px; margin:0.75rem auto 0; color:var(--text-muted)">
+          The task is image classification on 30VNFoods, a 30-class Vietnamese food dataset.
+          A simple CNN trained from scratch is compared with a pretrained ResNet-50,
+          followed by a controlled experiment on a frozen versus a fully fine-tuned backbone.
+          This page presents the dataset proposal and audit, methodology,
+          quantitative and qualitative results, error analysis, compute cost,
+          checkpoint access, and the report, slides, and video deliverables.
+        </p>
+        <p class="hero-archive">
+          <span>The M2 draft submitted on 26 Oct 2026 is kept as it was.</span>
+          <span>Archived copies are available as the
+          <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/assignment2-m2-draft-2026-10-26/assignment2.html" target="_blank" rel="noopener">submitted page</a>
+          and its
+          <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/releases/tag/assignment2-m2-draft-2026-10-26" target="_blank" rel="noopener">GitHub release</a>.</span>
         </p>
       </div>
 
@@ -303,34 +491,33 @@
           <div class="table-container">
             <table class="rubric-table">
               <thead>
-                <tr><th>#</th><th>Full Name</th><th>Student ID</th><th>GitHub</th></tr>
+                <tr><th>#</th><th>Full Name</th><th>Student ID</th><th>Role</th><th>GitHub</th></tr>
               </thead>
               <tbody>
                 <tr>
                   <td>1</td>
                   <td>Hoang Kim Cuong</td>
                   <td>2352145</td>
+                  <td>Responsible for models, training &amp; checkpoints, metrics, and error analysis</td>
                   <td><a href="https://github.com/DiamondHoang" target="_blank" rel="noopener" style="color:#7c3aed; font-weight:600;">@DiamondHoang</a></td>
                 </tr>
                 <tr>
                   <td>2</td>
                   <td>Phan Tan Loc</td>
                   <td>2352712</td>
+                  <td>Responsible for dataset audit, splitting, DataLoader, and EDA</td>
                   <td><a href="https://github.com/cspaull" target="_blank" rel="noopener" style="color:#7c3aed; font-weight:600;">@cspaull</a></td>
                 </tr>
                 <tr>
                   <td>3</td>
                   <td>Tran Manh Thang</td>
                   <td>2353124</td>
+                  <td>Responsible for environment &amp; configs, training runner, integration, and comparison</td>
                   <td><a href="https://github.com/Winuim12" target="_blank" rel="noopener" style="color:#7c3aed; font-weight:600;">@Winuim12</a></td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p class="m2-note"><strong>M2 Draft &middot; updated 26 Oct 2026.</strong> EDA and both 20-epoch runs are complete; checkpoint reloads reproduced the saved validation metrics. Full fine-tuning, detailed qualitative analysis, final slides and the mandatory YouTube video remain M3 work. The M2 deadline is 28 Oct 2026, 23:59 GMT+7, unless the LMS states otherwise.</p>
-          <nav class="m2-contents" aria-label="Assignment 2 sections">
-            <a href="#eda">Data &amp; EDA</a><a href="#methodology">Methodology</a><a href="#experimental-setup">Setup</a><a href="#m2-results">Results</a><a href="#error-analysis">Errors</a><a href="#checkpoint-reproduction">Reproduce</a><a href="#deliverables">Links</a><a href="#ai-disclosure">AI use</a>
-          </nav>
         </div>
       </section>
 
@@ -356,7 +543,7 @@
               <h3 class="proposal-title">30VNFoods</h3>
             </div>
 
-            <p class="proposal-desc">Vietnamese food recognition across 30 categories, with similar dishes, varied preparation, cluttered backgrounds, and changing lighting.</p>
+            <p class="proposal-desc">The task is Vietnamese food recognition across 30 categories, which include similar dishes, varied preparation, cluttered backgrounds and changing lighting.</p>
             <div class="action-links">
               <a href="https://www.kaggle.com/datasets/quandang/vietnamese-foods" target="_blank" rel="noopener" class="action-btn primary">Kaggle Benchmark<span aria-hidden="true">↗</span></a>
               <a href="https://github.com/18520339" target="_blank" rel="noopener" class="action-btn">Author’s GitHub <span aria-hidden="true">↗</span></a>
@@ -380,8 +567,8 @@
                 </div>
                 <dl class="dataset-details">
                   <div><dt>Source</dt><dd><a href="https://www.kaggle.com/datasets/quandang/vietnamese-foods" target="_blank" rel="noopener">View dataset on Kaggle ↗</a></dd></div>
-                  <div><dt>Dataset version</dt><dd>Kaggle version 11<span class="detail-muted">Version used for this project</span></dd></div>
-                  <div><dt>Data checked</dt><dd>03 Oct 2026<span class="detail-muted">Date of the dataset audit</span></dd></div>
+                  <div><dt>Dataset version</dt><dd>Kaggle version 11<span class="detail-muted">This version is used for the project.</span></dd></div>
+                  <div><dt>Data checked</dt><dd>03 Oct 2026<span class="detail-muted">The dataset audit was performed on this date.</span></dd></div>
                   <div><dt>License</dt><dd>CC BY-NC-SA 4.0<span class="detail-muted">As listed on the Kaggle dataset page. The downloaded package also includes an MIT LICENSE file.</span><a class="license-source" href="https://www.kaggle.com/datasets/quandang/vietnamese-foods" target="_blank" rel="noopener">Dataset license on Kaggle ↗</a></dd></div>
                 </dl>
               </div>
@@ -389,15 +576,15 @@
             <div class="proposal-section">
               <div class="section-heading"><div class="section-heading-left"><span class="section-badge-num">02</span><h3>Task, Input, and Output Definitions</h3></div></div>
               <div class="protocol-grid">
-                <div class="protocol-tile"><span class="tile-label">Input</span><strong>224 × 224 RGB</strong><p>Image resized and cropped to the standard resolution.</p></div>
-                <div class="protocol-tile"><span class="tile-label">Task</span><strong>Single-label classification</strong><p>Recognize the Vietnamese dish in each image.</p></div>
+                <div class="protocol-tile"><span class="tile-label">Input</span><strong>224 × 224 RGB</strong><p>Each image is resized and cropped to the standard resolution.</p></div>
+                <div class="protocol-tile"><span class="tile-label">Task</span><strong>Single-label classification</strong><p>The model recognizes the Vietnamese dish in each image.</p></div>
                 <div class="protocol-tile"><span class="tile-label">Output</span><strong>30 class scores</strong><p>The highest-scoring class is the prediction.</p></div>
               </div>
             </div>
             <div class="proposal-section">
               <div class="section-heading"><div class="section-heading-left"><span class="section-badge-num">03</span><h3>Number of Samples and Annotation Types</h3></div></div>
               <div class="sample-annotation-details">
-                <div class="protocol-tile"><span class="tile-label">Number of samples</span><strong class="tile-number">25,136 images</strong><p>Original dataset across 30 Vietnamese food classes. Each image is one sample.</p></div>
+                <div class="protocol-tile"><span class="tile-label">Number of samples</span><strong class="tile-number">25,136 images</strong><p>The original dataset spans 30 Vietnamese food classes. Each image is one sample.</p></div>
                 <div class="protocol-tile"><span class="tile-label">Annotation type</span><strong>Food name for each image</strong><p>Each image is labeled with one of 30 food names, such as Pho or Banh mi. Images are grouped into folders named after the food; the folder name is used as the label.</p></div>
               </div>
             </div>
@@ -406,7 +593,7 @@
               <figure class="distribution-chart">
                 <span class="tile-label">Images per class</span>
                 <img src="assets/eda/assignment2-class-distribution.svg" alt="Bar chart showing image counts for all 30 food classes, from 444 images for Banh pia to 1,530 images for Bun bo Hue" width="1000" height="1050" loading="lazy" />
-                <figcaption>Original image counts for all 30 classes</figcaption>
+                <figcaption>The chart shows original image counts for all 30 classes.</figcaption>
               </figure>
               <div class="sample-annotation-details">
                 <div class="protocol-tile"><span class="tile-label">Class imbalance</span><strong>Largest class is 3.45 times the smallest</strong><p>Bun bo Hue has the most images (1,530), while Banh pia has the fewest (444). The ratio is 1,530 / 444 &asymp; 3.45.</p></div>
@@ -415,44 +602,44 @@
             </div>
             <div class="proposal-section">
               <div class="section-heading"><div class="section-heading-left"><span class="section-badge-num">05</span><h3>Data-Splitting Plan</h3></div></div>
-              <p>Proposed class-stratified 70% / 15% / 15% split after cleaning, with <code>seed = 42</code>. Keep all 30 classes.</p>
+              <p>A class-stratified 70% / 15% / 15% split is proposed after cleaning, with <code>seed = 42</code>. All 30 classes are retained.</p>
               <div class="split-progress-bar" aria-label="70% training, 15% validation, 15% test">
                 <div class="split-segment split-train"><span class="split-title">Train 70%</span><span class="split-subtitle">17,523 images</span></div>
                 <div class="split-segment split-val"><span class="split-title">Validation 15%</span><span class="split-subtitle">3,753 images</span></div>
                 <div class="split-segment split-test"><span class="split-title">Test 15%</span><span class="split-subtitle">3,749 images</span></div>
               </div>
-              <div class="proposal-note">Use validation for model selection and reserve test data for final evaluation. Counts are provisional until duplicate review is complete.</div>
+              <div class="proposal-note">Validation is used for model selection; test data is reserved for final evaluation. Counts are provisional until duplicate review is complete.</div>
             </div>
             <div class="proposal-section">
               <div class="section-heading"><div class="section-heading-left"><span class="section-badge-num">06</span><h3>Split Unit Used to Prevent Leakage</h3></div></div>
-              <div class="proposal-note"><strong>Proposed split unit: a group of duplicate or potentially near-duplicate images.</strong> All retained images in a group go into the same set: train, validation, or test. An image with no detected matches forms its own group.</div>
+              <div class="proposal-note"><strong>The proposed split unit is a group of duplicate or potentially near-duplicate images.</strong> All retained images in a group go into the same set: train, validation, or test. An image with no detected matches forms its own group.</div>
               <ol class="protocol-steps">
-                <li><strong>Check exact copies</strong><span>Keep one copy when identical images share a label. Exclude identical images with conflicting labels pending manual review.</span></li>
-                <li><strong>Keep similar images together</strong><span>The provisional split keeps automatically flagged near-duplicate candidates in the same set. Review these candidates and source identities before finalizing the split.</span></li>
-                <li><strong>Prevent overlap</strong><span>This reduces the chance that the model is evaluated on a copy of a training image. Apply augmentation and fit dataset-derived normalization statistics using training data only.</span></li>
+                <li><strong>Exact copies</strong><span>One copy is kept when identical images share a label. Identical images with conflicting labels are excluded pending manual review.</span></li>
+                <li><strong>Similar images together</strong><span>The provisional split keeps automatically flagged near-duplicate candidates in the same set. These candidates and source identities are reviewed before the split is finalized.</span></li>
+                <li><strong>No overlap</strong><span>This reduces the chance that the model is evaluated on a copy of a training image. Augmentation and any dataset-derived normalization statistics use training data only.</span></li>
               </ol>
             </div>
             <div class="proposal-section">
               <div class="section-heading"><div class="section-heading-left"><span class="section-badge-num">07</span><h3>Evaluation Metrics</h3></div></div>
               <div class="protocol-grid">
-                <div class="protocol-tile metric-primary"><span class="tile-label">Primary metric</span><strong>Macro-F1</strong><p>Calculate F1 for each food class, then average across all 30 classes. Each class has equal weight, including those with fewer images.</p></div>
+                <div class="protocol-tile metric-primary"><span class="tile-label">Primary metric</span><strong>Macro-F1</strong><p>F1 is computed per food class, then averaged across all 30 classes. Each class has equal weight, including those with fewer images.</p></div>
                 <div class="protocol-tile"><span class="tile-label">Additional metrics</span><strong>Accuracy and per-class scores</strong><p>Accuracy measures the proportion of correctly classified images. Precision, recall, and F1 are also reported for each food class.</p></div>
                 <div class="protocol-tile"><span class="tile-label">Error analysis</span><strong>Confusion matrix</strong><p>A 30 &times; 30 matrix shows the true and predicted food classes, revealing which dishes the model commonly confuses.</p></div>
               </div>
-              <div class="proposal-note">Select the model checkpoint using the highest validation Macro-F1. After model selection is complete, report all metrics on the held-out test set.</div>
+              <div class="proposal-note">The checkpoint with the highest validation Macro-F1 is selected. After model selection, all metrics are reported on the held-out test set.</div>
             </div>
             <div class="proposal-section">
               <div class="section-heading"><div class="section-heading-left"><span class="section-badge-num">08</span><h3>Baseline Plan</h3></div></div>
               <div class="sample-annotation-details">
-                <div class="protocol-tile"><span class="tile-label">Model</span><strong>Lightweight CNN trained from scratch</strong><p>Start with randomly initialized weights. This simple model provides a reference for comparison with the pretrained model.</p></div>
+                <div class="protocol-tile"><span class="tile-label">Model</span><strong>Lightweight CNN trained from scratch</strong><p>The model starts from randomly initialized weights. This simple model provides a reference for comparison with the pretrained model.</p></div>
                 <div class="protocol-tile"><span class="tile-label">Input and output</span><strong>224 &times; 224 RGB images to 30 food classes</strong><p>Each image produces 30 class scores. The class with the highest score is the predicted food name.</p></div>
-                <div class="protocol-tile"><span class="tile-label">Training plan</span><strong>Cross-Entropy loss and Adam optimizer</strong><p>Train for up to 20 epochs. Use the same data split as the pretrained model for a fair comparison.</p></div>
-                <div class="protocol-tile"><span class="tile-label">Evaluation plan</span><strong>Select by validation Macro-F1</strong><p>Keep the checkpoint with the highest validation Macro-F1. Report test Accuracy and Macro-F1, along with per-class scores and a confusion matrix.</p></div>
+                <div class="protocol-tile"><span class="tile-label">Training plan</span><strong>Cross-Entropy loss and Adam optimizer</strong><p>The model trains for up to 20 epochs on the same data split as the pretrained model for a fair comparison.</p></div>
+                <div class="protocol-tile"><span class="tile-label">Evaluation plan</span><strong>Select by validation Macro-F1</strong><p>The checkpoint with the highest validation Macro-F1 is retained. Test Accuracy and Macro-F1 are reported with per-class scores and a confusion matrix.</p></div>
               </div>
             </div>
             <div class="proposal-section">
               <div class="section-heading"><div class="section-heading-left"><span class="section-badge-num">09</span><h3>Planned Pretrained Models</h3></div></div>
-              <p>Candidates under consideration; the final model has not been selected.</p>
+              <p>The following candidates are under consideration; the final model has not been selected.</p>
               <ul class="model-candidates" aria-label="Pretrained model candidates">
                 <li>EfficientNet-B0</li><li>ResNet-50</li><li>ConvNeXt-Tiny</li><li>ViT-B/16</li><li>MobileNetV3-Large</li>
               </ul>
@@ -466,25 +653,124 @@
       </section>
 
       <!-- Problem Statement -->
-      <section class="section-block">
+      <section class="section-block" id="problem">
         <div class="section-header">
           <span class="section-icon">🎯</span>
           <h2 class="section-title">Problem Statement</h2>
         </div>
-        <div class="content-card">
-          <p>
-            Assignment 2 reuses and extends the pipeline skills from Assignment 1 on a <strong>larger and more specialized problem</strong>.
-            Each group works deeply on one approved track; breadth across all tracks is not required.
-          </p>
-          
-          <h3>Chosen Task Track</h3>
-          <p>
-            <strong>Track 1: Image Classification</strong> — Fine-grained Vietnamese Food Recognition across 30 categories (<strong>30VNFoods</strong>).
+        <div class="content-card ps">
+          <div class="ps-track">
+            <span class="ps-track-name">Image classification</span>
+          </div>
+          <p class="ps-lead">
+            Assignment 2 carries the pipeline from Assignment 1 to a larger and more specialized problem.
+            The track covers a simple baseline,
+            a pretrained model with a documented fine-tuning protocol, a controlled experiment, quantitative
+            and qualitative evaluation, error analysis, and a compute-cost analysis.
           </p>
 
-          <p>Given one food photograph, predict its single dish label among 30 categories. The final model input is a 224 &times; 224 RGB image and the output is 30 logits. Similar dishes, varied preparation, lighting, background clutter and class imbalance make recognition difficult.</p>
+          <h3>Real-world motivation</h3>
+          <p>
+            Many apps need to know which dish is in a photo, without asking the user to type its name:
+          </p>
+          <ul class="styled-list">
+            <li><strong>Food delivery and review apps.</strong> These apps tag every uploaded photo with its dish name, so a search for <em>bún bò Huế</em> finds the right photos and restaurants.</li>
+            <li><strong>Nutrition and calorie tracking.</strong> The app recognises the dish from a photo of the meal and suggests its calories instead of asking the user to look it up.</li>
+            <li><strong>Search by photo.</strong> A picture of a dish is enough to find its recipe or a nearby place that serves it.</li>
+          </ul>
+          <p>
+            General models do not solve this out of the box: ImageNet has no Vietnamese dish classes, many dishes
+            look alike in a bowl, and the same dish varies by region, vendor and plating. Recognising 30 common
+            dishes from a single photo is the first building block for these apps.
+          </p>
 
-          <h3>Learning Objectives</h3>
+          <h3>Task formulation</h3>
+          <dl class="ps-defs">
+            <div><dt>Task</dt><dd>The task is single-label, multi-class image classification.</dd></div>
+            <div><dt>Prediction unit</dt><dd>Each photograph receives exactly one dish label.</dd></div>
+            <div><dt>Input</dt><dd>Each input is an RGB food photo, resized and center-cropped to 224 &times; 224 and normalised with ImageNet statistics.</dd></div>
+            <div><dt>Output</dt><dd>The model outputs 30 raw logits, and the largest one gives the predicted dish.</dd></div>
+            <div><dt>Data</dt><dd>30VNFoods contains 24,982 images after cleaning, split 70/15/15 by duplicate group.</dd></div>
+            <div><dt>Metrics</dt><dd>Macro-F1 is the primary metric because classes are imbalanced; accuracy is also reported.</dd></div>
+          </dl>
+
+          <div class="ps-math" aria-label="Mathematical formulation">
+            <div class="ps-math-row"><span class="ps-math-key">Dataset</span><div>\[ \mathcal{D} = \{(\mathbf{x}_i, y_i)\}_{i=1}^{N}, \quad \mathbf{x}_i \in \mathbb{R}^{3 \times 224 \times 224}, \quad y_i \in \{1, 2, \ldots, K\}, \quad K = 30 \]</div></div>
+            <div class="ps-math-row"><span class="ps-math-key">Logits</span><div>\[ \mathbf{z} = f_{\boldsymbol{\theta}}(\mathbf{x}) \in \mathbb{R}^{K} \]</div></div>
+            <div class="ps-math-row"><span class="ps-math-key">Softmax</span><div>\[ \hat{p}_k = \big(\operatorname{softmax}(\mathbf{z})\big)_k = \frac{e^{z_k}}{\sum_{j=1}^{K} e^{z_j}} = P(y = k \mid \mathbf{x}), \quad k = 1, \ldots, K \]</div></div>
+            <div class="ps-math-row"><span class="ps-math-key">Prediction</span><div>\[ \hat{y} = \arg\max_{k} \, \hat{p}_k \]</div></div>
+            <div class="ps-math-row"><span class="ps-math-key">Loss</span><div>\[ \mathcal{L}_{\text{CE}} = -\sum_{k=1}^{K} y_k \log(\hat{p}_k) = -\log(\hat{p}_y) \]</div></div>
+            <div class="ps-math-row"><span class="ps-math-key">Objective</span><div>\[ \boldsymbol{\theta}^{*} = \arg\min_{\boldsymbol{\theta}} \; \mathcal{L}\big(f_{\boldsymbol{\theta}}(\mathbf{X}), \mathbf{Y}\big) \]</div></div>
+            <div class="ps-math-row"><span class="ps-math-key">Metric</span><div>\[ \text{MacroF1} = \frac{1}{K} \sum_{k=1}^{K} \text{F1}_k, \qquad \text{F1} = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}} \]</div></div>
+            <dl class="ps-legend">
+              <div><dt>\(\mathcal{D}, N\)</dt><dd>dataset, number of samples</dd></div>
+              <div><dt>\(\mathbf{x}_i, y_i\)</dt><dd>image \(i\) and its class index</dd></div>
+              <div><dt>\(K\)</dt><dd>number of classes (30)</dd></div>
+              <div><dt>\(f_{\boldsymbol{\theta}}, \boldsymbol{\theta}\)</dt><dd>model, learnable parameters</dd></div>
+              <div><dt>\(\mathbf{z}, z_k\)</dt><dd>logits, score of class \(k\)</dd></div>
+              <div><dt>\(\hat{p}_k\)</dt><dd>probability of class \(k\)</dd></div>
+              <div><dt>\(\hat{y}\)</dt><dd>predicted class</dd></div>
+              <div><dt>\(\mathbf{y}, y_k\)</dt><dd>one-hot label, its entry \(k\)</dd></div>
+              <div><dt>\(\hat{p}_y\)</dt><dd>probability of the true class</dd></div>
+              <div><dt>\(\mathcal{L}_{\text{CE}}\)</dt><dd>cross-entropy loss</dd></div>
+              <div><dt>\(\mathbf{X}, \mathbf{Y}\)</dt><dd>batch of inputs, labels</dd></div>
+              <div><dt>\(\boldsymbol{\theta}^{*}\)</dt><dd>parameters with the lowest loss</dd></div>
+              <div><dt>\(\text{F1}_k\)</dt><dd>F1 score of class \(k\)</dd></div>
+              <div><dt>Precision, Recall</dt><dd>computed per class</dd></div>
+            </dl>
+          </div>
+
+          <h3>Label space</h3>
+          <p>
+            The 30 classes below are grouped by how they look on the plate. The groups show where visual overlap is
+            expected; the model never sees them and treats all 30 classes as independent.
+          </p>
+          <div class="ps-labels">
+              <div class="ps-family">
+                <div class="ps-family-name">Noodle bowls<span>10 classes</span></div>
+                <ul lang="vi"><li>Phở</li><li>Bún bò Huế</li><li>Bún riêu</li><li>Bún mắm</li><li>Hủ tiếu</li><li>Bánh canh</li><li>Mì Quảng</li><li>Cao lầu</li><li>Bún thịt nướng</li><li>Bún đậu mắm tôm</li></ul>
+              </div>
+              <div class="ps-family">
+                <div class="ps-family-name">Steamed and leaf-wrapped cakes<span>7 classes</span></div>
+                <ul lang="vi"><li>Bánh chưng</li><li>Bánh tét</li><li>Bánh giò</li><li>Bánh bột lọc</li><li>Bánh đúc</li><li>Bánh bèo</li><li>Bánh cuốn</li></ul>
+              </div>
+              <div class="ps-family">
+                <div class="ps-family-name">Griddle cakes<span>4 classes</span></div>
+                <ul lang="vi"><li>Bánh xèo</li><li>Bánh khọt</li><li>Bánh căn</li><li>Bánh tráng nướng</li></ul>
+              </div>
+              <div class="ps-family">
+                <div class="ps-family-name">Rice dishes<span>3 classes</span></div>
+                <ul lang="vi"><li>Cơm tấm</li><li>Xôi xéo</li><li>Cháo lòng</li></ul>
+              </div>
+              <div class="ps-family">
+                <div class="ps-family-name">Breads, rolls and others<span>6 classes</span></div>
+                <ul lang="vi"><li>Bánh mì</li><li>Bánh pía</li><li>Gỏi cuốn</li><li>Nem chua</li><li>Cá kho tộ</li><li>Canh chua</li></ul>
+              </div>
+          </div>
+
+          <h3>Research questions</h3>
+          <div class="ps-questions">
+            <div>
+              <h4>Experiment A: baseline versus pretrained</h4>
+              <p>Does an ImageNet-pretrained ResNet-50 beat a CNN trained from scratch on about 17,500 training images?</p>
+            </div>
+            <div>
+              <h4>Experiment B: frozen versus full fine-tuning</h4>
+              <p>With everything else fixed, does updating the whole backbone improve validation Macro-F1 by at least 0.01 over a frozen backbone, and is the extra cost worth it?</p>
+            </div>
+          </div>
+
+          <h3>Main difficulties</h3>
+          <ul class="styled-list">
+            <li><strong>Fine-grained classes.</strong> Several noodle soups share a broth, herbs and bowl shape, and steamed cakes wrapped in banana leaves look alike from outside.</li>
+            <li><strong>Large variation within a class.</strong> The same dish changes with region, vendor, portion, plating, camera angle and lighting.</li>
+            <li><strong>Background clutter.</strong> Photos often show side dishes, hands, tables or several dishes at once, although each image has one label.</li>
+            <li><strong>Class imbalance.</strong> Classes range from 444 to 1,530 images, so accuracy alone would reward the frequent dishes.</li>
+            <li><strong>Web-collected data.</strong> Exact and near duplicates, some filed under two classes, had to be removed or grouped before splitting to avoid leakage.</li>
+            <li><strong>Compute budget.</strong> Every run must fit a single GPU session, so training time and inference cost are reported alongside accuracy.</li>
+          </ul>
+
+          <h3>Learning objectives</h3>
           <ul class="styled-list">
             <li>Propose, justify, and obtain approval for a dataset and task protocol suitable for specialized deep learning work.</li>
             <li>Adapt an end-to-end pipeline to larger-scale data and task-specific annotations/metrics.</li>
@@ -496,154 +782,260 @@
       </section>
 
       <!-- Dataset Description & EDA -->
-      <section class="section-block" id="eda">
+      <section class="section-block" id="eda" aria-labelledby="eda-title">
         <div class="section-header">
-          <span class="section-icon">📊</span>
-          <h2 class="section-title">Dataset Description &amp; EDA</h2>
+          <span class="section-icon" aria-hidden="true">📊</span>
+          <h2 class="section-title" id="eda-title">Dataset Description &amp; EDA</h2>
         </div>
-        <div class="content-card">
-          <h3>Dataset Proposal &amp; Approval Record</h3>
-          <p>
-            Status: <span class="status-pill" style="background:#ecfdf5; color:#065f46; border:1px solid #a7f3d0; padding:0.25rem 0.75rem; border-radius:9999px; font-weight:700; font-size:0.82rem;">Approved by Instructor</span>
-            <span style="color:#6b6478; font-size:0.85rem;">(approval date and any conditions to be recorded)</span>
-          </p>
-          <p style="margin-top:0.6rem;">
-            The submitted M1 proposal is kept unchanged in the <a href="#dataset-proposal" style="color:#7c3aed; font-weight:700;">Dataset Proposal</a> section above.
-            Its split counts were provisional; the audited counts below replace them.
-          </p>
-
-          <h3 style="margin-top:1.5rem;">Dataset Audit</h3>
-          <p>
-            Every image of Kaggle version 11 was decoded and checked. The class label is the name of the image's folder.
-            The original Kaggle Train / Validate / Test folders were merged and re-split, because the images were collected
-            from the web (the package lists the source URL of every image) and the same picture can appear in more than one folder.
-          </p>
-          <div class="table-container">
-            <table class="rubric-table">
-              <thead><tr><th>Audit step</th><th>Images</th></tr></thead>
-              <tbody>
-                <tr><td>Image files in the package (30 classes)</td><td>25,136</td></tr>
-                <tr><td>Unreadable / corrupt files</td><td>0</td></tr>
-                <tr><td>Exact copies (same SHA-256) with the same label &mdash; one copy kept</td><td>&minus;25</td></tr>
-                <tr><td>Exact copies with conflicting labels &mdash; all copies removed</td><td>&minus;79</td></tr>
-                <tr><td>Near-duplicates with conflicting labels &mdash; both removed after manual review (25 pairs)</td><td>&minus;50</td></tr>
-                <tr><td><strong>Images retained for the experiments</strong></td><td><strong>24,982</strong></td></tr>
-              </tbody>
-            </table>
+        <div class="content-card eda">
+          <!-- 1. Dataset description -->
+          <div class="eda-part" id="eda-description">
+            <h3>Dataset description</h3>
+            <div class="eda-cols">
+              <dl class="eda-kv">
+                <div><dt>Source</dt><dd><a href="https://www.kaggle.com/datasets/quandang/vietnamese-foods" target="_blank" rel="noopener">30VNFoods on Kaggle</a> is published by Quan Dang.</dd></div>
+                <div><dt>Version</dt><dd>Kaggle v11 was audited on 03 Oct 2026.</dd></div>
+                <div><dt>License</dt><dd>The license is CC BY-NC-SA 4.0. The archive also has an MIT file; the stricter terms apply and the data is not redistributed.</dd></div>
+                <div><dt>Approval</dt><dd><span class="eda-pill">Approved</span> The approval is shown in the <a href="#dataset-proposal">Dataset Proposal</a>; its date and conditions are still to be recorded.</dd></div>
+                <div><dt>Collection</dt><dd>Images were scraped from the web, and source URLs are listed per class in the archive.</dd></div>
+                <div><dt>Annotation</dt><dd>Each image has one dish label, taken from its folder name, across 30 classes.</dd></div>
+                <div><dt>Official split</dt><dd>The official split has 17,581 train, 2,515 validation and 5,040 test images (70 / 10 / 20).</dd></div>
+                <div><dt>Storage</dt><dd>The zip is 4.48 GB, with a median file size of 127 KB.</dd></div>
+                <div><dt>Formats</dt><dd>All files are named <code>.jpg</code>, but the actual formats are 24,854 JPEG, 119 PNG, 7 MPO and 2 BMP, all in RGB. Files are opened by content.</dd></div>
+              </dl>
+              <div>
+                <h4 class="eda-h4-first" id="eda-audit">Data quality audit</h4>
+                <div class="table-container eda-flush">
+                  <table class="rubric-table eda-num eda-tight">
+                    <thead><tr><th scope="col">Step</th><th scope="col">Images</th></tr></thead>
+                    <tbody>
+                      <tr><td>The archive contains these images, and none are unreadable.</td><td>25,136</td></tr>
+                      <tr><td>One copy is kept for exact copies (SHA-256) with the same label.</td><td>&minus;25</td></tr>
+                      <tr><td>All exact copies with conflicting labels are removed.</td><td>&minus;79</td></tr>
+                      <tr><td>Near copies with conflicting labels are removed after review (25 pairs).</td><td>&minus;50</td></tr>
+                      <tr class="eda-total"><td>Retained</td><td>24,982</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
           </div>
-          <p>
-            All retained images are RGB (24,854 JPEG, 119 PNG, 7 MPO, 2 BMP). The proposal's provisional total of 25,025 differs
-            because the duplicate review was not complete at that time; every exclusion is recorded with its reason in
-            <code>assignment2/data/manifests/audit.csv</code>.
-          </p>
 
-          <h3 style="margin-top:1.5rem;">Near-Duplicate Detection and Review</h3>
-          <ol class="styled-list">
-            <li><strong>Candidates:</strong> a 64-bit difference hash (dHash) of every image; pairs with Hamming distance &le; 8 are candidates (1,718 pairs).</li>
-            <li><strong>Confirmation:</strong> the mean absolute difference of 32 &times; 32 grayscale thumbnails must be &le; 30 (on a 0&ndash;255 scale). With dHash alone, different dishes with a similar layout (a round plate in the centre) were chained into groups of more than 250 images; the second check reduced the largest group to 9 images.</li>
-            <li><strong>Grouping:</strong> 480 confirmed same-label pairs form 412 duplicate groups. All images of a group are placed in the same split.</li>
-            <li><strong>Manual review:</strong> 54 confirmed pairs had different labels. 25 were the same picture filed under two dishes, so both images were removed; 29 were different dishes and both were kept as separate images.</li>
-          </ol>
-          <figure class="eda-figure narrow">
-            <img src="assets/eda/assignment2-duplicate-examples.jpg" alt="Four reviewed image pairs that were filed under two different food classes" width="720" height="1440" loading="lazy" />
-            <figcaption>Examples of reviewed near-duplicate pairs with conflicting labels (d = dHash distance, mae = thumbnail difference).</figcaption>
-          </figure>
+          <!-- 2. Exploratory analysis -->
+          <div class="eda-part" id="eda-analysis">
+            <h3>Exploratory analysis</h3>
 
-          <h3 style="margin-top:1.5rem;">Final Data Split</h3>
-          <p>
-            Split unit: duplicate group. For each class, its groups are shuffled with <code>seed = 42</code> and assigned to test
-            until about 15% of the class is reached, then to validation (about 15%); the remaining groups form the training set.
-          </p>
-          <div class="table-container">
-            <table class="rubric-table">
-              <thead><tr><th>Split</th><th>Images</th><th>Share</th><th>Smallest class</th><th>Largest class</th></tr></thead>
-              <tbody>
-                <tr><td>Train</td><td>17,486</td><td>70.0%</td><td>309</td><td>1,061</td></tr>
-                <tr><td>Validation</td><td>3,749</td><td>15.0%</td><td>66</td><td>228</td></tr>
-                <tr><td>Test</td><td>3,747</td><td>15.0%</td><td>66</td><td>228</td></tr>
-                <tr><td><strong>Total</strong></td><td><strong>24,982</strong></td><td>100%</td><td></td><td></td></tr>
-              </tbody>
-            </table>
+            <figure class="eda-ledger-wrap" id="eda-classes">
+              <div class="eda-ledger-key" aria-hidden="true">
+                <span><i class="seg-train"></i>Train</span>
+                <span><i class="seg-val"></i>Validation</span>
+                <span><i class="seg-test"></i>Test</span>
+                <span><i class="key-mean"></i>Mean, 833 per class</span>
+              </div>
+              <div class="table-container eda-ledger-scroll" role="region" aria-labelledby="eda-ledger-cap" tabindex="0">
+              <table class="eda-ledger">
+                <caption id="eda-ledger-cap">The table shows retained images per class and split.</caption>
+                <thead><tr><th scope="col">Dish</th><th scope="col"><span class="visually-hidden">Bar</span></th><th scope="col">Train</th><th scope="col">Val</th><th scope="col">Test</th><th scope="col">Total</th></tr></thead>
+                <tbody>
+                <tr class="is-edge"><th scope="row" lang="vi">Bún bò Huế</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:69.94%"></span><span class="seg seg-val" style="width:15.03%"></span><span class="seg seg-test" style="width:15.03%"></span></div></td><td>1,061</td><td>228</td><td>228</td><td>1,517</td></tr>
+                <tr><th scope="row" lang="vi">Bánh mì</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:61.63%"></span><span class="seg seg-val" style="width:13.18%"></span><span class="seg seg-test" style="width:13.18%"></span></div></td><td>935</td><td>200</td><td>200</td><td>1,335</td></tr>
+                <tr><th scope="row" lang="vi">Bánh xèo</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:53.99%"></span><span class="seg seg-val" style="width:11.60%"></span><span class="seg seg-test" style="width:11.60%"></span></div></td><td>819</td><td>176</td><td>176</td><td>1,171</td></tr>
+                <tr><th scope="row" lang="vi">Bún riêu</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:52.60%"></span><span class="seg seg-val" style="width:11.27%"></span><span class="seg seg-test" style="width:11.27%"></span></div></td><td>798</td><td>171</td><td>171</td><td>1,140</td></tr>
+                <tr><th scope="row" lang="vi">Bánh cuốn</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:52.34%"></span><span class="seg seg-val" style="width:11.21%"></span><span class="seg seg-test" style="width:11.21%"></span></div></td><td>794</td><td>170</td><td>170</td><td>1,134</td></tr>
+                <tr><th scope="row" lang="vi">Cháo lòng</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:49.37%"></span><span class="seg seg-val" style="width:10.61%"></span><span class="seg seg-test" style="width:10.61%"></span></div></td><td>749</td><td>161</td><td>161</td><td>1,071</td></tr>
+                <tr><th scope="row" lang="vi">Hủ tiếu</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:45.02%"></span><span class="seg seg-val" style="width:9.62%"></span><span class="seg seg-test" style="width:9.62%"></span></div></td><td>683</td><td>146</td><td>146</td><td>975</td></tr>
+                <tr><th scope="row" lang="vi">Bánh canh</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:44.10%"></span><span class="seg seg-val" style="width:9.43%"></span><span class="seg seg-test" style="width:9.43%"></span></div></td><td>669</td><td>143</td><td>143</td><td>955</td></tr>
+                <tr><th scope="row" lang="vi">Cơm tấm</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:43.38%"></span><span class="seg seg-val" style="width:9.29%"></span><span class="seg seg-test" style="width:9.29%"></span></div></td><td>658</td><td>141</td><td>141</td><td>940</td></tr>
+                <tr><th scope="row" lang="vi">Bún đậu mắm tôm</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:42.32%"></span><span class="seg seg-val" style="width:9.03%"></span><span class="seg seg-test" style="width:9.03%"></span></div></td><td>642</td><td>137</td><td>137</td><td>916</td></tr>
+                <tr><th scope="row" lang="vi">Mì Quảng</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:40.28%"></span><span class="seg seg-val" style="width:8.70%"></span><span class="seg seg-test" style="width:8.64%"></span></div></td><td>611</td><td>132</td><td>131</td><td>874</td></tr>
+                <tr><th scope="row" lang="vi">Gỏi cuốn</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:39.22%"></span><span class="seg seg-val" style="width:8.44%"></span><span class="seg seg-test" style="width:8.44%"></span></div></td><td>595</td><td>128</td><td>128</td><td>851</td></tr>
+                <tr><th scope="row" lang="vi">Bánh khọt</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:38.10%"></span><span class="seg seg-val" style="width:8.24%"></span><span class="seg seg-test" style="width:8.17%"></span></div></td><td>578</td><td>125</td><td>124</td><td>827</td></tr>
+                <tr><th scope="row" lang="vi">Canh chua</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:37.97%"></span><span class="seg seg-val" style="width:8.11%"></span><span class="seg seg-test" style="width:8.11%"></span></div></td><td>576</td><td>123</td><td>123</td><td>822</td></tr>
+                <tr><th scope="row" lang="vi">Phở</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:36.91%"></span><span class="seg seg-val" style="width:7.91%"></span><span class="seg seg-test" style="width:7.91%"></span></div></td><td>560</td><td>120</td><td>120</td><td>800</td></tr>
+                <tr><th scope="row" lang="vi">Bánh tráng nướng</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:36.65%"></span><span class="seg seg-val" style="width:7.84%"></span><span class="seg seg-test" style="width:7.84%"></span></div></td><td>556</td><td>119</td><td>119</td><td>794</td></tr>
+                <tr><th scope="row" lang="vi">Bún mắm</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:35.46%"></span><span class="seg seg-val" style="width:7.65%"></span><span class="seg seg-test" style="width:7.65%"></span></div></td><td>538</td><td>116</td><td>116</td><td>770</td></tr>
+                <tr><th scope="row" lang="vi">Bún thịt nướng</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:34.41%"></span><span class="seg seg-val" style="width:7.38%"></span><span class="seg seg-test" style="width:7.38%"></span></div></td><td>522</td><td>112</td><td>112</td><td>746</td></tr>
+                <tr><th scope="row" lang="vi">Bánh căn</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:33.88%"></span><span class="seg seg-val" style="width:7.25%"></span><span class="seg seg-test" style="width:7.25%"></span></div></td><td>514</td><td>110</td><td>110</td><td>734</td></tr>
+                <tr><th scope="row" lang="vi">Bánh bột lọc</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:32.89%"></span><span class="seg seg-val" style="width:7.05%"></span><span class="seg seg-test" style="width:7.05%"></span></div></td><td>499</td><td>107</td><td>107</td><td>713</td></tr>
+                <tr><th scope="row" lang="vi">Bánh tét</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:31.44%"></span><span class="seg seg-val" style="width:6.72%"></span><span class="seg seg-test" style="width:6.72%"></span></div></td><td>477</td><td>102</td><td>102</td><td>681</td></tr>
+                <tr><th scope="row" lang="vi">Cá kho tộ</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:31.11%"></span><span class="seg seg-val" style="width:6.66%"></span><span class="seg seg-test" style="width:6.66%"></span></div></td><td>472</td><td>101</td><td>101</td><td>674</td></tr>
+                <tr><th scope="row" lang="vi">Bánh đúc</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:30.06%"></span><span class="seg seg-val" style="width:6.46%"></span><span class="seg seg-test" style="width:6.46%"></span></div></td><td>456</td><td>98</td><td>98</td><td>652</td></tr>
+                <tr><th scope="row" lang="vi">Bánh bèo</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:29.47%"></span><span class="seg seg-val" style="width:6.33%"></span><span class="seg seg-test" style="width:6.33%"></span></div></td><td>447</td><td>96</td><td>96</td><td>639</td></tr>
+                <tr><th scope="row" lang="vi">Bánh giò</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:29.07%"></span><span class="seg seg-val" style="width:6.26%"></span><span class="seg seg-test" style="width:6.26%"></span></div></td><td>441</td><td>95</td><td>95</td><td>631</td></tr>
+                <tr><th scope="row" lang="vi">Cao lầu</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:28.48%"></span><span class="seg seg-val" style="width:6.06%"></span><span class="seg seg-test" style="width:6.06%"></span></div></td><td>432</td><td>92</td><td>92</td><td>616</td></tr>
+                <tr><th scope="row" lang="vi">Nem chua</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:24.92%"></span><span class="seg seg-val" style="width:5.34%"></span><span class="seg seg-test" style="width:5.34%"></span></div></td><td>378</td><td>81</td><td>81</td><td>540</td></tr>
+                <tr><th scope="row" lang="vi">Xôi xéo</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:24.19%"></span><span class="seg seg-val" style="width:5.14%"></span><span class="seg seg-test" style="width:5.14%"></span></div></td><td>367</td><td>78</td><td>78</td><td>523</td></tr>
+                <tr><th scope="row" lang="vi">Bánh chưng</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:23.07%"></span><span class="seg seg-val" style="width:4.94%"></span><span class="seg seg-test" style="width:4.94%"></span></div></td><td>350</td><td>75</td><td>75</td><td>500</td></tr>
+                <tr class="is-edge"><th scope="row" lang="vi">Bánh pía</th><td class="ledger-bar" aria-hidden="true"><div class="bar"><span class="seg seg-train" style="width:20.37%"></span><span class="seg seg-val" style="width:4.35%"></span><span class="seg seg-test" style="width:4.35%"></span></div></td><td>309</td><td>66</td><td>66</td><td>441</td></tr>
+                </tbody>
+                <tfoot><tr><th scope="row">All classes</th><td></td><td>17,486</td><td>3,749</td><td>3,747</td><td>24,982</td></tr></tfoot>
+              </table>
+              </div>
+            </figure>
+
+            <div class="eda-cols">
+              <div id="eda-imbalance">
+                <h4 class="eda-h4-first">Imbalance</h4>
+                <dl class="eda-kv">
+                  <div><dt>Max / min</dt><dd>1,517 / 441 = 3.44&times;</dd></div>
+                  <div><dt>Mean, median</dt><dd>The mean is 833 and the median is 797 per class (CV 0.30).</dd></div>
+                  <div><dt>Entropy</dt><dd>Entropy reaches 0.988 of the balanced maximum.</dd></div>
+                  <div><dt>Top / bottom 5</dt><dd>The top 5 classes hold 25.2% of images and the bottom 5 hold 10.5%.</dd></div>
+                </dl>
+                <p class="eda-aside">The imbalance is moderate, but it is enough that accuracy favours the large classes, so <strong>Macro-F1 is primary</strong>. The smallest test class has 66 images: one error moves its recall by 1.5 points. No run uses class weights or resampling.</p>
+              </div>
+              <div id="eda-sizes">
+                <h4 class="eda-h4-first">Input size</h4>
+                <dl class="eda-kv">
+                  <div><dt>Median</dt><dd>The median size is 1,000 &times; 720 px, with a 4:3 aspect ratio.</dd></div>
+                  <div><dt>Range</dt><dd>Widths range from 100 to 7,360 px and heights from 83 to 5,616 px.</dd></div>
+                  <div><dt>Orientation</dt><dd>There are 14,180 landscape, 6,874 square and 3,928 portrait images.</dd></div>
+                  <div><dt>Short side &lt; 224</dt><dd>346 images (1.4%) fall below 224 px and are upscaled.</dd></div>
+                </dl>
+                <p class="eda-aside">Sizes span two orders of magnitude, so all images are resized and cropped to 224 &times; 224.</p>
+              </div>
+            </div>
+            <figure class="eda-figure eda-figure-capped">
+              <img src="assets/eda/assignment2-image-sizes.png" alt="Histograms of image width, height and aspect ratio for the retained images" width="2250" height="600" loading="lazy" />
+              <figcaption>The histograms show width, height and aspect-ratio distributions.</figcaption>
+            </figure>
+
+            <h4 id="eda-samples">Representative samples</h4>
+            <div class="eda-gallery">
+              <figure class="eda-figure">
+                <img src="assets/eda/assignment2-class-examples.jpg" alt="One training example for each of the 30 Vietnamese food classes" width="1400" height="1213" loading="lazy" />
+                <figcaption>The grid shows one image per class. Noodle soups share bowls and broths; Bánh chưng, Bánh tét and Bánh giò share banana-leaf wrapping.</figcaption>
+              </figure>
+              <figure class="eda-figure">
+                <img src="assets/eda/assignment2-duplicate-examples.jpg" alt="Four reviewed near-duplicate image pairs that were filed under two different food classes" width="720" height="1440" loading="lazy" />
+                <figcaption>These pairs were removed because the same picture was filed under two dishes.</figcaption>
+              </figure>
+            </div>
           </div>
-          <div class="eda-note">
-            Leakage checks on the final manifests: 0 image IDs, 0 duplicate groups and 0 identical files (SHA-256) are shared between
-            train, validation and test. The training set exceeds the handbook's 5,000-sample threshold (§19.1).
+
+          <!-- 3. Data splitting -->
+          <div class="eda-part" id="eda-split">
+            <h3>Data splitting</h3>
+            <dl class="eda-kv eda-kv-wide">
+              <div><dt>Split</dt><dd>A custom 70 / 15 / 15 split is stratified per class; per-class counts are in the table above.</dd></div>
+              <div><dt>Why custom</dt><dd>197 duplicate groups and 40 identical files crossed the official folders.</dd></div>
+              <div><dt>Split unit</dt><dd>The split unit is the duplicate group, so all copies go to one split.</dd></div>
+              <div><dt>Seed</dt><dd><code>42</code></dd></div>
+              <div><dt>Subset rules</dt><dd>No subset rules apply; all 30 classes and all 24,982 images are used.</dd></div>
+              <div><dt>Leakage check</dt><dd>No IDs, groups or SHA-256 hashes are shared across splits.</dd></div>
+              <div><dt>Use</dt><dd>Validation picks the checkpoint (best Macro-F1), and test is evaluated once.</dd></div>
+            </dl>
+            <details class="eda-details">
+              <summary>How duplicate groups are built</summary>
+              <ol class="eda-steps">
+                <li><strong>Candidates:</strong> 64-bit dHash with Hamming distance &le; 8 yields 1,718 candidate pairs.</li>
+                <li><strong>Confirm:</strong> a candidate is confirmed when the 32 &times; 32 grayscale thumbnail difference is &le; 30 / 255. Without it, similar plate layouts chained into groups of 250+ images; with it the largest group is 9.</li>
+                <li><strong>Group:</strong> 480 same-label pairs form 412 groups.</li>
+                <li><strong>Review conflicts:</strong> of 54 cross-label pairs, 25 were one picture under two dishes (both removed) and 29 were different dishes (kept).</li>
+                <li><strong>Assign:</strong> within each class, groups are shuffled with seed 42, test is filled to ~15%, then validation to ~15%, and the rest goes to train.</li>
+              </ol>
+            </details>
           </div>
-          <figure class="eda-figure">
-            <img src="assets/eda/assignment2-split-distribution.png" alt="Grouped bar chart of image counts per class in the train, validation and test splits" width="2100" height="750" loading="lazy" />
-            <figcaption>Images per class in each split. Class proportions are preserved across the three splits.</figcaption>
-          </figure>
 
-          <h3 style="margin-top:1.5rem;">Class Imbalance and Input Sizes</h3>
-          <p>
-            The largest class (Bun bo Hue, 1,530 original images) is 3.45 times the smallest (Banh pia, 444). Macro-F1 is used as
-            the primary metric so that every class has equal weight. Image sizes vary widely: median 1,000 &times; 720 pixels,
-            widths 100&ndash;7,360 and heights 83&ndash;5,616 pixels. 346 retained images have a short side below 224 pixels and are
-            upscaled by the resize step.
-          </p>
-          <figure class="eda-figure">
-            <img src="assets/eda/assignment2-image-sizes.png" alt="Histograms of image width, height and aspect ratio" width="2250" height="600" loading="lazy" />
-            <figcaption>Width, height and aspect-ratio distributions of the retained images.</figcaption>
-          </figure>
-          <figure class="eda-figure">
-            <img src="assets/eda/assignment2-class-examples.jpg" alt="One training example for each of the 30 Vietnamese food classes" width="1400" height="1213" loading="lazy" />
-            <figcaption>One training example per class.</figcaption>
-          </figure>
-
-          <h3 style="margin-top:1.5rem;">Preprocessing</h3>
-          <div class="table-container">
-            <table class="rubric-table">
-              <thead><tr><th>Stage</th><th style="text-align:left;">Transforms</th></tr></thead>
-              <tbody>
-                <tr><td>Training only</td><td style="text-align:left;">RandomResizedCrop(224, scale 0.7&ndash;1.0), RandomHorizontalFlip, ColorJitter(brightness, contrast, saturation = 0.2)</td></tr>
-                <tr><td>Validation / test</td><td style="text-align:left;">Resize(232), CenterCrop(224) &mdash; the evaluation preprocessing of TorchVision <code>ResNet50_Weights.IMAGENET1K_V2</code></td></tr>
-                <tr><td>All splits</td><td style="text-align:left;">Convert to RGB, ToTensor, Normalize with ImageNet mean (0.485, 0.456, 0.406) and std (0.229, 0.224, 0.225)</td></tr>
-              </tbody>
-            </table>
+          <!-- 4. Preprocessing -->
+          <div class="eda-part" id="eda-preprocessing">
+            <h3>Preprocessing</h3>
+            <div class="table-container">
+              <table class="rubric-table eda-tight">
+                <thead><tr><th scope="col">Applies to</th><th scope="col">Transforms</th></tr></thead>
+                <tbody>
+                  <tr><td>Labels</td><td>Folder names are mapped to 0&ndash;29 alphabetically (<code>class_to_idx.json</code>).</td></tr>
+                  <tr><td>Train</td><td>RandomResizedCrop(224, scale 0.7&ndash;1.0), HorizontalFlip, ColorJitter(0.2, 0.2, 0.2)</td></tr>
+                  <tr><td>Val / test</td><td>Resize(232), CenterCrop(224), as in TorchVision <code>ResNet50_Weights.IMAGENET1K_V2</code></td></tr>
+                  <tr><td>All splits</td><td>RGB, ToTensor, Normalize with ImageNet mean / std; no statistics are computed from val or test.</td></tr>
+                  <tr><td>Tensors</td><td>Images <code>[B, 3, 224, 224]</code> float32, labels <code>[B]</code> int64, output <code>[B, 30]</code>; <code>B = 64</code></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <figure class="eda-figure">
+              <img src="assets/eda/assignment2-preprocessed-batch.jpg" alt="Sixteen training images after random crop, flip and colour jitter, each labelled with its food class" width="1600" height="450" loading="lazy" />
+              <figcaption>The figure shows one training batch after augmentation, de-normalized for display.</figcaption>
+            </figure>
           </div>
-          <p>
-            Normalization uses the constants published with the pretrained weights; no statistic is computed from validation or test data.
-            The same transforms are used for every model. A batch is a tensor of shape <code>[B, 3, 224, 224]</code> with integer labels 0&ndash;29.
-          </p>
-          <figure class="eda-figure">
-            <img src="assets/eda/assignment2-preprocessed-batch.jpg" alt="Sixteen training images after random crop, flip and colour jitter, each labelled with its food class" width="1600" height="450" loading="lazy" />
-            <figcaption>A training batch after augmentation (de-normalized for display), with each image's label.</figcaption>
-          </figure>
 
-          <h3 style="margin-top:1.5rem;">Bias and Limitations of the Data</h3>
-          <ul class="styled-list">
-            <li>Images were collected from the web: many are stock or recipe photos with clean backgrounds, which may not represent everyday photos of food.</li>
-            <li>Several dishes look alike (e.g. Banh duc and Banh gio, Bun rieu and Bun mam), and the label-conflict review shows that some web images are filed under the wrong dish; further label noise may remain.</li>
-            <li>The duplicate check does not detect heavily cropped, rotated or re-photographed copies, and only label-conflicting pairs were reviewed by hand, so some leakage risk remains.</li>
-          </ul>
+          <!-- 5. Bias and limitations -->
+          <div class="eda-part" id="eda-limitations">
+            <h3>Bias and limitations</h3>
+            <ul class="eda-limits">
+              <li><strong>Source skew:</strong> nearly half the URLs are Instagram, Facebook or Foody reviews, so styled photos outnumber everyday snapshots.</li>
+              <li><strong>Label noise:</strong> only conflicts between near-identical images were found; wrong labels on unique images remain.</li>
+              <li><strong>Lookalikes:</strong> Bánh đúc vs Bánh giò, Bún riêu vs Bún mắm are hard even for people.</li>
+              <li><strong>Residual leakage:</strong> heavily cropped or re-photographed copies escape the hash checks.</li>
+              <li><strong>Coverage:</strong> only 30 dishes are covered, so any other dish is forced into one of them.</li>
+              <li><strong>License:</strong> the data may be used for non-commercial purposes only.</li>
+            </ul>
+          </div>
+
+          <p style="margin-top:0.75rem; font-size:0.9rem; color:var(--text-muted)">
+            Full notebook:
+            <a href="assignment2/notebooks/01_eda.html" target="_blank" rel="noopener">01_eda.html</a>
+          </p>
         </div>
       </section>
 
-      <!-- Methodology: implemented M2 models -->
+      <!-- Methodology -->
       <section class="section-block" id="methodology" aria-labelledby="methodology-title">
         <div class="section-header">
           <span class="section-icon" aria-hidden="true">&#9881;</span>
           <h2 class="section-title" id="methodology-title">Methodology</h2>
         </div>
-        <div class="content-card">
-          <h3>Task and model outputs</h3>
-          <p>Predict one of 30 Vietnamese food labels from an RGB image. Each model receives tensors shaped <code>[B, 3, 224, 224]</code> and returns 30 raw logits. Cross-entropy is applied directly to the logits; the largest logit determines the predicted class.</p>
-          <h3>Scratch CNN baseline</h3>
-          <p>The group-implemented CNN has 33 convolutional layers with BatchNorm and ReLU, spatial downsampling, global average pooling, and a two-layer classification head. All weights start from random initialization. This is a substantial scratch baseline; it has 21,249,886 trainable parameters.</p>
-          <h3>Pretrained ResNet-50</h3>
-          <p>TorchVision ResNet-50 uses <code>ResNet50_Weights.IMAGENET1K_V2</code>. Its original output layer is replaced by a linear head mapping 2,048 features to 30 logits. For M2, the backbone is frozen and only the new head is optimized. Backbone BatchNorm running statistics remain fixed, including when the training loop switches the model to training mode.</p>
-          <div class="table-container" role="region" aria-label="Parameter counts for the implemented 30-class models" tabindex="0">
-            <table class="rubric-table">
-              <caption>Parameter counts for the implemented 30-class models</caption>
-              <thead><tr><th scope="col">Model</th><th scope="col">Total parameters</th><th scope="col">Trainable parameters</th><th scope="col">Updated layers</th></tr></thead>
-              <tbody><tr><td>Scratch CNN</td><td>21,249,886</td><td>21,249,886</td><td>All layers</td></tr>
-<tr><td>Frozen ResNet-50</td><td>23,569,502</td><td>61,470</td><td>New classification head only</td></tr></tbody>
-            </table>
+        <div class="content-card mt">
+          <div class="mt-part">
+            <h3>Pipeline</h3>
+            <ol class="mt-flow">
+              <li><strong>Data</strong><span>Audited manifests define the train, val and test sets.</span></li>
+              <li><strong>Preprocessing</strong><span>Transforms are listed in <a href="#eda-preprocessing">EDA</a>.</span></li>
+              <li><strong>Model</strong><span>A scratch CNN or ResNet-50 produces logits.</span></li>
+              <li><strong>Loss</strong><span>Cross-entropy is used without class weights or label smoothing.</span></li>
+              <li><strong>Optimization</strong><span>Adam updates the weights, with optional mixed precision.</span></li>
+              <li><strong>Prediction</strong><span>The arg-max logit is mapped to a dish name.</span></li>
+              <li><strong>Evaluation</strong><span>Metrics are defined in <a href="#problem">Problem Statement</a>.</span></li>
+            </ol>
           </div>
-          <h3>Preprocessing and pipeline</h3>
-          <div class="pipeline-diagram">Reviewed manifests &rarr; RGB image loading &rarr; preprocessing &rarr; DataLoader &rarr; model &rarr; cross-entropy &rarr; Adam update &rarr; validation &rarr; checkpoint selection</div>
-          <p>Training uses RandomResizedCrop to 224 &times; 224 (scale 0.7&ndash;1.0), random horizontal flipping, and brightness/contrast/saturation jitter of 0.2. Validation resizes the shorter side to 232 pixels and center-crops to 224 &times; 224. Both models use ImageNet mean (0.485, 0.456, 0.406) and standard deviation (0.229, 0.224, 0.225). These fixed constants are not fitted on validation or test images.</p>
-          <p>The group provides the scratch architecture and orchestration code. ResNet-50, transforms, optimizers and tensor operations come from PyTorch/TorchVision; metric calculations use scikit-learn. The planned M3 controlled study compares the same pretrained ResNet-50 with a frozen backbone versus full fine-tuning.</p>
+
+          <div class="mt-part">
+            <h3>Models</h3>
+            <div class="table-container" role="region" aria-labelledby="mt-models-cap" tabindex="0">
+              <table class="rubric-table mt-models">
+                <caption id="mt-models-cap">All compared models take <code>[B, 3, 224, 224]</code> input and return <code>[B, 30]</code> logits.</caption>
+                <thead><tr><th scope="col"></th><th scope="col">Scratch CNN (baseline)</th><th scope="col">Frozen ResNet-50</th><th scope="col">Fully fine-tuned ResNet-50</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Architecture</th><td>33 plain convolutions in 5 stages (64&ndash;512 channels) use BatchNorm + ReLU and stride-2 downsampling to 7 &times; 7, followed by global average pooling and a 512 &rarr; 256 &rarr; 30 head.</td><td colspan="2">Bottleneck residual blocks feed global average pooling, and the ImageNet head is replaced by <code>Linear(2048, 30)</code>.</td></tr>
+                  <tr><th scope="row">Initialization</th><td>Random</td><td colspan="2">The backbone loads <code>IMAGENET1K_V2</code> weights, and the head starts random.</td></tr>
+                  <tr><th scope="row">Trained part</th><td>All layers</td><td>Head only</td><td>All layers</td></tr>
+                  <tr class="mt-num"><th scope="row">Total parameters</th><td>21,249,886</td><td>23,569,502</td><td>23,569,502</td></tr>
+                  <tr class="mt-num"><th scope="row">Trained parameters</th><td>21,249,886</td><td>61,470</td><td>23,569,502</td></tr>
+                  <tr><th scope="row">Strengths</th><td>It uses no external data and isolates what the training set alone provides.</td><td>It has the lowest training cost and a low overfitting risk.</td><td>Features adapt to the food domain.</td></tr>
+                  <tr><th scope="row">Limits</th><td>Without residual connections, a deep plain stack is hard to optimize.</td><td>Features stay fixed to ImageNet, which lacks Vietnamese dishes.</td><td>It trains 383&times; more parameters than the frozen model, raising memory, time and overfitting risk.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="mt-part">
+            <h3>Fine-tuning procedure</h3>
+            <ol class="mt-steps">
+              <li><strong>Frozen:</strong> the backbone is set to <code>requires_grad = False</code> and kept in eval mode, so BatchNorm statistics remain fixed. <strong>Full:</strong> all layers are trainable, and BatchNorm statistics are updated.</li>
+              <li>Adam receives only trainable parameters at learning rate 10<sup>&minus;4</sup>, ten times lower than the scratch CNN, to limit early drift from pretrained weights; a single rate is used without warm-up.</li>
+              <li>Data, augmentation and epoch budget match the baseline; the epoch with the highest validation Macro-F1 is retained.</li>
+            </ol>
+          </div>
+
+          <div class="mt-part">
+            <h3>Implementation and libraries</h3>
+            <dl class="mt-kv">
+              <div><dt>Project code</dt><dd>The project implements the data audit and split, dataset class, scratch CNN, ResNet-50 wrapper, training loop (mixed precision, early stopping, resume), checkpointing, evaluation and plots.</dd></div>
+              <div><dt>PyTorch</dt><dd>PyTorch provides layers, Adam, cross-entropy, <code>autocast</code> / <code>GradScaler</code> and DataLoader.</dd></div>
+              <div><dt>TorchVision</dt><dd>TorchVision provides ResNet-50 weights and image transforms.</dd></div>
+              <div><dt>scikit-learn</dt><dd>scikit-learn computes accuracy, precision, recall, F1 and the confusion matrix.</dd></div>
+              <div><dt>Pillow, NumPy</dt><dd>Pillow and NumPy handle image decoding, hashing and array operations.</dd></div>
+            </dl>
+          </div>
         </div>
       </section>
 
@@ -653,27 +1045,42 @@
           <h2 class="section-title" id="experimental-setup-title">Experimental Setup</h2>
         </div>
         <div class="content-card">
-          <h3>M2 question and comparison</h3>
-          <p>Does a pretrained ResNet-50 with a frozen backbone achieve higher validation Macro-F1 than the scratch CNN under the recorded 20-epoch configurations? Model selection uses the highest validation Macro-F1, with earlier epochs retained on ties. The two M2 configurations differ in architecture, initialization and learning rate; this comparison does not isolate a single factor.</p>
-          <div class="table-container" role="region" aria-label="Training settings saved with the M2 runs" tabindex="0">
+          <h3>Experimental design</h3>
+          <div class="table-container" role="region" aria-labelledby="es-design-cap" tabindex="0">
             <table class="rubric-table">
-              <caption>Training settings saved with the M2 runs</caption>
-              <thead><tr><th scope="col">Setting</th><th scope="col">Scratch CNN</th><th scope="col">Frozen ResNet-50</th></tr></thead>
-              <tbody><tr><td>Initialization</td><td>Random</td><td>ImageNet V2 backbone; random 30-class head</td></tr>
-<tr><td>Optimizer / loss</td><td>Adam / cross-entropy</td><td>Adam / cross-entropy</td></tr>
-<tr><td>Learning rate</td><td>0.001</td><td>0.0001</td></tr>
-<tr><td>Epochs / batch size</td><td>20 / 64</td><td>20 / 64</td></tr>
-<tr><td>Weight decay / scheduler</td><td>0 / none</td><td>0 / none</td></tr>
-<tr><td>Seed / data-loader workers</td><td>42 / 2</td><td>42 / 2</td></tr>
-<tr><td>Early stopping / mixed precision</td><td>Not used / not used</td><td>Not used / not used</td></tr></tbody>
+              <caption id="es-design-cap">Both experiments are decided on validation Macro-F1; the test set is scored once after selection.</caption>
+              <thead><tr><th scope="col">Item</th><th scope="col">A: baseline vs pretrained</th><th scope="col">B: frozen vs full fine-tuning (ablation)</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Hypothesis</strong></td><td>ImageNet pretraining beats training from scratch.</td><td>Updating the backbone beats training the head alone.</td></tr>
+                <tr><td><strong>Changed factor</strong></td><td>Model and initialization change; the learning rate also differs.</td><td>Only <code>freeze_backbone</code> changes.</td></tr>
+                <tr><td><strong>Fixed factors</strong></td><td colspan="2">Split, augmentation, optimizer, batch size, epoch budget, early stopping, seed, AMP and GPU are shared. B also fixes architecture, weights and learning rate.</td></tr>
+                <tr><td><strong>Metrics</strong></td><td colspan="2"><strong>Validation Macro-F1</strong> is primary and accuracy is secondary. Training time and inference cost measure compute.</td></tr>
+                <tr><td><strong>Decision</strong></td><td>Higher validation Macro-F1 wins; the gain is not attributed to a single factor.</td><td>Full fine-tuning wins only with a gain of <strong>&ge; 0.01</strong>, weighed against its cost.</td></tr>
+              </tbody>
             </table>
           </div>
-          <p>Both runs use identical reviewed manifests: 17,486 training, 3,749 validation and 3,747 test images, with the same class mapping and augmentation policy. Python, NumPy and PyTorch are seeded. Test predictions have not been evaluated.</p>
-          <h3>Hardware and software</h3>
-          <p>NVIDIA GeForce RTX 5070 Ti (approximately 16 GB VRAM); Python 3.11.13; PyTorch 2.7.1+cu128; TorchVision 0.22.1+cu128; CUDA runtime 12.8. Docker mounts images read-only and preserves results on the host, with a 1 GB shared-memory limit for data-loader workers.</p>
-          <h3>Run provenance and timing</h3>
-          <p>Both experiments record source commit <code class="m2-break">5d106abab40a6720ebc5874b9a748f01356c965c</code>. Each run saves its resolved configuration, manifest hashes, class mapping, environment details, checkpoint and epoch history. Elapsed times include training, validation, data loading and checkpoint saving inside the epoch loop; initial setup and pretrained-weight downloading are excluded.</p>
-          <p><a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/main/assignment2/docs/environment.md">Read the environment and reproduction guide</a>. The user-reported full Docker CPU test suite passed 25 tests; a separate GPU calculation and both training runs also completed.</p>
+
+          <h3>Training setup</h3>
+          <p>All runs use <strong>Adam</strong> with cross-entropy, <strong>batch size 64</strong>, a <strong>20-epoch budget</strong>, a constant learning rate, <strong>seed 42</strong> and AMP FP16. Augmentation is the only regularization; weight decay, dropout and label smoothing are not used. Early stopping (patience 5) and checkpoint selection both monitor <strong>validation Macro-F1</strong>, and no run stopped early. No hyperparameter search was run.</p>
+          <div class="table-container" role="region" aria-labelledby="es-train-cap" tabindex="0">
+            <table class="rubric-table">
+              <caption id="es-train-cap">Only the learning rate differs between the run configurations.</caption>
+              <thead><tr><th scope="col">Run</th><th scope="col">Learning rate</th><th scope="col">Run ID</th></tr></thead>
+              <tbody>
+                <tr><td>Scratch CNN</td><td>10<sup>&minus;3</sup></td><td><code class="m2-break">20261103T145419Z_7a003524</code></td></tr>
+                <tr><td>Frozen ResNet-50</td><td>10<sup>&minus;4</sup></td><td><code class="m2-break">20261103T160427Z_d37a574f</code></td></tr>
+                <tr><td>Full ResNet-50</td><td>10<sup>&minus;4</sup></td><td><code class="m2-break">20261103T170311Z_ce0f6099</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Environment and measurement</h3>
+          <ul class="styled-list">
+            <li><strong>Hardware:</strong> the final runs use one Kaggle <strong>Tesla T4 (15 GB)</strong>. The earlier M2 runs used a local RTX 5070 Ti in FP32 without early stopping, so timings across the two are not compared.</li>
+            <li><strong>Software:</strong> the stack is Python 3.13.16, PyTorch 2.11.0, TorchVision 0.26.0, CUDA 13.0 and cuDNN 9.27.0. cuDNN benchmark mode is on, so reruns are not bit-identical.</li>
+            <li><strong>Compute cost:</strong> training time covers the whole epoch loop. Inference is timed per selected checkpoint as forward-pass throughput at batch 1 and 64 (FP32 and AMP FP16) and as one end-to-end FP32 pass over the test split.</li>
+            <li><strong>Traceability:</strong> each folder in <code>results/kaggle/</code> stores the config, manifest hashes, environment, history, evaluations and <code>source_snapshot.zip</code>. The runs start from commit <code>824e8be</code> with uncommitted changes. Details are in the <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/main/assignment2/docs/kaggle.md">Kaggle training guide</a>.</li>
+          </ul>
         </div>
       </section>
 
@@ -683,25 +1090,54 @@
           <h2 class="section-title" id="m2-results-title">Results</h2>
         </div>
         <div class="content-card">
-          <p class="m2-note"><strong>M2 preliminary validation results.</strong> These are single-seed results on the validation split, not held-out test scores. Each selected checkpoint was reloaded and reproduced its saved Accuracy and Macro-F1.</p>
-          <div class="table-container" role="region" aria-label="Verified validation results for the selected checkpoints" tabindex="0">
+          <p class="m2-note"><strong>Full fine-tuning gives the best result: test Macro-F1 0.8787, against 0.7179 for the frozen backbone and 0.1885 for the scratch CNN.</strong> All numbers come from a single seed. Each selected checkpoint was reloaded and reproduced its saved validation metrics, and the test set was scored once after selection.</p>
+
+          <h3>Quantitative results</h3>
+          <div class="table-container" role="region" aria-labelledby="rs-main-cap" tabindex="0">
             <table class="rubric-table">
-              <caption>Verified validation results for the selected checkpoints</caption>
-              <thead><tr><th scope="col">Model</th><th scope="col">Epoch budget</th><th scope="col">Selected epoch</th><th scope="col">Val Accuracy</th><th scope="col">Val Macro-F1</th><th scope="col">Elapsed time</th></tr></thead>
-              <tbody><tr><td>Scratch CNN</td><td>20</td><td>19</td><td>25.10%</td><td>0.2005</td><td>45m 15s</td></tr>
-<tr><td>Frozen ResNet-50</td><td>20</td><td>20</td><td>72.45%</td><td>0.7231</td><td>45m 44s</td></tr></tbody>
+              <caption id="rs-main-cap">Validation selects the checkpoint, and test is the held-out score. The best value in each column is in bold.</caption>
+              <thead><tr><th scope="col">Model</th><th scope="col">Trainable params</th><th scope="col">Selected epoch</th><th scope="col">Val Acc</th><th scope="col">Val Macro-F1</th><th scope="col">Test Acc</th><th scope="col">Test Macro-F1</th><th scope="col">Training time</th></tr></thead>
+              <tbody>
+                <tr><td>Scratch CNN</td><td>21.25 M</td><td>19</td><td>22.94%</td><td>0.1898</td><td>23.30%</td><td>0.1885</td><td>65 min 13 s</td></tr>
+                <tr><td>Frozen ResNet-50</td><td><strong>0.06 M</strong></td><td>19</td><td>72.58%</td><td>0.7245</td><td>71.92%</td><td>0.7179</td><td><strong>55 min 28 s</strong></td></tr>
+                <tr><td><strong>Full ResNet-50</strong></td><td>23.57 M</td><td>17</td><td><strong>87.89%</strong></td><td><strong>0.8824</strong></td><td><strong>87.80%</strong></td><td><strong>0.8787</strong></td><td>60 min 28 s</td></tr>
+              </tbody>
             </table>
           </div>
+          <p>Validation and test Macro-F1 differ by less than 0.007 for every model, so checkpoint selection did not overfit the validation split.</p>
+
+          <div class="table-container" role="region" aria-labelledby="rs-inf-cap" tabindex="0">
+            <table class="rubric-table">
+              <caption id="rs-inf-cap">Inference cost is measured on one Tesla T4 as a forward pass on synthetic inputs.</caption>
+              <thead><tr><th scope="col">Model</th><th scope="col">Latency, batch 1, FP32</th><th scope="col">Throughput, batch 64, AMP FP16</th><th scope="col">Checkpoint size</th></tr></thead>
+              <tbody>
+                <tr><td>Scratch CNN</td><td>8.7 ms</td><td><strong>1,534 img/s</strong></td><td>243 MB</td></tr>
+                <tr><td>Frozen ResNet-50</td><td>8.3 ms</td><td>807 img/s</td><td><strong>91 MB</strong></td></tr>
+                <tr><td>Full ResNet-50</td><td>8.3 ms</td><td>804 img/s</td><td>270 MB</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Both ResNet-50 variants share one architecture, so their inference cost is the same. Checkpoint size differs only because each file also stores Adam state for the trained parameters.</p>
+
+          <h3>Training behavior</h3>
           <figure class="m2-figure">
-            <a href="assignment2/results/figures/m2_training_histories.png"><img src="assignment2/results/figures/m2_training_histories.png" alt="Six panels showing training and validation loss, Accuracy and Macro-F1 across 20 epochs for the scratch CNN and frozen ResNet-50" width="2400" height="1280" loading="lazy" /></a>
-            <figcaption>Training and validation histories. Dotted lines mark the selected epochs: CNN 19, frozen ResNet-50 20. Accuracy and Macro-F1 share a 0&ndash;1 scale; loss panels have individual scales. Open the image for full resolution.</figcaption>
+            <a href="assignment2/results/figures/final_training_histories.png"><img src="assignment2/results/figures/final_training_histories.png" alt="Nine panels showing training and validation loss, Accuracy and Macro-F1 across 20 epochs for the scratch CNN, frozen ResNet-50 and fully fine-tuned ResNet-50" width="2400" height="1920" loading="lazy" /></a>
+            <figcaption>Each row shows one run, and dotted lines mark the selected epochs (19, 19 and 17).</figcaption>
           </figure>
-          <p><a href="assignment2/results/comparison.csv" download>Download the comparison CSV</a> &middot; <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/main/assignment2/report/report.md">Read the M2 draft report</a></p>
-          <h3>Recorded run IDs</h3>
           <ul class="styled-list">
-            <li>Scratch CNN: <code class="m2-break">20261025T103059Z_a86f4102</code></li>
-            <li>Frozen ResNet-50: <code class="m2-break">20261025T112235Z_014bbc02</code></li>
+            <li><strong>Scratch CNN underfits.</strong> Training and validation accuracy stay close at about 23%, validation loss fluctuates, and both curves are still rising at epoch 20.</li>
+            <li><strong>Frozen ResNet-50 converges smoothly.</strong> The train&ndash;validation gap stays small (75.2% versus 72.6% accuracy at epoch 20), and validation Macro-F1 still gains about 0.004 per epoch near the end.</li>
+            <li><strong>Full ResNet-50 overfits after a fast start.</strong> Validation Macro-F1 reaches 0.814 after one epoch and plateaus near 0.87 from epoch 3. Training accuracy climbs to 99% while validation loss rises from 0.47 to about 0.57.</li>
+            <li><strong>Implementation fixes.</strong> The local M2 runs showed low GPU utilization, so the final runs add AMP, channels-last memory format, persistent workers and resumable checkpoints.</li>
           </ul>
+
+          <h3>Qualitative results</h3>
+          <figure class="m2-figure">
+            <a href="assignment2/results/figures/final_qualitative_test.png"><img src="assignment2/results/figures/final_qualitative_test.png" alt="Test images from the fully fine-tuned ResNet-50 in three rows: confident correct predictions, correct predictions with the lowest confidence, and confident errors, each labelled with true and predicted class" width="2288" height="1091" loading="lazy" /></a>
+            <figcaption>The rows show confident correct, low-confidence correct and confident wrong test predictions of Full ResNet-50 (T = true, P = predicted).</figcaption>
+          </figure>
+          <p>Confident correct predictions are close-up photos of a single dish. Low-confidence correct predictions are mostly table scenes with several dishes. Confident errors fall between visually similar dishes, such as Bún bò Huế and Phở or Bánh cuốn and Gỏi cuốn, and on mixed platters where another dish dominates the frame.</p>
+          <p>Per-run outputs are in the <a href="assignment2/results/final_comparison.csv" download>final comparison CSV</a> and the <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/tree/main/assignment2/results/kaggle">Kaggle run folders</a>.</p>
         </div>
       </section>
 
@@ -711,10 +1147,46 @@
           <h2 class="section-title" id="comparison-discussion-title">Comparison &amp; Discussion</h2>
         </div>
         <div class="content-card">
-          <p>Frozen ResNet-50 reached validation Accuracy of <strong>72.45%</strong> and Macro-F1 of <strong>0.7231</strong>, compared with <strong>25.10%</strong> and <strong>0.2005</strong> for the scratch CNN. The differences are 47.35 percentage points in Accuracy and 0.5227 in Macro-F1.</p>
-          <p>The CNN improved through much of training but had fluctuating validation metrics, including a large validation-loss spike at epoch 2; its best validation Macro-F1 occurred at epoch 19. Frozen ResNet-50 improved more smoothly and reached its highest validation Macro-F1 at epoch 20. A fixed 20-epoch budget does not establish that either model has fully converged.</p>
-          <p>Only 61,470 head parameters were trainable in the frozen model, but the full backbone still computed image features. The measured epoch-loop times were similar: 2,715.15 seconds for the CNN and 2,744.06 seconds for ResNet-50. These totals do not identify a particular performance bottleneck; profiling is deferred until after M2.</p>
-          <p><strong>Interpretation:</strong> the pretrained frozen configuration performs better in these runs. Architecture, initialization and learning rate changed together, so the gain cannot be attributed to one factor in isolation. M3 will compare frozen and fully trainable ResNet-50 while keeping the other factors fixed.</p>
+          <p class="m2-note"><strong>Both hypotheses are supported. Pretraining adds 0.53 test Macro-F1 over the scratch CNN, and full fine-tuning adds another 0.16 over the frozen backbone, far above the 0.01 threshold.</strong></p>
+          <div class="table-container" role="region" aria-labelledby="cd-hyp-cap" tabindex="0">
+            <table class="rubric-table">
+              <caption id="cd-hyp-cap">Each gain is the Macro-F1 of the second model minus the first.</caption>
+              <thead><tr><th scope="col">Experiment</th><th scope="col">Val gain</th><th scope="col">Test gain</th><th scope="col">Criterion</th><th scope="col">Verdict</th></tr></thead>
+              <tbody>
+                <tr><td>A: CNN &rarr; Frozen ResNet-50</td><td>+0.5347</td><td>+0.5294</td><td>Higher validation Macro-F1</td><td><strong>Supported</strong>, but not attributable to one factor</td></tr>
+                <tr><td>B: Frozen &rarr; Full ResNet-50</td><td>+0.1579</td><td>+0.1608</td><td>Gain &ge; 0.01</td><td><strong>Supported</strong>; full fine-tuning is preferred</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Where the differences appear</h3>
+          <ul class="styled-list">
+            <li><strong>Full fine-tuning improves all 30 classes.</strong> The largest test F1 gains are on noodle soups and lookalike cakes: Bánh đúc +0.39 (0.36 &rarr; 0.75), Bún riêu +0.31, Bún mắm +0.30, Hủ tiếu +0.30, Mì Quảng +0.27 and Phở +0.25.</li>
+            <li><strong>Distinctive dishes gain little.</strong> Bánh mì, Bánh bèo, Cá kho tộ and Bún đậu mắm tôm already exceed 0.82 F1 when frozen and gain at most 0.05.</li>
+            <li><strong>The scratch CNN collapses toward the largest class.</strong> Its most frequent errors all predict Bún bò Huế, and five classes (Bánh căn, Bánh canh, Bánh đúc, Bún mắm, Cao lầu) score 0 F1.</li>
+          </ul>
+
+          <h3>Likely causes</h3>
+          <ul class="styled-list">
+            <li><strong>Data scale and initialization.</strong> About 17,500 images and 20 epochs are not enough for a 21 M-parameter plain CNN to learn food features from random weights. ImageNet features already encode textures, shapes and bowls.</li>
+            <li><strong>Fixed features limit the frozen model.</strong> The noodle soups differ mainly in broth colour, noodle shape and toppings. Generic ImageNet features keep them close together, so a linear head cannot separate them well.</li>
+            <li><strong>Backbone adaptation drives the full model.</strong> Updating every layer lets the features learn these fine-grained cues. Without weight decay, the model also memorizes the training set (99% training accuracy), and validation Macro-F1 gains only 0.008 after epoch 5.</li>
+            <li><strong>Class imbalance is not the main factor.</strong> Accuracy and Macro-F1 stay within 0.01 of each other for both ResNet-50 models, so errors are not concentrated in small classes.</li>
+          </ul>
+
+          <h3>Accuracy, speed and parameter trade-offs</h3>
+          <ul class="styled-list">
+            <li><strong>Full fine-tuning is cheap for its gain.</strong> It trains 383&times; more parameters than the frozen model but takes only 9% longer (60 versus 55 minutes), because both pass every image through the full backbone. Inference speed is identical; only the checkpoint grows (270 versus 91 MB).</li>
+            <li><strong>The CNN is fastest but not useful.</strong> It runs at 1,534 images/s, about 1.9&times; the ResNet-50 throughput, yet reaches only 0.19 Macro-F1. It also trains the longest (65 minutes), which suggests that data loading rather than model compute dominates epoch time; this has not been profiled.</li>
+          </ul>
+
+          <h3>Conclusions not yet supported</h3>
+          <ul class="styled-list">
+            <li>All results come from one seed, so run-to-run variance is unknown, and small gaps such as the 0.008 after epoch 5 are not meaningful.</li>
+            <li>Experiment A changes model, initialization and learning rate together, so it cannot show which one causes the gain.</li>
+            <li>A longer CNN schedule, or full fine-tuning with weight decay and earlier stopping, could change the margins; neither was tested.</li>
+            <li>Timings come from a shared Kaggle T4 and are indicative rather than controlled measurements.</li>
+          </ul>
         </div>
       </section>
 
@@ -724,28 +1196,43 @@
           <h2 class="section-title" id="error-analysis-title">Error Analysis</h2>
         </div>
         <div class="content-card">
-          <h3>Initial validation error analysis</h3>
-          <p>The following counts come from the reloaded frozen ResNet-50 checkpoint at epoch 20. They summarize the most frequent off-diagonal entries of its 30 &times; 30 validation confusion matrix.</p>
-          <div class="table-container" role="region" aria-label="Most frequent directed validation confusions: frozen ResNet-50" tabindex="0">
+          <p class="m2-note"><strong>Full ResNet-50 misclassifies 457 of 3,747 test images (12.2%). Four in five errors are either noodle-soup confusions or confusions across dish families.</strong> Errors are grouped by the dish families in <a href="#problem">Problem Statement</a>.</p>
+
+          <div class="table-container" role="region" aria-labelledby="ea-groups-cap" tabindex="0">
             <table class="rubric-table">
-              <caption>Most frequent directed validation confusions: frozen ResNet-50</caption>
-              <thead><tr><th scope="col">True class</th><th scope="col">Predicted class</th><th scope="col">Misclassified images</th></tr></thead>
-              <tbody><tr><td>Bun rieu</td><td>Bun bo Hue</td><td>37</td></tr>
-<tr><td>Pho</td><td>Bun bo Hue</td><td>30</td></tr>
-<tr><td>Banh canh</td><td>Bun bo Hue</td><td>26</td></tr>
-<tr><td>Bun mam</td><td>Bun bo Hue</td><td>24</td></tr>
-<tr><td>Hu tieu</td><td>Bun bo Hue</td><td>16</td></tr></tbody>
-            </table>
-          </div>          <div class="table-container" role="region" aria-label="Three classes with the lowest validation F1: frozen ResNet-50" tabindex="0">
-            <table class="rubric-table">
-              <caption>Three classes with the lowest validation F1: frozen ResNet-50</caption>
-              <thead><tr><th scope="col">Class</th><th scope="col">Validation F1</th><th scope="col">Validation support</th></tr></thead>
-              <tbody><tr><td>Banh duc</td><td>0.3562</td><td>98</td></tr>
-<tr><td>Banh canh</td><td>0.4494</td><td>143</td></tr>
-<tr><td>Hu tieu</td><td>0.5122</td><td>146</td></tr></tbody>
+              <caption id="ea-groups-cap">Test errors of Full ResNet-50 are grouped by the families of the true and predicted classes.</caption>
+              <thead><tr><th scope="col">Error group</th><th scope="col">Errors</th><th scope="col">Most frequent pairs (true &rarr; predicted)</th><th scope="col">Hypothesized cause</th><th scope="col">Improvement idea</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Noodle soups</strong></td><td><strong>185 (40.5%)</strong></td><td>Bún bò Huế &rarr; Phở 17; Bún riêu &rarr; Bún bò Huế 15; Hủ tiếu &rarr; Bánh canh 10</td><td>The bowls share broth, herbs and plating; noodle thickness and broth colour are small cues at 224 px and are often hidden by toppings.</td><td>Use a higher input resolution and add training images for these classes.</td></tr>
+                <tr><td><strong>Across families</strong></td><td><strong>183 (40.0%)</strong></td><td>Bún riêu &rarr; Canh chua 5; Nem chua &rarr; Bún thịt nướng 4; Bánh xèo &rarr; Bánh mì 4</td><td>Multi-dish scenes, unusual views and shared components conflict with the single label (see the sample review below).</td><td>Crop to the main dish before classification and clean doubtful labels.</td></tr>
+                <tr><td>Steamed cakes</td><td>54 (11.8%)</td><td>Bánh bột lọc &rarr; Bánh bèo 7; Bánh đúc &rarr; Bánh bèo 7; Bánh cuốn &rarr; Bánh bột lọc 6</td><td>White, translucent rice-flour textures look alike, and the plating with sauce and shrimp is similar.</td><td>Reduce colour jitter, which may blur translucency cues, and add hard examples.</td></tr>
+                <tr><td>Griddle cakes</td><td>28 (6.1%)</td><td>Bánh khọt &harr; Bánh căn 18; Bánh khọt &rarr; Bánh xèo 7</td><td>Small round cakes come from the same moulds and differ mainly in toppings and size.</td><td>Use a higher resolution and avoid crops that remove scale cues.</td></tr>
+                <tr><td>Other within-family</td><td>7 (1.5%)</td><td>Single, scattered pairs</td><td colspan="2">This group has no clear pattern; the rice-dish family has no within-family errors at all.</td></tr>
+              </tbody>
             </table>
           </div>
-          <p>These are observed classification errors, not established visual causes. Low per-class F1 indicates where to focus the next review. Qualitative prediction examples, manually reviewed failure categories, and complete per-class discussion remain M3 work. No error analysis here uses test predictions.</p>
+          <p>By true family, the error rate is highest for <strong>noodle soups (16.9%)</strong> and steamed cakes (13.2%), and lowest for rice dishes (3.4%). The weakest classes are Bánh canh (F1 0.705), Bánh đúc (0.747), Hủ tiếu (0.770) and Phở (0.777).</p>
+
+          <h3>Cross-family errors: sample review</h3>
+          <figure class="m2-figure">
+            <a href="assignment2/results/figures/final_cross_family_errors.jpg"><img src="assignment2/results/figures/final_cross_family_errors.jpg" alt="Thirty randomly sampled cross-family test errors of the fully fine-tuned ResNet-50, each labelled with its true class, predicted class and confidence" width="1800" height="1700" loading="lazy" /></a>
+            <figcaption>The figure shows 30 random cross-family errors (seed 0), each with its true class, prediction and confidence.</figcaption>
+          </figure>
+          <ul class="styled-list">
+            <li><strong>Multi-dish or cluttered scenes (8 of 30):</strong> trays, street stalls and people eating hide the labelled dish, as in Cơm tấm &rarr; Bún thịt nướng.</li>
+            <li><strong>Unusual view or cooking stage (8 of 30):</strong> close crops, a lidded pot or a cake still in the pan, as in Bánh xèo &rarr; Bánh pía.</li>
+            <li><strong>Soups from another family (8 of 30):</strong> noodle soups predicted as Canh chua or Cháo lòng, and the reverse.</li>
+            <li><strong>Shared wrapping or components (4 of 30):</strong> banana-leaf packages and grilled meat, as in Nem chua &rarr; Bánh tét.</li>
+            <li><strong>Doubtful labels (2 of 30):</strong> the image does not appear to show the labelled dish.</li>
+          </ul>
+
+          <h3>Confidence of errors</h3>
+          <p><strong>225 errors (49%) have confidence &ge; 0.8</strong>, so the model is often confidently wrong; only 53 errors fall below 0.5. The true class is still in the top 3 for 70% of errors. Temperature scaling or label smoothing could make confidence usable as a reject signal, and a top-3 output would recover most mistakes in a search or tagging app.</p>
+
+          <p style="margin-top:0.75rem; font-size:0.9rem; color:var(--text-muted)">
+            Full notebook (training curves, evaluation, compute cost, and error analysis):
+            <a href="assignment2/notebooks/02_results_analysis.html" target="_blank" rel="noopener">02_results_analysis.html</a>
+          </p>
         </div>
       </section>
 
@@ -755,86 +1242,180 @@
           <h2 class="section-title" id="limitations-conclusion-title">Limitations &amp; Conclusion</h2>
         </div>
         <div class="content-card">
+          <p class="m2-note"><strong>Answer to the research questions: ImageNet pretraining is essential at this data scale, and full fine-tuning is clearly worth its cost. Full ResNet-50 reaches test Macro-F1 0.8787 and accuracy 87.8%.</strong></p>
+
+          <h3>Limitations</h3>
           <ul class="styled-list">
-            <li>Results cover one seed, one custom group-aware split and a fixed 20-epoch budget; run-to-run uncertainty has not been measured.</li>
-            <li>The scratch CNN has 33 convolutional layers and 21.25 million trainable parameters. Its continuing improvement suggests that a weak 20-epoch result is not evidence that every scratch CNN is unsuitable.</li>
-            <li>Web-photo bias, residual label noise and undetected transformed duplicates may affect generalization. The audit reduces known leakage but cannot guarantee its absence.</li>
-            <li>The held-out test set remains unused. Full fine-tuning, the controlled study, early-stopping extension, throughput profiling, inference-cost measurements and detailed qualitative error analysis are pending.</li>
+            <li><strong>Data:</strong> web photos favour styled review images, and label noise on unique images remains. Heavily edited copies may still leak across splits despite the duplicate audit.</li>
+            <li><strong>Method:</strong> the single-label setup has no way to handle multi-dish photos, which drive a large share of cross-family errors. The full model overfits without weight decay, and its confidence is poorly calibrated.</li>
+            <li><strong>Experiment:</strong> the evidence rests on one seed per configuration, and Experiment A does not isolate a single factor. The other open points are listed under <a href="#comparison-discussion">Comparison &amp; Discussion</a>.</li>
+            <li><strong>Generalization:</strong> the model covers only 30 dishes and forces any other food into one of them. Results may not hold for everyday phone photos or regional variants missing from the data.</li>
           </ul>
-          <p><strong>M2 conclusion:</strong> a reproducible pipeline, audited EDA, a completed scratch baseline and a completed pretrained frozen-backbone run are available. The selected frozen model reaches validation Macro-F1 0.7231. This is preliminary validation evidence; final generalization claims await the M3 study and locked-model test evaluation.</p>
+
+          <h3>Future work</h3>
+          <ul class="styled-list">
+            <li>Repeat each configuration over 3 or more seeds and report mean &plusmn; standard deviation.</li>
+            <li>Add weight decay and stop at the validation plateau around epoch 5 to cut overfitting and training time.</li>
+            <li>Test a higher input resolution for the noodle-soup and griddle-cake confusions.</li>
+            <li>Crop to the main dish, calibrate confidence, and return top-3 predictions for application use.</li>
+          </ul>
         </div>
       </section>
 
-      <section class="section-block" id="checkpoint-reproduction" aria-labelledby="checkpoint-reproduction-title">
+      <!-- Links & Deliverables -->
+      <section class="section-block" id="deliverables">
         <div class="section-header">
-          <span class="section-icon" aria-hidden="true">&#128190;</span>
-          <h2 class="section-title" id="checkpoint-reproduction-title">Checkpoint Access and Reproduction</h2>
+          <span class="section-icon">🔗</span>
+          <h2 class="section-title">Deliverables &amp; Links</h2>
         </div>
-        <div class="content-card">
-          <p>The recorded checkpoints are stored locally in their run directories and excluded from Git. No checkpoint-download URL has been published. The following instructions describe how to reconstruct new runs; regenerated numerical results may vary across environments.</p>
-          <ol class="styled-list">
-            <li>Obtain the repository source and Kaggle version 11 images. Preserve paths under <code>assignment2/data/raw/archive/Images/</code>, then use the committed manifests rather than regenerating the split.</li>
-            <li>For a reported run, commit the source/configuration and build the Docker image from those files. The current run records identify training source commit <code class="m2-break">5d106abab40a6720ebc5874b9a748f01356c965c</code>; later comparison/plotting scripts are packaging additions.</li>
-            <li>Run the commands below from <code>assignment2/</code>. Copy the new printed run IDs when verifying reproduced runs; the existing M2 run IDs are not automatically recreated.</li>
-          </ol>
-          <pre class="m2-code"><code>$trainingCommit = git rev-parse HEAD
-docker compose build
+        <div class="links-grid">
+          <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/releases/tag/a2-m3-final-submission"
+            class="link-btn-card" target="_blank" rel="noopener">
+            <div class="link-icon-box">📦</div>
+            <div>
+              <span class="link-label">M3 Final Release</span>
+              <span class="link-sub">Submission notes and versioned deliverables</span>
+            </div>
+          </a>
 
-docker compose -f compose.yaml -f compose.gpu.yaml run --rm assignment2 python -m experiments.run --config config/baseline_cnn.yaml --epochs 20 --code_commit $trainingCommit
+          <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/tree/a2-m3-final-submission/assignment2"
+            class="link-btn-card" target="_blank" rel="noopener">
+            <div class="link-icon-box">💻</div>
+            <div>
+              <span class="link-label">M3 Final Source Code</span>
+              <span class="link-sub">Tagged M3 submission with code, report, and slides</span>
+            </div>
+          </a>
 
-docker compose -f compose.yaml -f compose.gpu.yaml run --rm assignment2 python -m experiments.run --config config/resnet50.yaml --experiment-config config/ablation_frozen.yaml --epochs 20 --code_commit $trainingCommit</code></pre>
-          <p>GPU execution requires compatible NVIDIA hardware/drivers and configured Docker GPU access (WSL 2 backend on Windows). Each command saves configuration, metadata, the best validation checkpoint, history and timing. Use <code>python -m experiments.verify_checkpoint --run-dir RUN_DIRECTORY</code> inside the same Docker GPU service to check a saved run. This reloads saved settings and evaluates validation only.</p>
-          <p><a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/main/assignment2/docs/environment.md">Full dataset, environment and checkpoint-reproduction instructions</a> &middot; <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/main/assignment2/README.md">Project README</a></p>
+          <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/a2-m3-final-submission/assignment2/report/report.pdf"
+            class="link-btn-card" target="_blank" rel="noopener">
+            <div class="link-icon-box">📄</div>
+            <div>
+              <span class="link-label">M3 Report (PDF)</span>
+              <span class="link-sub">Methods, results, and analysis in PDF format</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/a2-m3-final-submission/assignment2/notebooks/02_results_analysis.ipynb"
+            class="link-btn-card" target="_blank" rel="noopener">
+            <div class="link-icon-box">📊</div>
+            <div>
+              <span class="link-label">M3 Results Analysis</span>
+              <span class="link-sub">Tagged notebook: training, evaluation, and error analysis</span>
+            </div>
+          </a>
+
+          <a class="link-btn-card" aria-disabled="true">
+            <div class="link-icon-box">▶️</div>
+            <div>
+              <span class="link-label">YouTube Presentation</span>
+              <span class="link-sub">Group 09: Assignment 2 video</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/a2-m3-final-submission/assignment2/report/a2_m3_slide.pdf"
+            class="link-btn-card" target="_blank" rel="noopener">
+            <div class="link-icon-box">📽️</div>
+            <div>
+              <span class="link-label">M3 Slides (PDF)</span>
+              <span class="link-sub">Baseline, pretrained, and fine-tuning comparison</span>
+            </div>
+          </a>
         </div>
       </section>
 
-      <section class="section-block" id="deliverables" aria-labelledby="deliverables-title">
+      <!-- AI Usage Disclosure -->
+      <section class="section-block" id="ai-disclosure">
         <div class="section-header">
-          <span class="section-icon" aria-hidden="true">&#128279;</span>
-          <h2 class="section-title" id="deliverables-title">Deliverables &amp; Links</h2>
+          <span class="section-icon">🛡️</span>
+          <h2 class="section-title">AI Usage Disclosure</h2>
         </div>
-        <div class="content-card">
-          <div class="links-grid">
-            <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/tree/main/assignment2" class="link-btn-card" target="_blank" rel="noopener"><div><span class="link-label">Source code</span><span class="link-sub">Assignment 2 repository</span></div></a>
-            <a href="#checkpoint-reproduction" class="link-btn-card"><div><span class="link-label">Reproduce checkpoints</span><span class="link-sub">Dataset and training instructions</span></div></a>
-            <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/main/assignment2/report/report.md" class="link-btn-card" target="_blank" rel="noopener"><div><span class="link-label">M2 draft report</span><span class="link-sub">Problem, methods, setup and results</span></div></a>
-            <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/main/assignment2/notebooks/01_eda.ipynb" class="link-btn-card" target="_blank" rel="noopener"><div><span class="link-label">EDA notebook</span><span class="link-sub">Audit and exploratory analysis</span></div></a>
-            <a href="assignment2/results/comparison.csv" class="link-btn-card" download><div><span class="link-label">Validation comparison CSV</span><span class="link-sub">Metrics, parameter counts and timing</span></div></a>
-            <a href="#presentation-video" class="link-btn-card"><div><span class="link-label">Presentation status</span><span class="link-sub">Slides and YouTube video planned for M3</span></div></a>
-            <a href="#dataset-proposal" class="link-btn-card"><div><span class="link-label">Dataset proposal</span><span class="link-sub">M1 record and approval status</span></div></a>
+        <div class="disclosure-card">
+          <h3>Assignment 2 AI Usage Disclosure</h3>
+          <p>
+            Codex (OpenAI, GPT-6) through a coding-agent session and Claude (Anthropic, Claude Opus 5.5)
+            through the VS Code extension and the desktop app supported the work described below. The
+            suggestions were adapted to the implementation, and the resulting code and content were verified.
+            The complete log is kept in
+            <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/main/AI_USAGE.md#assignment-2" target="_blank" rel="noopener"><strong>AI_USAGE.md</strong></a>.
+          </p>
+
+          <div class="table-container">
+            <table class="rubric-table">
+              <thead>
+                <tr>
+                  <th>Tool</th>
+                  <th>Used by</th>
+                  <th>Stage &amp; purpose</th>
+                  <th>Affected sections / files</th>
+                  <th>Editing</th>
+                  <th>Verification</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Codex — GPT-6<br /><span style="font-size:0.85em; color:var(--text-muted)">OpenAI</span></td>
+                  <td>Tran Manh Thang<br />2353124</td>
+                  <td>Project setup and M2 Draft. Review of the file skeleton; guidance on Docker, configuration, seeding, the training runner, checkpoint verification, comparison and plot export, and CI; drafting of the M2 README, report, and page.</td>
+                  <td><code>config/</code>, <code>experiments/</code>, <code>src/utils/</code>, Docker and CI files, <code>README.md</code>, <code>report/</code></td>
+                  <td>Code examples were implemented by hand and adapted to the project modules; copied-code mismatches, stale Docker source, test discovery, and shared-memory issues were fixed during debugging.</td>
+                  <td>The Docker CPU test suite passed 25 tests; both M2 runs completed on the GPU, and each reloaded checkpoint reproduced its saved validation metrics.</td>
+                </tr>
+                <tr>
+                  <td>Claude — Opus 5.5<br /><span style="font-size:0.85em; color:var(--text-muted)">Anthropic</span></td>
+                  <td>Phan Tan Loc<br />2352712</td>
+                  <td>M2 Draft. Implementation and review of the data audit, duplicate grouping, group-aware split, data loaders, and EDA analysis and figures.</td>
+                  <td><code>src/data/</code>, <code>data/manifests/</code>, <code>notebooks/01_eda.ipynb</code>, EDA figures</td>
+                  <td>The modules were integrated into the shared pipeline; the 54 cross-label near-duplicate pairs were reviewed by hand, removing 25 and keeping 29.</td>
+                  <td>Unit tests in <code>tests/test_dataset.py</code> and <code>test_split.py</code> check shapes, split ratios, seed reproducibility, and audit rules; the saved split shares no IDs, groups, or hashes across splits.</td>
+                </tr>
+                <tr>
+                  <td>Claude — Opus 5.5<br /><span style="font-size:0.85em; color:var(--text-muted)">Anthropic</span></td>
+                  <td>Hoang Kim Cuong<br />2352145</td>
+                  <td>M2 Draft. Implementation and review of the scratch CNN, the ResNet-50 wrapper with a frozen or trainable backbone, the epoch trainer, checkpoint selection, and the metrics and evaluator.</td>
+                  <td><code>src/models/</code>, <code>src/training/</code>, <code>src/evaluation/</code></td>
+                  <td>The code was connected to the shared configuration and experiment runner; models return raw logits, and checkpoint selection keeps the earlier epoch on ties.</td>
+                  <td>Unit tests in <code>tests/test_models.py</code>, <code>test_metrics.py</code>, and <code>test_checkpoint.py</code> check output shapes, the backward pass, metrics, and checkpoint restore; reloaded checkpoints reproduced their saved metrics.</td>
+                </tr>
+                <tr>
+                  <td>Claude — Opus 5.5<br /><span style="font-size:0.85em; color:var(--text-muted)">Anthropic</span></td>
+                  <td>Hoang Kim Cuong<br />2352145</td>
+                  <td>M3 Final. Rewrite of the Methodology, Experimental Setup, Results, Comparison &amp; Discussion, Error Analysis, and Limitations sections from the final runs; export of the final figures and comparison table; grouping of test errors by dish family.</td>
+                  <td><code>assignment2.html</code>, <code>results/final_comparison.csv</code>, <code>results/figures/final_*</code>, <code>AI_USAGE.md</code></td>
+                  <td>Shorter text with highlighted key points was requested; label word order was corrected; the Checkpoint Access and Presentation sections were removed.</td>
+                  <td>Every number was traced to the saved run artifacts in <code>results/kaggle/</code>; figures and the CSV were produced with <code>experiments.plot_curves</code> and <code>experiments.compare</code>.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-        </div>
-      </section>
 
-      <section class="section-block" id="presentation-video" aria-labelledby="presentation-video-title">
-        <div class="section-header">
-          <span class="section-icon" aria-hidden="true">&#9654;</span>
-          <h2 class="section-title" id="presentation-video-title">Slides and YouTube Presentation Video</h2>
-        </div>
-        <div class="content-card">
-          <p><strong>Not yet published.</strong> There is currently no YouTube presentation URL or completed slide deck for Assignment 2. The mandatory presentation link will be added for M3 after the group records, uploads and checks the video; an empty or unrelated video link is not used.</p>
-          <p>Planned title: <strong>CO3133-Semester-261 &ndash; Group 09 &ndash; Assignment 2</strong>. Every member must present or defend part of the work. The video should cover the problem/data, methods, setup, results, error analysis and conclusion, and be Public or Unlisted.</p>
-        </div>
-      </section>
-
-      <section class="section-block" id="ai-disclosure" aria-labelledby="ai-disclosure-title">
-        <div class="section-header">
-          <span class="section-icon" aria-hidden="true">&#128737;</span>
-          <h2 class="section-title" id="ai-disclosure-title">AI Usage Disclosure</h2>
-        </div>
-        <div class="content-card">
-          <h3>Assignment-specific AI assistance</h3>
-          <p>AI tools assisted with planning, implementation guidance, debugging, EDA preparation and report/page drafting. The training runs were executed by the student using the repository code; the reported numbers come from saved run artifacts and matching checkpoint-reload results, not generated estimates.</p>
-          <ul class="styled-list">
-            <li><strong>ChatGPT / OpenAI GPT-5.6, September 2026:</strong> the existing disclosure attributes the original page skeleton and shared stylesheet to Tran Manh Thang (2353124), followed by group review against handbook Section 2.2.</li>
-            <li><strong>OpenAI Codex / GPT-6, 13&ndash;26 Oct 2026:</strong> project structure and ownership planning; incremental guidance for Docker, configuration, seeding, orchestration, checkpoint verification, comparison and plotting; debugging; and M2 README/report/page drafts. The student implemented the guided changes and supplied test/training outputs. The assistant inspected local source, manifests, run JSONs and the exported curves. Current student user and overall final verifier: Trần Mạnh Thắng (2353124), confirmed by the user.</li>
-            <li><strong>Claude / Anthropic Cowork, 16&ndash;22 Oct 2026:</strong> the existing group disclosure attributes data-task planning, audit/duplicate/split/dataset/transform/loader code and tests, audit/EDA execution, figures and EDA text to assistance used by Tran Manh Thang (2353124). Student review decisions for 54 label-conflicting pairs are recorded separately; the student is responsible for checking the code and numbers.</li>
-            <li><strong>Claude / Anthropic Opus 5.5 (user-reported), Assignment 2 M2:</strong> Hoang Kim Cuong (2352145) and Phan Tan Loc (2352712) used Claude for their work, as reported by Trần Mạnh Thắng (2353124). Repository commits associate the former with models/training/evaluation and the latter with data/EDA; this does not establish which parts were AI-generated. Each member must confirm exact dates, prompts, student edits and personal verification steps in the detailed log.</li>
+          <h4>Representative Prompt Examples</h4>
+          <ul>
+            <li><strong>Scaffold — Codex, Tran Manh Thang:</strong> “I already created a file structure can you check
+              the type and structure is it correct or not if not you can fix by yourself.”</li>
+            <li><strong>Data and split — Claude, Phan Tan Loc:</strong> “Write an audit for the 30VNFoods images that
+              finds unreadable files, exact copies by SHA-256 and near copies by perceptual hash, then build a
+              70/15/15 split per class where all copies of an image stay in the same split, with a fixed seed.”</li>
+            <li><strong>Models and checkpoints — Claude, Hoang Kim Cuong:</strong> “Implement a plain CNN baseline and a
+              ResNet-50 classifier with an option to freeze the backbone, both returning 30 logits, and a checkpoint
+              helper that keeps the epoch with the best validation Macro-F1 and the earlier epoch on ties.”</li>
+            <li><strong>Assignment page — Claude, Hoang Kim Cuong:</strong> “Make the Assignment 2 methodology more
+              concise, write it objectively without personal pronouns, and make sure no content is repeated.”</li>
           </ul>
-          <h3>Verification and disclosure completion</h3>
-          <p>Verification evidence includes the user-reported 25 passing Docker CPU tests, successful GPU training, recorded configurations and split hashes, and exact validation Accuracy/Macro-F1 matches after reloading both selected checkpoints. Representative requests included guidance on the training runner and the request to update this page against the handbook checklist.</p>
-          <p>Detailed per-tool logs must identify the actual user, purpose, dates, affected files, representative prompts, edits, verification sources and final reviewer. M2 entries and member summaries are now recorded. The two teammate entries remain drafts pending their exact usage details; the earlier data/EDA attribution must also be reconciled by the group before submission.</p>
-          <p><a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/main/assignment2/docs/ai_usage.md">Assignment AI-use log</a> &middot; <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/main/AI_USAGE.md">Repository AI_USAGE.md</a></p>
+          <p>
+            <strong>Results provenance.</strong> Final metrics come from the saved
+            <code>summary.json</code>, <code>evaluation_val.json</code>, <code>evaluation_test.json</code>, and
+            <code>inference_benchmark.json</code> files of the three final runs.
+            Curves, confusion matrices, and prediction examples visualize outputs
+            from executed training and evaluation runs, not AI-estimated results.
+            AI assistance included drafting and reviewing explanatory text and HTML.
+          </p>
+          <p>
+            <strong>Final verification and responsibility.</strong> Tran Manh Thang is responsible for the scaffold,
+            environment, and experiment runner; Phan Tan Loc for the data audit, split, and EDA; and Hoang Kim Cuong
+            for the models, training, evaluation, and final results analysis. Each member verified the AI-assisted
+            work in the assigned area and retains responsibility for the submitted code, results, and interpretations.
+          </p>
         </div>
       </section>
 

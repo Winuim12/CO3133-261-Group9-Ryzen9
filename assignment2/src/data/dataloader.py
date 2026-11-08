@@ -17,10 +17,14 @@ def seed_worker(worker_id):
     random.seed(worker_seed)
 
 
-def create_dataloaders(train_dataset, val_dataset, test_dataset, batch_size, num_workers, seed=42):
+def create_dataloaders(train_dataset, val_dataset, test_dataset, batch_size, num_workers, seed=42,
+                       persistent_workers=False, prefetch_factor=2):
     generator = torch.Generator()
     generator.manual_seed(seed)
     pin_memory = torch.cuda.is_available()
+    worker_options = {}
+    if num_workers > 0:
+        worker_options = {"persistent_workers": persistent_workers, "prefetch_factor": prefetch_factor}
 
     train_loader = DataLoader(
         dataset=train_dataset,
@@ -30,6 +34,7 @@ def create_dataloaders(train_dataset, val_dataset, test_dataset, batch_size, num
         worker_init_fn=seed_worker,
         generator=generator,
         pin_memory=pin_memory,
+        **worker_options,
     )
 
     val_loader = DataLoader(
@@ -39,6 +44,7 @@ def create_dataloaders(train_dataset, val_dataset, test_dataset, batch_size, num
         num_workers=num_workers,
         worker_init_fn=seed_worker,
         pin_memory=pin_memory,
+        **worker_options,
     )
 
     test_loader = DataLoader(
@@ -48,6 +54,7 @@ def create_dataloaders(train_dataset, val_dataset, test_dataset, batch_size, num
         num_workers=num_workers,
         worker_init_fn=seed_worker,
         pin_memory=pin_memory,
+        **worker_options,
     )
 
     return train_loader, val_loader, test_loader
