@@ -24,8 +24,8 @@ Research questions:
 - **Experiment A:** does an ImageNet-pretrained ResNet-50 beat a CNN trained
   from scratch on about 17,500 training images?
 - **Experiment B (controlled):** with everything else fixed, does updating the
-  whole backbone improve validation Macro-F1 by at least 0.01 over a frozen
-  backbone, and is the extra cost worth it?
+  whole backbone improve validation Macro-F1 over a frozen backbone, and at
+  what extra cost?
 
 Main difficulties: fine-grained classes (noodle soups, leaf-wrapped cakes),
 large intra-class variation, background clutter and multi-dish photos, class
@@ -217,7 +217,7 @@ checkpoint saving) and excludes setup and weight download.
 | Changed factor | Architecture and initialization (learning rate also differs) | `freeze_backbone` only |
 | Fixed factors | Manifests, seed, preprocessing and augmentation, loss, optimizer, batch size, epoch budget, early stopping, AMP, GPU type | Everything in A + architecture, pretrained weights, seeded head init, LR 1e-4 |
 | Metrics | Val and test Macro-F1 (primary), accuracy | Same + trained parameters, training time, inference cost |
-| Decision criterion | Higher validation Macro-F1; gain not attributed to one factor | Full preferred only if validation Macro-F1 is ≥ 0.01 higher; otherwise the cheaper frozen model |
+| Comparison | Δ validation Macro-F1 = frozen − CNN; gain not attributed to one factor | Δ validation Macro-F1 = full − frozen, reported with the extra cost |
 
 Decisions use validation only; the test split is scored once per run after the
 checkpoint is fixed. **Compute cost** is measured as parameters, checkpoint size,
@@ -298,10 +298,10 @@ another dish dominates. These are illustrative, not representative.
 
 ### 3.5 Comparison and discussion
 
-| Experiment | Val gain | Test gain | Criterion | Verdict |
-| --- | ---: | ---: | --- | --- |
-| A: CNN → Frozen ResNet-50 | +0.5347 | +0.5294 | Higher val Macro-F1 | Supported, but not attributable to one factor |
-| B: Frozen → Full ResNet-50 | +0.1579 | +0.1608 | Gain ≥ 0.01 | Supported; full fine-tuning is selected |
+| Experiment | Val gain | Test gain | Verdict |
+| --- | ---: | ---: | --- |
+| A: CNN → Frozen ResNet-50 | +0.5347 | +0.5294 | Supported, but not attributable to one factor |
+| B: Frozen → Full ResNet-50 | +0.1579 | +0.1608 | Supported; full fine-tuning is better on all 30 classes |
 
 **Where the differences appear.** Full fine-tuning improves all 30 classes. The
 largest test F1 gains are on noodle soups and lookalike cakes: Banh duc +0.39
@@ -436,8 +436,8 @@ everything else fixed.
 | Selected epoch | 19 | 17 | −2 |
 | Inference, batch 64, AMP | 807 img/s | 804 img/s | ≈ 0 |
 
-The validation gain (+0.1579) is far above the 0.01 threshold, so **full
-fine-tuning is selected**; the test gain confirms it. The extra cost is +9%
+Full fine-tuning improves validation Macro-F1 by **+0.1579**, and the test
+gain confirms it. The extra cost is +9%
 training time, equal inference speed and a larger checkpoint. The conclusion
 holds for one learning rate, no weight decay and 20 epochs; layer-wise learning
 rates and gradual unfreezing were not tested.
