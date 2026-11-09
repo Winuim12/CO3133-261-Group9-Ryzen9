@@ -7,44 +7,268 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" type="image/png" href="hcmut_logo.png" />
   <style>
-    #dataset-proposal { scroll-margin-top: 6rem; }
-    #dataset-proposal h3 { scroll-margin-top: 6rem; margin-top: 2rem; }
-    #dataset-proposal p + p { margin-top: .8rem; }
-    #dataset-proposal .proposal-status { border-left: 3px solid #059669; padding: .75rem 1rem; background: #f0fdf4; color: #166534; }
-    #dataset-proposal .proposal-index { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; margin: 1.25rem 0; }
-    #dataset-proposal a { text-underline-offset: .2em; }
-    #dataset-proposal a:focus-visible, #dataset-proposal .table-container:focus-visible { outline: 3px solid #059669; outline-offset: 3px; }
-    #dataset-proposal caption { text-align: left; padding: .8rem 1.25rem; color: var(--text-main); font-weight: 600; }
-    #dataset-proposal .rubric-table { min-width: 520px; }
-    #dataset-proposal code { overflow-wrap: anywhere; }
-    #dataset-proposal .proposal-note { margin-top: 1.5rem; font-size: .85rem; }
-    @media (max-width: 600px) {
-      .a3-page .navbar { flex-wrap: wrap; gap: .5rem; padding: .7rem 1rem; }
-      .a3-page .navbar-brand { white-space: nowrap; }
-      .a3-page .navbar-links { width: 100%; justify-content: space-between; }
-      .a3-page .navbar-links a { padding: .35rem .4rem; }
-      .a3-page .main-wrapper { padding-top: 8rem; }
-      .a3-page .container { padding-left: 1rem; padding-right: 1rem; }
-      .a3-page .page-hero-bright { padding: 1.5rem 1rem; }
-      .a3-page .info-grid { grid-template-columns: minmax(0, 1fr); }
-      .a3-page .content-card { min-width: 0; padding: 1.1rem; }
-      .a3-page .table-container { max-width: 100%; }
-      #dataset-proposal, #dataset-proposal h3 { scroll-margin-top: 9rem; }
-    }
-    @media (prefers-reduced-motion: reduce) { .a3-page *, .a3-page *::before, .a3-page *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+#dataset-proposal {
+  --proposal-accent: #047857;
+  --proposal-ink: #17352b;
+  --proposal-muted: #64748b;
+  --proposal-line: #dcebe3;
+}
+#dataset-proposal *,
+#dataset-proposal *::before,
+#dataset-proposal *::after { box-sizing: border-box; }
+#dataset-proposal .proposal-card {
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--proposal-line);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 12px 36px rgb(39 33 57 / 5%);
+}
+#dataset-proposal .proposal-hero {
+  padding: clamp(24px, 4vw, 48px);
+  background: linear-gradient(120deg, #f0fdf4, #fff);
+  border-bottom: 1px solid var(--proposal-line);
+}
+#dataset-proposal .proposal-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+#dataset-proposal .status-badge,
+#dataset-proposal .due-badge {
+  display: inline-flex;
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+#dataset-proposal .status-badge {
+  align-items: center;
+  gap: 10px;
+  padding: 8px 15px 8px 8px;
+  border: 1px solid #f0dba9;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #fffbf1, #fff4da);
+  color: #805217;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  box-shadow: 0 3px 10px rgb(128 82 23 / 6%);
+}
+#dataset-proposal .status-badge-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #f9e8be;
+  color: #986817;
+}
+#dataset-proposal .status-badge-icon svg { display: block; width: 16px; height: 16px; }
+#dataset-proposal .due-badge { background: #d1fae5; color: var(--proposal-accent); }
+#dataset-proposal .proposal-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 56px);
+}
+#dataset-proposal .proposal-copy { min-width: 0; align-self: start; }
+#dataset-proposal .badge-track {
+  color: var(--proposal-accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+#dataset-proposal .proposal-title-box { margin: 14px 0 18px; }
+#dataset-proposal .proposal-title {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
+  letter-spacing: -0.055em;
+  line-height: 1.08;
+  color: var(--proposal-ink);
+}
+#dataset-proposal .proposal-desc {
+  margin: 0 0 24px;
+  max-width: 52ch;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--proposal-muted);
+}
+#dataset-proposal .action-links { display: flex; flex-wrap: wrap; gap: 10px; }
+#dataset-proposal .action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid #c7e5d5;
+  border-radius: 9px;
+  background: #fff;
+  color: var(--proposal-accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 150ms ease;
+}
+#dataset-proposal .action-btn.primary { background: var(--proposal-accent); border-color: var(--proposal-accent); color: #fff; }
+#dataset-proposal .action-btn:hover { background: #ecfdf5; }
+#dataset-proposal .action-btn.primary:hover { background: #065f46; }
+#dataset-proposal a:focus-visible { outline: 3px solid #34d399; outline-offset: 4px; }
+#dataset-proposal .proposal-preview { margin: 0; overflow: hidden; border: 1px solid var(--proposal-line); border-radius: 14px; background: #fff; }
+#dataset-proposal .proposal-preview img { display: block; width: 100%; height: 250px; object-fit: cover; object-position: center; }
+#dataset-proposal .proposal-preview figcaption { padding: 16px 18px; }
+#dataset-proposal .proposal-preview figcaption span { display: block; margin-bottom: 6px; color: var(--proposal-accent); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; }
+#dataset-proposal .proposal-preview figcaption strong { font-size: 0.85rem; color: var(--proposal-ink); }
+#dataset-proposal .proposal-body { padding: 0 clamp(24px, 4vw, 48px); background: #fff; }
+#dataset-proposal .proposal-section {
+  padding: 32px 0;
+  border-bottom: 1px solid var(--proposal-line);
+  min-width: 0;
+}
+#dataset-proposal .proposal-section:last-child { border-bottom: 0; }
+#dataset-proposal .section-heading { margin-bottom: 24px; }
+#dataset-proposal .section-heading-left { display: flex; align-items: center; gap: 14px; }
+#dataset-proposal .section-badge-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: #dcfce7;
+  color: var(--proposal-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+#dataset-proposal .section-heading h3 { margin: 0; color: var(--proposal-ink); font-size: 1rem; line-height: 1.5; letter-spacing: -0.015em; }
+#dataset-proposal .proposal-section p { margin: 0; color: #596579; font-size: 0.85rem; line-height: 1.8; }
+#dataset-proposal .dataset-overview { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr); gap: 32px; }
+#dataset-proposal .dataset-identity { padding-top: 4px; }
+#dataset-proposal .dataset-identity h4 { margin: 0 0 8px; color: var(--proposal-ink); font-size: 1.7rem; letter-spacing: -0.04em; }
+#dataset-proposal .dataset-identity p { max-width: 25ch; }
+#dataset-proposal .dataset-details { margin: 0; }
+#dataset-proposal .dataset-details > div { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 20px; padding: 12px 0; border-bottom: 1px solid var(--proposal-line); }
+#dataset-proposal .dataset-details > div:first-child { padding-top: 4px; }
+#dataset-proposal .dataset-details > div:last-child { border-bottom: 0; padding-bottom: 0; }
+#dataset-proposal .dataset-details dt { color: var(--proposal-muted); font-size: 0.8rem; line-height: 1.6; }
+#dataset-proposal .dataset-details dd { margin: 0; color: var(--proposal-ink); font-size: 0.85rem; font-weight: 600; line-height: 1.6; }
+#dataset-proposal .dataset-details a { color: var(--proposal-accent); text-decoration: none; }
+#dataset-proposal .dataset-details a:hover { text-decoration: underline; text-underline-offset: 4px; }
+#dataset-proposal .detail-muted { display: block; margin-top: 4px; font-size: 0.8rem; color: var(--proposal-muted); font-weight: 400; }
+#dataset-proposal .license-source { display: inline-block; margin-top: 6px; font-size: 0.8rem; }
+#dataset-proposal .protocol-grid,
+#dataset-proposal .sample-annotation-details { display: grid; gap: 24px; }
+#dataset-proposal .protocol-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+#dataset-proposal .sample-annotation-details { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+#dataset-proposal .protocol-tile { min-width: 0; padding: 0 0 0 16px; border-left: 2px solid #d1e7db; }
+#dataset-proposal .tile-label { display: block; margin-bottom: 9px; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.065em; text-transform: uppercase; color: #58766b; }
+#dataset-proposal .protocol-tile > strong { display: block; margin-bottom: 8px; color: var(--proposal-ink); font-size: 0.95rem; line-height: 1.55; }
+#dataset-proposal .protocol-tile > .tile-number { font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+#dataset-proposal .metric-primary { border-left-color: var(--proposal-accent); }
+#dataset-proposal .metric-primary > strong { color: var(--proposal-accent); }
+#dataset-proposal .distribution-chart { margin: 0 0 28px; padding: 20px; background: #f8fcfa; border: 1px solid var(--proposal-line); border-radius: 12px; }
+#dataset-proposal .distribution-chart img { display: block; width: 100%; max-width: 720px; height: auto; margin: 0 auto; }
+#dataset-proposal .distribution-chart figcaption { margin-top: 12px; color: var(--proposal-muted); font-size: 0.75rem; text-align: center; line-height: 1.6; }
+#dataset-proposal .proposal-note { margin-top: 24px; padding: 14px 18px; border-radius: 9px; background: #f0fdf4; color: #49665b; font-size: 0.8rem; line-height: 1.8; }
+#dataset-proposal .section-heading + .proposal-note { margin-top: 0; }
+#dataset-proposal .split-progress-bar { display: flex; overflow: hidden; margin: 24px 0 0; border-radius: 10px; }
+#dataset-proposal .split-segment { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; min-width: 0; padding: 18px 8px; }
+#dataset-proposal .split-train { flex: 70; color: #fff; background: #047857; }
+#dataset-proposal .split-val { flex: 15; color: #064e3b; background: #bbf7d0; }
+#dataset-proposal .split-test { flex: 15; color: #426454; background: #ecfdf5; }
+#dataset-proposal .split-title { font-size: 0.8rem; font-weight: 700; }
+#dataset-proposal .split-subtitle { font-size: 0.7rem; font-variant-numeric: tabular-nums; }
+#dataset-proposal .protocol-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; list-style: none; counter-reset: steps; margin: 24px 0 0; padding: 0; }
+#dataset-proposal .protocol-steps li { counter-increment: steps; min-width: 0; padding-left: 16px; border-left: 2px solid #d1e7db; }
+#dataset-proposal .protocol-steps li::before { content: '0' counter(steps); display: block; margin-bottom: 8px; color: var(--proposal-accent); font-size: 0.7rem; font-weight: 700; }
+#dataset-proposal .protocol-steps strong { display: block; margin-bottom: 8px; color: var(--proposal-ink); font-size: 0.9rem; }
+#dataset-proposal .protocol-steps span { display: block; color: #596579; font-size: 0.85rem; line-height: 1.8; }
+#dataset-proposal .model-candidates { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 0; padding: 0; list-style: none; }
+#dataset-proposal .model-candidates li { padding: 9px 14px; border: 1px solid var(--proposal-line); border-radius: 8px; color: #3d5f50; font-size: 0.8rem; font-weight: 600; background: #f8fcfa; }
+@media (max-width: 900px) {
+  #dataset-proposal .protocol-grid,
+  #dataset-proposal .protocol-steps { grid-template-columns: 1fr; gap: 20px; }
+  #dataset-proposal .proposal-preview img { height: 210px; }
+}
+@media (max-width: 640px) {
+  #dataset-proposal .proposal-card { border-radius: 16px; }
+  #dataset-proposal .proposal-intro,
+  #dataset-proposal .dataset-overview,
+  #dataset-proposal .sample-annotation-details { grid-template-columns: 1fr; gap: 24px; }
+  #dataset-proposal .proposal-topbar { margin-bottom: 24px; }
+  #dataset-proposal .proposal-section { padding: 28px 0; }
+  #dataset-proposal .dataset-details > div { grid-template-columns: 100px minmax(0, 1fr); gap: 12px; }
+  #dataset-proposal .section-heading-left { gap: 10px; align-items: flex-start; }
+  #dataset-proposal .section-heading h3 { padding-top: 4px; }
+  #dataset-proposal .distribution-chart { padding: 10px; }
+  #dataset-proposal .split-progress-bar { flex-direction: column; }
+  #dataset-proposal .split-segment { flex: auto; flex-direction: row; justify-content: space-between; padding: 14px 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #dataset-proposal .action-btn { transition: none; }
+}
 
-    #dataset-proposal .proposal-chart { margin: 1.25rem 0; padding: 1.25rem; border: 1px solid var(--border-card); border-radius: var(--radius-md); background: #fff; }
-    #dataset-proposal .proposal-chart figcaption { margin-bottom: 1rem; color: var(--text-main); }
-    #dataset-proposal .proposal-chart figcaption span { display: block; margin-top: .25rem; font-size: .85rem; color: var(--text-secondary); }
-    #dataset-proposal .proposal-chart svg { display: block; width: 100%; height: auto; font-family: inherit; }
-    #dataset-proposal .proposal-chart p { margin-top: 1rem; font-size: .85rem; }
-    @media (max-width: 600px) { #dataset-proposal .proposal-chart { padding: .7rem; } }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+/* Assignment 3 proposal uses the Assignment 2 proposal visual system. */
+.a3-page #dataset-proposal .section-header::after { background: #047857; }
+#dataset-proposal { scroll-margin-top: 6rem; }
+#dataset-proposal [id] { scroll-margin-top: 6rem; }
+#dataset-proposal .proposal-title { font-size: clamp(2.7rem, 5vw, 4rem); }
+#dataset-proposal .proposal-desc { margin-bottom: 24px; }
+#dataset-proposal .proposal-index { display: flex; flex-wrap: wrap; gap: 8px 20px; padding: 20px 0; margin: 0; border-bottom: 1px solid var(--proposal-line); }
+#dataset-proposal .proposal-index a { color: var(--proposal-accent); font-size: .75rem; font-weight: 600; text-decoration: none; }
+#dataset-proposal .proposal-index a:hover { text-decoration: underline; text-underline-offset: 4px; }
+#dataset-proposal .proposal-section > p + p { margin-top: 12px; }
+#dataset-proposal .proposal-section > .protocol-grid { margin-bottom: 24px; }
+#dataset-proposal .proposal-section > .sample-annotation-details { margin-bottom: 24px; }
+#dataset-proposal .proposal-preview img { height: auto; aspect-ratio: 1.5; object-fit: contain; background: #f0fdf4; }
+#dataset-proposal .proposal-section .table-container { border-color: var(--proposal-line); margin: 20px 0; }
+#dataset-proposal .rubric-table { min-width: 540px; font-size: .8rem; }
+#dataset-proposal .rubric-table caption { padding: 12px 18px; color: var(--proposal-ink); text-align: left; font-weight: 600; }
+#dataset-proposal .rubric-table th { background: #f0fdf4; color: #49665b; font-size: .68rem; padding: 12px 18px; }
+#dataset-proposal .rubric-table td { padding: 12px 18px; color: #596579; }
+#dataset-proposal .rubric-table tr:hover td { background: #f0fdf4; }
+#dataset-proposal .proposal-chart { margin: 20px 0; padding: 20px; background: #f8fcfa; border: 1px solid var(--proposal-line); border-radius: 12px; }
+#dataset-proposal .proposal-chart figcaption { color: var(--proposal-ink); margin-bottom: 16px; font-size: .85rem; }
+#dataset-proposal .proposal-chart figcaption span { display: block; margin-top: 5px; color: var(--proposal-muted); font-size: .75rem; }
+#dataset-proposal .proposal-chart svg { display: block; width: 100%; height: auto; min-width: 600px; font-family: inherit; }
+#dataset-proposal .proposal-chart-scroll { overflow-x: auto; }
+#dataset-proposal .proposal-chart p { margin-top: 16px; font-size: .8rem; }
+#dataset-proposal .table-container:focus-visible, #dataset-proposal .proposal-chart-scroll:focus-visible { outline: 3px solid #34d399; outline-offset: 3px; }
+#dataset-proposal .styled-list { margin-top: 16px; gap: 12px; }
+#dataset-proposal .styled-list li { color: #596579; font-size: .85rem; }
+#dataset-proposal .styled-list li::before { color: var(--proposal-accent); }
+#dataset-proposal code { overflow-wrap: anywhere; font-size: .85em; }
+#dataset-proposal .pipeline-diagram { background: #f0fdf4; border-color: var(--proposal-line); color: var(--proposal-accent); font-size: .78rem; }
+#dataset-proposal .dataset-details dd, #dataset-proposal .dataset-details dt { overflow-wrap: anywhere; }
+@media (max-width: 600px) {
+  .a3-page .navbar { flex-wrap: wrap; gap: .5rem; padding: .7rem 1rem; }
+  .a3-page .navbar-brand { white-space: nowrap; }
+  .a3-page .navbar-links { width: 100%; justify-content: space-between; }
+  .a3-page .navbar-links a { padding: .35rem .4rem; }
+  .a3-page .main-wrapper { padding-top: 8rem; }
+  .a3-page .container { padding-left: 1rem; padding-right: 1rem; }
+  .a3-page .page-hero-bright { padding: 1.5rem 1rem; }
+  .a3-page .info-grid { grid-template-columns: minmax(0, 1fr); }
+  .a3-page .content-card:not(.proposal-card) { min-width: 0; padding: 1.1rem; }
+  .a3-page .table-container { max-width: 100%; }
+  #dataset-proposal, #dataset-proposal [id] { scroll-margin-top: 9rem; }
+  #dataset-proposal .proposal-chart { padding: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .a3-page *, .a3-page *::before, .a3-page *::after { animation: none !important; transition: none !important; }
+}
 
-    #dataset-proposal .proposal-chart-scroll { overflow-x: auto; }
-    #dataset-proposal .proposal-chart-scroll svg { min-width: 600px; }
-    #dataset-proposal .proposal-chart-scroll:focus-visible { outline: 3px solid #047857; outline-offset: 2px; }
-  </style>
+</style>
 
 </head>
 <body class="a3-page">
@@ -138,29 +362,56 @@
 
       <!-- M1 proposal: research plans are distinct from verified audit observations. -->
       <section class="section-block" id="dataset-proposal" aria-labelledby="proposal-heading">
-        <div class="section-header">
-          <span class="section-icon" aria-hidden="true">📋</span>
-          <h2 class="section-title" id="proposal-heading">Dataset Proposal</h2>
-        </div>
-        <div class="content-card">
-          <p class="proposal-status"><strong>Pending instructor review</strong> · M1 Proposal · Due 18 November 2026, 23:59 Vietnam time</p>
-          <h3>Five-Class Meme Sentiment Classification Using Images and Text</h3>
-          <p>We propose predicting a meme’s sentiment from its image and associated corrected text. We will compare image-only and text-only classifiers with simple and learned fusion to investigate when the two inputs help each other and when they conflict.</p>
-          <p><strong>Current stage:</strong> preliminary data inspection and proposal preparation. No model performance or instructor approval is claimed. Main implementation and experiments will begin after the dataset proposal is Approved or Approved with conditions.</p>
-          <nav class="proposal-index" aria-label="Proposal contents">
-            <a href="#proposal-data">Dataset</a><a href="#proposal-task">Task</a><a href="#proposal-samples">Samples and annotations</a><a href="#proposal-audit">Pair quality and distribution</a><a href="#proposal-split">Split plan</a><a href="#proposal-subset">Subset rules</a><a href="#proposal-models">Models</a><a href="#proposal-experiments">Evaluation</a><a href="#proposal-compute">Compute</a><a href="#proposal-milestones">Milestones</a><a href="#proposal-approval">Approval</a>
-          </nav>
-
-          <h3 id="proposal-data">Dataset name, source, version, and license</h3>
-          <p><a href="https://www.kaggle.com/datasets/hammadjavaid/6992-labeled-meme-images-dataset" target="_blank" rel="noopener">6992 Meme Images Dataset with Labels</a>, uploaded by Hammad Javaid, is a Memotion-style collection of internet memes with image filenames, OCR text, corrected text, and sentiment labels.</p>
-<div class="table-container" role="region" tabindex="0" aria-labelledby="proposal-1"><table class="rubric-table"><caption id="proposal-1">Dataset provenance</caption><thead><tr><th scope="col">Item</th><th scope="col">Record</th></tr></thead><tbody><tr><td>Version</td><td>Kaggle version 1; metadata checked 9 November 2026</td></tr><tr><td>Last source update</td><td>9 July 2023</td></tr><tr><td>Uploader-declared license</td><td>GPL 2, as returned by the public Kaggle metadata API</td></tr><tr><td>Local package</td><td>6,992 images and labels.csv; 738,426,163 extracted bytes</td></tr><tr><td>Annotation fields</td><td>image_name, text_ocr, text_corrected, overall_sentiment</td></tr></tbody></table></div><p>The related original benchmark is <a href="https://aclanthology.org/2020.semeval-1.99/" target="_blank" rel="noopener">Memotion / SemEval-2020 Task 8 (Sharma et al., 2020)</a>. The precise transformation history of this Kaggle copy is not independently established. The uploader’s license declaration does not independently clear rights to all underlying memes; source usage terms will be reviewed and raw data will not be redistributed in the repository.</p>
-          <h3 id="proposal-task">Task, modalities, input, and output</h3>
-          <p><strong>Track:</strong> single-label image–text classification. Each prediction unit is one meme. Its image and supplied text are linked through the same <code>image_name</code>, rather than randomly paired from independent datasets.</p>
+        <div class="section-header"><h2 class="section-title" id="proposal-heading">Dataset Proposal</h2></div>
+        <div class="content-card proposal-card"><div class="proposal-hero">
+          <div class="proposal-topbar">
+            <span class="status-badge"><span class="status-badge-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg></span><span>Pending instructor review</span></span>
+            <span class="due-badge">Milestone M1</span>
+          </div>
+          <div class="proposal-intro">
+            <div class="proposal-copy">
+              <div class="badge-track">Selected track: Image&ndash;text classification</div>
+              <div class="proposal-title-box"><h3 class="proposal-title">Memotion-7K</h3></div>
+              <p class="proposal-desc">Five-class meme sentiment classification using images and corrected text. We will compare unimodal baselines, simple fusion, and learned fusion to study when the two inputs support or conflict with each other.</p>
+              <div class="action-links">
+                <a href="https://www.kaggle.com/datasets/hammadjavaid/6992-labeled-meme-images-dataset" target="_blank" rel="noopener" class="action-btn primary">Kaggle Dataset <span aria-hidden="true">&#8599;</span></a>
+                <a href="https://aclanthology.org/2020.semeval-1.99/" target="_blank" rel="noopener" class="action-btn">Original Paper <span aria-hidden="true">&#8599;</span></a>
+              </div>
+            </div>
+            <figure class="proposal-preview">
+              <img src="assets/proposal/meme-preview.svg" alt="Two original meme examples showing pictures combined with embedded text; no predicted sentiments are shown" width="800" height="534"/>
+              <figcaption><span>REAL DATASET SAMPLES</span><strong>Images and wording from the same meme</strong></figcaption>
+            </figure>
+          </div>
+        </div><div class="proposal-body"><nav class="proposal-index" aria-label="Proposal contents">
+            <a href="#proposal-data">Dataset</a><a href="#proposal-task">Task</a><a href="#proposal-samples">Samples and annotations</a><a href="#proposal-audit">Pair quality and distribution</a><a href="#proposal-split">Split plan</a><a href="#proposal-subset">Subset rules</a><a href="#proposal-models">Models</a><a href="#proposal-experiments">Evaluation</a><a href="#proposal-compute">Compute</a>
+          </nav><section class="proposal-section" aria-labelledby="proposal-data">
+          <div class="section-heading"><div class="section-heading-left"><span class="section-badge-num" aria-hidden="true">01</span><h3 id="proposal-data">Dataset name, source, version, and license</h3></div></div>
+          <div class="dataset-overview">
+          <div class="dataset-identity"><h4>Memotion-7K</h4><p>6992 Meme Images Dataset with Labels</p></div>
+          <dl class="dataset-details">
+            <div><dt>Source</dt><dd><a href="https://www.kaggle.com/datasets/hammadjavaid/6992-labeled-meme-images-dataset" target="_blank" rel="noopener">View dataset on Kaggle &#8599;</a><span class="detail-muted">Uploaded by Hammad Javaid; a Memotion-style dataset copy.</span></dd></div>
+            <div><dt>Dataset version</dt><dd>Kaggle version 1<span class="detail-muted">Source last updated 9 July 2023.</span></dd></div>
+            <div><dt>Data checked</dt><dd>9 November 2026<span class="detail-muted">Local CSV, decoding, and exact-pixel duplicate checks.</span></dd></div>
+            <div><dt>License</dt><dd>GPL 2<span class="detail-muted">Uploader-declared license returned by Kaggle public metadata.</span><a class="license-source" href="https://www.kaggle.com/api/v1/datasets/view/hammadjavaid/6992-labeled-meme-images-dataset" target="_blank" rel="noopener">Dataset license metadata &#8599;</a></dd></div>
+            <div><dt>Local package</dt><dd>6,992 images + labels.csv<span class="detail-muted">738,426,163 extracted bytes. Fields: image_name, text_ocr, text_corrected, overall_sentiment.</span></dd></div>
+          </dl></div><p>The related original benchmark is <a href="https://aclanthology.org/2020.semeval-1.99/" target="_blank" rel="noopener">Memotion / SemEval-2020 Task 8 (Sharma et al., 2020)</a>. The precise transformation history of this Kaggle copy is not independently established. The uploader’s license declaration does not independently clear rights to all underlying memes; source usage terms will be reviewed and raw data will not be redistributed in the repository.</p>
+        </section><section class="proposal-section" aria-labelledby="proposal-task">
+          <div class="section-heading"><div class="section-heading-left"><span class="section-badge-num" aria-hidden="true">02</span><h3 id="proposal-task">Task, modalities, input, and output</h3></div></div>
+          <div class="protocol-grid">
+            <div class="protocol-tile"><span class="tile-label">Input / two modalities</span><strong>Image + corrected text</strong><p>224 &times; 224 RGB meme image and its associated corrected wording, aligned by image filename.</p></div>
+            <div class="protocol-tile"><span class="tile-label">Task</span><strong>Single-label classification</strong><p>Predict the overall sentiment of one meme from genuinely related image and text inputs.</p></div>
+            <div class="protocol-tile"><span class="tile-label">Output</span><strong>Five sentiment scores</strong><p>Very negative, negative, neutral, positive, or very positive. The highest score determines the prediction.</p></div>
+          </div><p><strong>Track:</strong> single-label image–text classification. Each prediction unit is one meme. Its image and supplied text are linked through the same <code>image_name</code>, rather than randomly paired from independent datasets.</p>
           <div class="pipeline-diagram">Meme image + corrected meme text → two encoders → fusion → five sentiment scores</div>
           <p>The target classes are <strong>very negative, negative, neutral, positive, and very positive</strong>. We retain the original five sentiment annotations rather than merging them into the competition’s three-class Task A. The target label is never supplied as an input. The downloaded CSV does not include the humour, sarcasm, offense, or motivation targets for Tasks B/C.</p>
           <p>Corrected text is the wording in the meme, not a separate description of the picture. The full image also contains those printed words, so image-only refers to the input format and does not establish text-free visual reasoning. Primary evaluation assumes corrected text is supplied at prediction time; an image-upload-only demo would require a separately evaluated OCR stage.</p>
-          <h3 id="proposal-samples">Number of paired samples and annotation types</h3>
-          <p>The download contains <strong>6,992 image-linked annotation rows across five sentiment classes</strong>. All referenced images exist. Of these, <strong>6,986 pairs are provisionally usable</strong> after excluding one image that fails full decoding and five rows with blank corrected text. This count precedes duplicate decisions and semantic pair review.</p>
+        </section><section class="proposal-section" aria-labelledby="proposal-samples">
+          <div class="section-heading"><div class="section-heading-left"><span class="section-badge-num" aria-hidden="true">03</span><h3 id="proposal-samples">Number of paired samples and annotation types</h3></div></div>
+          <div class="sample-annotation-details">
+            <div class="protocol-tile"><span class="tile-label">Raw paired records</span><strong class="tile-number">6,992 pairs</strong><p>Each annotation row links one image to supplied text and one sentiment label.</p></div>
+            <div class="protocol-tile"><span class="tile-label">After validity checks</span><strong class="tile-number">6,986 provisional pairs</strong><p>One undecodable image and five blank corrected-text rows excluded; duplicate decisions remain pending.</p></div>
+          </div><p>The download contains <strong>6,992 image-linked annotation rows across five sentiment classes</strong>. All referenced images exist. Of these, <strong>6,986 pairs are provisionally usable</strong> after excluding one image that fails full decoding and five rows with blank corrected text. This count precedes duplicate decisions and semantic pair review.</p>
           <div class="table-container" role="region" tabindex="0" aria-labelledby="annotation-caption"><table class="rubric-table"><caption id="annotation-caption">What is annotated for each meme</caption><thead><tr><th scope="col">Field</th><th scope="col">Annotation / purpose</th></tr></thead><tbody>
           <tr><td><code>image_name</code></td><td>Image filename linking the annotation row to its meme</td></tr>
           <tr><td><code>text_ocr</code></td><td>Text extracted from the meme using OCR; retained for data-quality analysis</td></tr>
@@ -168,7 +419,8 @@
           <tr><td><code>overall_sentiment</code></td><td>One original five-class sentiment annotation per meme; the prediction target</td></tr>
           </tbody></table></div>
           <p>These are paired image/text records with a single categorical sentiment label, not bounding-box or segmentation annotations. The image and corrected text are inputs; the sentiment annotation is used only as the target.</p>
-          <h3 id="proposal-audit">Preliminary pair-quality and distribution analysis</h3>
+        </section><section class="proposal-section" aria-labelledby="proposal-audit">
+          <div class="section-heading"><div class="section-heading-left"><span class="section-badge-num" aria-hidden="true">04</span><h3 id="proposal-audit">Preliminary pair-quality and distribution analysis</h3></div></div>
           <p>The local CSV and saved audit were checked on 9 November 2026. The chart shows the original class distribution; the table distinguishes raw counts from provisionally eligible pairs. Semantic pair review and duplicate handling remain pending.</p>
 <figure class="proposal-chart" aria-labelledby="distribution-caption">
 <figcaption id="distribution-caption"><strong>Raw sentiment distribution</strong><span>6,992 annotated records, before exclusions and duplicate review</span></figcaption>
@@ -191,16 +443,16 @@
 <text x="400" y="315" text-anchor="middle" fill="#475569" font-size="12">Number of records (bars start at zero)</text></svg></div></figure>
 <div class="table-container" role="region" tabindex="0" aria-labelledby="proposal-2"><table class="rubric-table"><caption id="proposal-2">Sentiment distribution before duplicate review</caption><thead><tr><th scope="col">Class</th><th scope="col">Raw samples</th><th scope="col">Raw share</th><th scope="col">Provisionally eligible</th></tr></thead><tbody><tr><td>Very negative</td><td>151</td><td>2.16%</td><td>151</td></tr><tr><td>Negative</td><td>480</td><td>6.86%</td><td>480</td></tr><tr><td>Neutral</td><td>2,201</td><td>31.48%</td><td>2,200</td></tr><tr><td>Positive</td><td>3,127</td><td>44.72%</td><td>3,122</td></tr><tr><td>Very positive</td><td>1,033</td><td>14.77%</td><td>1,033</td></tr><tr><td>Total</td><td>6,992</td><td>100%</td><td>6,986</td></tr></tbody></table></div><div class="table-container" role="region" tabindex="0" aria-labelledby="proposal-3"><table class="rubric-table"><caption id="proposal-3">Preliminary pair-quality checks</caption><thead><tr><th scope="col">Check</th><th scope="col">Observation</th></tr></thead><tbody><tr><td>Image availability</td><td>All 6,992 referenced images exist; no duplicate image filenames</td></tr><tr><td>Full image decoding</td><td>6,991 decode successfully; image_5119.png fails decoding</td></tr><tr><td>Missing text</td><td>161 blank OCR fields (2.30%); 5 blank corrected-text fields (0.072%)</td></tr><tr><td>Primary eligibility</td><td>6,986 pairs after excluding the failed image and 5 blank corrected-text rows</td></tr><tr><td>Corrected text length</td><td>Whitespace words: median 13, 95th percentile 31, maximum 189</td></tr><tr><td>Exact pixel duplicates</td><td>25 groups containing 51 images; 9 groups have consistent labels and 16 have conflicting labels</td></tr></tbody></table></div><p><strong>Interpretation:</strong> the largest class is about 20.7 times the smallest, motivating Macro-F1 and per-class reporting. The provisional paired count exceeds the handbook’s default of about 5,000 paired samples with at least five classes. Eligibility does not imply that pairs are unique or semantically correct; final counts may change after review.</p>
           <p>Filename checks establish structural alignment. A small class-stratified visual review will examine whether corrected text matches each meme and document ambiguous annotations. Detailed review of all duplicate candidates is planned before training; it is not presented as a completed prerequisite for this proposal.</p>
-
-          <h3 id="proposal-split">Data-splitting plan and leakage-prevention unit</h3>
+        </section><section class="proposal-section" aria-labelledby="proposal-split">
+          <div class="section-heading"><div class="section-heading-left"><span class="section-badge-num" aria-hidden="true">05</span><h3 id="proposal-split">Data-splitting plan and leakage-prevention unit</h3></div></div>
           <figure class="proposal-chart" aria-labelledby="split-caption">
             <figcaption id="split-caption"><strong>Proposed train / validation / test allocation</strong><span>Target proportions, not completed split manifests</span></figcaption>
             <div class="proposal-chart-scroll" role="region" tabindex="0" aria-label="Scrollable chart"><svg viewBox="0 0 760 112" role="img" aria-labelledby="split-title split-description">
               <title id="split-title">Proposed 70 percent training, 15 percent validation, 15 percent test split</title>
               <desc id="split-description">The bar illustrates target proportions only. On 6,986 provisional pairs, an illustrative allocation is approximately 4,890 training, 1,048 validation, and 1,048 test pairs. Final counts depend on cleaning and keeping related groups in the same partition.</desc>
               <rect x="0" y="12" width="532" height="66" fill="#047857"/>
-              <rect x="532" y="12" width="114" height="66" fill="#334155"/>
-              <rect x="646" y="12" width="114" height="66" fill="#a16207"/>
+              <rect x="532" y="12" width="114" height="66" fill="#059669"/>
+              <rect x="646" y="12" width="114" height="66" fill="#064e3b"/>
               <text x="266" y="53" text-anchor="middle" fill="white" font-size="23" font-weight="700">70%</text>
               <text x="589" y="53" text-anchor="middle" fill="white" font-size="23" font-weight="700">15%</text>
               <text x="703" y="53" text-anchor="middle" fill="white" font-size="23" font-weight="700">15%</text>
@@ -225,8 +477,8 @@
             <li><strong>Leakage checks:</strong> freeze sample/group manifests and hashes before training, check overlap and five-class coverage, and fit vocabulary or learned preprocessing statistics on training data only. State the limits of template detection.</li>
             <li><strong>Model selection:</strong> validation chooses settings and checkpoints; evaluate locked configurations on held-out test data. No test-driven tuning.</li>
           </ul>
-
-          <h3 id="proposal-subset">Subset rules</h3>
+        </section><section class="proposal-section" aria-labelledby="proposal-subset">
+          <div class="section-heading"><div class="section-heading-left"><span class="section-badge-num" aria-hidden="true">06</span><h3 id="proposal-subset">Subset rules</h3></div></div>
           <p><strong>No deliberate subsampling is planned.</strong> We will retain all five sentiment classes and all valid paired samples after documented cleaning. We will not randomly downsample the dataset or remove majority-class records simply to balance the classes.</p>
           <ul class="styled-list">
             <li><strong>Validity exclusions:</strong> exclude missing or undecodable images, blank corrected text, and records with missing or invalid sentiment labels. Current checks identify one undecodable image and five blank corrected-text rows; no missing images or invalid sentiment labels were found.</li>
@@ -235,17 +487,17 @@
             <li><strong>Related but distinct memes:</strong> a shared template alone is not an exclusion rule; retain valid distinct pairs and keep confirmed source/template groups in the same split.</li>
             <li><strong>Audit trail:</strong> preserve raw files, save each inclusion/exclusion decision and its reason, and report final total/per-class counts. The current 6,986 eligible pairs are provisional and precede duplicate decisions.</li>
           </ul>
-
-          <h3 id="proposal-models">Baseline plan and improved multimodal model</h3>
-<div class="table-container" role="region" tabindex="0" aria-labelledby="proposal-4"><table class="rubric-table"><caption id="proposal-4">Four planned configurations; none has been trained</caption><thead><tr><th scope="col">Configuration</th><th scope="col">Planned method</th></tr></thead><tbody><tr><td>Image only</td><td>ImageNet-pretrained ResNet-18 with frozen encoder and a trainable five-class head</td></tr><tr><td>Text only</td><td>Trainable word embeddings, small GRU encoder, and five-class head</td></tr><tr><td>Simple fusion</td><td>Project image/text features, concatenate them, and apply a small MLP</td></tr><tr><td>Improved fusion</td><td>Use a learned sigmoid gate to weight projected image/text features before classification</td></tr></tbody></table></div><p>Both fusion designs combine intermediate features. The proposed gate computes <code>g × image_features + (1 − g) × text_features</code>, with weights learned from both inputs. Each model uses cross-entropy on five raw logits; fusion has one final classification loss and no proposed auxiliary branch losses. Keep image encoder weights and BatchNorm statistics frozen initially.</p>
+        </section><section class="proposal-section" aria-labelledby="proposal-models">
+          <div class="section-heading"><div class="section-heading-left"><span class="section-badge-num" aria-hidden="true">07</span><h3 id="proposal-models">Baseline plan and improved multimodal model</h3></div></div>
+          <div class="table-container" role="region" tabindex="0" aria-labelledby="proposal-4"><table class="rubric-table"><caption id="proposal-4">Four planned configurations; none has been trained</caption><thead><tr><th scope="col">Configuration</th><th scope="col">Planned method</th></tr></thead><tbody><tr><td>Image only</td><td>ImageNet-pretrained ResNet-18 with frozen encoder and a trainable five-class head</td></tr><tr><td>Text only</td><td>Trainable word embeddings, small GRU encoder, and five-class head</td></tr><tr><td>Simple fusion</td><td>Project image/text features, concatenate them, and apply a small MLP</td></tr><tr><td>Improved fusion</td><td>Use a learned sigmoid gate to weight projected image/text features before classification</td></tr></tbody></table></div><p>Both fusion designs combine intermediate features. The proposed gate computes <code>g × image_features + (1 − g) × text_features</code>, with weights learned from both inputs. Each model uses cross-entropy on five raw logits; fusion has one final classification loss and no proposed auxiliary branch losses. Keep image encoder weights and BatchNorm statistics frozen initially.</p>
           <p><strong>Preprocessing:</strong> RGB images, aspect-preserving resize and padding to 224 × 224, and fixed pretrained normalization. Avoid flips or aggressive crops that alter printed text. Use corrected text, a training-only vocabulary, padding-aware text encoding, and an initial maximum of 64 tokens; measure truncation before fixing that limit. Incomplete paired inputs are outside the primary benchmark.</p>
-
-          <h3 id="proposal-experiments">Metrics, experimental design, and ablation</h3>
+        </section><section class="proposal-section" aria-labelledby="proposal-experiments">
+          <div class="section-heading"><div class="section-heading-left"><span class="section-badge-num" aria-hidden="true">08</span><h3 id="proposal-experiments">Metrics, experimental design, and ablation</h3></div></div>
           <p><strong>Primary metric:</strong> Macro-F1 across all five classes. Also report accuracy, per-class precision/recall/F1/support, a 5 × 5 confusion matrix, parameter counts, training time, inference cost, and peak GPU memory.</p>
 <div class="table-container" role="region" tabindex="0" aria-labelledby="proposal-5"><table class="rubric-table"><caption id="proposal-5">Planned comparisons</caption><thead><tr><th scope="col">Experiment / hypothesis</th><th scope="col">Changed factor</th><th scope="col">Controls and assessment</th></tr></thead><tbody><tr><td>Combining inputs may help sentiment recognition</td><td>Image, text, or both inputs</td><td>Same eligible cohort, manifests, labels, metrics, and checkpoint rule; compare Macro-F1 and per-class errors</td></tr><tr><td>Adaptive fusion may help with conflicting evidence</td><td>Concatenation versus learned gate</td><td>Match encoders, feature size, data, loss, and training budget; report capacity and compute differences</td></tr><tr><td>Required ablation: learned weighting may matter</td><td>Retrain with gate fixed to 0.5</td><td>Same encoders, projected dimensions, classifier, and training settings; compare Macro-F1 and qualitative cases</td></tr></tbody></table></div><p>Initial proposed training settings are AdamW, learning rate 0.001 for trainable parameters, weight decay 0.0001, batch size 32, up to 20 epochs, dropout 0.3, and seed 42. Stop after five epochs without validation Macro-F1 improvement; retain the highest validation Macro-F1 checkpoint, choosing the earlier epoch on ties. These settings have not been benchmarked.</p>
           <p>Inspect cases where one modality resolves another’s ambiguity and cases where fusion causes errors. Review semantic evidence manually: disagreement among model predictions alone does not prove modality conflict. Fusion is not required to outperform unimodal models; explain outcomes with evidence and avoid statistical claims from a single run.</p>
-
-          <h3 id="proposal-compute">Compute estimate and reproducibility</h3>
+        </section><section class="proposal-section" aria-labelledby="proposal-compute">
+          <div class="section-heading"><div class="section-heading-left"><span class="section-badge-num" aria-hidden="true">09</span><h3 id="proposal-compute">Compute estimate and reproducibility</h3></div></div>
           <p>Training will use the group's local <strong>NVIDIA GeForce RTX 5070 Ti with approximately 16 GB VRAM</strong>. A local hardware query on 9 November 2026 confirmed the GPU, 16,303 MiB reported memory, and driver 610.88. The Assignment 3 training software environment and peak GPU memory have not yet been validated.</p>
           <p>Reserve <strong>2&ndash;4 hours of local GPU experiment time for one seed</strong>, covering four main configurations and the fixed-average ablation. This is an unbenchmarked planning allowance, not a measured RTX 5070 Ti runtime or a claimed speedup over another GPU.</p>
           <div class="table-container" role="region" tabindex="0" aria-labelledby="proposal-compute-budget"><table class="rubric-table"><caption id="proposal-compute-budget">Explicit compute-budget assumptions</caption><thead><tr><th scope="col">Component</th><th scope="col">Planning allowance</th></tr></thead><tbody>
@@ -259,15 +511,7 @@
           </tbody></table></div>
           <p>Text-only and cached frozen-feature runs may be faster, and early stopping may reduce the budget. GPU model alone does not determine throughput: CPU decoding, storage, data-loader settings, and caching also matter. After approval, time a short training/validation pilot and measure peak VRAM, then replace these assumptions with observed costs. Preserve the required comparisons before optional extra runs.</p>
           <p>Record dependency versions, hardware, seeds, encoder weights, resolved configurations, manifest hashes, source revision and dirty-tree status, run IDs, logs, selected checkpoints, and training/inference timing scope. Supply preparation, training, evaluation, and checkpoint reconstruction instructions as implementation progresses.</p>
-
-          <h3 id="proposal-milestones">Milestones and approval record</h3>
-<div class="table-container" role="region" tabindex="0" aria-labelledby="proposal-6"><table class="rubric-table"><caption id="proposal-6">Deadlines at 23:59 Vietnam time; follow milestone-specific LMS changes</caption><thead><tr><th scope="col">Milestone</th><th scope="col">Due date</th><th scope="col">Weight within A3</th><th scope="col">Minimum deliverable</th></tr></thead><tbody><tr><td>M1 Proposal</td><td>18 November 2026</td><td>15%</td><td>Dataset, pair-quality evidence, split unit, metrics, models, compute estimate, and approval record</td></tr><tr><td>M2 Draft</td><td>25 November 2026</td><td>25%</td><td>Image-only, text-only, and simple fusion with quantitative results</td></tr><tr><td>M3 Final</td><td>2 December 2026</td><td>60%</td><td>Improved fusion, ablation, support/conflict and error analysis, compute analysis, complete submission</td></tr></tbody></table></div><h3 id="proposal-approval">Approval status and implementation gate</h3>
-          <p>The instructor's decision will be recorded as <strong>Approved</strong>, <strong>Approved with conditions</strong>, or <strong>Rejected</strong>. <strong>Pending instructor review</strong> describes the current pre-decision state; it is not an approval. Record the decision date, conditions, and approval evidence when available.</p>
-          <p><strong>Main implementation and experiments may begin only after Approved or Approved with conditions.</strong> If rejected, revise and resubmit the proposal before beginning main work. Any approval conditions must be followed. Preliminary dataset inspection does not establish approval.</p>
-          <p><strong>Current status:</strong> pending instructor review. Approval date and conditions have not been recorded. Group responsibilities and the local GPU training environment will be confirmed before main implementation. Final deliverables include the report, slides, source/reproduction instructions, checkpoint access, assignment webpage, AI disclosures, and a YouTube presentation involving all members.</p>
-          <p><strong>Limitations:</strong> strong class imbalance, subjective and conflicting sentiment annotations, repeated templates, OCR/transcription errors, and related information across image/text inputs. Generalization to unfamiliar templates and uncorrected OCR is not established.</p>
-          <p class="proposal-note">Prepared 9 November 2026. This section is the group’s current M1 proposal. The <a href="assignment3/docs/dataset_proposal.md">Markdown working copy</a> contains supporting detail. Source license/version metadata: <a href="https://www.kaggle.com/api/v1/datasets/view/hammadjavaid/6992-labeled-meme-images-dataset">Kaggle public metadata</a>.</p>
-        </div>
+        </section></div></div>
       </section>
 
       <section class="section-block" id="next-milestones" aria-labelledby="next-heading">
