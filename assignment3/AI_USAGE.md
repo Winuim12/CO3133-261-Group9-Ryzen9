@@ -52,3 +52,9 @@ by the user, added an explicit Subset rules subsection, and clarified all three
 instructor decision states and the approval gate. Requirements are covered in
 the document; this is not a claim that pending manual reviews or instructor
 approval have been completed.
+
+The user selected Assignment 2's proposal design as the visual reference.
+Codex reused its scoped layout/CSS, preserved the nine Assignment 3 content
+sections, and composed an SVG preview from unmodified original dataset sample
+images `image_1.jpg` and `image_4.png`. No sentiment predictions were added to
+the preview. This presentation work does not establish completed semantic review.
