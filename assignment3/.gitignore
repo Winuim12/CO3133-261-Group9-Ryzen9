@@ -1,0 +1,12 @@
+# Original data, downloads, derived caches, and large model artifacts
+data/raw/
+data/cache/
+checkpoints/
+tmp/
+__pycache__/
+*.pyc
+.venv/
+.env
+
+#Agents
+AGENTS.md
