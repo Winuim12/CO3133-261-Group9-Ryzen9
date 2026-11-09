@@ -3,9 +3,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Assignment 3</title>
+  <title>Assignment 3 — Meme Sentiment Dataset Proposal | CO3133</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" type="image/png" href="hcmut_logo.png" />
+  <style>
+    #dataset-proposal { scroll-margin-top: 6rem; }
+    #dataset-proposal h3 { scroll-margin-top: 6rem; margin-top: 2rem; }
+    #dataset-proposal p + p { margin-top: .8rem; }
+    #dataset-proposal .proposal-status { border-left: 3px solid #059669; padding: .75rem 1rem; background: #f0fdf4; color: #166534; }
+    #dataset-proposal .proposal-index { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; margin: 1.25rem 0; }
+    #dataset-proposal a { text-underline-offset: .2em; }
+    #dataset-proposal a:focus-visible, #dataset-proposal .table-container:focus-visible { outline: 3px solid #059669; outline-offset: 3px; }
+    #dataset-proposal caption { text-align: left; padding: .8rem 1.25rem; color: var(--text-main); font-weight: 600; }
+    #dataset-proposal .rubric-table { min-width: 520px; }
+    #dataset-proposal code { overflow-wrap: anywhere; }
+    #dataset-proposal .proposal-note { margin-top: 1.5rem; font-size: .85rem; }
+    @media (max-width: 600px) {
+      .a3-page .navbar { flex-wrap: wrap; gap: .5rem; padding: .7rem 1rem; }
+      .a3-page .navbar-brand { white-space: nowrap; }
+      .a3-page .navbar-links { width: 100%; justify-content: space-between; }
+      .a3-page .navbar-links a { padding: .35rem .4rem; }
+      .a3-page .main-wrapper { padding-top: 8rem; }
+      .a3-page .container { padding-left: 1rem; padding-right: 1rem; }
+      .a3-page .page-hero-bright { padding: 1.5rem 1rem; }
+      .a3-page .info-grid { grid-template-columns: minmax(0, 1fr); }
+      .a3-page .content-card { min-width: 0; padding: 1.1rem; }
+      .a3-page .table-container { max-width: 100%; }
+      #dataset-proposal, #dataset-proposal h3 { scroll-margin-top: 9rem; }
+    }
+    @media (prefers-reduced-motion: reduce) { .a3-page *, .a3-page *::before, .a3-page *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+    #dataset-proposal .proposal-chart { margin: 1.25rem 0; padding: 1.25rem; border: 1px solid var(--border-card); border-radius: var(--radius-md); background: #fff; }
+    #dataset-proposal .proposal-chart figcaption { margin-bottom: 1rem; color: var(--text-main); }
+    #dataset-proposal .proposal-chart figcaption span { display: block; margin-top: .25rem; font-size: .85rem; color: var(--text-secondary); }
+    #dataset-proposal .proposal-chart svg { display: block; width: 100%; height: auto; font-family: inherit; }
+    #dataset-proposal .proposal-chart p { margin-top: 1rem; font-size: .85rem; }
+    @media (max-width: 600px) { #dataset-proposal .proposal-chart { padding: .7rem; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    #dataset-proposal .proposal-chart-scroll { overflow-x: auto; }
+    #dataset-proposal .proposal-chart-scroll svg { min-width: 600px; }
+    #dataset-proposal .proposal-chart-scroll:focus-visible { outline: 3px solid #047857; outline-offset: 2px; }
+  </style>
+
 </head>
 <body class="a3-page">
   <div class="bg-animated"></div>
@@ -20,7 +60,7 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="assignment1.html">Assignment 1</a></li>
       <li><a href="assignment2.html">Assignment 2</a></li>
-      <li><a href="assignment3.html" class="active">Assignment 3</a></li>
+      <li><a href="assignment3.html" class="active" aria-current="page">Assignment 3</a></li>
     </ul>
   </nav>
 
@@ -35,7 +75,7 @@
         </div>
         <h1 class="page-hero-title-bright">Multimodal Deep Learning</h1>
         <p class="page-hero-topic-bright">
-          Multimodal Deep Learning: Representation, Fusion, and Evaluation.
+          Five-class meme sentiment classification using images and corrected text.
         </p>
       </div>
 
@@ -72,14 +112,14 @@
                   <td>1</td>
                   <td>Hoang Kim Cuong</td>
                   <td>2352145</td>
-                  <td>Work on Assignment 1</td>
+                  <td>Assignment 3 role to be confirmed</td>
                   <td><a href="https://github.com/DiamondHoang" target="_blank" rel="noopener" style="color:#059669; font-weight:600;">@DiamondHoang</a></td>
                 </tr>
                 <tr>
                   <td>2</td>
                   <td>Phan Tan Loc</td>
                   <td>2352712</td>
-                  <td>Work on Assignment 2</td>
+                  <td>Assignment 3 role to be confirmed</td>
                   <td><a href="https://github.com/cspaull" target="_blank" rel="noopener" style="color:#059669; font-weight:600;">@cspaull</a></td>
                 </tr>
                 <tr>
@@ -95,167 +135,145 @@
         </div>
       </section>
 
-      <!-- Problem Statement -->
-      <section class="section-block">
+
+      <!-- M1 proposal: research plans are distinct from verified audit observations. -->
+      <section class="section-block" id="dataset-proposal" aria-labelledby="proposal-heading">
         <div class="section-header">
-          <span class="section-icon">🎯</span>
-          <h2 class="section-title">Problem Statement</h2>
+          <span class="section-icon" aria-hidden="true">📋</span>
+          <h2 class="section-title" id="proposal-heading">Dataset Proposal</h2>
         </div>
         <div class="content-card">
-          <p>
-            Assignment 3 tasks students to design, train, and evaluate a system that uses
-            <strong>at least two modalities that are genuinely related</strong> (same entity, event, scene, or timestamp).
-          </p>
-          <p style="margin-top:0.5rem">
-            <strong>Scope:</strong> Choose an approved multimodal task; submit a Dataset Proposal and obtain approval before implementation;
-            build unimodal baselines, a simple fusion baseline, and an improved multimodal/fusion model; analyze complementary and conflicting evidence.
-          </p>
-          
-          <h3>Chosen Multimodal Task Option</h3>
-          <p>
-            <strong>[Fill in here]</strong> — State selected task: Image–text classification, Image–text retrieval, Visual Question Answering (VQA),
-            Image captioning, Open-vocabulary detection, Text-guided segmentation, RGB–depth prediction, Video–text retrieval, or Re-identification with metadata.
-          </p>
+          <p class="proposal-status"><strong>Pending instructor review</strong> · M1 Proposal · Due 18 November 2026, 23:59 Vietnam time</p>
+          <h3>Five-Class Meme Sentiment Classification Using Images and Text</h3>
+          <p>We propose predicting a meme’s sentiment from its image and associated corrected text. We will compare image-only and text-only classifiers with simple and learned fusion to investigate when the two inputs help each other and when they conflict.</p>
+          <p><strong>Current stage:</strong> preliminary data inspection and proposal preparation. No model performance or instructor approval is claimed. Main implementation and experiments will begin after the dataset proposal is Approved or Approved with conditions.</p>
+          <nav class="proposal-index" aria-label="Proposal contents">
+            <a href="#proposal-data">Dataset</a><a href="#proposal-task">Task</a><a href="#proposal-samples">Samples and annotations</a><a href="#proposal-audit">Pair quality and distribution</a><a href="#proposal-split">Split plan</a><a href="#proposal-subset">Subset rules</a><a href="#proposal-models">Models</a><a href="#proposal-experiments">Evaluation</a><a href="#proposal-compute">Compute</a><a href="#proposal-milestones">Milestones</a><a href="#proposal-approval">Approval</a>
+          </nav>
 
-          <h3>Learning Objectives</h3>
+          <h3 id="proposal-data">Dataset name, source, version, and license</h3>
+          <p><a href="https://www.kaggle.com/datasets/hammadjavaid/6992-labeled-meme-images-dataset" target="_blank" rel="noopener">6992 Meme Images Dataset with Labels</a>, uploaded by Hammad Javaid, is a Memotion-style collection of internet memes with image filenames, OCR text, corrected text, and sentiment labels.</p>
+<div class="table-container" role="region" tabindex="0" aria-labelledby="proposal-1"><table class="rubric-table"><caption id="proposal-1">Dataset provenance</caption><thead><tr><th scope="col">Item</th><th scope="col">Record</th></tr></thead><tbody><tr><td>Version</td><td>Kaggle version 1; metadata checked 9 November 2026</td></tr><tr><td>Last source update</td><td>9 July 2023</td></tr><tr><td>Uploader-declared license</td><td>GPL 2, as returned by the public Kaggle metadata API</td></tr><tr><td>Local package</td><td>6,992 images and labels.csv; 738,426,163 extracted bytes</td></tr><tr><td>Annotation fields</td><td>image_name, text_ocr, text_corrected, overall_sentiment</td></tr></tbody></table></div><p>The related original benchmark is <a href="https://aclanthology.org/2020.semeval-1.99/" target="_blank" rel="noopener">Memotion / SemEval-2020 Task 8 (Sharma et al., 2020)</a>. The precise transformation history of this Kaggle copy is not independently established. The uploader’s license declaration does not independently clear rights to all underlying memes; source usage terms will be reviewed and raw data will not be redistributed in the repository.</p>
+          <h3 id="proposal-task">Task, modalities, input, and output</h3>
+          <p><strong>Track:</strong> single-label image–text classification. Each prediction unit is one meme. Its image and supplied text are linked through the same <code>image_name</code>, rather than randomly paired from independent datasets.</p>
+          <div class="pipeline-diagram">Meme image + corrected meme text → two encoders → fusion → five sentiment scores</div>
+          <p>The target classes are <strong>very negative, negative, neutral, positive, and very positive</strong>. We retain the original five sentiment annotations rather than merging them into the competition’s three-class Task A. The target label is never supplied as an input. The downloaded CSV does not include the humour, sarcasm, offense, or motivation targets for Tasks B/C.</p>
+          <p>Corrected text is the wording in the meme, not a separate description of the picture. The full image also contains those printed words, so image-only refers to the input format and does not establish text-free visual reasoning. Primary evaluation assumes corrected text is supplied at prediction time; an image-upload-only demo would require a separately evaluated OCR stage.</p>
+          <h3 id="proposal-samples">Number of paired samples and annotation types</h3>
+          <p>The download contains <strong>6,992 image-linked annotation rows across five sentiment classes</strong>. All referenced images exist. Of these, <strong>6,986 pairs are provisionally usable</strong> after excluding one image that fails full decoding and five rows with blank corrected text. This count precedes duplicate decisions and semantic pair review.</p>
+          <div class="table-container" role="region" tabindex="0" aria-labelledby="annotation-caption"><table class="rubric-table"><caption id="annotation-caption">What is annotated for each meme</caption><thead><tr><th scope="col">Field</th><th scope="col">Annotation / purpose</th></tr></thead><tbody>
+          <tr><td><code>image_name</code></td><td>Image filename linking the annotation row to its meme</td></tr>
+          <tr><td><code>text_ocr</code></td><td>Text extracted from the meme using OCR; retained for data-quality analysis</td></tr>
+          <tr><td><code>text_corrected</code></td><td>Supplied corrected transcription of the meme wording; our primary text input</td></tr>
+          <tr><td><code>overall_sentiment</code></td><td>One original five-class sentiment annotation per meme; the prediction target</td></tr>
+          </tbody></table></div>
+          <p>These are paired image/text records with a single categorical sentiment label, not bounding-box or segmentation annotations. The image and corrected text are inputs; the sentiment annotation is used only as the target.</p>
+          <h3 id="proposal-audit">Preliminary pair-quality and distribution analysis</h3>
+          <p>The local CSV and saved audit were checked on 9 November 2026. The chart shows the original class distribution; the table distinguishes raw counts from provisionally eligible pairs. Semantic pair review and duplicate handling remain pending.</p>
+<figure class="proposal-chart" aria-labelledby="distribution-caption">
+<figcaption id="distribution-caption"><strong>Raw sentiment distribution</strong><span>6,992 annotated records, before exclusions and duplicate review</span></figcaption>
+<div class="proposal-chart-scroll" role="region" tabindex="0" aria-label="Scrollable chart"><svg viewBox="0 0 760 320" role="img" aria-labelledby="distribution-title distribution-description">
+<title id="distribution-title">Number of meme records in each sentiment class</title>
+<desc id="distribution-description">Very negative: 151. Negative: 480. Neutral: 2,201. Positive: 3,127. Very positive: 1,033. Positive is the largest class. Counts use all 6,992 original CSV rows.</desc>
+<line x1="165.00" y1="25" x2="165.00" y2="267" stroke="#e2e8f0"/><text x="165.00" y="290" text-anchor="middle" fill="#475569" font-size="12">0</text>
+<line x1="232.14" y1="25" x2="232.14" y2="267" stroke="#e2e8f0"/><text x="232.14" y="290" text-anchor="middle" fill="#475569" font-size="12">500</text>
+<line x1="299.29" y1="25" x2="299.29" y2="267" stroke="#e2e8f0"/><text x="299.29" y="290" text-anchor="middle" fill="#475569" font-size="12">1,000</text>
+<line x1="366.43" y1="25" x2="366.43" y2="267" stroke="#e2e8f0"/><text x="366.43" y="290" text-anchor="middle" fill="#475569" font-size="12">1,500</text>
+<line x1="433.57" y1="25" x2="433.57" y2="267" stroke="#e2e8f0"/><text x="433.57" y="290" text-anchor="middle" fill="#475569" font-size="12">2,000</text>
+<line x1="500.71" y1="25" x2="500.71" y2="267" stroke="#e2e8f0"/><text x="500.71" y="290" text-anchor="middle" fill="#475569" font-size="12">2,500</text>
+<line x1="567.86" y1="25" x2="567.86" y2="267" stroke="#e2e8f0"/><text x="567.86" y="290" text-anchor="middle" fill="#475569" font-size="12">3,000</text>
+<line x1="635.00" y1="25" x2="635.00" y2="267" stroke="#e2e8f0"/><text x="635.00" y="290" text-anchor="middle" fill="#475569" font-size="12">3,500</text>
+<text x="150" y="55" text-anchor="end" fill="#334155" font-size="14">Very negative</text><rect x="165" y="34" width="20.28" height="31" rx="4" fill="#047857"/><text x="194.28" y="55" fill="#0f172a" font-size="13">151 (2.16%)</text>
+<text x="150" y="101" text-anchor="end" fill="#334155" font-size="14">Negative</text><rect x="165" y="80" width="64.46" height="31" rx="4" fill="#047857"/><text x="238.46" y="101" fill="#0f172a" font-size="13">480 (6.86%)</text>
+<text x="150" y="147" text-anchor="end" fill="#334155" font-size="14">Neutral</text><rect x="165" y="126" width="295.56" height="31" rx="4" fill="#047857"/><text x="469.56" y="147" fill="#0f172a" font-size="13">2,201 (31.48%)</text>
+<text x="150" y="193" text-anchor="end" fill="#334155" font-size="14">Positive</text><rect x="165" y="172" width="419.91" height="31" rx="4" fill="#047857"/><text x="593.91" y="193" fill="#0f172a" font-size="13">3,127 (44.72%)</text>
+<text x="150" y="239" text-anchor="end" fill="#334155" font-size="14">Very positive</text><rect x="165" y="218" width="138.72" height="31" rx="4" fill="#047857"/><text x="312.72" y="239" fill="#0f172a" font-size="13">1,033 (14.77%)</text>
+<text x="400" y="315" text-anchor="middle" fill="#475569" font-size="12">Number of records (bars start at zero)</text></svg></div></figure>
+<div class="table-container" role="region" tabindex="0" aria-labelledby="proposal-2"><table class="rubric-table"><caption id="proposal-2">Sentiment distribution before duplicate review</caption><thead><tr><th scope="col">Class</th><th scope="col">Raw samples</th><th scope="col">Raw share</th><th scope="col">Provisionally eligible</th></tr></thead><tbody><tr><td>Very negative</td><td>151</td><td>2.16%</td><td>151</td></tr><tr><td>Negative</td><td>480</td><td>6.86%</td><td>480</td></tr><tr><td>Neutral</td><td>2,201</td><td>31.48%</td><td>2,200</td></tr><tr><td>Positive</td><td>3,127</td><td>44.72%</td><td>3,122</td></tr><tr><td>Very positive</td><td>1,033</td><td>14.77%</td><td>1,033</td></tr><tr><td>Total</td><td>6,992</td><td>100%</td><td>6,986</td></tr></tbody></table></div><div class="table-container" role="region" tabindex="0" aria-labelledby="proposal-3"><table class="rubric-table"><caption id="proposal-3">Preliminary pair-quality checks</caption><thead><tr><th scope="col">Check</th><th scope="col">Observation</th></tr></thead><tbody><tr><td>Image availability</td><td>All 6,992 referenced images exist; no duplicate image filenames</td></tr><tr><td>Full image decoding</td><td>6,991 decode successfully; image_5119.png fails decoding</td></tr><tr><td>Missing text</td><td>161 blank OCR fields (2.30%); 5 blank corrected-text fields (0.072%)</td></tr><tr><td>Primary eligibility</td><td>6,986 pairs after excluding the failed image and 5 blank corrected-text rows</td></tr><tr><td>Corrected text length</td><td>Whitespace words: median 13, 95th percentile 31, maximum 189</td></tr><tr><td>Exact pixel duplicates</td><td>25 groups containing 51 images; 9 groups have consistent labels and 16 have conflicting labels</td></tr></tbody></table></div><p><strong>Interpretation:</strong> the largest class is about 20.7 times the smallest, motivating Macro-F1 and per-class reporting. The provisional paired count exceeds the handbook’s default of about 5,000 paired samples with at least five classes. Eligibility does not imply that pairs are unique or semantically correct; final counts may change after review.</p>
+          <p>Filename checks establish structural alignment. A small class-stratified visual review will examine whether corrected text matches each meme and document ambiguous annotations. Detailed review of all duplicate candidates is planned before training; it is not presented as a completed prerequisite for this proposal.</p>
+
+          <h3 id="proposal-split">Data-splitting plan and leakage-prevention unit</h3>
+          <figure class="proposal-chart" aria-labelledby="split-caption">
+            <figcaption id="split-caption"><strong>Proposed train / validation / test allocation</strong><span>Target proportions, not completed split manifests</span></figcaption>
+            <div class="proposal-chart-scroll" role="region" tabindex="0" aria-label="Scrollable chart"><svg viewBox="0 0 760 112" role="img" aria-labelledby="split-title split-description">
+              <title id="split-title">Proposed 70 percent training, 15 percent validation, 15 percent test split</title>
+              <desc id="split-description">The bar illustrates target proportions only. On 6,986 provisional pairs, an illustrative allocation is approximately 4,890 training, 1,048 validation, and 1,048 test pairs. Final counts depend on cleaning and keeping related groups in the same partition.</desc>
+              <rect x="0" y="12" width="532" height="66" fill="#047857"/>
+              <rect x="532" y="12" width="114" height="66" fill="#334155"/>
+              <rect x="646" y="12" width="114" height="66" fill="#a16207"/>
+              <text x="266" y="53" text-anchor="middle" fill="white" font-size="23" font-weight="700">70%</text>
+              <text x="589" y="53" text-anchor="middle" fill="white" font-size="23" font-weight="700">15%</text>
+              <text x="703" y="53" text-anchor="middle" fill="white" font-size="23" font-weight="700">15%</text>
+              <text x="266" y="103" text-anchor="middle" fill="#334155" font-size="14">Training</text>
+              <text x="589" y="103" text-anchor="middle" fill="#334155" font-size="14">Validation</text>
+              <text x="703" y="103" text-anchor="middle" fill="#334155" font-size="14">Test</text>
+            </svg></div>
+            <p><strong>Planning illustration:</strong> using 6,986 provisional pairs, about 4,890 / 1,048 / 1,048 would go to training / validation / test. No split has been generated. Duplicate cleanup may reduce the total, and indivisible groups may shift these counts and percentages.</p>
+          </figure>
+          <div class="table-container" role="region" tabindex="0" aria-labelledby="split-role-caption"><table class="rubric-table"><caption id="split-role-caption">How each partition will be used</caption><thead><tr><th scope="col">Partition</th><th scope="col">Target</th><th scope="col">Purpose</th></tr></thead><tbody>
+          <tr><td>Training</td><td>70%</td><td>Learn vocabulary and model parameters; apply training-only augmentation where appropriate</td></tr>
+          <tr><td>Validation</td><td>15%</td><td>Select settings, early stopping, and the best Macro-F1 checkpoint</td></tr>
+          <tr><td>Test</td><td>15%</td><td>Evaluate locked configurations; never use for tuning</td></tr>
+          </tbody></table></div>
+          <p><strong>How we will split:</strong> finish the exclusion audit, review duplicate/source/template groups, then assign whole groups using seed 42 while aiming for the target proportions and five-class coverage. Every required model will use the same saved split. We will not randomly split individual rows before grouping.</p>
+
           <ul class="styled-list">
-            <li>Formulate a multimodal learning problem with genuine cross-modal alignment.</li>
-            <li>Implement modality-specific encoders and at least one fusion strategy (early, intermediate, or late).</li>
-            <li>Compare unimodal baselines against simple and improved multimodal models using task-appropriate metrics.</li>
-            <li>Conduct ablations that isolate modality contribution and fusion design choices.</li>
-            <li>Analyze complementary and conflicting modality evidence, errors, limitations, and compute cost.</li>
+            <li><strong>Primary cohort:</strong> retain all five classes and all eligible pairs after documented cleaning; no class-balanced subsampling. Preserve original files and record exclusions.</li>
+            <li><strong>Proposed split:</strong> approximately 70% training, 15% validation, and 15% test, using seed 42 and class-aware group assignment. Exact sizes will be reported after cleaning and grouping.</li>
+            <li><strong>Split unit:</strong> confirmed duplicate/source/template group. Keep all retained records of the same group in one partition, including related memes when identifiable. Review perceptual matches and repeated text as candidates rather than automatically merging them.</li>
+            <li><strong>Duplicate policy:</strong> review corrected text before treating identical images as identical pairs. For equivalent pairs with consistent labels, retain one representative; exclude conflicting duplicate pairs under a documented policy rather than inventing labels. Record unresolved cases.</li>
+            <li><strong>Leakage checks:</strong> freeze sample/group manifests and hashes before training, check overlap and five-class coverage, and fit vocabulary or learned preprocessing statistics on training data only. State the limits of template detection.</li>
+            <li><strong>Model selection:</strong> validation chooses settings and checkpoints; evaluate locked configurations on held-out test data. No test-driven tuning.</li>
           </ul>
-        </div>
-      </section>
 
-      <!-- Dataset Description & EDA -->
-      <section class="section-block">
-        <div class="section-header">
-          <span class="section-icon">📊</span>
-          <h2 class="section-title">Dataset Description &amp; EDA</h2>
-        </div>
-        <div class="content-card">
-          <h3>Dataset Proposal &amp; Cross-Modal Validity</h3>
-          <p>
-            Status: <strong>[Approved / Approved with conditions / Rejected]</strong>
-          </p>
+          <h3 id="proposal-subset">Subset rules</h3>
+          <p><strong>No deliberate subsampling is planned.</strong> We will retain all five sentiment classes and all valid paired samples after documented cleaning. We will not randomly downsample the dataset or remove majority-class records simply to balance the classes.</p>
           <ul class="styled-list">
-            <li>Dataset name, source, version, and license.</li>
-            <li>Task, modalities, input, and output definitions.</li>
-            <li>Cross-modal validity: paired by same entity, scene, or timestamp (no random pairing).</li>
-            <li>Data split unit (entity/scene level to prevent cross-modal leakage).</li>
-            <li>Default size threshold check (e.g. ≥5,000 paired samples).</li>
+            <li><strong>Validity exclusions:</strong> exclude missing or undecodable images, blank corrected text, and records with missing or invalid sentiment labels. Current checks identify one undecodable image and five blank corrected-text rows; no missing images or invalid sentiment labels were found.</li>
+            <li><strong>Equivalent duplicate pairs:</strong> after reviewing corrected text, retain one representative when the same underlying image/text pair has consistent labels. Choose the lexicographically smallest image filename among equivalent valid records to make the selection reproducible.</li>
+            <li><strong>Conflicting duplicate pairs:</strong> exclude all records of an equivalent pair with conflicting sentiment labels. Do not invent a replacement label. Different or incorrect transcriptions require review before treating records as equivalent.</li>
+            <li><strong>Related but distinct memes:</strong> a shared template alone is not an exclusion rule; retain valid distinct pairs and keep confirmed source/template groups in the same split.</li>
+            <li><strong>Audit trail:</strong> preserve raw files, save each inclusion/exclusion decision and its reason, and report final total/per-class counts. The current 6,986 eligible pairs are provisional and precede duplicate decisions.</li>
           </ul>
 
-          <h3>Multimodal EDA</h3>
-          <p>
-            <strong>[Fill in here]</strong> — Report paired sample counts, missing modality rates, text length/token distributions, pair quality analysis, preprocessing, and example batches.
-          </p>
+          <h3 id="proposal-models">Baseline plan and improved multimodal model</h3>
+<div class="table-container" role="region" tabindex="0" aria-labelledby="proposal-4"><table class="rubric-table"><caption id="proposal-4">Four planned configurations; none has been trained</caption><thead><tr><th scope="col">Configuration</th><th scope="col">Planned method</th></tr></thead><tbody><tr><td>Image only</td><td>ImageNet-pretrained ResNet-18 with frozen encoder and a trainable five-class head</td></tr><tr><td>Text only</td><td>Trainable word embeddings, small GRU encoder, and five-class head</td></tr><tr><td>Simple fusion</td><td>Project image/text features, concatenate them, and apply a small MLP</td></tr><tr><td>Improved fusion</td><td>Use a learned sigmoid gate to weight projected image/text features before classification</td></tr></tbody></table></div><p>Both fusion designs combine intermediate features. The proposed gate computes <code>g × image_features + (1 − g) × text_features</code>, with weights learned from both inputs. Each model uses cross-entropy on five raw logits; fusion has one final classification loss and no proposed auxiliary branch losses. Keep image encoder weights and BatchNorm statistics frozen initially.</p>
+          <p><strong>Preprocessing:</strong> RGB images, aspect-preserving resize and padding to 224 × 224, and fixed pretrained normalization. Avoid flips or aggressive crops that alter printed text. Use corrected text, a training-only vocabulary, padding-aware text encoding, and an initial maximum of 64 tokens; measure truncation before fixing that limit. Incomplete paired inputs are outside the primary benchmark.</p>
+
+          <h3 id="proposal-experiments">Metrics, experimental design, and ablation</h3>
+          <p><strong>Primary metric:</strong> Macro-F1 across all five classes. Also report accuracy, per-class precision/recall/F1/support, a 5 × 5 confusion matrix, parameter counts, training time, inference cost, and peak GPU memory.</p>
+<div class="table-container" role="region" tabindex="0" aria-labelledby="proposal-5"><table class="rubric-table"><caption id="proposal-5">Planned comparisons</caption><thead><tr><th scope="col">Experiment / hypothesis</th><th scope="col">Changed factor</th><th scope="col">Controls and assessment</th></tr></thead><tbody><tr><td>Combining inputs may help sentiment recognition</td><td>Image, text, or both inputs</td><td>Same eligible cohort, manifests, labels, metrics, and checkpoint rule; compare Macro-F1 and per-class errors</td></tr><tr><td>Adaptive fusion may help with conflicting evidence</td><td>Concatenation versus learned gate</td><td>Match encoders, feature size, data, loss, and training budget; report capacity and compute differences</td></tr><tr><td>Required ablation: learned weighting may matter</td><td>Retrain with gate fixed to 0.5</td><td>Same encoders, projected dimensions, classifier, and training settings; compare Macro-F1 and qualitative cases</td></tr></tbody></table></div><p>Initial proposed training settings are AdamW, learning rate 0.001 for trainable parameters, weight decay 0.0001, batch size 32, up to 20 epochs, dropout 0.3, and seed 42. Stop after five epochs without validation Macro-F1 improvement; retain the highest validation Macro-F1 checkpoint, choosing the earlier epoch on ties. These settings have not been benchmarked.</p>
+          <p>Inspect cases where one modality resolves another’s ambiguity and cases where fusion causes errors. Review semantic evidence manually: disagreement among model predictions alone does not prove modality conflict. Fusion is not required to outperform unimodal models; explain outcomes with evidence and avoid statistical claims from a single run.</p>
+
+          <h3 id="proposal-compute">Compute estimate and reproducibility</h3>
+          <p>Training will use the group's local <strong>NVIDIA GeForce RTX 5070 Ti with approximately 16 GB VRAM</strong>. A local hardware query on 9 November 2026 confirmed the GPU, 16,303 MiB reported memory, and driver 610.88. The Assignment 3 training software environment and peak GPU memory have not yet been validated.</p>
+          <p>Reserve <strong>2&ndash;4 hours of local GPU experiment time for one seed</strong>, covering four main configurations and the fixed-average ablation. This is an unbenchmarked planning allowance, not a measured RTX 5070 Ti runtime or a claimed speedup over another GPU.</p>
+          <div class="table-container" role="region" tabindex="0" aria-labelledby="proposal-compute-budget"><table class="rubric-table"><caption id="proposal-compute-budget">Explicit compute-budget assumptions</caption><thead><tr><th scope="col">Component</th><th scope="col">Planning allowance</th></tr></thead><tbody>
+          <tr><td>Provisional data scale</td><td>About 4,890 training and 1,048 validation pairs; at batch size 32, approximately 153 training and 33 validation batches per epoch. Final grouped counts may differ.</td></tr>
+          <tr><td>Five configurations, one seed</td><td>Up to 20 epochs each, or 100 complete training/validation epochs in total</td></tr>
+          <tr><td>Assumed epoch time</td><td>1&ndash;2 minutes per training-plus-validation epoch; this must be measured after approval</td></tr>
+          <tr><td>Training and validation</td><td>100&ndash;200 minutes across the five configurations</td></tr>
+          <tr><td>Extraction, setup, and evaluation</td><td>20&ndash;40 additional minutes, including initial frozen-feature extraction where used and checkpoint reloads</td></tr>
+          <tr><td>Total time reserved</td><td>120&ndash;240 minutes (2&ndash;4 hours), excluding optional extra seeds and image fine-tuning</td></tr>
+          <tr><td>Working storage</td><td>15&ndash;20 GB for data, caches, checkpoints, and logs; separate from Python/CUDA installation</td></tr>
+          </tbody></table></div>
+          <p>Text-only and cached frozen-feature runs may be faster, and early stopping may reduce the budget. GPU model alone does not determine throughput: CPU decoding, storage, data-loader settings, and caching also matter. After approval, time a short training/validation pilot and measure peak VRAM, then replace these assumptions with observed costs. Preserve the required comparisons before optional extra runs.</p>
+          <p>Record dependency versions, hardware, seeds, encoder weights, resolved configurations, manifest hashes, source revision and dirty-tree status, run IDs, logs, selected checkpoints, and training/inference timing scope. Supply preparation, training, evaluation, and checkpoint reconstruction instructions as implementation progresses.</p>
+
+          <h3 id="proposal-milestones">Milestones and approval record</h3>
+<div class="table-container" role="region" tabindex="0" aria-labelledby="proposal-6"><table class="rubric-table"><caption id="proposal-6">Deadlines at 23:59 Vietnam time; follow milestone-specific LMS changes</caption><thead><tr><th scope="col">Milestone</th><th scope="col">Due date</th><th scope="col">Weight within A3</th><th scope="col">Minimum deliverable</th></tr></thead><tbody><tr><td>M1 Proposal</td><td>18 November 2026</td><td>15%</td><td>Dataset, pair-quality evidence, split unit, metrics, models, compute estimate, and approval record</td></tr><tr><td>M2 Draft</td><td>25 November 2026</td><td>25%</td><td>Image-only, text-only, and simple fusion with quantitative results</td></tr><tr><td>M3 Final</td><td>2 December 2026</td><td>60%</td><td>Improved fusion, ablation, support/conflict and error analysis, compute analysis, complete submission</td></tr></tbody></table></div><h3 id="proposal-approval">Approval status and implementation gate</h3>
+          <p>The instructor's decision will be recorded as <strong>Approved</strong>, <strong>Approved with conditions</strong>, or <strong>Rejected</strong>. <strong>Pending instructor review</strong> describes the current pre-decision state; it is not an approval. Record the decision date, conditions, and approval evidence when available.</p>
+          <p><strong>Main implementation and experiments may begin only after Approved or Approved with conditions.</strong> If rejected, revise and resubmit the proposal before beginning main work. Any approval conditions must be followed. Preliminary dataset inspection does not establish approval.</p>
+          <p><strong>Current status:</strong> pending instructor review. Approval date and conditions have not been recorded. Group responsibilities and the local GPU training environment will be confirmed before main implementation. Final deliverables include the report, slides, source/reproduction instructions, checkpoint access, assignment webpage, AI disclosures, and a YouTube presentation involving all members.</p>
+          <p><strong>Limitations:</strong> strong class imbalance, subjective and conflicting sentiment annotations, repeated templates, OCR/transcription errors, and related information across image/text inputs. Generalization to unfamiliar templates and uncorrected OCR is not established.</p>
+          <p class="proposal-note">Prepared 9 November 2026. This section is the group’s current M1 proposal. The <a href="assignment3/docs/dataset_proposal.md">Markdown working copy</a> contains supporting detail. Source license/version metadata: <a href="https://www.kaggle.com/api/v1/datasets/view/hammadjavaid/6992-labeled-meme-images-dataset">Kaggle public metadata</a>.</p>
         </div>
       </section>
 
-      <!-- Methodology -->
-      <section class="section-block">
-        <div class="section-header">
-          <span class="section-icon">⚙️</span>
-          <h2 class="section-title">Methodology</h2>
-        </div>
-        <div class="content-card">
-          <h3>Pipeline Overview</h3>
-          <div class="pipeline-diagram" style="color: #059669;">
-            Raw paired data → preprocessing → data loader → encoders → fusion → loss → optimization → prediction → evaluation
-          </div>
-
-          <h3>Mandatory Baselines &amp; Models</h3>
-          <ul class="styled-list">
-            <li><strong>1. Baseline Modality A:</strong> Unimodal baseline using modality A only.</li>
-            <li><strong>2. Baseline Modality B:</strong> Unimodal baseline using modality B only.</li>
-            <li><strong>3. Simple Fusion Baseline:</strong> A direct concatenation / simple fusion architecture.</li>
-            <li><strong>4. Improved Multimodal Model:</strong> Advanced fusion strategy (cross-attention, intermediate fusion, etc.).</li>
-          </ul>
-
-          <h3>Mandatory Method Content</h3>
-          <p style="font-size: 0.9rem; color: var(--text-muted);">
-            Modality encoders &amp; representations; data alignment procedure; fusion stage (early/intermediate/late) and operation; joint and per-modality losses; missing-modality handling if applicable; pretraining and fine-tuning strategy; ablation study design.
-          </p>
-
-          <p style="margin-top:0.75rem">
-            <strong>[Fill in here]</strong> — Architecture details, parameter counts, loss formulations, training configurations, optimizer, lr schedule, hardware.
-          </p>
-        </div>
+      <section class="section-block" id="next-milestones" aria-labelledby="next-heading">
+        <div class="section-header"><span class="section-icon" aria-hidden="true">🧪</span><h2 class="section-title" id="next-heading">Implementation and Results</h2></div>
+        <div class="content-card"><p>Training, quantitative model results, comparison, error analysis, and conclusions will be added for M2/M3 after approval and executed experiments. Current counts above describe the preliminary dataset audit, not model performance.</p></div>
       </section>
-
-      <!-- Experimental Setup -->
-      <section class="section-block">
-        <div class="section-header">
-          <span class="section-icon">🧪</span>
-          <h2 class="section-title">Experimental Setup</h2>
-        </div>
-        <div class="content-card">
-          <p>
-            <strong>Mandatory experimental outputs:</strong> Unimodal vs. multimodal comparison; task-specific metrics;
-            support cases vs. conflict cases analysis; ablation study; compute-cost analysis.
-          </p>
-          <p style="margin-top:0.75rem">
-            <strong>[Fill in here]</strong> — For each experiment: hypothesis, changed factor, fixed factors, metrics, decision criteria, hardware &amp; software versions.
-          </p>
-        </div>
-      </section>
-
-      <!-- Results -->
-      <section class="section-block">
-        <div class="section-header">
-          <span class="section-icon">📈</span>
-          <h2 class="section-title">Results</h2>
-        </div>
-        <div class="content-card">
-          <p>
-            <strong>[Fill in here]</strong> — Training behavior curves; quantitative metrics comparison table (Unimodal A, Unimodal B, Simple Fusion, Improved Model);
-            qualitative visualizations of predictions; examples of modality agreement vs. conflict.
-          </p>
-        </div>
-      </section>
-
-      <!-- Comparison & Discussion -->
-      <section class="section-block">
-        <div class="section-header">
-          <span class="section-icon">⚖️</span>
-          <h2 class="section-title">Comparison &amp; Discussion</h2>
-        </div>
-        <div class="content-card">
-          <p>
-            <strong>[Fill in here]</strong> — Detailed analysis of when multimodal fusion outperforms unimodal models and when it does not;
-            modality synergy vs. interference; efficiency vs. accuracy trade-offs.
-          </p>
-        </div>
-      </section>
-
-      <!-- Error Analysis -->
-      <section class="section-block">
-        <div class="section-header">
-          <span class="section-icon">🔍</span>
-          <h2 class="section-title">Error Analysis</h2>
-        </div>
-        <div class="content-card">
-          <p>
-            <strong>[Fill in here]</strong> — Error taxonomy; failure cases caused by modality mismatch, noise, or dominant modality bias; ablation study findings.
-          </p>
-        </div>
-      </section>
-
-      <!-- Limitations & Conclusion -->
-      <section class="section-block">
-        <div class="section-header">
-          <span class="section-icon">💡</span>
-          <h2 class="section-title">Limitations &amp; Conclusion</h2>
-        </div>
-        <div class="content-card">
-          <p>
-            <strong>[Fill in here]</strong> — Limitations of alignment/fusion; computational overhead; generalization; future multimodal enhancements.
-          </p>
-        </div>
-      </section>
-
       <!-- Links & Deliverables -->
       <section class="section-block">
         <div class="section-header">
@@ -263,42 +281,11 @@
           <h2 class="section-title">Deliverables &amp; Links</h2>
         </div>
         <div class="links-grid">
-          <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/tree/main/assignment3" class="link-btn-card" target="_blank" rel="noopener">
-            <div class="link-icon-box" style="background:#d1fae5; color:#059669;">💻</div>
-            <div>
-              <span class="link-label">Source Code</span>
-              <span class="link-sub">assignment3/</span>
-            </div>
-          </a>
-          <a href="#" class="link-btn-card" target="_blank" rel="noopener">
-            <div class="link-icon-box" style="background:#d1fae5; color:#059669;">🗂️</div>
-            <div>
-              <span class="link-label">Checkpoints</span>
-              <span class="link-sub">[Model Weights]</span>
-            </div>
-          </a>
-          <a href="#" class="link-btn-card" target="_blank" rel="noopener">
-            <div class="link-icon-box" style="background:#d1fae5; color:#059669;">📄</div>
-            <div>
-              <span class="link-label">Report / Slides</span>
-              <span class="link-sub">[PDF / Slides]</span>
-            </div>
-          </a>
-          <a href="#" class="link-btn-card" target="_blank" rel="noopener">
-            <div class="link-icon-box" style="background:#d1fae5; color:#059669;">▶️</div>
-            <div>
-              <span class="link-label">YouTube Video</span>
-              <span class="link-sub">CO3133-261-Group9-Ryzen9-Assignment3</span>
-            </div>
-          </a>
-          <a href="#" class="link-btn-card" target="_blank" rel="noopener">
-            <div class="link-icon-box" style="background:#d1fae5; color:#059669;">📋</div>
-            <div>
-              <span class="link-label">Dataset Proposal</span>
-              <span class="link-sub">[Proposal &amp; Status]</span>
-            </div>
-          </a>
+          <a href="#dataset-proposal" class="link-btn-card"><span class="link-label">Read the M1 Dataset Proposal</span></a>
+          <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/tree/main/assignment3" class="link-btn-card" target="_blank" rel="noopener"><span class="link-label">Source Repository</span></a>
+          <a href="assignment3/AI_USAGE.md" class="link-btn-card"><span class="link-label">Assignment 3 AI Usage Log</span></a>
         </div>
+        <p>Checkpoints, final report, slides, and presentation video are planned for later milestones; links will be added when available.</p>
       </section>
 
       <!-- AI Usage Disclosure -->
@@ -310,8 +297,9 @@
         <div class="disclosure-card">
           <h3>Assignment 3 AI Usage Disclosure</h3>
           <p>
-            Work on Assignment 3 has not started yet, so no AI tool has been used for its content, code,
-            experiments, or results.
+            Codex (OpenAI, GPT-6) assisted with task explanation, proposal drafting, audit-script guidance,
+            and this proposal page in November 2026. The group ran the preliminary audit scripts;
+            the saved audit confirms the counts reported above. No model training results are claimed.
           </p>
           <p>
             One disclosure already applies: the skeleton of this page — its HTML structure, section layout, and the
@@ -320,8 +308,9 @@
             a result.
           </p>
           <p>
-            This section will be completed with the full per-tool log required by handbook §5.2 as Assignment 3
-            progresses. The running log is kept in
+            The <a href="assignment3/AI_USAGE.md">Assignment 3 log</a> records the current assistance;
+            the requesting student, final verification owner, and student edits still need confirmation.
+            The shared course log is kept in
             <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/main/AI_USAGE.md" target="_blank" rel="noopener"><strong>AI_USAGE.md</strong></a>.
           </p>
         </div>
