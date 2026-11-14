@@ -57,7 +57,8 @@ def test_manifest_hashes_match_report():
     import hashlib
     rep = json.loads((ROOT / "data/manifests/split_report.json").read_text())
     for n in ("train", "val", "test"):
-        h = hashlib.sha256((ROOT / CFG[f"{n}_manifest"]).read_bytes()).hexdigest()
+        raw = (ROOT / CFG[f"{n}_manifest"]).read_bytes().replace(b"\r\n", b"\n")  # LF-normalised
+        h = hashlib.sha256(raw).hexdigest()
         assert h == rep["splits"][n]["sha256"]
 
 

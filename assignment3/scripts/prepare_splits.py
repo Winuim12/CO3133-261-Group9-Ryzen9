@@ -18,7 +18,8 @@ COLS = ["image_name", "image_path", "text_corrected", "label_id", "group_id"]
 
 
 def sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    """Hash with line endings normalised to LF so Windows/Linux checkouts agree."""
+    return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
 
 def split(df, seed, tries=200):
@@ -76,7 +77,7 @@ def main():
     inv = {v: k for k, v in labels.items()}
     for name, p in parts.items():
         f = a.out / f"{name}.csv"
-        p[COLS].sort_values("image_name").to_csv(f, index=False, encoding="utf-8")
+        p[COLS].sort_values("image_name").to_csv(f, index=False, encoding="utf-8", lineterminator="\n")
         dist = p["label_id"].value_counts().sort_index()
         report["splits"][name] = {
             "n": len(p), "frac": round(len(p) / len(df), 4),
