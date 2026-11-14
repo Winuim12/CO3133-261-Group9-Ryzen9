@@ -6,9 +6,18 @@ tmp/
 __pycache__/
 *.pyc
 .venv/
+.venv-gpu/
+.ipynb_checkpoints/
 .env
+.pytest_cache/
+pytest-cache-files-*/
+data/processed/
+results/runs/
+*.pt
+*.pth
+*.ckpt
+docs/superpowers/
 
 #Agents
 AGENTS.md
 DESIGN.md
-.ipynb_checkpoints/
