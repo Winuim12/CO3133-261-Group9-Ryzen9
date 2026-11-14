@@ -1,0 +1,46 @@
+{
+  "seed": 42,
+  "seed_used": 42,
+  "total": 6887,
+  "splits": {
+    "train": {
+      "n": 4819,
+      "frac": 0.6997,
+      "groups": 4819,
+      "classes": {
+        "very_negative": 102,
+        "negative": 333,
+        "neutral": 1519,
+        "positive": 2155,
+        "very_positive": 710
+      },
+      "sha256": "bf2ac66013668ced7e693c6dbd5a8986233bee470278032f5af846fa65c099d8"
+    },
+    "val": {
+      "n": 1034,
+      "frac": 0.1501,
+      "groups": 1034,
+      "classes": {
+        "very_negative": 22,
+        "negative": 71,
+        "neutral": 326,
+        "positive": 462,
+        "very_positive": 153
+      },
+      "sha256": "31296fb8c194c7a99b80dc2b3abe415e61019ec14df49192fca6e2d2ff7bb6e5"
+    },
+    "test": {
+      "n": 1034,
+      "frac": 0.1501,
+      "groups": 1034,
+      "classes": {
+        "very_negative": 23,
+        "negative": 71,
+        "neutral": 325,
+        "positive": 462,
+        "very_positive": 153
+      },
+      "sha256": "dce34d79d6f3d5ff2320dcecda387e22af54c3bb81b6daebe2ea8c37455252a6"
+    }
+  }
+}
