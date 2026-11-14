@@ -1,0 +1,25 @@
+services:
+  assignment3:
+    image: assignment3:cpu
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: cpu
+    working_dir: /workspace/assignment3
+    shm_size: "1gb"
+    environment:
+      TORCH_HOME: /cache/torch
+      MPLBACKEND: Agg
+    volumes:
+      - ./data/raw:/workspace/assignment3/data/raw:ro
+      - ./data/audit:/workspace/assignment3/data/audit
+      - ./data/review:/workspace/assignment3/data/review
+      - ./data/manifests:/workspace/assignment3/data/manifests
+      - ./data/processed:/workspace/assignment3/data/processed
+      - ./results:/workspace/assignment3/results
+      - ./checkpoints:/workspace/assignment3/checkpoints
+      - torch-cache:/cache/torch
+    command: ["python", "-m", "experiments.check_environment", "--device", "cpu", "--smoke-test"]
+
+volumes:
+  torch-cache:

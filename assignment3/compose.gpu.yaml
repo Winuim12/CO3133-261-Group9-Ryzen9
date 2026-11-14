@@ -1,0 +1,7 @@
+services:
+  assignment3:
+    image: assignment3:gpu
+    build:
+      target: gpu
+    gpus: all
+    command: ["python", "-m", "experiments.check_environment", "--device", "cuda", "--smoke-test"]

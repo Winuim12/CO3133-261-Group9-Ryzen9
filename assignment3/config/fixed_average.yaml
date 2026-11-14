@@ -1,0 +1,3 @@
+model:
+  name: fixed_average
+  gate_value: 0.5
