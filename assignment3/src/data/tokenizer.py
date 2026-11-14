@@ -3,12 +3,12 @@
 Build:  python -m src.data.tokenizer   (run from assignment3/)
 """
 import argparse
+import csv
 import json
 import re
 from collections import Counter
 from pathlib import Path
 
-import pandas as pd
 import yaml
 
 PAD, UNK = "<pad>", "<unk>"
@@ -63,13 +63,17 @@ def main():
     ap.add_argument("--min-freq", type=int, default=2)
     a = ap.parse_args()
     cfg = yaml.safe_load(a.config.read_text(encoding="utf-8"))["data"]
-    train = pd.read_csv(root / cfg["train_manifest"], keep_default_na=False)  # train only: no leakage
-    v = Vocabulary.build(train[cfg["text_column"]], a.min_freq, cfg["pad_id"], cfg["unk_id"])
+    col = cfg["text_column"]
+
+    def texts(name):
+        with open(root / cfg[f"{name}_manifest"], newline="", encoding="utf-8") as f:
+            return [r[col] for r in csv.DictReader(f)]
+
+    v = Vocabulary.build(texts("train"), a.min_freq, cfg["pad_id"], cfg["unk_id"])  # train only: no leakage
     v.save(root / cfg["vocabulary"])
     print(f"vocab size {len(v)} (min_freq={a.min_freq}) -> {root / cfg['vocabulary']}")
     for name in ("val", "test"):
-        df = pd.read_csv(root / cfg[f"{name}_manifest"], keep_default_na=False)
-        toks = [t for s in df[cfg["text_column"]] for t in tokenize(s)]
+        toks = [t for s in texts(name) for t in tokenize(s)]
         unk = sum(t not in v.token_to_id for t in toks)
         print(f"{name}: unknown-token rate {unk / len(toks):.1%}")
 

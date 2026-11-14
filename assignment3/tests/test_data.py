@@ -16,6 +16,10 @@ from src.data.transforms import resize_pad
 ROOT = Path(__file__).resolve().parents[1]
 CFG = yaml.safe_load((ROOT / "config/base.yaml").read_text(encoding="utf-8"))["data"]
 needs_data = pytest.mark.skipif(not (ROOT / CFG["train_manifest"]).exists(), reason="manifests not generated")
+# The raw images and the vocabulary are git-ignored, so the batch test only runs where they exist locally.
+needs_raw = pytest.mark.skipif(
+    not ((ROOT / CFG["vocabulary"]).exists() and (ROOT / CFG["raw_dir"] / "images").exists()),
+    reason="raw images or vocabulary not available (git-ignored)")
 
 
 def rows(name):
@@ -58,6 +62,7 @@ def test_manifest_hashes_match_report():
 
 
 @needs_data
+@needs_raw
 def test_one_batch_contract():
     v = Vocabulary.load(ROOT / CFG["vocabulary"])
     ds = MemeDataset(CFG["train_manifest"], v, train=True)
