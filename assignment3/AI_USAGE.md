@@ -58,3 +58,27 @@ Codex reused its scoped layout/CSS, preserved the nine Assignment 3 content
 sections, and composed an SVG preview from unmodified original dataset sample
 images `image_1.jpg` and `image_4.png`. No sentiment predictions were added to
 the preview. This presentation work does not establish completed semantic review.
+
+## Shared bootstrap - 14 November 2026
+
+- Tool: Codex (OpenAI, GPT-6).
+- Requesting member: Member 2 (the user); add the student's name before submission.
+- Purpose: shared local/Docker CPU/GPU setup, configuration and environment smoke
+  checks, Assignment 3 CI, and three-member handover scaffolding.
+- Affected files: requirements/Docker/Compose/config files, `src/config.py`,
+  `experiments/check_environment.py`, explicit implementation placeholders,
+  tests, notebooks, handover/environment documentation, ignore rules, and
+  `../.github/workflows/assignment3-ci.yaml`.
+- Representative request: set up code for everyone before handover, ignore
+  Superpowers docs, and create Assignment 3 CI and Docker support.
+- Verification: executed configuration tests; dependency installation, Compose
+  validation, environment smoke checks, and final results are recorded in
+  `docs/environment.md`. Official PyTorch/Docker sources are linked there.
+- Student edits/final verification owner: pending student review.
+- No dataset training, final split generation, or model results are claimed.
+- Executed bootstrap verification: local CPU suite 10 passed; CPU Docker image
+  built; Compose CPU smoke passed; image-only CPU suite 10 passed without raw
+  data mounts; both environments passed `pip check`; CPU/GPU Compose validated.
+  GPU target execution and remote GitHub CI are unverified. Static review found
+  no significant defects. The existing tracked Superpowers plan was removed
+  from Git's index under the user's ignore request, preserving the local file.
