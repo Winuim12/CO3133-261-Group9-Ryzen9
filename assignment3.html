@@ -268,6 +268,107 @@
   .a3-page *, .a3-page *::before, .a3-page *::after { animation: none !important; transition: none !important; }
 }
 
+  /* Dataset Description & EDA */
+  #eda {
+    --eda-ink: #1e1b4b;
+    --eda-violet: #5b21b6;
+    --eda-lilac: #a78bfa;
+    --eda-mist: #ddd6fe;
+    --eda-line: #e9e4f5;
+    --eda-soft: #f8f6fd;
+  }
+  #eda .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  #eda a { color: var(--eda-violet); font-weight: 600; text-underline-offset: 3px; }
+  #eda a:focus-visible, #eda .eda-ledger-scroll:focus-visible, #eda summary:focus-visible { outline: 3px solid var(--accent-purple); outline-offset: 3px; border-radius: 4px; }
+  #eda [id] { scroll-margin-top: 88px; }
+
+  /* Count trail: the stages an image passes through */
+
+  /* Parts */
+  #eda .eda-part { margin-top: 1.6rem; padding-top: 1.1rem; border-top: 1px solid var(--eda-line); }
+  #eda .eda-part:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+  #eda .eda-part > h3 { margin: 0 0 0.6rem; font-size: 1.2rem; color: var(--eda-ink); }
+  #eda h4 { margin: 1.1rem 0 0.4rem; font-family: 'Space Grotesk', sans-serif; font-size: 0.98rem; font-weight: 700; color: var(--eda-ink); }
+  #eda h4.eda-h4-first { margin-top: 0; }
+  #eda p { max-width: 75ch; font-size: 0.9rem; }
+  #eda .eda-aside { margin-top: 0.4rem; font-size: 0.84rem; line-height: 1.6; color: var(--text-muted); }
+  #eda .eda-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem 2.25rem; align-items: start; }
+  #eda .eda-pill { display: inline-block; margin-right: 0.3rem; padding: 0 0.5rem; border: 1px solid #a7f3d0; border-radius: var(--radius-full); background: #ecfdf5; color: #065f46; font-size: 0.76rem; font-weight: 700; }
+
+  /* Compact key-value list */
+  #eda .eda-kv { margin: 0; font-size: 0.86rem; line-height: 1.5; }
+  #eda .eda-kv > div { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 0.75rem; padding: 0.35rem 0; border-bottom: 1px solid var(--eda-line); }
+  #eda .eda-kv > div:first-child { border-top: 1px solid var(--eda-line); }
+  #eda .eda-kv-wide { max-width: 52rem; }
+  #eda .eda-kv dt { font-weight: 600; color: var(--eda-violet); }
+  #eda .eda-kv dd { margin: 0; color: var(--text-secondary); font-variant-numeric: tabular-nums; }
+
+  /* Tables */
+  #eda .table-container { margin: 0.5rem 0; }
+  #eda .eda-flush { margin-top: 0; }
+  #eda .eda-tight { font-size: 0.85rem; }
+  #eda .eda-tight th, #eda .eda-tight td { padding: 0.4rem 0.9rem; line-height: 1.5; }
+  #eda .eda-num td:not(:first-child), #eda .eda-num th:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
+  #eda .eda-total td { font-weight: 700; color: var(--eda-ink); border-top: 2px solid var(--eda-line); }
+
+  /* Source platforms: ranked bars */
+
+  /* Class ledger: the per-class distribution */
+  #eda .eda-ledger-wrap { margin: 0.25rem 0 1.25rem; }
+  #eda .eda-ledger-key { display: flex; flex-wrap: wrap; gap: 0.3rem 1.1rem; margin-bottom: 0.4rem; font-size: 0.8rem; color: var(--text-secondary); }
+  #eda .eda-ledger-key span { display: inline-flex; align-items: center; gap: 0.35rem; }
+  #eda .eda-ledger-key i { display: inline-block; width: 14px; height: 9px; border-radius: 2px; }
+  #eda .eda-ledger-key .key-mean { width: 0; height: 12px; border-left: 2px dashed var(--eda-ink); border-radius: 0; }
+  #eda .seg-train { background: var(--eda-violet); }
+  #eda .seg-val { background: var(--eda-lilac); }
+  #eda .seg-test { background: var(--eda-mist); }
+  #eda .eda-ledger-scroll { margin: 0; }
+  #eda .eda-ledger { width: 100%; min-width: 540px; border-collapse: collapse; table-layout: fixed; font-size: 0.82rem; line-height: 1.35; font-variant-numeric: tabular-nums; background: #fff; }
+  #eda .eda-ledger caption { padding: 0.5rem 0.9rem; text-align: left; font-weight: 600; color: var(--text-secondary); background: var(--eda-soft); border-bottom: 1px solid var(--eda-line); }
+  #eda .eda-ledger thead th { padding: 0.35rem 0.6rem; font-size: 0.76rem; font-weight: 600; color: var(--text-muted); text-align: right; border-bottom: 1px solid var(--eda-line); }
+  #eda .eda-ledger thead th:first-child { width: 10.5rem; text-align: left; }
+  #eda .eda-ledger thead th:nth-child(n+3) { width: 4rem; }
+  #eda .eda-ledger thead th:last-child { width: 4.75rem; }
+  #eda .eda-ledger tbody th, #eda .eda-ledger tfoot th { padding: 0.12rem 0.6rem 0.12rem 0.9rem; text-align: left; font-weight: 500; color: var(--eda-ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #eda .eda-ledger td { padding: 0.12rem 0.6rem; text-align: right; color: var(--text-muted); }
+  #eda .eda-ledger td:last-child { padding-right: 0.9rem; color: var(--eda-ink); font-weight: 600; }
+  #eda .eda-ledger td.ledger-bar { padding: 0.12rem 0.4rem 0.12rem 0; }
+  #eda .ledger-bar .bar { position: relative; display: flex; height: 11px; }
+  #eda .ledger-bar .bar::after { content: ''; position: absolute; top: -4px; bottom: -4px; left: 54.89%; border-left: 2px dashed var(--eda-ink); opacity: 0.55; }
+  #eda .ledger-bar .seg { height: 100%; }
+  #eda .ledger-bar .seg + .seg { box-shadow: inset 1px 0 0 #fff; }
+  #eda .eda-ledger tbody tr:hover { background: var(--eda-soft); }
+  #eda .eda-ledger tr.is-edge th { font-weight: 700; }
+  #eda .eda-ledger tfoot th, #eda .eda-ledger tfoot td { padding-top: 0.4rem; padding-bottom: 0.4rem; border-top: 2px solid var(--eda-ink); font-weight: 700; color: var(--eda-ink); }
+
+  /* Figures */
+  #eda .eda-figure { margin: 0.75rem 0 0; padding: 8px; background: var(--eda-soft); border: 1px solid var(--eda-line); border-radius: var(--radius-md); }
+  #eda .eda-figure img { display: block; width: 100%; height: auto; border-radius: 6px; }
+  #eda .eda-figure figcaption { margin-top: 6px; color: var(--text-muted); font-size: 0.8rem; line-height: 1.5; }
+  #eda .eda-figure-capped { max-width: 54rem; }
+  #eda .eda-gallery { display: grid; grid-template-columns: 2.1fr 1fr; gap: 1rem; align-items: start; }
+  #eda .eda-gallery .eda-figure { margin: 0; }
+
+  /* Collapsible procedure */
+  #eda .eda-details { margin-top: 0.9rem; border: 1px solid var(--eda-line); border-radius: var(--radius-sm); }
+  #eda .eda-details summary { padding: 0.5rem 0.9rem; cursor: pointer; font-size: 0.88rem; font-weight: 600; color: var(--eda-violet); }
+  #eda .eda-details[open] summary { border-bottom: 1px solid var(--eda-line); }
+  #eda .eda-steps { margin: 0; padding: 0.5rem 0.9rem 0.6rem 2.2rem; font-size: 0.86rem; line-height: 1.55; }
+  #eda .eda-steps li { padding: 0.2rem 0; }
+  #eda .eda-steps strong { color: var(--eda-ink); }
+
+  /* Limitations: two short columns */
+  #eda .eda-limits { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.4rem 2rem; margin: 0; padding: 0; list-style: none; font-size: 0.86rem; line-height: 1.55; }
+  #eda .eda-limits li { padding-left: 0.75rem; border-left: 2px solid var(--eda-mist); }
+  #eda .eda-limits strong { color: var(--eda-ink); }
+
+  @media (max-width: 860px) {
+    #eda .eda-cols, #eda .eda-gallery, #eda .eda-limits { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    #eda .eda-kv > div { grid-template-columns: 6rem minmax(0, 1fr); gap: 0.5rem; }
+  }
+
 </style>
 
 </head>
@@ -362,7 +463,7 @@
 
       <!-- M1 proposal: research plans are distinct from verified audit observations. -->
       <section class="section-block" id="dataset-proposal" aria-labelledby="proposal-heading">
-        <div class="section-header"><h2 class="section-title" id="proposal-heading">Dataset Proposal</h2></div>
+        <div class="section-header"><span class="section-icon" aria-hidden="true">&#128203;</span><h2 class="section-title" id="proposal-heading">Dataset Proposal</h2></div>
         <div class="content-card proposal-card"><div class="proposal-hero">
           <div class="proposal-topbar">
             <span class="status-badge"><span class="status-badge-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg></span><span>Pending instructor review</span></span>
@@ -514,10 +615,179 @@
         </section></div></div>
       </section>
 
-      <section class="section-block" id="next-milestones" aria-labelledby="next-heading">
-        <div class="section-header"><span class="section-icon" aria-hidden="true">🧪</span><h2 class="section-title" id="next-heading">Implementation and Results</h2></div>
-        <div class="content-card"><p>Training, quantitative model results, comparison, error analysis, and conclusions will be added for M2/M3 after approval and executed experiments. Current counts above describe the preliminary dataset audit, not model performance.</p></div>
+      <section class="section-block" id="problem-statement" aria-labelledby="problem-statement-title">
+        <div class="section-header">
+          <span class="section-icon" aria-hidden="true">&#127919;</span>
+          <h2 class="section-title" id="problem-statement-title">Problem Statement</h2>
+        </div>
       </section>
+
+      <!-- Dataset Description & EDA -->
+      <section class="section-block" id="eda" aria-labelledby="eda-title">
+        <div class="section-header">
+          <span class="section-icon" aria-hidden="true">&#128202;</span>
+          <h2 class="section-title" id="eda-title">Dataset Description &amp; EDA</h2>
+        </div>
+        <div class="content-card eda">
+          <div class="eda-part" id="eda-description">
+            <h3>Dataset description</h3>
+            <div class="eda-cols">
+              <dl class="eda-kv"><div><dt>Source</dt><dd><a href="https://www.kaggle.com/datasets/hammadjavaid/6992-labeled-meme-images-dataset" target="_blank" rel="noopener">Memotion-7K (6992 labeled meme images) on Kaggle</a>, derived from the SemEval-2020 Task 8 Memotion data.</dd></div><div><dt>Task</dt><dd>Five-class sentiment classification of memes from the image and its corrected text.</dd></div><div><dt>Annotation</dt><dd>One overall sentiment label per meme (very negative to very positive), plus OCR text and a manually corrected text.</dd></div><div><dt>Raw size</dt><dd>6,992 image&ndash;text pairs; 702.5 MB of images, 5,311 files with JPEG extensions, 1,678 PNG and 3 other.</dd></div><div><dt>Image modes</dt><dd>RGB 5,467, palette 1,248, RGBA 243, grayscale 31, CMYK 2; 4,224 distinct sizes. Files are opened by content.</dd></div><div><dt>Text</dt><dd><code>text_corrected</code> is used; OCR text agrees with it for only 67.9% of pairs.</dd></div><div><dt>Retained</dt><dd>6,887 pairs after cleaning (98.5%); 105 removed with step and reason in <code>data/clean/removed.csv</code>.</dd></div><div><dt>Official split</dt><dd>None is provided; a custom 70 / 15 / 15 split is made.</dd></div></dl>
+              <div>
+                <h4 class="eda-h4-first" id="eda-audit">Data quality audit</h4>
+                <div class="table-container eda-flush"><table class="rubric-table eda-num eda-tight"><thead><tr><th scope="col">Step</th><th scope="col">Pairs</th></tr></thead><tbody><tr><td>The CSV contains these pairs; all images exist.</td><td>6,992</td></tr><tr><td>One image is truncated and cannot be decoded.</td><td>&minus;1</td></tr><tr><td>Corrected text is blank.</td><td>&minus;5</td></tr><tr><td>Text is junk (<code>#NAME?</code>, HTML dump).</td><td>&minus;10</td></tr><tr><td>Same image and text with conflicting labels are removed (A3).</td><td>&minus;21</td></tr><tr><td>One copy is kept for same image, text and label (A1).</td><td>&minus;6</td></tr><tr><td>Same image with conflicting labels are removed (A4).</td><td>&minus;12</td></tr><tr><td>One copy is kept for same image and label with OCR-different text (A2).</td><td>&minus;3</td></tr><tr><td>Same text on near-identical images: conflicting labels removed (B2), same label keeps one (B1).</td><td>&minus;14</td></tr><tr><td>Same text on different images, after manual review: conflicting removed (B2), same label keeps one (B1).</td><td>&minus;33</td></tr><tr class="eda-total"><td>Retained</td><td>6,887</td></tr></tbody></table></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="eda-part" id="eda-analysis">
+            <h3>Exploratory analysis</h3>
+            <div class="eda-cols">
+              <div>
+                <h4 class="eda-h4-first">Class distribution</h4>
+                <div class="table-container eda-flush"><table class="rubric-table eda-num eda-tight"><thead><tr><th scope="col">Class</th><th scope="col">Retained</th><th scope="col">Share</th><th scope="col">Train</th><th scope="col">Val</th><th scope="col">Test</th></tr></thead><tbody><tr><td>Very negative</td><td>147</td><td>2.1%</td><td>102</td><td>22</td><td>23</td></tr><tr><td>Negative</td><td>475</td><td>6.9%</td><td>333</td><td>71</td><td>71</td></tr><tr><td>Neutral</td><td>2,170</td><td>31.5%</td><td>1,519</td><td>326</td><td>325</td></tr><tr><td>Positive</td><td>3,079</td><td>44.7%</td><td>2,155</td><td>462</td><td>462</td></tr><tr><td>Very positive</td><td>1,016</td><td>14.8%</td><td>710</td><td>153</td><td>153</td></tr><tr class="eda-total"><td>All classes</td><td>6,887</td><td>100%</td><td>4,819</td><td>1,034</td><td>1,034</td></tr></tbody></table></div>
+              </div>
+              <div id="eda-imbalance">
+                <h4 class="eda-h4-first">Imbalance</h4>
+                <dl class="eda-kv"><div><dt>Max / min</dt><dd>3,079 / 147 = 20.9&times;</dd></div><div><dt>Majority baseline</dt><dd>Always predicting positive gives 44.7% accuracy.</dd></div><div><dt>Smallest class</dt><dd>Very negative: 147 images, only 22&ndash;23 in each of val and test.</dd></div><div><dt>Raw ratio</dt><dd>20.7&times; before cleaning (3,127 positive vs 151 very negative).</dd></div></dl>
+                <p class="eda-aside">The imbalance is strong, so accuracy favours positive and neutral. <strong>Macro-F1 is primary</strong> and per-class results are reported. Because the very-negative test class has only 23 images, one error moves its recall by more than 4 points.</p>
+              </div>
+            </div>
+            <figure class="eda-figure eda-figure-capped"><img src="assets/eda/assignment3-split-class-distribution.png" alt="Class percentages in the train, validation and test splits" loading="lazy" /><figcaption>The bars show that each split has almost the same class proportions.</figcaption></figure>
+            <div class="eda-cols" style="margin-top:1.25rem">
+              <div id="eda-text">
+                <h4 class="eda-h4-first">Text</h4>
+                <dl class="eda-kv"><div><dt>Length</dt><dd>Median 13 words, 90th percentile 26, 95th percentile 31, maximum 189 (raw).</dd></div><div><dt>Short / long</dt><dd>86 texts have 2 words or fewer; 11 retained texts exceed 64 words.</dd></div><div><dt>Watermarks</dt><dd><code>com</code>, <code>imgflip</code>, <code>memegenerator</code>, <code>quickmeme</code> appear in every class.</dd></div><div><dt>OCR vs corrected</dt><dd>67.9% identical; 969 pairs have similarity below 0.8.</dd></div></dl>
+              </div>
+              <div id="eda-sizes">
+                <h4 class="eda-h4-first">Input size</h4>
+                <dl class="eda-kv"><div><dt>Median</dt><dd>500 &times; 500 px, aspect ratio 1.01.</dd></div><div><dt>Range</dt><dd>Widths 100&ndash;4,961 px and heights 123&ndash;5,553 px.</dd></div><div><dt>Aspect (5&ndash;95%)</dt><dd>0.66 to 1.79; extreme values 0.33 and 4.35.</dd></div><div><dt>File size</dt><dd>Median 66 KB, 95th percentile 287 KB, maximum 8.2 MB.</dd></div></dl>
+                <p class="eda-aside">Sizes and aspect ratios vary widely, so images are resized to keep their aspect ratio and padded to 224 &times; 224.</p>
+              </div>
+            </div>
+            <div class="eda-gallery" style="margin-top:1rem">
+              <figure class="eda-figure "><img src="assets/eda/assignment3-text-length.png" alt="Histograms of corrected text length in words and characters" loading="lazy" /><figcaption>Corrected-text length in words and characters (raw data).</figcaption></figure>
+              <figure class="eda-figure "><img src="assets/eda/assignment3-image-sizes.png" alt="Histograms of image width, height and aspect ratio" loading="lazy" /><figcaption>Image width, height, aspect ratio and file size (raw data).</figcaption></figure>
+            </div>
+
+            <h4 id="eda-duplicates" style="margin-top:1.25rem">Duplicates and junk</h4>
+            <p style="font-size:.86rem">Exact duplicate images form 25 groups (51 images) and 16 of them have conflicting labels. A further 30 caption groups are shared by different images and 20 of them have conflicting labels. In total 119 images (1.7%) are in some duplicate or template group.</p>
+            <div class="table-container eda-flush"><table class="rubric-table eda-tight"><thead><tr><th scope="col">Code</th><th scope="col">Case</th><th scope="col">Groups</th><th scope="col">Policy</th></tr></thead><tbody><tr><td>A1</td><td>Same image, same text, same label</td><td>6</td><td>keep 1</td></tr><tr><td>A2</td><td>Same image, same label, text differs by OCR/typo</td><td>3</td><td>keep 1</td></tr><tr><td>A3</td><td>Same image and text, different labels</td><td>10</td><td>drop all</td></tr><tr><td>A4</td><td>Same image, different labels, text differs slightly</td><td>6</td><td>drop all</td></tr><tr><td>B1</td><td>Same text, other or near-identical image, same label</td><td>10</td><td>keep 1</td></tr><tr><td>B2</td><td>Same text, other or near-identical image, different labels</td><td>20</td><td>drop all</td></tr></tbody></table></div>
+            <div class="eda-gallery" style="margin-top:1rem">
+              <figure class="eda-figure "><img src="assets/eda/assignment3-duplicate-examples.png" alt="Examples of duplicate image groups" loading="lazy" /><figcaption>Exact duplicate groups found in the raw data. Cases A1&ndash;B2 are exported to <code>assets/eda/duplicates/</code>.</figcaption></figure>
+              <figure class="eda-figure "><img src="assets/eda/junk/html_dump/image_1920.png" alt="Example of an HTML-dump record" loading="lazy" /><figcaption>Junk record: <code>text_corrected</code> is raw HTML. Others are <code>#NAME?</code> (5), blank text (5) and one truncated image.</figcaption></figure>
+            </div>
+
+
+            <h4 style="margin-top:1.25rem" id="eda-all-duplicates">All duplicate groups and junk records</h4>
+            <p style="font-size:.86rem">Every group from the raw data is shown below, one image per group with the image names, text and labels. Open a case to view its groups. The truncated image <code>image_5119.png</code> cannot be displayed.</p>
+            <details class="eda-details"><summary>A1: Same image, same text, same label (keep 1 copy) &mdash; 6 groups</summary><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.75rem;padding:.75rem .9rem"><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/A1/A1_01.png" alt="A1 example A1_01.png" loading="lazy" /><figcaption>A1_01</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/A1/A1_02.png" alt="A1 example A1_02.png" loading="lazy" /><figcaption>A1_02</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/A1/A1_03.png" alt="A1 example A1_03.png" loading="lazy" /><figcaption>A1_03</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/A1/A1_04.png" alt="A1 example A1_04.png" loading="lazy" /><figcaption>A1_04</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/A1/A1_05.png" alt="A1 example A1_05.png" loading="lazy" /><figcaption>A1_05</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/A1/A1_06.png" alt="A1 example A1_06.png" loading="lazy" /><figcaption>A1_06</figcaption></figure></div></details>
+            <details class="eda-details"><summary>A2: Same image, same label, text differs only by OCR/typo (keep 1 copy) &mdash; 3 groups</summary><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.75rem;padding:.75rem .9rem"><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/A2/A2_01.png" alt="A2 example A2_01.png" loading="lazy" /><figcaption>A2_01</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/A2/A2_02.png" alt="A2 example A2_02.png" loading="lazy" /><figcaption>A2_02</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/A2/A2_03.png" alt="A2 example A2_03.png" loading="lazy" /><figcaption>A2_03</figcaption></figure></div></details>
+            <details class="eda-details"><summary>A3: Same image and text, different labels (drop all) &mdash; 10 groups</summary><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.75rem;padding:.75rem .9rem"><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/A3/A3_01.png" alt="A3 example A3_01.png" loading="lazy" /><figcaption>A3_01</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/A3/A3_02.png" alt="A3 example A3_02.png" loading="lazy" /><figcaption>A3_02</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/A3/A3_03.png" alt="A3 example A3_03.png" loading="lazy" /><figcaption>A3_03</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/A3/A3_04.png" alt="A3 example A3_04.png" loading="lazy" /><figcaption>A3_04</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/A3/A3_05.png" alt="A3 example A3_05.png" loading="lazy" /><figcaption>A3_05</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/A3/A3_06.png" alt="A3 example A3_06.png" loading="lazy" /><figcaption>A3_06</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/A3/A3_07.png" alt="A3 example A3_07.png" loading="lazy" /><figcaption>A3_07</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/A3/A3_08.png" alt="A3 example A3_08.png" loading="lazy" /><figcaption>A3_08</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/A3/A3_09.png" alt="A3 example A3_09.png" loading="lazy" /><figcaption>A3_09</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/A3/A3_10.png" alt="A3 example A3_10.png" loading="lazy" /><figcaption>A3_10</figcaption></figure></div></details>
+            <details class="eda-details"><summary>A4: Same image, different labels, text differs slightly (drop all) &mdash; 6 groups</summary><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.75rem;padding:.75rem .9rem"><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/A4/A4_01.png" alt="A4 example A4_01.png" loading="lazy" /><figcaption>A4_01</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/A4/A4_02.png" alt="A4 example A4_02.png" loading="lazy" /><figcaption>A4_02</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/A4/A4_03.png" alt="A4 example A4_03.png" loading="lazy" /><figcaption>A4_03</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/A4/A4_04.png" alt="A4 example A4_04.png" loading="lazy" /><figcaption>A4_04</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/A4/A4_05.png" alt="A4 example A4_05.png" loading="lazy" /><figcaption>A4_05</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/A4/A4_06.png" alt="A4 example A4_06.png" loading="lazy" /><figcaption>A4_06</figcaption></figure></div></details>
+            <details class="eda-details"><summary>B1: Same text, other or near-identical image, same label (keep 1 copy) &mdash; 10 groups</summary><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.75rem;padding:.75rem .9rem"><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B1/B1_01.png" alt="B1 example B1_01.png" loading="lazy" /><figcaption>B1_01</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B1/B1_02.png" alt="B1 example B1_02.png" loading="lazy" /><figcaption>B1_02</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B1/B1_03.png" alt="B1 example B1_03.png" loading="lazy" /><figcaption>B1_03</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B1/B1_04.png" alt="B1 example B1_04.png" loading="lazy" /><figcaption>B1_04</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B1/B1_05.png" alt="B1 example B1_05.png" loading="lazy" /><figcaption>B1_05</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B1/B1_06.png" alt="B1 example B1_06.png" loading="lazy" /><figcaption>B1_06</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B1/B1_07.png" alt="B1 example B1_07.png" loading="lazy" /><figcaption>B1_07</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B1/B1_08.png" alt="B1 example B1_08.png" loading="lazy" /><figcaption>B1_08</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B1/B1_09.png" alt="B1 example B1_09.png" loading="lazy" /><figcaption>B1_09</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B1/B1_10.png" alt="B1 example B1_10.png" loading="lazy" /><figcaption>B1_10</figcaption></figure></div></details>
+            <details class="eda-details"><summary>B2: Same text, other or near-identical image, different labels (drop all) &mdash; 20 groups</summary><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.75rem;padding:.75rem .9rem"><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B2/B2_01.png" alt="B2 example B2_01.png" loading="lazy" /><figcaption>B2_01</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B2/B2_02.png" alt="B2 example B2_02.png" loading="lazy" /><figcaption>B2_02</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B2/B2_03.png" alt="B2 example B2_03.png" loading="lazy" /><figcaption>B2_03</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B2/B2_04.png" alt="B2 example B2_04.png" loading="lazy" /><figcaption>B2_04</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B2/B2_05.png" alt="B2 example B2_05.png" loading="lazy" /><figcaption>B2_05</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B2/B2_06.png" alt="B2 example B2_06.png" loading="lazy" /><figcaption>B2_06</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B2/B2_07.png" alt="B2 example B2_07.png" loading="lazy" /><figcaption>B2_07</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B2/B2_08.png" alt="B2 example B2_08.png" loading="lazy" /><figcaption>B2_08</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B2/B2_09.png" alt="B2 example B2_09.png" loading="lazy" /><figcaption>B2_09</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B2/B2_10.png" alt="B2 example B2_10.png" loading="lazy" /><figcaption>B2_10</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B2/B2_11.png" alt="B2 example B2_11.png" loading="lazy" /><figcaption>B2_11</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B2/B2_12.png" alt="B2 example B2_12.png" loading="lazy" /><figcaption>B2_12</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B2/B2_13.png" alt="B2 example B2_13.png" loading="lazy" /><figcaption>B2_13</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B2/B2_14.png" alt="B2 example B2_14.png" loading="lazy" /><figcaption>B2_14</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B2/B2_15.png" alt="B2 example B2_15.png" loading="lazy" /><figcaption>B2_15</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B2/B2_16.png" alt="B2 example B2_16.png" loading="lazy" /><figcaption>B2_16</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B2/B2_17.png" alt="B2 example B2_17.png" loading="lazy" /><figcaption>B2_17</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B2/B2_18.png" alt="B2 example B2_18.png" loading="lazy" /><figcaption>B2_18</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B2/B2_19.png" alt="B2 example B2_19.png" loading="lazy" /><figcaption>B2_19</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/duplicates/B2/B2_20.png" alt="B2 example B2_20.png" loading="lazy" /><figcaption>B2_20</figcaption></figure></div></details>
+            <details class="eda-details"><summary>Junk <code>html_dump</code>: text_corrected is raw HTML from a scraping error &mdash; 5 images</summary><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.75rem;padding:.75rem .9rem"><figure class="eda-figure" style="margin:0"><img src="assets/eda/junk/html_dump/image_1920.png" alt="html_dump example image_1920.png" loading="lazy" /><figcaption>image_1920</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/junk/html_dump/image_2177.png" alt="html_dump example image_2177.png" loading="lazy" /><figcaption>image_2177</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/junk/html_dump/image_4805.png" alt="html_dump example image_4805.png" loading="lazy" /><figcaption>image_4805</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/junk/html_dump/image_5250.png" alt="html_dump example image_5250.png" loading="lazy" /><figcaption>image_5250</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/junk/html_dump/image_5486.png" alt="html_dump example image_5486.png" loading="lazy" /><figcaption>image_5486</figcaption></figure></div></details>
+            <details class="eda-details"><summary>Junk <code>name_error</code>: text_corrected is the spreadsheet error #NAME? &mdash; 5 images</summary><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.75rem;padding:.75rem .9rem"><figure class="eda-figure" style="margin:0"><img src="assets/eda/junk/name_error/image_1770.png" alt="name_error example image_1770.png" loading="lazy" /><figcaption>image_1770</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/junk/name_error/image_2467.png" alt="name_error example image_2467.png" loading="lazy" /><figcaption>image_2467</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/junk/name_error/image_4996.png" alt="name_error example image_4996.png" loading="lazy" /><figcaption>image_4996</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/junk/name_error/image_5609.png" alt="name_error example image_5609.png" loading="lazy" /><figcaption>image_5609</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/junk/name_error/image_5835.png" alt="name_error example image_5835.png" loading="lazy" /><figcaption>image_5835</figcaption></figure></div></details>
+            <details class="eda-details"><summary>Junk <code>blank_text</code>: corrected text is empty &mdash; 5 images</summary><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.75rem;padding:.75rem .9rem"><figure class="eda-figure" style="margin:0"><img src="assets/eda/junk/blank_text/image_120.png" alt="blank_text example image_120.png" loading="lazy" /><figcaption>image_120</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/junk/blank_text/image_4800.png" alt="blank_text example image_4800.png" loading="lazy" /><figcaption>image_4800</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/junk/blank_text/image_6782.png" alt="blank_text example image_6782.png" loading="lazy" /><figcaption>image_6782</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/junk/blank_text/image_6785.png" alt="blank_text example image_6785.png" loading="lazy" /><figcaption>image_6785</figcaption></figure><figure class="eda-figure" style="margin:0"><img src="assets/eda/junk/blank_text/image_6787.png" alt="blank_text example image_6787.png" loading="lazy" /><figcaption>image_6787</figcaption></figure></div></details>
+            <h4 id="eda-samples" style="margin-top:1.25rem">Representative samples</h4>
+            <div class="eda-gallery">
+              <figure class="eda-figure "><img src="assets/eda/assignment3-class-examples.png" alt="Example memes for each sentiment class" loading="lazy" /><figcaption>One row of examples per class. The caption is part of the picture, so the two modalities are strongly redundant.</figcaption></figure>
+              <figure class="eda-figure "><img src="assets/eda/assignment3-ocr-agreement.png" alt="Similarity between OCR text and corrected text" loading="lazy" /><figcaption>OCR versus corrected text agreement; the corrected text is used.</figcaption></figure>
+            </div>
+          </div>
+
+          <div class="eda-part" id="eda-split">
+            <h3>Data splitting</h3>
+            <dl class="eda-kv eda-kv-wide"><div><dt>Split</dt><dd>A custom 70 / 15 / 15 split is stratified by label: 4,819 train, 1,034 validation and 1,034 test pairs.</dd></div><div><dt>Why custom</dt><dd>The dataset has no official split, and duplicate groups must not cross partitions.</dd></div><div><dt>Split unit</dt><dd>The duplicate group (shared pixel hash). After cleaning, every retained image is its own group.</dd></div><div><dt>Seed</dt><dd><code>42</code></dd></div><div><dt>Subset rules</dt><dd>No subset rules apply; all 5 classes and all 6,887 retained pairs are used.</dd></div><div><dt>Leakage check</dt><dd>No group or image is shared across splits; manifest SHA-256 hashes are in <code>split_report.json</code> and checked by tests.</dd></div><div><dt>Use</dt><dd>Validation picks the checkpoint (best Macro-F1) and test is evaluated once.</dd></div></dl>
+            <details class="eda-details">
+              <summary>How the duplicate review and cleaning work</summary>
+              <ol class="eda-steps">
+                <li><strong>Invalid records:</strong> truncated images, blank text and junk text (<code>#NAME?</code>, HTML dumps) are removed.</li>
+                <li><strong>Exact duplicates:</strong> identical decoded pixels are found with a SHA-256 hash of the RGB pixels.</li>
+                <li><strong>Near duplicates:</strong> among pairs with the same text, 64&times;64 grayscale thumbnails with mean difference &le; 5 are treated as re-encoded copies.</li>
+                <li><strong>Conflicts:</strong> copies with different labels are all removed because the right label is unknown; same-label copies keep the smallest file name.</li>
+                <li><strong>Manual review:</strong> 20 repeated captions on different images were inspected; same label keeps one and different labels remove all.</li>
+                <li><strong>Assign:</strong> a stratified, group-aware split is made twice (70 / 30, then the 30% halved) and rejected unless every class is in every split.</li>
+              </ol>
+            </details>
+          </div>
+
+          <div class="eda-part" id="eda-preprocessing">
+            <h3>Preprocessing</h3>
+            <div class="table-container">
+              <table class="rubric-table eda-tight">
+                <thead><tr><th scope="col">Applies to</th><th scope="col">Transforms</th></tr></thead>
+                <tbody>
+                  <tr><td>Labels</td><td>very_negative 0, negative 1, neutral 2, positive 3, very_positive 4 (<code>config/base.yaml</code>).</td></tr>
+                  <tr><td>Text</td><td>Lowercase, alphanumeric tokens, vocabulary of 4,295 tokens built from train only (min frequency 2); <code>&lt;pad&gt;</code> = 0, <code>&lt;unk&gt;</code> = 1; maximum 64 tokens. Unknown-token rate is 13.8% on val and 12.2% on test.</td></tr>
+                  <tr><td>Train images</td><td>RGB, resize longest side to 224 keeping aspect ratio, pad to 224 &times; 224, brightness/contrast jitter (0.9&ndash;1.1). No horizontal flip because the text is inside the image.</td></tr>
+                  <tr><td>Val / test images</td><td>RGB, resize and pad to 224 &times; 224; no augmentation.</td></tr>
+                  <tr><td>All splits</td><td>ToTensor and Normalize with ImageNet mean / std; no statistics are computed from val or test.</td></tr>
+                  <tr><td>Batch</td><td><code>image</code> [B, 3, 224, 224] float32, <code>text_ids</code> [B, T] int64, <code>text_lengths</code> [B], <code>label</code> [B] in 0&ndash;4, <code>image_name</code>.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="eda-aside">Imbalance is handled with class weights rather than oversampling, and raw image files are never modified.</p>
+          </div>
+
+          <div class="eda-part" id="eda-limitations">
+            <h3>Bias and limitations</h3>
+            <ul class="eda-limits">
+              <li><strong>Label noise:</strong> identical inputs had different labels in 16 of 25 image groups and 20 of 30 caption groups; wrong labels on unique memes remain.</li>
+              <li><strong>Subjectivity:</strong> sentiment is subjective and neighbouring classes (positive vs very positive) overlap.</li>
+              <li><strong>Imbalance:</strong> only 147 very-negative pairs, so its metrics are noisy.</li>
+              <li><strong>Redundancy:</strong> the text is also visible in the image, so the two modalities are not independent.</li>
+              <li><strong>Watermarks:</strong> site names in the text are not sentiment cues.</li>
+              <li><strong>Templates and license:</strong> meme templates are reused, and source-license terms should be checked before redistribution.</li>
+            </ul>
+          </div>
+          <p style="margin-top:0.75rem; font-size:0.9rem; color:var(--text-muted)">Full notebook: <a href="assignment3/notebooks/01_eda.ipynb">01_eda.ipynb</a></p>
+        </div>
+      </section>
+
+      <section class="section-block" id="methodology" aria-labelledby="methodology-title">
+        <div class="section-header">
+          <span class="section-icon" aria-hidden="true">&#9881;</span>
+          <h2 class="section-title" id="methodology-title">Methodology</h2>
+        </div>
+      </section>
+
+      <section class="section-block" id="experimental-setup" aria-labelledby="experimental-setup-title">
+        <div class="section-header">
+          <span class="section-icon" aria-hidden="true">&#129514;</span>
+          <h2 class="section-title" id="experimental-setup-title">Experimental Setup</h2>
+        </div>
+      </section>
+
+      <section class="section-block" id="results" aria-labelledby="results-title">
+        <div class="section-header">
+          <span class="section-icon" aria-hidden="true">&#128200;</span>
+          <h2 class="section-title" id="results-title">Results</h2>
+        </div>
+      </section>
+
+      <section class="section-block" id="comparison-discussion" aria-labelledby="comparison-discussion-title">
+        <div class="section-header">
+          <span class="section-icon" aria-hidden="true">&#9878;</span>
+          <h2 class="section-title" id="comparison-discussion-title">Comparison &amp; Discussion</h2>
+        </div>
+      </section>
+
+      <section class="section-block" id="error-analysis" aria-labelledby="error-analysis-title">
+        <div class="section-header">
+          <span class="section-icon" aria-hidden="true">&#128269;</span>
+          <h2 class="section-title" id="error-analysis-title">Error Analysis</h2>
+        </div>
+      </section>
+
+      <section class="section-block" id="limitations-conclusion" aria-labelledby="limitations-conclusion-title">
+        <div class="section-header">
+          <span class="section-icon" aria-hidden="true">&#128161;</span>
+          <h2 class="section-title" id="limitations-conclusion-title">Limitations &amp; Conclusion</h2>
+        </div>
+      </section>
+
       <!-- Links & Deliverables -->
       <section class="section-block">
         <div class="section-header">
@@ -526,6 +796,7 @@
         </div>
         <div class="links-grid">
           <a href="#dataset-proposal" class="link-btn-card"><span class="link-label">Read the M1 Dataset Proposal</span></a>
+          <a href="#eda" class="link-btn-card"><span class="link-label">Dataset Description &amp; EDA</span></a>
           <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/tree/main/assignment3" class="link-btn-card" target="_blank" rel="noopener"><span class="link-label">Source Repository</span></a>
           <a href="assignment3/AI_USAGE.md" class="link-btn-card"><span class="link-label">Assignment 3 AI Usage Log</span></a>
         </div>

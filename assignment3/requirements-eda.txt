@@ -1,0 +1,8 @@
+pandas
+numpy
+matplotlib
+pillow
+requests
+nbformat
+nbconvert
+ipykernel
