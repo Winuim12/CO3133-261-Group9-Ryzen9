@@ -1,0 +1,2 @@
+model,run_id,seed,debug_run,accuracy,macro_f1,weighted_f1,best_epoch,epochs_completed,trainable_params,total_params,training_seconds,seconds_per_epoch,peak_vram_mib,device,git_commit,git_dirty,gate_mean,f1_very_negative,f1_negative,f1_neutral,f1_positive,f1_very_positive
+gated,20261121-220246-069376-seed42-debug,42,True,0.405,0.14233476255966346,0.28243548256613543,2,2,1175941,12352453,24.5,12.25,,cpu,49db0b923ea47e391dd6f8091500443457394c8b,True,0.46849703788757324,0.0,0.0,0.14893617021276595,0.5627376425855514,0.0

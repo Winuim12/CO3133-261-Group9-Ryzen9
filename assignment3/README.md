@@ -12,8 +12,9 @@ implementation or experiment results are claimed.
 ## Team bootstrap (14 November 2026)
 
 Shared environment, configuration, Docker, and CI scaffolding is prepared for
-handover. The model, data pipeline, training loop, and metric implementations
-are still assigned work; no training has been run. See:
+handover. The data pipeline, encoders, trainer, fusion models, metrics, and
+experiment entry points are now implemented (see the training workflow below);
+only debugging runs have been executed so far. See:
 
 - [Local CPU/GPU and Docker setup](docs/environment.md)
 - [Team ownership and batch/model interfaces](docs/task_allocation.md)
@@ -50,6 +51,39 @@ will only be verified after the workflow is pushed and runs.
 `docs/superpowers/` is local planning material excluded from future tracking.
 The team-facing documents above remain versioned. Raw data, environments,
 caches, generated runs, and checkpoint files are also excluded.
+
+## Training and evaluation workflow
+
+Run from `assignment3` after downloading the dataset to `data/raw/memotion/`.
+Manifests are versioned; do not regenerate them on the training machine.
+
+```powershell
+python -m src.data.tokenizer                       # training-only vocabulary
+python -m experiments.check_environment --device cuda --smoke-test
+python -m pytest tests -v
+
+# One run per configuration (repeat with --seed 43, 44 for seed variance)
+python -m experiments.train --config config/image_only.yaml --device cuda
+python -m experiments.train --config config/text_only.yaml --device cuda
+python -m experiments.train --config config/concat.yaml --device cuda
+python -m experiments.train --config config/gated.yaml --device cuda
+python -m experiments.train --config config/fixed_average.yaml --device cuda
+
+python -m experiments.compare                      # validation comparison
+python -m experiments.evaluate --run <run-id> --split test   # locked configs only
+python -m experiments.compare --split test
+```
+
+Each run writes `results/runs/<model>/<run-id>/` (resolved `config.json`,
+`run_metadata.json` with data hashes/git commit/hardware, `training.json` with
+history, runtime and peak VRAM, validation metrics, predictions, figures) and
+`checkpoints/<model>/<run-id>/best_model.pt`, selected by validation Macro-F1.
+`experiments.evaluate` rebuilds models from the run's saved configuration and
+refuses to run if manifests or vocabulary changed since training.
+Comparison tables and figures go to `results/comparison/`.
+
+`--limit-train`, `--limit-val`, and `--no-pretrained` exist for quick smoke
+runs only; such runs are labelled `debug` and excluded from comparisons.
 
 ## Downloaded data
 

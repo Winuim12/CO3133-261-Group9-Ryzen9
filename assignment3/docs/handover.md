@@ -11,8 +11,9 @@
 
 The environment smoke check exercises PyTorch autograd and a TorchVision
 compiled operator. It does not establish model correctness or accuracy.
-`train`, `evaluate`, `compare`, and `prepare_splits` are intentional stubs which
-fail clearly on execution until their assigned implementation is complete.
+Update 21 November 2026: `prepare_splits`, the data pipeline, encoders,
+trainer, fusion models, metrics, and the `train`/`evaluate`/`compare` entry
+points are implemented. See `environment.md` for local and Docker commands.
 
 ## First step for everyone
 
