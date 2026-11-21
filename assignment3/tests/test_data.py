@@ -67,7 +67,15 @@ def test_manifest_hashes_match_report():
 def test_one_batch_contract():
     v = Vocabulary.load(ROOT / CFG["vocabulary"])
     ds = MemeDataset(CFG["train_manifest"], v, train=True)
-    b = next(iter(DataLoader(ds, batch_size=8, shuffle=False, collate_fn=make_collate(v.pad_id))))
+    loader = DataLoader(
+        ds,
+        batch_size=8,
+        shuffle=False,
+        collate_fn=make_collate(v.pad_id),
+        num_workers=2,
+        multiprocessing_context="spawn",
+    )
+    b = next(iter(loader))
     assert b["image"].shape == (8, 3, 224, 224) and b["image"].dtype == torch.float32
     assert b["text_ids"].dtype == torch.long and b["text_ids"].shape[0] == 8
     assert b["text_ids"].shape[1] <= CFG["max_text_length"]
