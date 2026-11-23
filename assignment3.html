@@ -466,7 +466,7 @@
         <div class="section-header"><span class="section-icon" aria-hidden="true">&#128203;</span><h2 class="section-title" id="proposal-heading">Dataset Proposal</h2></div>
         <div class="content-card proposal-card"><div class="proposal-hero">
           <div class="proposal-topbar">
-            <span class="status-badge"><span class="status-badge-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg></span><span>Pending instructor review</span></span>
+            <span class="status-badge approved"><span class="status-badge-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.4 2.4 4.6-4.8" stroke-linejoin="round"/></svg></span><span>Approved to proceed</span></span>
             <span class="due-badge">Milestone M1</span>
           </div>
           <div class="proposal-intro">
@@ -474,6 +474,7 @@
               <div class="badge-track">Selected track: Image&ndash;text classification</div>
               <div class="proposal-title-box"><h3 class="proposal-title">Memotion-7K</h3></div>
               <p class="proposal-desc">Five-class meme sentiment classification using images and corrected text. We will compare unimodal baselines, simple fusion, and learned fusion to study when the two inputs support or conflict with each other.</p>
+              <p class="proposal-desc">Under the instructor&rsquo;s general guidance relayed by the group, teams may proceed with a suitable dataset without waiting for individual proposal approval.</p>
               <div class="action-links">
                 <a href="https://www.kaggle.com/datasets/hammadjavaid/6992-labeled-meme-images-dataset" target="_blank" rel="noopener" class="action-btn primary">Kaggle Dataset <span aria-hidden="true">&#8599;</span></a>
                 <a href="https://aclanthology.org/2020.semeval-1.99/" target="_blank" rel="noopener" class="action-btn">Original Paper <span aria-hidden="true">&#8599;</span></a>
@@ -604,13 +605,13 @@
           <div class="table-container" role="region" tabindex="0" aria-labelledby="proposal-compute-budget"><table class="rubric-table"><caption id="proposal-compute-budget">Explicit compute-budget assumptions</caption><thead><tr><th scope="col">Component</th><th scope="col">Planning allowance</th></tr></thead><tbody>
           <tr><td>Provisional data scale</td><td>About 4,890 training and 1,048 validation pairs; at batch size 32, approximately 153 training and 33 validation batches per epoch. Final grouped counts may differ.</td></tr>
           <tr><td>Five configurations, one seed</td><td>Up to 20 epochs each, or 100 complete training/validation epochs in total</td></tr>
-          <tr><td>Assumed epoch time</td><td>1&ndash;2 minutes per training-plus-validation epoch; this must be measured after approval</td></tr>
+          <tr><td>Assumed epoch time</td><td>1&ndash;2 minutes per training-plus-validation epoch (proposal estimate)</td></tr>
           <tr><td>Training and validation</td><td>100&ndash;200 minutes across the five configurations</td></tr>
           <tr><td>Extraction, setup, and evaluation</td><td>20&ndash;40 additional minutes, including initial frozen-feature extraction where used and checkpoint reloads</td></tr>
           <tr><td>Total time reserved</td><td>120&ndash;240 minutes (2&ndash;4 hours), excluding optional extra seeds and image fine-tuning</td></tr>
           <tr><td>Working storage</td><td>15&ndash;20 GB for data, caches, checkpoints, and logs; separate from Python/CUDA installation</td></tr>
           </tbody></table></div>
-          <p>Text-only and cached frozen-feature runs may be faster, and early stopping may reduce the budget. GPU model alone does not determine throughput: CPU decoding, storage, data-loader settings, and caching also matter. After approval, time a short training/validation pilot and measure peak VRAM, then replace these assumptions with observed costs. Preserve the required comparisons before optional extra runs.</p>
+          <p>Text-only and cached frozen-feature runs may be faster, and early stopping may reduce the budget. GPU model alone does not determine throughput: CPU decoding, storage, data-loader settings, and caching also matter. During implementation, measure training and validation time and peak VRAM to compare with these estimates. Preserve the required comparisons before optional extra runs.</p>
           <p>Record dependency versions, hardware, seeds, encoder weights, resolved configurations, manifest hashes, source revision and dirty-tree status, run IDs, logs, selected checkpoints, and training/inference timing scope. Supply preparation, training, evaluation, and checkpoint reconstruction instructions as implementation progresses.</p>
         </section></div></div>
       </section>
@@ -620,6 +621,8 @@
           <span class="section-icon" aria-hidden="true">&#127919;</span>
           <h2 class="section-title" id="problem-statement-title">Problem Statement</h2>
         </div>
+        <p>Given a meme image and its supplied corrected text, predict one overall sentiment label: <strong>very negative, negative, neutral, positive, or very positive</strong>.</p>
+        <p>A meme&rsquo;s sentiment can depend on how the wording and image interact. In M2, we compare an image-only model, a text-only model, and a model that combines both inputs on the same validation split. Our primary measure is Macro-F1, which gives each sentiment class equal weight despite class imbalance.</p>
       </section>
 
       <!-- Dataset Description & EDA -->
@@ -751,6 +754,11 @@
           <span class="section-icon" aria-hidden="true">&#9881;</span>
           <h2 class="section-title" id="methodology-title">Methodology</h2>
         </div>
+        <ul>
+          <li><strong>Image-only:</strong> a frozen ImageNet-pretrained ResNet-18 extracts 512 features from the full meme image. A trainable head predicts one of five sentiment classes.</li>
+          <li><strong>Text-only:</strong> trainable token embeddings and a GRU encode the supplied corrected text. Sequence lengths keep padding out of the text representation.</li>
+          <li><strong>Simple fusion:</strong> project the image and text features to 256 dimensions each, concatenate them, and predict sentiment from the combined representation.</li>
+        </ul>
       </section>
 
       <section class="section-block" id="experimental-setup" aria-labelledby="experimental-setup-title">
@@ -758,6 +766,7 @@
           <span class="section-icon" aria-hidden="true">&#129514;</span>
           <h2 class="section-title" id="experimental-setup-title">Experimental Setup</h2>
         </div>
+        <p>Each model used the same 4,819 training pairs and 1,034 validation pairs, with seed 42 on an NVIDIA GeForce RTX 5070 Ti. We used AdamW (learning rate 0.001, weight decay 0.0001), batch size 32, and unweighted cross-entropy. We selected the checkpoint with the highest validation Macro-F1 and stopped after five epochs without improvement. Each reloaded checkpoint reproduced its saved validation Macro-F1. The held-out test split is reserved for M3.</p>
       </section>
 
       <section class="section-block" id="results" aria-labelledby="results-title">
@@ -765,6 +774,25 @@
           <span class="section-icon" aria-hidden="true">&#128200;</span>
           <h2 class="section-title" id="results-title">Results</h2>
         </div>
+        <h3>M2 Draft: Validation Results</h3>
+        <p>Macro-F1 is the primary metric and gives equal weight to each of the five classes. The three trained models each ran once with seed 42.</p>
+        <div class="table-container" role="region" aria-labelledby="m2-results-caption" tabindex="0">
+          <table class="rubric-table">
+            <caption id="m2-results-caption">Performance on 1,034 validation memes</caption>
+            <thead><tr><th scope="col">Model</th><th scope="col">Accuracy</th><th scope="col">Macro-F1</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Always predict positive</th><td>44.68%</td><td>0.1235</td></tr>
+              <tr><th scope="row">Image-only ResNet-18</th><td>41.01%</td><td>0.1779</td></tr>
+              <tr><th scope="row">Text-only GRU</th><td>35.98%</td><td>0.1995</td></tr>
+              <tr><th scope="row">Image + text concatenation</th><td>36.75%</td><td><strong>0.2298</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <figure class="eda-figure eda-figure-capped">
+          <img src="assignment3/results/comparison/macro_f1_val.png" alt="Validation Macro-F1 for the image-only, text-only, and concatenation models. Exact scores appear in the table above." loading="lazy" />
+          <figcaption>Concatenation had the highest validation Macro-F1 among the three trained models.</figcaption>
+        </figure>
+        <p><a href="assignment3/results/comparison/summary_val.md">Validation comparison summary</a> &middot; <a href="assignment3/results/comparison/runs_val.csv">Per-run metrics (CSV)</a> &middot; <a href="assignment3/results/comparison/per_class_f1_val.png">Per-class F1 chart</a></p>
       </section>
 
       <section class="section-block" id="comparison-discussion" aria-labelledby="comparison-discussion-title">
@@ -772,6 +800,7 @@
           <span class="section-icon" aria-hidden="true">&#9878;</span>
           <h2 class="section-title" id="comparison-discussion-title">Comparison &amp; Discussion</h2>
         </div>
+        <p>Concatenation raised validation Macro-F1 by 0.0303 over text-only and 0.0519 over image-only. The majority baseline still had higher accuracy than all three trained models. These are results from one seed, so the size and consistency of the fusion gain across runs remain unknown.</p>
       </section>
 
       <section class="section-block" id="error-analysis" aria-labelledby="error-analysis-title">
@@ -779,6 +808,7 @@
           <span class="section-icon" aria-hidden="true">&#128269;</span>
           <h2 class="section-title" id="error-analysis-title">Error Analysis</h2>
         </div>
+        <p>The image-only model predicted only positive and neutral. Concatenation predicted all five classes, but it identified only 1 of 22 very-negative and 4 of 71 negative validation memes correctly. We will examine examples where the image and corrected text agree or conflict in M3.</p>
       </section>
 
       <section class="section-block" id="limitations-conclusion" aria-labelledby="limitations-conclusion-title">
@@ -797,6 +827,7 @@
         <div class="links-grid">
           <a href="#dataset-proposal" class="link-btn-card"><span class="link-label">Read the M1 Dataset Proposal</span></a>
           <a href="#eda" class="link-btn-card"><span class="link-label">Dataset Description &amp; EDA</span></a>
+          <a href="#results" class="link-btn-card"><span class="link-label">M2 Draft Results</span></a>
           <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/tree/main/assignment3" class="link-btn-card" target="_blank" rel="noopener"><span class="link-label">Source Repository</span></a>
           <a href="assignment3/AI_USAGE.md" class="link-btn-card"><span class="link-label">Assignment 3 AI Usage Log</span></a>
         </div>
@@ -814,7 +845,7 @@
           <p>
             Codex (OpenAI, GPT-6) assisted with task explanation, proposal drafting, audit-script guidance,
             and this proposal page in November 2026. The group ran the preliminary audit scripts;
-            the saved audit confirms the counts reported above. No model training results are claimed.
+            the saved audit confirms the counts reported above. Codex also helped draft and check the M2 results section against the group&rsquo;s saved validation runs.
           </p>
           <p>
             One disclosure already applies: the skeleton of this page — its HTML structure, section layout, and the
