@@ -1,0 +1,2 @@
+model,runs,seeds,accuracy_mean,accuracy_std,macro_f1_mean,macro_f1_std,weighted_f1_mean,weighted_f1_std,training_seconds_mean,training_seconds_std,seconds_per_epoch_mean,seconds_per_epoch_std,peak_vram_mib_mean,peak_vram_mib_std,gate_mean_mean,gate_mean_std,trainable_params,f1_very_negative_mean,f1_negative_mean,f1_neutral_mean,f1_positive_mean,f1_very_positive_mean
+gated,1,42,0.405,0.0,0.14233476255966346,0.0,0.28243548256613543,0.0,24.5,0.0,12.25,0.0,,,0.46849703788757324,0.0,1175941,0.0,0.0,0.14893617021276595,0.5627376425855514,0.0

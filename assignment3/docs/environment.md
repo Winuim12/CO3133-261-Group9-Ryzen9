@@ -1,8 +1,9 @@
 # Assignment 3: local and Docker environment
 
-Run commands from `assignment3`. The shared bootstrap checks configurations,
-PyTorch tensor/autograd operations, and TorchVision compiled operators. It
-downloads no dataset or pretrained weights and does not train a model.
+Run commands from `assignment3`. The same source code, configuration files,
+manifests, and vocabulary are used locally and in Docker. The environment check
+exercises PyTorch tensor/autograd operations and TorchVision compiled operators;
+the training, evaluation, and comparison entry points are described below.
 
 ## Version contract
 
@@ -51,6 +52,63 @@ use `python3.12 -m venv .venv` and `.venv/bin/python` for the same entry points.
 The pinned `+cpu` wheels here target Windows/Linux; macOS is not a verified
 environment for this setup and may require platform-specific PyTorch wheels.
 
+## Local training, evaluation, and comparison
+
+Prerequisites: the dataset extracted to `data/raw/memotion/` (see README) and
+the versioned manifests in `data/manifests/`. Do not rerun `prepare_splits.py`
+on a training machine; it would replace the reviewed manifests. The first
+training run downloads the ResNet-18 ImageNet weights (about 45 MB) into the
+PyTorch cache.
+
+```powershell
+# Once per machine: training-only vocabulary -> data/processed/vocabulary.json
+.\.venv\Scripts\python.exe -m src.data.tokenizer
+
+# Debugging smoke run (labelled "debug", excluded from comparisons)
+.\.venv\Scripts\python.exe -m experiments.train --config config/gated.yaml --device cpu --limit-train 200 --limit-val 200 --epochs 2
+
+# Full runs: one per configuration; repeat with --seed 43 and --seed 44
+.\.venv\Scripts\python.exe -m experiments.train --config config/image_only.yaml --device cuda
+.\.venv\Scripts\python.exe -m experiments.train --config config/text_only.yaml --device cuda
+.\.venv\Scripts\python.exe -m experiments.train --config config/concat.yaml --device cuda
+.\.venv\Scripts\python.exe -m experiments.train --config config/gated.yaml --device cuda
+.\.venv\Scripts\python.exe -m experiments.train --config config/fixed_average.yaml --device cuda
+
+# Validation comparison (tables and figures in results/comparison/)
+.\.venv\Scripts\python.exe -m experiments.compare
+
+# Only after configurations are locked on validation: held-out test
+.\.venv\Scripts\python.exe -m experiments.evaluate --run <run-id> --split test
+.\.venv\Scripts\python.exe -m experiments.compare --split test
+```
+
+`--device cuda` fails if CUDA is unavailable instead of falling back to CPU;
+`--device auto` uses CUDA when available. Useful training options: `--seed`,
+`--epochs`, `--batch-size`, `--num-workers`, `--deterministic`, `--run-name`.
+`--limit-train`, `--limit-val`, and `--no-pretrained` mark a run as debugging.
+On Windows keep `num_workers: 0` (default) unless more workers are tested.
+
+Each training run writes:
+
+```text
+results/runs/<model>/<run-id>/
+  config.json            resolved configuration (base.yaml + model YAML + CLI)
+  run_metadata.json      manifest/vocabulary hashes, git commit, versions, GPU
+  training.json          history, best epoch, runtime, peak VRAM, parameters
+  evaluation_val.json    accuracy, Macro-F1, per-class scores, confusion matrix
+  predictions_val.csv    per-sample predictions (and gate weight for fusion)
+  pip_freeze.txt
+  figures/               training curves and confusion matrices
+checkpoints/<model>/<run-id>/best_model.pt   selected by validation Macro-F1
+```
+
+The run id is `<timestamp>-seed<seed>[-name]` and is printed at the end of
+training. `experiments.evaluate` rebuilds the model from the run's saved
+`config.json` (not the current YAML) and refuses to run if manifests or the
+vocabulary changed since training (`--allow-data-mismatch` overrides this).
+After training, the selected checkpoint is reloaded and its validation
+Macro-F1 is compared with the saved value (`reload_check` in `training.json`).
+
 ## Docker CPU
 
 Start Docker Desktop before these commands. If `docker` is not on PATH, reopen
@@ -68,6 +126,15 @@ The default command runs the CPU environment smoke check. A fresh clone does
 not need the dataset to execute it or the bootstrap tests. Compose may create
 empty mounted directories on first use.
 
+Training, evaluation, and comparison use the same entry points; outputs land in
+the host `results/` and `checkpoints/` folders through the mounts:
+
+```powershell
+docker compose run --rm assignment3 python -m src.data.tokenizer
+docker compose run --rm assignment3 python -m experiments.train --config config/gated.yaml --device cpu --limit-train 200 --limit-val 200 --epochs 2
+docker compose run --rm assignment3 python -m experiments.compare --include-debug
+```
+
 ## Docker GPU
 
 Windows requires Docker Desktop's WSL 2 Linux-container backend and working
@@ -80,6 +147,21 @@ docker compose -f compose.yaml -f compose.gpu.yaml build
 docker compose -f compose.yaml -f compose.gpu.yaml run --rm assignment3
 docker compose -f compose.yaml -f compose.gpu.yaml run --rm assignment3 python -m pytest tests -v
 ```
+
+Training and evaluation on the GPU (PowerShell; the backtick continues a line):
+
+```powershell
+docker compose -f compose.yaml -f compose.gpu.yaml run --rm assignment3 `
+  python -m experiments.train --config config/concat.yaml --device cuda
+docker compose -f compose.yaml -f compose.gpu.yaml run --rm assignment3 `
+  python -m experiments.evaluate --run <run-id> --split val --device cuda
+docker compose -f compose.yaml -f compose.gpu.yaml run --rm assignment3 `
+  python -m experiments.compare
+```
+
+Use the same five configuration files and seeds as the local workflow. Run
+ids, checkpoints, and results are interchangeable between local and Docker
+runs because both use project-relative paths and the same mounted folders.
 
 The GPU build installs CUDA wheels; there is no separate host CUDA toolkit
 requirement for the container smoke check. The default GPU command explicitly
@@ -95,10 +177,15 @@ requires CUDA. CPU CI cannot validate host GPU passthrough.
 - Source/config files are copied into the image, not bind-mounted. **Rebuild
   after editing source, tests, requirements, or configuration.** Output changes
   and edits to mounted datasets do not require rebuilding.
-- Training/evaluation/comparison entry points are reserved for team members.
-  Their `--help` works; real invocations exit with an explicit not-implemented
-  message until the assigned implementation is complete. They generate no
-  fake histories, predictions, or results.
+- `experiments.train`, `experiments.evaluate`, and `experiments.compare` are
+  implemented and shared by local and Docker execution. They write only values
+  computed from actual runs; no results are estimated or filled in.
+- `.dockerignore` excludes `.git`, so runs inside a container record
+  `"commit": null` in `run_metadata.json`. Record the commit of the image
+  build (`git rev-parse HEAD`) with any Docker-produced result, or build from a
+  clean, committed tree and note it in the report.
+- `results/runs/` and `checkpoints/` are git-ignored. Copy them from the
+  training machine; commit only selected tables/figures used in the report.
 
 ## CI
 
@@ -138,3 +225,18 @@ requirements or use the GPU target before GPU smoke checks.
 One static reviewer checked the bootstrap without editing files; no significant
 defects were reported. Instructor approval and model experiments remain separate
 from infrastructure checks. No training or final manifest creation occurred.
+
+### Update: 21 November 2026 (fusion and experiment integration)
+
+| Check | Verified result |
+| --- | --- |
+| Unit/integration tests (Linux, Python 3.12, torch 2.7.1, CPU) | 48 passed, 1 skipped (raw-data batch test without images) |
+| Same suite with a real-image subset | Raw-data batch contract test passed |
+| Train -> reload -> evaluate -> compare, 5 configurations, real images, CPU | All completed; reloaded checkpoints reproduced validation Macro-F1 exactly |
+| Local Windows `.venv`, `gated` debug run on CPU | Completed (about 12 s/epoch on a 200/200 subset) |
+| Pretrained ResNet-18 download | Not verified in the test environment (network blocked) |
+| Docker rebuild with the new entry points | Not run |
+| GPU (local or Docker), runtime, and peak VRAM | Not run; required before reporting GPU results |
+
+All runs above were debugging runs (subsets and/or random image weights);
+their scores are not experimental results and must not be reported.
