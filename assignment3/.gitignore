@@ -3,6 +3,7 @@ data/raw/
 data/cache/
 checkpoints/
 tmp/
+/report-private/
 __pycache__/
 *.pyc
 .venv/

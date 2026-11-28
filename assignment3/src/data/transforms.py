@@ -15,8 +15,13 @@ STD = (0.229, 0.224, 0.225)
 PAD_COLOR = tuple(int(round(m * 255)) for m in MEAN)  # becomes ~0 after normalisation
 
 
+def to_rgb(img: Image.Image) -> Image.Image:
+    if img.mode == "P" and isinstance(img.info.get("transparency"), bytes):
+        return img.convert("RGBA").convert("RGB")
+    return img.convert("RGB")
+
 def resize_pad(img: Image.Image, size: int = 224) -> Image.Image:
-    img = img.convert("RGB")
+    img = to_rgb(img)
     w, h = img.size
     scale = size / max(w, h)
     nw, nh = max(1, round(w * scale)), max(1, round(h * scale))
@@ -40,6 +45,6 @@ class ImageTransform:
 
     def __call__(self, img: Image.Image) -> torch.Tensor:
         if self.train:  # mild brightness/contrast jitter only
-            img = ImageEnhance.Brightness(img.convert("RGB")).enhance(random.uniform(0.9, 1.1))
+            img = ImageEnhance.Brightness(to_rgb(img)).enhance(random.uniform(0.9, 1.1))
             img = ImageEnhance.Contrast(img).enhance(random.uniform(0.9, 1.1))
         return to_tensor(resize_pad(img, self.size))

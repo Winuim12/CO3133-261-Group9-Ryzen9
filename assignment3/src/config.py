@@ -7,6 +7,9 @@ import yaml
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
+DISTILBERT_ID = "distilbert/distilbert-base-uncased"
+DISTILBERT_REVISION = "12040accade4e8a0f71eabdb258fecc2e7e948be"
+DISTILBERT_CACHE = PROJECT_ROOT / "data/cache/huggingface"
 
 
 def _merge(base: dict, override: dict) -> dict:

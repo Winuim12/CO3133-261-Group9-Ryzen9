@@ -95,3 +95,28 @@ def test_factory_rejects_unknown_model():
     config["model"]["name"] = "late_fusion"
     with pytest.raises(ValueError):
         build_model(config, vocab_size=20, load_pretrained=False)
+
+
+def test_resnet50_distilbert_concat_keeps_encoders_frozen_and_ignores_padding():
+    config = load_config("config/concat_resnet50_distilbert.yaml")
+    pytest.importorskip("transformers")
+    model = build_model(config, vocab_size=30_522, load_pretrained=False)
+    model.train()
+    assert model.image_encoder.output_dim == 2048
+    assert model.text_encoder.output_dim == 768
+    assert not model.image_encoder.backbone.training
+    assert not model.text_encoder.backbone.training
+    for encoder in (model.image_encoder, model.text_encoder):
+        assert all(not p.requires_grad for p in encoder.parameters())
+
+    batch = make_batch(batch_size=2)
+    logits = model(batch)
+    assert logits.shape == (2, 5)
+    assert torch.isfinite(logits).all()
+    logits.sum().backward()
+    assert model.head[-1].weight.grad is not None
+
+    with torch.no_grad():
+        short = model.text_encoder(torch.tensor([[101, 103, 102]]), torch.tensor([3]))
+        padded = model.text_encoder(torch.tensor([[101, 103, 102, 0, 0]]), torch.tensor([3]))
+    torch.testing.assert_close(short, padded, atol=1e-5, rtol=1e-5)

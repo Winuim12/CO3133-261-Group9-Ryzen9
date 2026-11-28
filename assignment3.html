@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Assignment 3 — Meme Sentiment Dataset Proposal | CO3133</title>
+  <title>Assignment 3 — Multimodal Meme Sentiment Classification | CO3133</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" type="image/png" href="hcmut_logo.png" />
   <style>
@@ -369,6 +369,64 @@
     #eda .eda-kv > div { grid-template-columns: 6rem minmax(0, 1fr); gap: 0.5rem; }
   }
 
+  .a3-page .m3-table caption {
+    padding: .65rem 1.25rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-main);
+    background: #f0fdf4;
+  }
+  .a3-page .m3-table tbody th {
+    background: #fff;
+    border-bottom: 1px solid #f1f5f9;
+    font: inherit;
+    font-weight: 700;
+    letter-spacing: normal;
+    text-transform: none;
+  }
+  .a3-page .m3-case-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  .a3-page .m3-case-grid figure {
+    margin: 0;
+    padding: .75rem;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-md);
+  }
+  .a3-page .m3-case-grid img { display: block; width: 100%; height: auto; }
+  .a3-page .m3-case-grid figcaption { margin-top: .55rem; font-size: .87rem; }
+  @media (max-width: 720px) {
+    .a3-page .m3-case-grid { grid-template-columns: 1fr; }
+  }
+
+  .a3-page .m3-jump {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .5rem 1.15rem;
+    margin: .75rem 0 1.5rem;
+    font-size: .88rem;
+  }
+  .a3-page .m3-jump a { color: #047857; font-weight: 650; }
+  .a3-page .m3-jump a:focus-visible,
+  .a3-page .m3-detail summary:focus-visible { outline: 2px solid #047857; outline-offset: .25rem; }
+  .a3-page .m3-figure {
+    margin: 1rem auto 1.15rem;
+    padding: .65rem .8rem;
+    max-width: 56rem;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-md);
+  }
+  .a3-page .m3-figure-narrow { max-width: 38rem; }
+  .a3-page .m3-figure img { display: block; width: 100%; height: auto; }
+  .a3-page .m3-figure figcaption { margin-top: .55rem; color: var(--text-secondary); font-size: .87rem; }
+  .a3-page .m3-detail { margin: 1rem 0; padding: .75rem .95rem; border: 1px solid var(--border-card); border-radius: var(--radius-md); }
+  .a3-page .m3-detail summary { color: #047857; font-weight: 700; cursor: pointer; }
+  .a3-page .m3-detail code { overflow-wrap: anywhere; }
+
 </style>
 
 </head>
@@ -398,11 +456,22 @@
         <div style="font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:700; color:#059669; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.4rem;">
           Assignment 03 / CO3133 / Semester-261
         </div>
-        <h1 class="page-hero-title-bright">Multimodal Deep Learning</h1>
+        <h1 class="page-hero-title-bright">Multimodal Meme Sentiment Classification</h1>
         <p class="page-hero-topic-bright">
-          Five-class meme sentiment classification using images and corrected text.
+          Assignment 3 final results using meme images and corrected text. <a href="#deliverables">Report, slides, and reproduction instructions</a>.
         </p>
       </div>
+
+      <nav class="m3-jump" aria-label="On this page">
+        <a href="#problem-statement">Problem</a>
+        <a href="#eda">Dataset and EDA</a>
+        <a href="#methodology">Methodology</a>
+        <a href="#experimental-setup">Experimental setup</a>
+        <a href="#results">Results</a>
+        <a href="#comparison-discussion">Comparison</a>
+        <a href="#error-analysis">Error analysis</a>
+        <a href="#limitations-conclusion">Conclusion</a>
+      </nav>
 
       <!-- Assignment Information -->
       <section class="section-block">
@@ -414,7 +483,7 @@
           <div class="info-grid">
             <div class="info-item">
               <div class="info-item-label">Assignment Title</div>
-              <div class="info-item-val">Assignment 03 — Multimodal Deep Learning</div>
+              <div class="info-item-val">Assignment 03 — Multimodal Deep Learning: Meme Sentiment Classification</div>
             </div>
             <div class="info-item">
               <div class="info-item-label">Instructor</div>
@@ -437,21 +506,21 @@
                   <td>1</td>
                   <td>Hoang Kim Cuong</td>
                   <td>2352145</td>
-                  <td>Assignment 3 role to be confirmed</td>
+                  <td>Data preparation, paired loading, and exploratory data analysis</td>
                   <td><a href="https://github.com/DiamondHoang" target="_blank" rel="noopener" style="color:#059669; font-weight:600;">@DiamondHoang</a></td>
                 </tr>
                 <tr>
                   <td>2</td>
                   <td>Phan Tan Loc</td>
                   <td>2352712</td>
-                  <td>Assignment 3 role to be confirmed</td>
+                  <td>Local and Docker environment, fusion, metrics, and experiment integration</td>
                   <td><a href="https://github.com/cspaull" target="_blank" rel="noopener" style="color:#059669; font-weight:600;">@cspaull</a></td>
                 </tr>
                 <tr>
                   <td>3</td>
                   <td><strong>Tran Manh Thang</strong> <span class="weight-pill">Lead</span></td>
                   <td>2353124</td>
-                  <td>Work on Assignment 3</td>
+                  <td>Image and text encoders, unimodal classifiers, and shared training loop</td>
                   <td><a href="https://github.com/Winuim12" target="_blank" rel="noopener" style="color:#059669; font-weight:600;">@Winuim12</a></td>
                 </tr>
               </tbody>
@@ -463,10 +532,10 @@
 
       <!-- M1 proposal: research plans are distinct from verified audit observations. -->
       <section class="section-block" id="dataset-proposal" aria-labelledby="proposal-heading">
-        <div class="section-header"><span class="section-icon" aria-hidden="true">&#128203;</span><h2 class="section-title" id="proposal-heading">Dataset Proposal</h2></div>
+        <div class="section-header"><span class="section-icon" aria-hidden="true">&#128203;</span><h2 class="section-title" id="proposal-heading">M1 Dataset Proposal</h2></div>
         <div class="content-card proposal-card"><div class="proposal-hero">
           <div class="proposal-topbar">
-            <span class="status-badge approved"><span class="status-badge-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.4 2.4 4.6-4.8" stroke-linejoin="round"/></svg></span><span>Approved to proceed</span></span>
+            <span class="status-badge approved"><span class="status-badge-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.4 2.4 4.6-4.8" stroke-linejoin="round"/></svg></span><span>General course guidance to proceed</span></span>
             <span class="due-badge">Milestone M1</span>
           </div>
           <div class="proposal-intro">
@@ -474,7 +543,7 @@
               <div class="badge-track">Selected track: Image&ndash;text classification</div>
               <div class="proposal-title-box"><h3 class="proposal-title">Memotion-7K</h3></div>
               <p class="proposal-desc">Five-class meme sentiment classification using images and corrected text. We will compare unimodal baselines, simple fusion, and learned fusion to study when the two inputs support or conflict with each other.</p>
-              <p class="proposal-desc">Under the instructor&rsquo;s general guidance relayed by the group, teams may proceed with a suitable dataset without waiting for individual proposal approval.</p>
+              <p class="proposal-desc">This section records the original M1 plan. Under the general course guidance relayed by the group, teams could proceed with a suitable dataset. See the final cohort and checks in <a href="#eda">Dataset Description &amp; EDA</a>.</p>
               <div class="action-links">
                 <a href="https://www.kaggle.com/datasets/hammadjavaid/6992-labeled-meme-images-dataset" target="_blank" rel="noopener" class="action-btn primary">Kaggle Dataset <span aria-hidden="true">&#8599;</span></a>
                 <a href="https://aclanthology.org/2020.semeval-1.99/" target="_blank" rel="noopener" class="action-btn">Original Paper <span aria-hidden="true">&#8599;</span></a>
@@ -621,8 +690,24 @@
           <span class="section-icon" aria-hidden="true">&#127919;</span>
           <h2 class="section-title" id="problem-statement-title">Problem Statement</h2>
         </div>
-        <p>Given a meme image and its supplied corrected text, predict one overall sentiment label: <strong>very negative, negative, neutral, positive, or very positive</strong>.</p>
-        <p>A meme&rsquo;s sentiment can depend on how the wording and image interact. In M2, we compare an image-only model, a text-only model, and a model that combines both inputs on the same validation split. Our primary measure is Macro-F1, which gives each sentiment class equal weight despite class imbalance.</p>
+        <div class="content-card">
+          <h3>Motivation</h3>
+          <p>Sentiment labels can help people browse meme collections or prioritize examples for human review. A caption can change meaning when read with the expression, setting, or visual reference in the meme.</p>
+          <h3>Task formulation</h3>
+          <p>Each prediction uses one meme: its full RGB image <var>x</var><sub>I</sub> and supplied corrected transcription <var>x</var><sub>T</sub>. The classifier returns five logits <var>z</var> = <var>f</var><sub>&theta;</sub>(<var>x</var><sub>I</sub>, <var>x</var><sub>T</sub>). The predicted class is the index of the highest logit, with this fixed order: <strong>very negative, negative, neutral, positive, very positive</strong>.</p>
+          <h3>Research questions</h3>
+          <ol>
+            <li>Does combining the aligned image and text improve test Macro-F1 over both unimodal baselines?</li>
+            <li>Does an input-dependent feature gate improve on a separately trained fixed average?</li>
+          </ol>
+          <h3>Main difficulties</h3>
+          <ul>
+            <li><strong>Cross-modal context:</strong> an image can support a caption, add a visual punchline, or contradict its literal meaning.</li>
+            <li><strong>Subjective intensity:</strong> positive and very positive share a polarity. Annotators can differ on how strong a meme sounds.</li>
+            <li><strong>Unequal label support:</strong> train contains 2,155 positive examples and 102 very-negative examples. Accuracy therefore reflects majority classes strongly.</li>
+            <li><strong>Template and cultural references:</strong> a visual joke can rely on familiarity with a character or scene. Exact-duplicate checks cover only part of template reuse.</li>
+          </ul>
+        </div>
       </section>
 
       <!-- Dataset Description & EDA -->
@@ -635,7 +720,7 @@
           <div class="eda-part" id="eda-description">
             <h3>Dataset description</h3>
             <div class="eda-cols">
-              <dl class="eda-kv"><div><dt>Source</dt><dd><a href="https://www.kaggle.com/datasets/hammadjavaid/6992-labeled-meme-images-dataset" target="_blank" rel="noopener">Memotion-7K (6992 labeled meme images) on Kaggle</a>, derived from the SemEval-2020 Task 8 Memotion data.</dd></div><div><dt>Task</dt><dd>Five-class sentiment classification of memes from the image and its corrected text.</dd></div><div><dt>Annotation</dt><dd>One overall sentiment label per meme (very negative to very positive), plus OCR text and a manually corrected text.</dd></div><div><dt>Raw size</dt><dd>6,992 image&ndash;text pairs; 702.5 MB of images, 5,311 files with JPEG extensions, 1,678 PNG and 3 other.</dd></div><div><dt>Image modes</dt><dd>RGB 5,467, palette 1,248, RGBA 243, grayscale 31, CMYK 2; 4,224 distinct sizes. Files are opened by content.</dd></div><div><dt>Text</dt><dd><code>text_corrected</code> is used; OCR text agrees with it for only 67.9% of pairs.</dd></div><div><dt>Retained</dt><dd>6,887 pairs after cleaning (98.5%); 105 removed with step and reason in <code>data/clean/removed.csv</code>.</dd></div><div><dt>Official split</dt><dd>None is provided; a custom 70 / 15 / 15 split is made.</dd></div></dl>
+              <dl class="eda-kv"><div><dt>Source</dt><dd><a href="https://www.kaggle.com/datasets/hammadjavaid/6992-labeled-meme-images-dataset" target="_blank" rel="noopener">6992 Labeled Meme Images Dataset on Kaggle</a>, version 1. The uploader lists GPL 2 for the package; the underlying meme images may carry third-party rights. The dataset is derived from SemEval-2020 Task 8.</dd></div><div><dt>Task</dt><dd>Five-class sentiment classification of memes from the image and its corrected text.</dd></div><div><dt>Annotation</dt><dd>One overall sentiment label per meme, plus OCR and corrected text. The original Memotion study describes five annotators per item, majority voting, and human correction of inaccurate OCR.</dd></div><div><dt>Raw size</dt><dd>6,992 image files and 6,992 CSV rows, totaling 738.43 MB after extraction: 4,965 JPG, 345 JPEG, one JPE, 1,679 PNG, and two BMP files.</dd></div><div><dt>Image modes</dt><dd>RGB 5,467, palette 1,248, RGBA 243, grayscale 31, CMYK 2; 4,224 distinct sizes. Files are opened by content.</dd></div><div><dt>Text</dt><dd>The model uses <code>text_corrected</code>. Among 6,735 retained pairs with both text fields, 67.8% match after trimming surrounding whitespace.</dd></div><div><dt>Retained</dt><dd>6,887 pairs after cleaning (98.5%); 105 removed with step and reason in <code>data/clean/removed.csv</code>.</dd></div><div><dt>Official split</dt><dd>We use a custom group-stratified split of this Kaggle cohort. The official SemEval evaluation has a separate test set and uses three sentiment labels.</dd></div></dl>
               <div>
                 <h4 class="eda-h4-first" id="eda-audit">Data quality audit</h4>
                 <div class="table-container eda-flush"><table class="rubric-table eda-num eda-tight"><thead><tr><th scope="col">Step</th><th scope="col">Pairs</th></tr></thead><tbody><tr><td>The CSV contains these pairs; all images exist.</td><td>6,992</td></tr><tr><td>One image is truncated and cannot be decoded.</td><td>&minus;1</td></tr><tr><td>Corrected text is blank.</td><td>&minus;5</td></tr><tr><td>Text is junk (<code>#NAME?</code>, HTML dump).</td><td>&minus;10</td></tr><tr><td>Same image and text with conflicting labels are removed (A3).</td><td>&minus;21</td></tr><tr><td>One copy is kept for same image, text and label (A1).</td><td>&minus;6</td></tr><tr><td>Same image with conflicting labels are removed (A4).</td><td>&minus;12</td></tr><tr><td>One copy is kept for same image and label with OCR-different text (A2).</td><td>&minus;3</td></tr><tr><td>Same text on near-identical images: conflicting labels removed (B2), same label keeps one (B1).</td><td>&minus;14</td></tr><tr><td>Same text on different images, after manual review: conflicting removed (B2), same label keeps one (B1).</td><td>&minus;33</td></tr><tr class="eda-total"><td>Retained</td><td>6,887</td></tr></tbody></table></div>
@@ -652,7 +737,7 @@
               </div>
               <div id="eda-imbalance">
                 <h4 class="eda-h4-first">Imbalance</h4>
-                <dl class="eda-kv"><div><dt>Max / min</dt><dd>3,079 / 147 = 20.9&times;</dd></div><div><dt>Majority baseline</dt><dd>Always predicting positive gives 44.7% accuracy.</dd></div><div><dt>Smallest class</dt><dd>Very negative: 147 images, only 22&ndash;23 in each of val and test.</dd></div><div><dt>Raw ratio</dt><dd>20.7&times; before cleaning (3,127 positive vs 151 very negative).</dd></div></dl>
+                <dl class="eda-kv"><div><dt>Max / min</dt><dd>3,079 / 147 = 20.9&times;</dd></div><div><dt>Majority baseline</dt><dd>Always predicting positive gives 44.68% test Accuracy and 0.1235 Macro-F1.</dd></div><div><dt>Smallest class</dt><dd>Very negative: 147 images, only 22&ndash;23 in each of val and test.</dd></div><div><dt>Raw ratio</dt><dd>20.7&times; before cleaning (3,127 positive vs 151 very negative).</dd></div></dl>
                 <p class="eda-aside">The imbalance is strong, so accuracy favours positive and neutral. <strong>Macro-F1 is primary</strong> and per-class results are reported. Because the very-negative test class has only 23 images, one error moves its recall by more than 4 points.</p>
               </div>
             </div>
@@ -660,17 +745,17 @@
             <div class="eda-cols" style="margin-top:1.25rem">
               <div id="eda-text">
                 <h4 class="eda-h4-first">Text</h4>
-                <dl class="eda-kv"><div><dt>Length</dt><dd>Median 13 words, 90th percentile 26, 95th percentile 31, maximum 189 (raw).</dd></div><div><dt>Short / long</dt><dd>86 texts have 2 words or fewer; 11 retained texts exceed 64 words.</dd></div><div><dt>Watermarks</dt><dd><code>com</code>, <code>imgflip</code>, <code>memegenerator</code>, <code>quickmeme</code> appear in every class.</dd></div><div><dt>OCR vs corrected</dt><dd>67.9% identical; 969 pairs have similarity below 0.8.</dd></div></dl>
+                <dl class="eda-kv"><div><dt>Length</dt><dd>Median 13 words, 90th percentile 26, 95th percentile 31, maximum 189 (raw).</dd></div><div><dt>Short / long</dt><dd>The actual tokenizer yields a median of 13 tokens in each split. Ten retained sequences exceed the 64-token cap: 5 train, 3 validation, and 2 test.</dd></div><div><dt>Watermarks</dt><dd><code>com</code>, <code>imgflip</code>, <code>memegenerator</code>, <code>quickmeme</code> appear in every class.</dd></div><div><dt>OCR vs corrected</dt><dd>Among retained pairs, 960 of the 6,735 with both fields have character similarity below 0.8. Another 152 retained pairs have corrected text and blank OCR.</dd></div></dl>
               </div>
               <div id="eda-sizes">
                 <h4 class="eda-h4-first">Input size</h4>
                 <dl class="eda-kv"><div><dt>Median</dt><dd>500 &times; 500 px, aspect ratio 1.01.</dd></div><div><dt>Range</dt><dd>Widths 100&ndash;4,961 px and heights 123&ndash;5,553 px.</dd></div><div><dt>Aspect (5&ndash;95%)</dt><dd>0.66 to 1.79; extreme values 0.33 and 4.35.</dd></div><div><dt>File size</dt><dd>Median 66 KB, 95th percentile 287 KB, maximum 8.2 MB.</dd></div></dl>
-                <p class="eda-aside">Sizes and aspect ratios vary widely, so images are resized to keep their aspect ratio and padded to 224 &times; 224.</p>
+                <p class="eda-aside">Of the 6,887 retained images, 1,545 (22.4%) have width-to-height ratios outside [2/3, 1.5]. Aspect-preserving resize and padding to 224 &times; 224 keep the full frame visible.</p>
               </div>
             </div>
             <div class="eda-gallery" style="margin-top:1rem">
-              <figure class="eda-figure "><img src="assets/eda/assignment3-text-length.png" alt="Histograms of corrected text length in words and characters" loading="lazy" /><figcaption>Corrected-text length in words and characters (raw data).</figcaption></figure>
-              <figure class="eda-figure "><img src="assets/eda/assignment3-image-sizes.png" alt="Histograms of image width, height and aspect ratio" loading="lazy" /><figcaption>Image width, height, aspect ratio and file size (raw data).</figcaption></figure>
+              <figure class="eda-figure "><img src="assets/eda/assignment3-text-length.png" alt="Corrected-text word counts overall and by sentiment class" loading="lazy" /><figcaption>Corrected-text word counts in the raw data, overall and by class.</figcaption></figure>
+              <figure class="eda-figure "><img src="assets/eda/assignment3-image-sizes.png" alt="Image width, height, aspect ratio, and file size distributions" loading="lazy" /><figcaption>Image dimensions, aspect ratio, and file size for decodable raw images.</figcaption></figure>
             </div>
 
             <h4 id="eda-duplicates" style="margin-top:1.25rem">Duplicates and junk</h4>
@@ -696,13 +781,14 @@
             <h4 id="eda-samples" style="margin-top:1.25rem">Representative samples</h4>
             <div class="eda-gallery">
               <figure class="eda-figure "><img src="assets/eda/assignment3-class-examples.png" alt="Example memes for each sentiment class" loading="lazy" /><figcaption>One row of examples per class. The caption is part of the picture, so the two modalities are strongly redundant.</figcaption></figure>
-              <figure class="eda-figure "><img src="assets/eda/assignment3-ocr-agreement.png" alt="Similarity between OCR text and corrected text" loading="lazy" /><figcaption>OCR versus corrected text agreement; the corrected text is used.</figcaption></figure>
+              <figure class="eda-figure "><img src="assets/eda/assignment3-ocr-agreement.png" alt="Similarity between OCR text and corrected text" loading="lazy" /><figcaption>Raw-data OCR agreement. The text statistics above describe the retained benchmark cohort.</figcaption></figure>
             </div>
           </div>
 
           <div class="eda-part" id="eda-split">
             <h3>Data splitting</h3>
-            <dl class="eda-kv eda-kv-wide"><div><dt>Split</dt><dd>A custom 70 / 15 / 15 split is stratified by label: 4,819 train, 1,034 validation and 1,034 test pairs.</dd></div><div><dt>Why custom</dt><dd>The dataset has no official split, and duplicate groups must not cross partitions.</dd></div><div><dt>Split unit</dt><dd>The duplicate group (shared pixel hash). After cleaning, every retained image is its own group.</dd></div><div><dt>Seed</dt><dd><code>42</code></dd></div><div><dt>Subset rules</dt><dd>No subset rules apply; all 5 classes and all 6,887 retained pairs are used.</dd></div><div><dt>Leakage check</dt><dd>No group or image is shared across splits; manifest SHA-256 hashes are in <code>split_report.json</code> and checked by tests.</dd></div><div><dt>Use</dt><dd>Validation picks the checkpoint (best Macro-F1) and test is evaluated once.</dd></div></dl>
+            <figure class="m3-figure"><img src="assets/a3-m3/web/data-split.png" width="1440" height="352" alt="Diagram of 6,887 pairs split into train, validation and held-out test" loading="lazy" /><figcaption>Two-stage split with seed 42. The 2,068-pair holdout is divided into validation and test.</figcaption></figure>
+            <dl class="eda-kv eda-kv-wide"><div><dt>Split</dt><dd>A custom 70 / 15 / 15 split is stratified by label: 4,819 train, 1,034 validation and 1,034 test pairs.</dd></div><div><dt>Why custom</dt><dd>The custom split keeps matching group IDs together and supports controlled comparisons on the retained Kaggle pairs.</dd></div><div><dt>Split unit</dt><dd>The duplicate group (shared pixel hash). After cleaning, every retained image is its own group.</dd></div><div><dt>Seed</dt><dd><code>42</code></dd></div><div><dt>Subset rules</dt><dd>No subset rules apply; all 5 classes and all 6,887 retained pairs are used.</dd></div><div><dt>Leakage check</dt><dd>Group and image IDs are disjoint across all three splits. Manifest SHA-256 hashes are in <code>split_report.json</code>. Unrecognized template reuse can still cross partitions.</dd></div><div><dt>Use</dt><dd>Validation selects configurations and checkpoints. Test evaluates the locked configurations.</dd></div></dl>
             <details class="eda-details">
               <summary>How the duplicate review and cleaning work</summary>
               <ol class="eda-steps">
@@ -723,7 +809,7 @@
                 <thead><tr><th scope="col">Applies to</th><th scope="col">Transforms</th></tr></thead>
                 <tbody>
                   <tr><td>Labels</td><td>very_negative 0, negative 1, neutral 2, positive 3, very_positive 4 (<code>config/base.yaml</code>).</td></tr>
-                  <tr><td>Text</td><td>Lowercase, alphanumeric tokens, vocabulary of 4,295 tokens built from train only (min frequency 2); <code>&lt;pad&gt;</code> = 0, <code>&lt;unk&gt;</code> = 1; maximum 64 tokens. Unknown-token rate is 13.8% on val and 12.2% on test.</td></tr>
+                  <tr><td>Text</td><td>Lowercase, alphanumeric tokens, vocabulary of 4,295 tokens built from train only (min frequency 2); <code>&lt;pad&gt;</code> = 0, <code>&lt;unk&gt;</code> = 1; maximum 64 tokens. Unknown-token rates before truncation are 8.57% on train, 13.85% on validation, and 12.24% on test.</td></tr>
                   <tr><td>Train images</td><td>RGB, resize longest side to 224 keeping aspect ratio, pad to 224 &times; 224, brightness/contrast jitter (0.9&ndash;1.1). No horizontal flip because the text is inside the image.</td></tr>
                   <tr><td>Val / test images</td><td>RGB, resize and pad to 224 &times; 224; no augmentation.</td></tr>
                   <tr><td>All splits</td><td>ToTensor and Normalize with ImageNet mean / std; no statistics are computed from val or test.</td></tr>
@@ -731,13 +817,13 @@
                 </tbody>
               </table>
             </div>
-            <p class="eda-aside">Imbalance is handled with class weights rather than oversampling, and raw image files are never modified.</p>
+            <p class="eda-aside">The five core runs use unweighted cross-entropy. Class weighting was evaluated separately on validation. The preprocessing leaves the raw images intact.</p>
           </div>
 
           <div class="eda-part" id="eda-limitations">
             <h3>Bias and limitations</h3>
             <ul class="eda-limits">
-              <li><strong>Label noise:</strong> identical inputs had different labels in 16 of 25 image groups and 20 of 30 caption groups; wrong labels on unique memes remain.</li>
+              <li><strong>Label noise:</strong> 16 of 25 exact-image duplicate groups had conflicting labels. The audit also identified conflicting repeated captions. Annotator agreement on unique memes was outside the measured scope.</li>
               <li><strong>Subjectivity:</strong> sentiment is subjective and neighbouring classes (positive vs very positive) overlap.</li>
               <li><strong>Imbalance:</strong> only 147 very-negative pairs, so its metrics are noisy.</li>
               <li><strong>Redundancy:</strong> the text is also visible in the image, so the two modalities are not independent.</li>
@@ -754,11 +840,30 @@
           <span class="section-icon" aria-hidden="true">&#9881;</span>
           <h2 class="section-title" id="methodology-title">Methodology</h2>
         </div>
-        <ul>
-          <li><strong>Image-only:</strong> a frozen ImageNet-pretrained ResNet-18 extracts 512 features from the full meme image. A trainable head predicts one of five sentiment classes.</li>
-          <li><strong>Text-only:</strong> trainable token embeddings and a GRU encode the supplied corrected text. Sequence lengths keep padding out of the text representation.</li>
-          <li><strong>Simple fusion:</strong> project the image and text features to 256 dimensions each, concatenate them, and predict sentiment from the combined representation.</li>
-        </ul>
+        <div class="content-card">
+          <h3>Pipeline</h3>
+          <p>The loader aligns two inputs and a target by <code>image_name</code>. A batch contains RGB images <code>[B, 3, 224, 224]</code>, padded token IDs <code>[B, L]</code>, and true lengths <code>[B]</code>. All variants output <code>[B, 5]</code> raw logits. Validation Macro-F1 selects the checkpoint before held-out evaluation.</p>
+          <figure class="m3-figure"><img src="assets/a3-m3/web/training-pipeline.png" width="1440" height="504" alt="Flowchart of paired input, preprocessing, fusion, cross-entropy, validation checkpoint selection and held-out evaluation" loading="lazy" /><figcaption>Training and evaluation workflow. Validation selects the checkpoint used for held-out evaluation.</figcaption></figure>
+          <h3>Encoders and fusion</h3>
+          <p>We use intermediate feature-level fusion. The image and text encoders produce separate representations of the same meme. Each fusion model projects both representations to 256 dimensions, combines them, and outputs five logits. The highest logit determines the predicted sentiment.</p>
+          <div class="table-container" role="region" aria-labelledby="m3-architecture-caption" tabindex="0">
+            <table class="rubric-table m3-table">
+              <caption id="m3-architecture-caption">Models and trainable parameter counts</caption>
+              <thead><tr><th scope="col">Model</th><th scope="col">Architecture</th><th scope="col">Trainable parameters</th><th scope="col">Total parameters</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Image-only</th><td>Frozen ImageNet-pretrained ResNet-18; 512 pooled features, dropout, and a linear head.</td><td>2,565</td><td>11,179,077</td></tr>
+                <tr><th scope="row">Text-only</th><td>128-dimensional token embeddings; packed single-layer GRU with a 256-dimensional final state, dropout, and a linear head.</td><td>847,493</td><td>847,493</td></tr>
+                <tr><th scope="row">Concatenation</th><td>Join the two 256-dimensional projections into a 512-dimensional feature vector.</td><td>1,045,893</td><td>12,222,405</td></tr>
+                <tr><th scope="row">Learned gate</th><td>Use a sigmoid gate <em>g</em> to mix the projected features componentwise: <em>g</em> &odot; <em>p</em><sub>I</sub> + (1 &minus; <em>g</em>) &odot; <em>p</em><sub>T</sub>.</td><td>1,175,941</td><td>12,352,453</td></tr>
+                <tr><th scope="row">Fixed average</th><td>Retrain the gated architecture with the learned weights replaced by a constant 0.5. This is the fusion ablation control.</td><td>1,044,613</td><td>12,221,125</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <figure class="m3-figure m3-figure-narrow"><img src="assets/a3-m3/web/fusion-flow.png" width="1440" height="571" alt="Frozen image encoder and trainable GRU feed separate projections that are combined before the sentiment head" loading="lazy" /><figcaption>Image and text features are projected to the same width before concat, learned gating, or fixed averaging.</figcaption></figure>
+          <h3>Parameter counts and implementation</h3>
+          <p>The image branch retains visible text in the original raster. ResNet-18 uses ImageNet <code>IMAGENET1K_V1</code> weights. Its trainable classifier sits on top of 11,176,512 frozen parameters, with BatchNorm statistics kept fixed. The embedding and GRU are trained from scratch. A linear layer with <var>a</var> inputs and <var>b</var> outputs has (<var>a</var> + 1)<var>b</var> parameters. The gate therefore adds (512 + 1) &times; 256 = 131,328 parameters over fixed averaging.</p>
+          <p>PyTorch supplies Embedding, GRU, packing, linear layers, dropout, cross-entropy and AdamW. Torchvision supplies the ResNet architecture and weights. The team implements paired data loading and collation, encoder wrappers, the three feature operators, the training and evaluation loop, and artifact tracking.</p>
+        </div>
       </section>
 
       <section class="section-block" id="experimental-setup" aria-labelledby="experimental-setup-title">
@@ -766,7 +871,35 @@
           <span class="section-icon" aria-hidden="true">&#129514;</span>
           <h2 class="section-title" id="experimental-setup-title">Experimental Setup</h2>
         </div>
-        <p>Each model used the same 4,819 training pairs and 1,034 validation pairs, with seed 42 on an NVIDIA GeForce RTX 5070 Ti. We used AdamW (learning rate 0.001, weight decay 0.0001), batch size 32, and unweighted cross-entropy. We selected the checkpoint with the highest validation Macro-F1 and stopped after five epochs without improvement. Each reloaded checkpoint reproduced its saved validation Macro-F1. The held-out test split is reserved for M3.</p>
+        <div class="content-card">
+          <h3>Experimental design</h3>
+          <div class="table-container" role="region" aria-labelledby="m3-design-caption" tabindex="0">
+            <table class="rubric-table m3-table">
+              <caption id="m3-design-caption">Comparisons on the same frozen manifests and label order</caption>
+              <thead><tr><th scope="col">Comparison</th><th scope="col">Changed factor</th><th scope="col">Assessment</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Unimodal vs. concat</th><td>Use one input or combine the two encoded inputs.</td><td>Compare held-out Macro-F1, Accuracy and per-class F1. Encoders, when used, follow the same architecture.</td></tr>
+                <tr><th scope="row">Learned gate vs. fixed average</th><td>Learn per-pair feature weights or fix each weight at 0.5.</td><td>Compare paired correctness and per-class F1. Projection dimensions, head, optimizer and loss are matched.</td></tr>
+                <tr><th scope="row">Learned gate vs. concat</th><td>Mix features or concatenate them.</td><td>Compare scores and compute costs. The operator and head input width both affect the parameter count.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Training and evaluation</h3>
+          <p>All five models use the same 4,819 training, 1,034 validation, and 1,034 held-out test pairs. Validation guided exploratory changes and checkpoint selection. We used the held-out test set after locking the selected configurations.</p>
+          <div class="table-container" role="region" aria-labelledby="m3-training-caption" tabindex="0">
+            <table class="rubric-table m3-table">
+              <caption id="m3-training-caption">Shared settings for the five M3 runs</caption>
+              <tbody>
+                <tr><th scope="row">Setting</th><td>Seed 42 on an NVIDIA GeForce RTX 5070 Ti, PyTorch 2.7.1 with CUDA 12.8</td></tr>
+                <tr><th scope="row">Optimization</th><td>AdamW, learning rate 0.001, weight decay 0.0001, batch size 32, and dropout 0.3</td></tr>
+                <tr><th scope="row">Loss and budget</th><td>Unweighted cross-entropy, at most 20 epochs, five epochs of patience, and no mixed precision</td></tr>
+                <tr><th scope="row">Checkpoint rule</th><td>Highest validation Macro-F1, with the earlier epoch retained on a tie</td></tr>
+                <tr><th scope="row">Evaluation</th><td>Macro-F1 (primary) gives the five labels equal weight. Accuracy is the fraction of correct predictions.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>The learned gate and fixed average share the encoder and projection architectures, head width, loss, and checkpoint rule. Each was trained independently. We report one finalized run per configuration.</p>
+        </div>
       </section>
 
       <section class="section-block" id="results" aria-labelledby="results-title">
@@ -774,25 +907,57 @@
           <span class="section-icon" aria-hidden="true">&#128200;</span>
           <h2 class="section-title" id="results-title">Results</h2>
         </div>
-        <h3>M2 Draft: Validation Results</h3>
-        <p>Macro-F1 is the primary metric and gives equal weight to each of the five classes. The three trained models each ran once with seed 42.</p>
-        <div class="table-container" role="region" aria-labelledby="m2-results-caption" tabindex="0">
-          <table class="rubric-table">
-            <caption id="m2-results-caption">Performance on 1,034 validation memes</caption>
-            <thead><tr><th scope="col">Model</th><th scope="col">Accuracy</th><th scope="col">Macro-F1</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">Always predict positive</th><td>44.68%</td><td>0.1235</td></tr>
-              <tr><th scope="row">Image-only ResNet-18</th><td>41.01%</td><td>0.1779</td></tr>
-              <tr><th scope="row">Text-only GRU</th><td>35.98%</td><td>0.1995</td></tr>
-              <tr><th scope="row">Image + text concatenation</th><td>36.75%</td><td><strong>0.2298</strong></td></tr>
-            </tbody>
-          </table>
+        <div class="content-card">
+          <h3>M3 validation and held-out test results</h3>
+          <p>Concat achieved the best test Macro-F1 at <strong>0.2229</strong>. Image-only had the highest Accuracy among the trained models at <strong>39.75%</strong>. The always-positive baseline achieved 44.68% test Accuracy with substantially lower Macro-F1.</p>
+          <div class="table-container" role="region" aria-labelledby="m3-results-caption" tabindex="0">
+            <table class="rubric-table m3-table">
+              <caption id="m3-results-caption">Five-class performance on 1,034 examples per evaluation split</caption>
+              <thead><tr><th scope="col">Model</th><th scope="col">Val Accuracy</th><th scope="col">Val Macro-F1</th><th scope="col">Test Accuracy</th><th scope="col">Test Macro-F1</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Always positive</th><td>44.68%</td><td>0.1235</td><td>44.68%</td><td>0.1235</td></tr>
+                <tr><th scope="row">Image-only</th><td>41.01%</td><td>0.1779</td><td><strong>39.75%</strong></td><td>0.1726</td></tr>
+                <tr><th scope="row">Text-only</th><td>35.98%</td><td>0.1995</td><td>35.69%</td><td>0.1840</td></tr>
+                <tr><th scope="row">Concatenation</th><td>37.52%</td><td><strong>0.2294</strong></td><td>35.88%</td><td><strong>0.2229</strong></td></tr>
+                <tr><th scope="row">Learned gate</th><td>37.43%</td><td>0.2239</td><td>34.53%</td><td>0.2006</td></tr>
+                <tr><th scope="row">Fixed average</th><td>35.40%</td><td>0.2114</td><td>35.88%</td><td>0.1979</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <figure class="m3-figure"><img src="assets/a3-m3/web/test-comparison.png" width="1440" height="580" alt="Horizontal bar charts of held-out Macro-F1 and Accuracy for the five trained models and the majority baseline" loading="lazy" /><figcaption>Concat leads on Macro-F1. The majority rule leads on Accuracy. Exact values are in the table above.</figcaption></figure>
+          <h3>Training behavior and checkpoint selection</h3>
+          <figure class="m3-figure"><img src="assets/a3-m3/web/training-curves.png" width="1440" height="536" alt="Validation Macro-F1 and validation-minus-training loss curves for all five models" loading="lazy" /><figcaption>Open markers identify the validation-selected checkpoints. Curves end at the last completed epoch.</figcaption></figure>
+          <p>Concat peaked at validation Macro-F1 0.2294 in epoch 11 and ended at 0.2081 in epoch 16. At the selected epoch its training loss was 0.030 and validation loss was 4.568. The later validation loss rose to 5.102. The growing gap and decline in validation Macro-F1 indicate overfitting after the selected checkpoint.</p>
+          <div class="table-container" role="region" aria-labelledby="m3-epochs-caption" tabindex="0">
+            <table class="rubric-table m3-table">
+              <caption id="m3-epochs-caption">Selected and completed epochs from the five training histories</caption>
+              <thead><tr><th scope="col">Model</th><th scope="col">Selected epoch</th><th scope="col">Last epoch</th><th scope="col">Final validation &minus; train loss</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Image-only</th><td>2</td><td>7</td><td>0.043</td></tr>
+                <tr><th scope="row">Text-only</th><td>6</td><td>11</td><td>3.783</td></tr>
+                <tr><th scope="row">Concatenation</th><td>11</td><td>16</td><td>5.056</td></tr>
+                <tr><th scope="row">Learned gate</th><td>6</td><td>11</td><td>4.459</td></tr>
+                <tr><th scope="row">Fixed average</th><td>7</td><td>12</td><td>4.771</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Compute cost</h3>
+          <div class="table-container" role="region" aria-labelledby="m3-compute-caption" tabindex="0">
+            <table class="rubric-table m3-table">
+              <caption id="m3-compute-caption">Training-loop time and GPU forward latency on the RTX 5070 Ti</caption>
+              <thead><tr><th scope="col">Model</th><th scope="col">Train time (s)</th><th scope="col">Peak allocated GPU memory (MiB)</th><th scope="col">Forward time (ms/batch)</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Image-only</th><td>343.32</td><td>1,298</td><td>5.66</td></tr>
+                <tr><th scope="row">Text-only</th><td>533.44</td><td>64</td><td>2.36</td></tr>
+                <tr><th scope="row">Concatenation</th><td>780.93</td><td>1,302</td><td>8.18</td></tr>
+                <tr><th scope="row">Learned gate</th><td>542.20</td><td>1,303</td><td>8.69</td></tr>
+                <tr><th scope="row">Fixed average</th><td>602.24</td><td>1,302</td><td>8.34</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Training time covers the epoch loop, including loading, validation, and checkpoint writes. Forward time is the median of 30 measurements on one GPU-resident batch of 32 after 10 warm-up passes. End-to-end inference also involves loading and preprocessing.</p>
+          <p><a href="assignment3/notebooks/02_results_analysis.ipynb">Results analysis notebook</a> &middot; <a href="#deliverables">Report and slides</a></p>
         </div>
-        <figure class="eda-figure eda-figure-capped">
-          <img src="assignment3/results/comparison/macro_f1_val.png" alt="Validation Macro-F1 for the image-only, text-only, and concatenation models. Exact scores appear in the table above." loading="lazy" />
-          <figcaption>Concatenation had the highest validation Macro-F1 among the three trained models.</figcaption>
-        </figure>
-        <p><a href="assignment3/results/comparison/summary_val.md">Validation comparison summary</a> &middot; <a href="assignment3/results/comparison/runs_val.csv">Per-run metrics (CSV)</a> &middot; <a href="assignment3/results/comparison/per_class_f1_val.png">Per-class F1 chart</a></p>
       </section>
 
       <section class="section-block" id="comparison-discussion" aria-labelledby="comparison-discussion-title">
@@ -800,7 +965,49 @@
           <span class="section-icon" aria-hidden="true">&#9878;</span>
           <h2 class="section-title" id="comparison-discussion-title">Comparison &amp; Discussion</h2>
         </div>
-        <p>Concatenation raised validation Macro-F1 by 0.0303 over text-only and 0.0519 over image-only. The majority baseline still had higher accuracy than all three trained models. These are results from one seed, so the size and consistency of the fusion gain across runs remain unknown.</p>
+        <div class="content-card">
+          <h3>Where the differences appear</h3>
+          <p>Concat gained 0.0503 test Macro-F1 over image-only and 0.0389 over text-only. Its advantage comes from correctly predicting some examples in all five classes. Image-only is stronger in overall Accuracy and has zero F1 on three labels. Positive and neutral together account for 787 of the 1,034 test examples.</p>
+          <div class="table-container" role="region" aria-labelledby="m3-class-f1-caption" tabindex="0">
+            <table class="rubric-table m3-table">
+              <caption id="m3-class-f1-caption">Per-class F1 on the held-out test set</caption>
+              <thead><tr><th scope="col">Model</th><th scope="col">Very negative</th><th scope="col">Negative</th><th scope="col">Neutral</th><th scope="col">Positive</th><th scope="col">Very positive</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Image-only</th><td>0.0000</td><td>0.0000</td><td>0.3438</td><td>0.5192</td><td>0.0000</td></tr>
+                <tr><th scope="row">Text-only</th><td>0.0000</td><td>0.0000</td><td>0.3150</td><td>0.4849</td><td>0.1202</td></tr>
+                <tr><th scope="row">Concatenation</th><td>0.1364</td><td>0.0342</td><td>0.3369</td><td>0.4883</td><td>0.1190</td></tr>
+                <tr><th scope="row">Learned gate</th><td>0.0714</td><td>0.0161</td><td>0.3288</td><td>0.4703</td><td>0.1164</td></tr>
+                <tr><th scope="row">Fixed average</th><td>0.0000</td><td>0.0348</td><td>0.3112</td><td>0.4916</td><td>0.1521</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Fusion ablation on matched test pairs</h3>
+          <figure class="m3-figure m3-figure-narrow"><img src="assets/a3-m3/web/gate-f1-delta.png" width="1440" height="622" alt="F1 differences per class between learned gate and fixed average" loading="lazy" /><figcaption>Gate minus fixed-average F1 by class. Positive bars favor the learned gate.</figcaption></figure>
+          <p>Learned gating raised Macro-F1 by 0.0027 and lowered Accuracy by 1.35 percentage points compared with fixed averaging. Both models were correct on 266 pairs and wrong on 572. The gate alone was correct on 91 pairs and fixed average alone on 105. The largest F1 gain came from very negative, with only 23 test examples.</p>
+          <h3>Accuracy, latency, and model size</h3>
+          <p>Concat adds about 2.52 ms per batch over image-only for its 0.0503 Macro-F1 gain. Relative to fixed averaging, learned gating adds 131,328 trainable parameters and about 0.35 ms per batch. These comparisons describe one seed and GPU-resident forward time.</p>
+          <details class="m3-detail">
+            <summary>Exploratory validation experiments</summary>
+            <p>These runs use the historical concat validation score as the reference. They evaluated weighting, regularization, and encoder changes on validation.</p>
+            <div class="table-container" role="region" aria-labelledby="m3-exploratory-caption" tabindex="0">
+              <table class="rubric-table m3-table">
+                <caption id="m3-exploratory-caption">Exploratory runs and their validation Macro-F1</caption>
+                <thead><tr><th scope="col">Variant</th><th scope="col">Validation Macro-F1</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Historical unweighted concat</th><td>0.2298</td></tr>
+                  <tr><th scope="row">Inverse square-root class weights</th><td>0.2139</td></tr>
+                  <tr><th scope="row">Smaller embedding and GRU</th><td>0.1931</td></tr>
+                  <tr><th scope="row">Label smoothing 0.1</th><td>0.2121</td></tr>
+                  <tr><th scope="row">Frozen ResNet-50 and DistilBERT</th><td>0.1756</td></tr>
+                  <tr><th scope="row">Dropout 0.5</th><td>0.2118</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Label smoothing reduced mean confidence on validation errors from 82.76% to 64.92%. The ResNet-50 and DistilBERT trial jointly changed both encoders and the text tokenizer. Each option scored below the historical concat reference on Macro-F1.</p>
+          </details>
+          <h3>Comparison with SemEval Memotion</h3>
+          <p>The best official three-class Task A Macro-F1 was 0.3547 on 1,879 test examples. Merging this project&rsquo;s intensity levels yields 0.3579 Macro-F1 and 49.32% Accuracy on the <em>local</em> test split, recovering 139 within-polarity errors. This diagnostic helps explain difficulty from the five-label granularity. The official leaderboard uses a different test split and protocol. <a href="https://aclanthology.org/2020.semeval-1.99/">Original Memotion paper</a></p>
+        </div>
       </section>
 
       <section class="section-block" id="error-analysis" aria-labelledby="error-analysis-title">
@@ -808,7 +1015,22 @@
           <span class="section-icon" aria-hidden="true">&#128269;</span>
           <h2 class="section-title" id="error-analysis-title">Error Analysis</h2>
         </div>
-        <p>The image-only model predicted only positive and neutral. Concatenation predicted all five classes, but it identified only 1 of 22 very-negative and 4 of 71 negative validation memes correctly. We will examine examples where the image and corrected text agree or conflict in M3.</p>
+        <div class="content-card">
+          <h3>Frequent errors and per-class outcomes</h3>
+          <figure class="m3-figure m3-figure-narrow"><img src="assets/a3-m3/web/concat-confusion.png" width="1440" height="1088" alt="Five-class test confusion matrix for concat, showing rare negative classes frequently misclassified" loading="lazy" /><figcaption>Concat confusion matrix on the held-out set. Rows are true labels and cells are counts.</figcaption></figure>
+          <p>Concat correctly classified 3 of 23 very-negative and 2 of 71 negative examples. It assigned positive to 81 of 153 very-positive memes and very positive to 54 of 462 positive memes. Limited negative-class support and subjective intensity boundaries are plausible explanations.</p>
+          <h3>Qualitative review of the 12 held-out examples</h3>
+          <p>Concat recovered 73 examples missed by both unimodal models. It missed 69 examples that both unimodal models got right. These are prediction patterns. We inspected images and captions to identify the support and conflict examples below.</p>
+          <div class="m3-case-grid">
+            <figure><img src="assets/a3-m3/qualitative/correct.png" width="1440" height="532" alt="Three memes whose sentiment was classified correctly by all five models" loading="lazy" /><figcaption><strong>Agreement.</strong> All five models predict positive, neutral, and positive, matching the targets.</figcaption></figure>
+            <figure><img src="assets/a3-m3/qualitative/difficult_correct_support.png" width="1440" height="532" alt="Three difficult cases, including a Google Earth meme, correctly classified by concatenation" loading="lazy" /><figcaption><strong>Support.</strong> Concat is correct on all three; both unimodal baselines miss each target. The posed figures help set up the Google Earth punchline.</figcaption></figure>
+            <figure><img src="assets/a3-m3/qualitative/failure_conflict.png" width="1440" height="532" alt="Three memes with contrasting image and text cues, including a grandfather standing in a doorway" loading="lazy" /><figcaption><strong>Conflict.</strong> A caption about energetic dancing accompanies a stationary figure. Concat predicts positive for this neutral example.</figcaption></figure>
+            <figure><img src="assets/a3-m3/qualitative/failure_intensity.png" width="1440" height="532" alt="Three test memes for which concatenation confuses positive with very positive" loading="lazy" /><figcaption><strong>Intensity.</strong> Concat preserves polarity in these examples but confuses positive with very positive in both directions.</figcaption></figure>
+          </div>
+          <h3>Prediction confidence and shared errors</h3>
+          <figure class="m3-figure m3-figure-narrow"><img src="assets/a3-m3/web/concat-confidence.png" width="1440" height="712" alt="Observed correctness versus mean top-class confidence for five confidence bins" loading="lazy" /><figcaption>The dashed line is equality between confidence and accuracy. Larger markers indicate more test examples.</figcaption></figure>
+          <p>For the 692 concat predictions with top-class confidence at least 0.90, mean confidence is 98.3% and observed Accuracy is 39.0%. All five models miss 339 test examples, and they agree on the wrong label in 114 of those cases. The examples shown illustrate possible causes. The aggregate counts describe model behavior across the test set.</p>
+        </div>
       </section>
 
       <section class="section-block" id="limitations-conclusion" aria-labelledby="limitations-conclusion-title">
@@ -816,49 +1038,72 @@
           <span class="section-icon" aria-hidden="true">&#128161;</span>
           <h2 class="section-title" id="limitations-conclusion-title">Limitations &amp; Conclusion</h2>
         </div>
+        <div class="content-card">
+          <h3>Limitations</h3>
+          <p>The benchmark supplies corrected text, uses one seed and a custom split, and contains relatively few negative examples. Some meme templates may occur across splits despite exact-duplicate checks. The encoders represent a whole image and caption as vectors, which limits the interaction of individual words and image regions. More seeds and tests with raw OCR and unseen templates would clarify generalization.</p>
+          <h3>Conclusion</h3>
+          <p>Concat gives the best class-balanced score on this five-class benchmark. Learned gating improves on fixed averaging by 0.0027 Macro-F1, but trails concat by 0.0223. On the measured setup, the simple fusion baseline offers the strongest Macro-F1 among the trained models.</p>
+          <h3>Future work</h3>
+          <ul>
+            <li>Evaluate raw OCR separately to measure sensitivity to transcription errors.</li>
+            <li>Hold out visually or semantically related templates and repeat training with independent seeds.</li>
+            <li>Review high-confidence shared errors and collect independent annotation judgments for rare and adjacent sentiment labels.</li>
+          </ul>
+        </div>
       </section>
 
-      <!-- Links & Deliverables -->
-      <section class="section-block">
+      <section class="section-block" id="deliverables" aria-labelledby="deliverables-title">
         <div class="section-header">
-          <span class="section-icon">🔗</span>
-          <h2 class="section-title">Deliverables &amp; Links</h2>
+          <span class="section-icon" aria-hidden="true">&#128279;</span>
+          <h2 class="section-title" id="deliverables-title">Deliverables &amp; Links</h2>
         </div>
         <div class="links-grid">
-          <a href="#dataset-proposal" class="link-btn-card"><span class="link-label">Read the M1 Dataset Proposal</span></a>
-          <a href="#eda" class="link-btn-card"><span class="link-label">Dataset Description &amp; EDA</span></a>
-          <a href="#results" class="link-btn-card"><span class="link-label">M2 Draft Results</span></a>
-          <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/tree/main/assignment3" class="link-btn-card" target="_blank" rel="noopener"><span class="link-label">Source Repository</span></a>
-          <a href="assignment3/AI_USAGE.md" class="link-btn-card"><span class="link-label">Assignment 3 AI Usage Log</span></a>
+          <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/tree/a3-m3-final-submission-2026-11-28/assignment3" class="link-btn-card" target="_blank" rel="noopener"><span class="link-label">Source code on GitHub</span></a>
+          <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/a3-m3-final-submission-2026-11-28/assignment3/README.md#training-and-evaluation-workflow" class="link-btn-card" target="_blank" rel="noopener"><span class="link-label">Reproduce checkpoints</span></a>
+          <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/a3-m3-final-submission-2026-11-28/assignment3/report/Ryzen9_A3_Report.pdf" class="link-btn-card" target="_blank" rel="noopener"><span class="link-label">M3 final report (PDF)</span></a>
+          <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/a3-m3-final-submission-2026-11-28/assignment3/report/m3_slide.pdf" class="link-btn-card" target="_blank" rel="noopener"><span class="link-label">M3 presentation slides (PDF)</span></a>
+          <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/a3-m3-final-submission-2026-11-28/assignment3/AI_USAGE.md" class="link-btn-card" target="_blank" rel="noopener"><span class="link-label">Assignment 3 AI usage log</span></a>
         </div>
-        <p>Checkpoints, final report, slides, and presentation video are planned for later milestones; links will be added when available.</p>
+        <div class="content-card">
+          <h3>Checkpoint reproduction</h3>
+          <p>Follow the README to prepare the data under <code>assignment3/</code> and retain the shipped manifests. Run <code>python -m src.data.tokenizer</code> to build the training vocabulary. Train with <code>python -m experiments.train --config config/concat.yaml --device cuda --seed 42</code>, substituting <code>image_only</code>, <code>text_only</code>, <code>gated</code>, or <code>fixed_average</code> for the other configurations. Each run records the path of its selected checkpoint. Evaluate the locked run directory with <code>python -m experiments.evaluate --run RUN_DIRECTORY --split test --device cuda</code>.</p>
+          <p>The report identifies the five recorded run IDs. The original runs record base commit <code>f7130ed</code> with local changes, so exact reruns depend on the matching source snapshot and environment.</p>
+          <details class="m3-detail">
+            <summary>Recorded M3 runs and checkpoint checks</summary>
+            <div class="table-container" role="region" aria-labelledby="m3-run-caption" tabindex="0">
+              <table class="rubric-table m3-table">
+                <caption id="m3-run-caption">Saved runs cited by the report</caption>
+                <thead><tr><th scope="col">Model</th><th scope="col">Run ID</th><th scope="col">Selected epoch</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Image-only</th><td><code>20261128-134442-171613-seed42-m3-rerun-seed42</code></td><td>2</td></tr>
+                  <tr><th scope="row">Text-only</th><td><code>20261128-135035-970092-seed42-m3-rerun-seed42</code></td><td>6</td></tr>
+                  <tr><th scope="row">Concatenation</th><td><code>20261128-135944-866053-seed42-m3-rerun-seed42</code></td><td>11</td></tr>
+                  <tr><th scope="row">Learned gate</th><td><code>20261128-141256-822819-seed42-m3-rerun-seed42</code></td><td>6</td></tr>
+                  <tr><th scope="row">Fixed average</th><td><code>20261128-142209-090740-seed42-m3-rerun-seed42</code></td><td>7</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Each saved run contains a resolved configuration, data fingerprints, train history, checkpoint reference, evaluation JSON and per-example predictions. Local verification matched the three manifest hashes and vocabulary hash and loaded all five saved state dictionaries strictly on CPU.</p>
+          </details>
+          <p><strong>GitHub tag:</strong> The five GitHub links target <code>a3-m3-final-submission-2026-11-28</code> and will open once the tag is pushed with the linked files.</p>
+          <p id="presentation-video"><strong>YouTube presentation:</strong> Pending publication.</p>
+        </div>
       </section>
 
-      <!-- AI Usage Disclosure -->
-      <section class="section-block">
+      <section class="section-block" id="ai-disclosure" aria-labelledby="ai-disclosure-title">
         <div class="section-header">
-          <span class="section-icon">🛡️</span>
-          <h2 class="section-title">AI Usage Disclosure</h2>
+          <span class="section-icon" aria-hidden="true">&#128737;</span>
+          <h2 class="section-title" id="ai-disclosure-title">AI Usage Disclosure</h2>
         </div>
         <div class="disclosure-card">
-          <h3>Assignment 3 AI Usage Disclosure</h3>
-          <p>
-            Codex (OpenAI, GPT-6) assisted with task explanation, proposal drafting, audit-script guidance,
-            and this proposal page in November 2026. The group ran the preliminary audit scripts;
-            the saved audit confirms the counts reported above. Codex also helped draft and check the M2 results section against the group&rsquo;s saved validation runs.
-          </p>
-          <p>
-            One disclosure already applies: the skeleton of this page — its HTML structure, section layout, and the
-            shared stylesheet — was drafted with <strong>Codex (OpenAI, model GPT-5.6)</strong> by Tran Manh Thang (2353124) in
-            September 2026, then reviewed and edited by the group against handbook §2.2. No text on this page states
-            a result.
-          </p>
-          <p>
-            The <a href="assignment3/AI_USAGE.md">Assignment 3 log</a> records the current assistance;
-            the requesting student, final verification owner, and student edits still need confirmation.
-            The shared course log is kept in
-            <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/main/AI_USAGE.md" target="_blank" rel="noopener"><strong>AI_USAGE.md</strong></a>.
-          </p>
+          <ul>
+            <li><strong>Hoang Kim Cuong (2352145)</strong> reported using Anthropic Claude Opus 5.5 within his data preparation, paired loading, and EDA workstream.</li>
+            <li><strong>Phan Tan Loc (2352712)</strong> reported using Anthropic Claude Opus 5.5 within his environment setup, fusion, metrics, and experiment integration workstream.</li>
+            <li><strong>Tran Manh Thang (2353124)</strong> used OpenAI Codex for proposal and setup assistance, model implementation and diagnostics, results analysis, and report, slide and webpage preparation. The shared site skeleton also has a separate Codex entry in the repository-wide log.</li>
+          </ul>
+          <h3>Verification and prompt records</h3>
+          <p>A representative Codex request asked why validation loss could rise while Macro-F1 improved. The team-facing evidence includes run histories, manifest hashes, checkpoint reloads, and saved predictions. The webpage tables and plots were checked against those records and the report.</p>
+          <p>The two Claude users&rsquo; representative prompts, edits, verification sources, and final verification owners are pending confirmation. The <a href="https://github.com/Winuim12/CO3133-261-Group9-Ryzen9/blob/a3-m3-final-submission-2026-11-28/assignment3/AI_USAGE.md">Assignment 3 AI usage log</a> records the reported scopes and outstanding details.</p>
         </div>
       </section>
 

@@ -5,14 +5,14 @@ from pathlib import Path
 from PIL import Image
 from torch.utils.data import Dataset
 
-from .tokenizer import Vocabulary
+from .tokenizer import DistilBertVocabulary, Vocabulary
 from .transforms import ImageTransform
 
 ROOT = Path(__file__).resolve().parents[2]
 
 
 class MemeDataset(Dataset):
-    def __init__(self, manifest, vocab: Vocabulary, train=False, image_size=224,
+    def __init__(self, manifest, vocab: Vocabulary | DistilBertVocabulary, train=False, image_size=224,
                  max_text_length=64, root=ROOT):
         self.root, self.vocab, self.max_len = Path(root), vocab, max_text_length
         self.transform = ImageTransform(image_size, train=train)

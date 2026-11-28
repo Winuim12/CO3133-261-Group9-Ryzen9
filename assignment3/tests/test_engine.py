@@ -27,6 +27,31 @@ def test_train_one_epoch_updates_classifier():
     assert loss > 0
     assert not torch.equal(model.head[-1].bias, before)
 
+
+def test_label_smoothing_penalizes_overconfident_training_predictions():
+    model = TextOnlyClassifier(
+        TextEncoder(vocab_size=16, embedding_dim=8, feature_dim=12),
+        dropout=0.0,
+    )
+    with torch.no_grad():
+        model.head[-1].weight.zero_()
+        model.head[-1].bias.copy_(torch.tensor([8.0, 0.0, 0.0, 0.0, 0.0]))
+    optimizer = torch.optim.SGD(model.parameters(), lr=0.0)
+    batch = {
+        "text_ids": torch.tensor([[2, 3]]),
+        "text_lengths": torch.tensor([2]),
+        "label": torch.tensor([0]),
+    }
+
+    hard_loss = train_one_epoch(model, [batch], optimizer, device="cpu")
+    smooth_loss = train_one_epoch(
+        model, [batch], optimizer, device="cpu", label_smoothing=0.1
+    )
+    validation = validate_one_epoch(model, [batch], device="cpu")
+
+    assert math.isclose(smooth_loss - hard_loss, 0.64, abs_tol=1e-6)
+    assert math.isclose(validation["loss"], hard_loss, abs_tol=1e-6)
+
 def test_validation_collects_predictions_across_batches():
     model = TextOnlyClassifier(
         TextEncoder(vocab_size=16, embedding_dim=8, feature_dim=12),

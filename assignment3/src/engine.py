@@ -15,30 +15,38 @@ def _move_batch(batch, device):
         for name, value in batch.items()
     }
 
-def train_one_epoch(model, loader, optimizer, device) -> float:
+def train_one_epoch(
+    model, loader, optimizer, device, *, class_weights=None, label_smoothing=0.0,
+) -> float:
     model.train()
     loss_sum = torch.zeros((), device=device)
+    weight_sum = torch.zeros((), device=device)
     sample_count = 0
 
     for batch in loader:
-        #Packed GRU sequences use CPU lengths. Image names stay as metadata
         batch = _move_batch(batch, device)
         labels = batch["label"]
 
         optimizer.zero_grad(set_to_none=True)
         logits = model(batch)
-        loss = F.cross_entropy(logits, labels)
+        loss = F.cross_entropy(
+            logits, labels, weight=class_weights, label_smoothing=label_smoothing,
+        )
         loss.backward()
         optimizer.step()
 
         batch_size = labels.size(0)
-        loss_sum += loss.detach() * batch_size
+        batch_weight = (
+            batch_size if class_weights is None else class_weights[labels].sum()
+        )
+        loss_sum += loss.detach() * batch_weight
+        weight_sum += batch_weight
         sample_count += batch_size
 
     if sample_count == 0:
-        raise ValueError("Training loader produced no samples")
+        raise ValueError("Training loader produced no samples.")
 
-    return loss_sum.item() / sample_count
+    return (loss_sum / weight_sum).item()
 
 @torch.no_grad()
 def validate_one_epoch(model, loader, device):
@@ -69,8 +77,10 @@ def validate_one_epoch(model, loader, device):
 
 def fit(
     model, train_loader, val_loader, optimizer, device, *,
-    epochs, patience, score_fn, checkpoint_path, label_mapping,
+    epochs, patience, score_fn, checkpoint_path, label_mapping, class_weights=None,
+    label_smoothing=0.0,
 ):
+
     if epochs < 1 or patience < 1:
         raise ValueError("epochs and patience must both be positive.")
 
@@ -83,9 +93,16 @@ def fit(
     history = []
 
     for epoch in range(1, epochs + 1):
-        train_loss = train_one_epoch(model, train_loader, optimizer, device)
+        train_loss = train_one_epoch(
+            model, train_loader, optimizer, device,
+            class_weights=class_weights, label_smoothing=label_smoothing,
+        )
         val = validate_one_epoch(model, val_loader, device)
         score = float(score_fn(val["targets"], val["predictions"]))
+        val_accuracy = (
+            (val["predictions"] == val["targets"]).sum().item()
+            / val["targets"].numel()
+        )
 
         if not math.isfinite(score):
             raise ValueError(f"Validation Macro-F1 is not finite at epoch {epoch}.")
@@ -95,7 +112,16 @@ def fit(
             "train_loss": train_loss,
             "val_loss": val["loss"],
             "val_macro_f1": score,
+            "val_accuracy": val_accuracy,
         })
+
+        status = " | new best" if score > best_score else ""
+        print(
+            f"Epoch {epoch:02d}/{epochs:02d} | "
+            f"train loss {train_loss:.4f} | val loss {val['loss']:.4f} | "
+            f"val accuracy {val_accuracy:.2%} | val Macro-F1 {score:.4f}{status}",
+            flush=True,
+        )
 
         if score > best_score:
             torch.save({

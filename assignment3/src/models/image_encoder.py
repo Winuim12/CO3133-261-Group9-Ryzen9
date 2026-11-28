@@ -1,20 +1,25 @@
 #image_encoder.py
-"""ResNet-18 image features with optional encoder freezing."""
+"""ResNet image features with optional encoder freezing."""
 
 import torch
 from torch import nn
-from torchvision.models import resnet18
+from torchvision.models import resnet18, resnet50
 
 class ImageEncoder(nn.Module):
     def __init__(
         self,
         weights: str | None = "IMAGENET1K_V1",
         freeze: bool = True,
+        *,
+        architecture: str = "resnet18",
     ):
         super().__init__()
 
         self.freeze = freeze
-        self.backbone = resnet18(weights=weights)
+        builders = {"resnet18": resnet18, "resnet50": resnet50}
+        if architecture not in builders:
+            raise ValueError(f"Unknown image encoder {architecture!r}.")
+        self.backbone = builders[architecture](weights=weights)
 
         #replace ImageNet's classifier with and identity operation
         self.output_dim = self.backbone.fc.in_features

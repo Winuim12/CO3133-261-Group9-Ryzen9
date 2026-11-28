@@ -16,11 +16,12 @@ import sys
 from pathlib import Path
 from time import perf_counter
 
+import csv
 import torch
 
 from experiments.context import apply_overrides, build_data
 from experiments.evaluate import evaluate_model, load_checkpoint_into
-from src.config import load_config
+from src.config import PROJECT_ROOT, load_config
 from src.engine import fit
 from src.metrics import macro_f1
 from src.models.factory import build_model
@@ -85,7 +86,7 @@ def parse_args(argv=None):
     parser.add_argument("--limit-train", type=int, help="DEBUG ONLY: random training subset size.")
     parser.add_argument("--limit-val", type=int, help="DEBUG ONLY: random validation subset size.")
     parser.add_argument("--no-pretrained", action="store_true",
-                        help="DEBUG ONLY: random ResNet weights (offline smoke runs).")
+                        help="DEBUG ONLY: initialize encoder weights randomly.")
     return parser.parse_args(argv)
 
 
@@ -100,12 +101,29 @@ def main(argv=None):
 
     set_seed(seed, deterministic=args.deterministic)
     device = resolve_device(training["device"])
+
+    class_weights = None
+    if training.get("class_weighted", False):
+        counts = torch.zeros(len(config["labels"]), dtype=torch.float32)
+        manifest = PROJECT_ROOT / config["data"]["train_manifest"]
+
+        with manifest.open(encoding="utf-8", newline="") as stream:
+            for row in csv.DictReader(stream):
+                counts[int(row["label_id"])] += 1
+
+        if (counts == 0).any():
+            raise ValueError("Every sentiment class needs training examples.")
+
+        weights = (counts.max() / counts).sqrt()
+        training["resolved_class_weights"] = weights.tolist()
+        class_weights = weights.to(device)
     if device.type == "cuda":
         torch.backends.cudnn.benchmark = not args.deterministic
 
     data = build_data(config, splits=("train", "val"),
                       limits={"train": args.limit_train, "val": args.limit_val})
-    model = build_model(config, vocab_size=len(data.vocab)).to(device)
+    model = build_model(config, vocab_size=len(data.vocab),
+                        load_pretrained=not args.no_pretrained).to(device)
     optimizer = create_optimizer(model, training)
 
     run_name = "-".join(part for part in ("debug" if debug else None, args.run_name) if part) or None
@@ -137,6 +155,8 @@ def main(argv=None):
         score_fn=macro_f1,
         checkpoint_path=paths["checkpoint_path"],
         label_mapping=config["labels"],
+        class_weights=class_weights,
+        label_smoothing=float(training.get("label_smoothing", 0.0)),
     )
     if device.type == "cuda":
         torch.cuda.synchronize(device)

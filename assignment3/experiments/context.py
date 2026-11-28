@@ -9,7 +9,7 @@ from torch.utils.data import DataLoader, Subset
 from src.config import PROJECT_ROOT
 from src.data.collate import make_collate
 from src.data.dataset import MemeDataset
-from src.data.tokenizer import Vocabulary
+from src.data.tokenizer import DistilBertVocabulary, Vocabulary
 from src.reproducibility import make_generator, seed_worker
 
 SPLITS = ("train", "val", "test")
@@ -17,7 +17,7 @@ SPLITS = ("train", "val", "test")
 
 @dataclass
 class DataContext:
-    vocab: Vocabulary
+    vocab: Vocabulary | DistilBertVocabulary
     datasets: dict
     loaders: dict
 
@@ -69,7 +69,10 @@ def build_data(config: dict, splits=SPLITS, limits: dict | None = None,
                root: Path = PROJECT_ROOT) -> DataContext:
     check_raw_images(config, root)
     data_cfg, train_cfg = config["data"], config["training"]
-    vocab = load_vocabulary(config, root)
+    if config["model"].get("text_encoder") == "distilbert":
+        vocab = DistilBertVocabulary()
+    else:
+        vocab = load_vocabulary(config, root)
     seed = int(train_cfg["seed"])
     num_workers = int(train_cfg["num_workers"])
     limits = limits or {}
@@ -88,7 +91,7 @@ def build_data(config: dict, splits=SPLITS, limits: dict | None = None,
             batch_size=int(train_cfg["batch_size"]),
             shuffle=split == "train",
             num_workers=num_workers,
-            collate_fn=make_collate(int(data_cfg["pad_id"])),
+            collate_fn=make_collate(vocab.pad_id),
             pin_memory=torch.cuda.is_available(),
             worker_init_fn=seed_worker,
             generator=make_generator(seed),
