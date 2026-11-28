@@ -82,6 +82,21 @@ history, runtime and peak VRAM, validation metrics, predictions, figures) and
 refuses to run if manifests or vocabulary changed since training.
 Comparison tables and figures go to `results/comparison/`.
 
+For the optional M3 encoder comparison, install `requirements-transformer.txt`
+in the same environment as the existing PyTorch dependencies, then run:
+
+```powershell
+python -m pip install -r requirements-transformer.txt
+python -m experiments.train --config config/concat_resnet50_distilbert.yaml --device cuda
+python -m experiments.compare --split val --runs-dir results/runs/resnet50_distilbert --output-dir results/comparison/resnet50_distilbert
+```
+
+This configuration freezes ResNet-50 and DistilBERT and trains the
+concatenation head on the original manifests. The first run downloads the
+pretrained encoders and the pinned DistilBERT tokenizer. Its runs and checkpoints
+use their own output directories. For evaluation, pass the full run directory
+to `experiments.evaluate --run`.
+
 `--limit-train`, `--limit-val`, and `--no-pretrained` exist for quick smoke
 runs only; such runs are labelled `debug` and excluded from comparisons.
 

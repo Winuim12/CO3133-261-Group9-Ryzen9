@@ -13,7 +13,7 @@ from pathlib import Path
 import numpy as np
 import torch
 
-from .config import PROJECT_ROOT
+from .config import DISTILBERT_ID, DISTILBERT_REVISION, PROJECT_ROOT
 
 
 # --------------------------------------------------------------------- seeds
@@ -71,10 +71,15 @@ def file_sha256(path: str | Path, normalise_line_endings: bool = False) -> str:
 
 
 def data_fingerprint(config: dict, root: Path = PROJECT_ROOT) -> dict:
-    """Hashes of the manifests and vocabulary that define a run's data."""
+    """Record the manifests and vocabulary or tokenizer that define a run."""
     data = config["data"]
     fingerprint = {}
-    for key in ("train_manifest", "val_manifest", "test_manifest", "vocabulary"):
+    keys = ("train_manifest", "val_manifest", "test_manifest")
+    if config.get("model", {}).get("text_encoder") == "distilbert":
+        fingerprint["text_tokenizer"] = {"id": DISTILBERT_ID, "revision": DISTILBERT_REVISION}
+    else:
+        keys += ("vocabulary",)
+    for key in keys:
         path = root / data[key]
         fingerprint[key] = {
             "path": data[key],

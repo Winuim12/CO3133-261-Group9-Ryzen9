@@ -143,7 +143,9 @@ def main(argv=None):
     current = data_fingerprint(config)
     recorded = metadata["data"]
     changed = [key for key in ("train_manifest", "val_manifest", "test_manifest", "vocabulary")
-               if current[key]["sha256"] != recorded[key]["sha256"]]
+               if current.get(key, {}).get("sha256") != recorded.get(key, {}).get("sha256")]
+    if current.get("text_tokenizer") != recorded.get("text_tokenizer"):
+        changed.append("text_tokenizer")
     if changed and not args.allow_data_mismatch:
         parser.exit(1, f"Data changed since training ({', '.join(changed)}). "
                        "Use the original data or pass --allow-data-mismatch.\n")

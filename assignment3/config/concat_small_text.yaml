@@ -1,0 +1,8 @@
+model:
+  name: concat
+  embedding_dim: 64
+  text_feature_dim: 128
+
+outputs:
+  runs_dir: results/runs/small_text
+  checkpoints_dir: checkpoints/small_text

@@ -1,0 +1,14 @@
+model:
+  name: concat
+  image_encoder: resnet50
+  image_weights: IMAGENET1K_V2
+  freeze_image_encoder: true
+  text_encoder: distilbert
+
+training:
+  class_weighted: false
+  label_smoothing: 0.0
+
+outputs:
+  runs_dir: results/runs/resnet50_distilbert
+  checkpoints_dir: checkpoints/resnet50_distilbert

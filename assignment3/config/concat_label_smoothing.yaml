@@ -1,0 +1,10 @@
+model:
+  name: concat
+
+training:
+  class_weighted: false
+  label_smoothing: 0.1
+
+outputs:
+  runs_dir: results/runs/label_smoothing
+  checkpoints_dir: checkpoints/label_smoothing

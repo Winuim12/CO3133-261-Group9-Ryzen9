@@ -1,0 +1,10 @@
+model:
+  name: concat
+
+training:
+  class_weighted: true
+  weight_decay: 0.001
+
+outputs:
+  runs_dir: results/runs/weighted
+  checkpoints_dir: checkpoints/weighted

@@ -1,0 +1,2 @@
+# Optional dependency for the ResNet-50 / DistilBERT experiment.
+transformers==4.57.6

@@ -15,6 +15,26 @@ PAD, UNK = "<pad>", "<unk>"
 _TOKEN = re.compile(r"[a-z0-9]+(?:'[a-z]+)?")
 
 
+class DistilBertVocabulary:
+    """Expose the pretrained tokenizer through the dataset's encode interface."""
+
+    def __init__(self):
+        from transformers import AutoTokenizer
+
+        from src.config import DISTILBERT_CACHE, DISTILBERT_ID, DISTILBERT_REVISION
+
+        self.tokenizer = AutoTokenizer.from_pretrained(
+            DISTILBERT_ID, revision=DISTILBERT_REVISION, cache_dir=DISTILBERT_CACHE,
+        )
+        self.pad_id = self.tokenizer.pad_token_id
+
+    def __len__(self) -> int:
+        return len(self.tokenizer)
+
+    def encode(self, text: str, max_len: int) -> list[int]:
+        return self.tokenizer.encode(text, truncation=True, max_length=max_len)
+
+
 def tokenize(text: str):
     return _TOKEN.findall(str(text).lower())
 

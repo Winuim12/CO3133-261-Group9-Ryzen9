@@ -1,0 +1,7 @@
+model:
+  name: concat
+  dropout: 0.5
+
+outputs:
+  runs_dir: results/runs/dropout_05
+  checkpoints_dir: checkpoints/dropout_05
